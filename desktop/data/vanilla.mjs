@@ -476,7 +476,7 @@ if(kind === "container") {
             newLoot(1,Item.L_ITEM,"gem" + Math.floor(Math.random() * 3 + 1));
          }
          return is_loot > 0;
-      
+
 } else {
 
          if(param1 == null)
@@ -763,6 +763,6 @@ if(kind === "container") {
             newLoot(0.2,Item.L_ITEM,"scrap");
          }
          return is_loot > 0;
-      
+
 }
 }
