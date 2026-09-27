@@ -1,0 +1,28 @@
+
+> remains-loot-workshop@0.1.0 test
+> node --test tests/*.test.mjs
+
+✔ catalogue has all 29 container and 47 enemy keys; unique item identities (1.0378ms)
+✔ default original is inert; unknown schema and malformed inputs are rejected (2.8968ms)
+✔ zero chance emits nothing and consumes no random number; 100% always emits (0.364ms)
+✔ independent rewards do not have to add to 100 percent (0.4848ms)
+✔ weighted choice, stage and elite restrictions (6.7411ms)
+✔ equipment count means separate weapons; durability is explicit (0.6728ms)
+✔ actual ammo, base conversion, special explosive gate, enemy filtering (0.4738ms)
+✔ melee, throws, recharge, not, and unknown robot ammo never create fictional ammo (0.2706ms)
+✔ 40mm variants and wildfire nukes use the rare-ammo control; magic charge is never collectible (0.3042ms)
+✔ model overrides take precedence over shared tables (0.413ms)
+✔ all vanilla tables simulate across stages, elite, broken, perks and limits (23.7466ms)
+✔ replacing an ammo table emits only requested items; extra weapon ammo is additive (1.442ms)
+✔ storage atomically writes and keeps previous versions; traversal rejected (69.0232ms)
+✔ installation uses real ModLoader scanner, backs up exact game, is idempotent, and restores without deleting profiles (399.8211ms)
+✔ unknown game/payload fingerprints are refused before mutation; later game patches prevent automatic rollback (236.0643ms)
+✔ scanner failure rolls registry/runtime back and retains the original game (36.2657ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 841.786

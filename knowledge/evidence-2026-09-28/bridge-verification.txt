@@ -1,0 +1,7 @@
+Patched body fe.unit.Unit.die
+Patched body fe.serv.Interact.loot
+Patched body fe.serv.LootGen.init
+Patched body fe.serv.LootGen.getRandom
+Patched body fe.serv.LootGen.lootId
+Patched body fe.serv.LootGen.replic
+PRESERVED 4602 unrelated method bodies byte-for-byte; output build/out/pfe-loot-safe.swf

@@ -1,0 +1,10 @@
+node_modules/
+desktop/ui/app.js
+build/out/
+build/cache/
+build/tool-home/
+dist/
+profiles/
+config/
+backups/
+*.log

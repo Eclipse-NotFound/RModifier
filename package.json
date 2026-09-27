@@ -1,0 +1,19 @@
+{
+  "name": "remains-loot-workshop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Remains 中文可视化掉落编辑器",
+  "main": "desktop/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test tests/*.test.mjs",
+    "check": "tsc --noEmit",
+    "build:ui": "esbuild desktop/ui/app.ts --bundle --format=esm --outfile=desktop/ui/app.js",
+    "package": "node tools/package.mjs"
+  },
+  "devDependencies": {
+    "electron": "44.4.5",
+    "esbuild": "0.28.2",
+    "typescript": "7.0.2"
+  }
+}

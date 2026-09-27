@@ -1,0 +1,57 @@
+const fs=require('node:fs');const path=require('node:path');const assert=require('node:assert/strict');
+const {_electron:electron}=require('C:/Users/hello/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const root=path.resolve('build/out/ui-'+Date.now());fs.mkdirSync(root,{recursive:true});
+(async()=>{
+const packaged=process.env.LOOT_EDITOR_EXE;
+const application=await electron.launch({executablePath:path.resolve(packaged||'node_modules/electron/dist/electron.exe'),args:packaged?[]:[path.resolve('.')],env:{...process.env,LOOT_EDITOR_TEST_ROOT:root},timeout:30000});
+const errors=[];const checks=[];const page=await application.firstWindow();page.on('pageerror',e=>errors.push(String(e)));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
+const capture=async filename=>{const png=await application.evaluate(async({BrowserWindow})=>{const win=BrowserWindow.getAllWindows()[0];const picture=await win.webContents.capturePage();return picture.toPNG().toString('base64');});fs.writeFileSync(path.join(root,filename),Buffer.from(png,'base64'));};
+try{
+ await page.getByRole('heading',{name:'弹药盒',exact:true}).waitFor();checks.push('boot Chinese catalogue');
+ await page.screenshot({path:path.join(root,'01-original.png'),fullPage:false});
+ await page.getByRole('button',{name:'复制原版，开始编辑'}).click();
+ await page.getByRole('button',{name:'原版之外再增加',exact:true}).click();
+ await page.getByRole('button',{name:'＋ 添加一条奖励',exact:true}).click();
+ await page.getByRole('button',{name:'更换物品',exact:true}).click();
+ await page.getByRole('searchbox',{name:'搜索物品'}).fill('10mm');
+ await page.locator('[data-item="item:p10"]').click();
+ await page.locator('[data-field="chance"]').fill('75');await page.locator('[data-field="chance"]').press('Tab');
+ await page.locator('[data-field="min"]').fill('6');await page.locator('[data-field="min"]').press('Tab');
+ await page.locator('[data-field="max"]').fill('10');await page.locator('[data-field="max"]').press('Tab');
+ await page.getByRole('button',{name:'试 1000 次',exact:true}).click();
+ assert.match(await page.locator('#results').innerText(),/1000/);checks.push('edit/search/preview');
+ await page.locator('#undo').click();assert.equal(await page.locator('[data-field="max"]').inputValue(),'12');
+ await page.locator('#redo').click();assert.equal(await page.locator('[data-field="max"]').inputValue(),'10');checks.push('undo and redo');
+ await page.locator('[data-field="min"]').fill('0');await page.locator('[data-field="min"]').press('Tab');await page.locator('#apply').click();assert.match(await page.locator('#notice').innerText(),/1|数量/);assert.equal(fs.existsSync(path.join(root,'config/active.json')),false);await page.locator('#undo').click();checks.push('invalid quantity cannot be applied and remains undoable');
+ await page.locator('#save').click();await page.getByText('方案已保存。点击“应用方案”后，游戏下次启动读取。',{exact:true}).waitFor();
+ await page.locator('#apply').click();await page.getByText(/方案已应用。还需安装/).waitFor();checks.push('save/apply reflects missing runtime instead of false ready');
+ const active=JSON.parse(fs.readFileSync(path.join(root,'config/active.json'),'utf8'));assert.equal(active.rules[0].rewards[0].chance,75);assert.equal(active.rules[0].rewards[0].min,6);assert.equal(active.rules[0].rewards[0].max,10);
+ await page.screenshot({path:path.join(root,'02-edited.png'),fullPage:false});
+ await page.locator('[data-tab="enemy"]').click();assert.equal(await page.locator('.source-row').count(),47);checks.push('47 enemy tables');
+ await page.locator('[data-tab="ammo"]').click();await page.locator('[data-ammo="enabled"]').check();
+ await page.locator('[data-ammo="packPercent"]').fill('50');await page.locator('[data-ammo="packPercent"]').press('Tab');
+ await page.locator('#previewWeapon').selectOption('p10mm');assert.match(await page.locator('#results').innerText(),/6.00/);checks.push('ammo preview half-pack');
+ await page.screenshot({path:path.join(root,'03-ammo.png'),fullPage:false});
+ await page.locator('#apply').click();await page.getByText(/方案已应用。还需安装/).waitFor();
+ await page.locator('[data-ammo="min"]').count();
+ await page.locator('[data-tab="profiles"]').click();await page.locator('#profileName').fill('中文方案 · 测试');await page.locator('#profileName').press('Tab');
+ await page.locator('#save').click();checks.push('rename and save profile');
+ const exportFile=path.join(root,'exported-profile.json');
+ await application.evaluate(({dialog},file)=>{dialog.showSaveDialog=async()=>({canceled:false,filePath:file});},exportFile);
+ await page.getByRole('button',{name:'导出当前方案',exact:true}).click();await page.getByText('方案已导出。',{exact:true}).waitFor();assert.equal(JSON.parse(fs.readFileSync(exportFile)).name,'中文方案 · 测试');
+ await application.evaluate(({dialog},file)=>{dialog.showOpenDialog=async()=>({canceled:false,filePaths:[file]});},exportFile);
+ await page.getByRole('button',{name:'导入方案',exact:true}).click();await page.getByText('方案已导入。应用后下次启动游戏生效。',{exact:true}).waitFor();checks.push('export/import through real storage with automated file chooser');
+ const importedId=await page.locator('#profileSelect').inputValue();await page.getByRole('button',{name:'打开上次应用方案',exact:true}).click();await page.getByText('已打开上次应用的方案副本。检查后点击“应用方案”才会替换当前配置。',{exact:true}).waitFor();assert.match(await page.locator('#profileSelect option:checked').innerText(),/^上次应用/);assert.equal(JSON.parse(fs.readFileSync(path.join(root,'config/active.json'))).ammo.enabled,true);await page.locator('#profileSelect').selectOption(importedId);checks.push('previous applied profile opens for review without overwriting current configuration');
+ await page.locator('[data-tab="container"]').click();await page.locator('#scopeFilter').selectOption('table');await page.locator('[data-source="container:table:ammo"]').click();
+ for(const [width,height,zoom] of [[1440,950,1.25],[1440,950,1.5],[1440,1100,2],[900,800,1]]){
+   await application.evaluate(({BrowserWindow},{width,height,zoom})=>{const w=BrowserWindow.getAllWindows()[0];w.setSize(width,height);w.webContents.setZoomFactor(zoom);},{width,height,zoom});
+   await page.waitForTimeout(200);const metrics=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,width:document.documentElement.clientWidth}));
+   assert.ok(metrics.scroll<=metrics.width+2,JSON.stringify({width,zoom,...metrics}));
+   await capture(`layout-${width}-${zoom}.png`);
+ }checks.push('125/150/200 percent and narrow layout without horizontal overflow');
+ await page.reload();await page.getByRole('heading',{name:'弹药盒',exact:true}).waitFor();assert.equal(await page.locator('#profileSelect option:checked').innerText(),'中文方案 · 测试');assert.equal(await page.locator('[data-field="chance"]').inputValue(),'75');checks.push('restart restores saved profile and editing position');
+ await page.getByRole('button',{name:'更换物品',exact:true}).click();await page.getByRole('searchbox',{name:'搜索物品'}).fill('10mm');await page.locator('[data-item="item:p10"] img').waitFor();assert.ok(await page.locator('[data-item="item:p10"] img').evaluate(img=>img.complete&&img.naturalWidth>0));await capture('04-item-picker.png');await page.keyboard.press('Escape');await page.locator('#itemDialog').waitFor({state:'hidden',timeout:3000});checks.push('native game icons and keyboard escape');
+ assert.deepEqual(errors,[]);checks.push('no renderer errors');
+ fs.writeFileSync(path.join(root,'report.json'),JSON.stringify({passed:true,packaged:!!packaged,checks,errors},null,2));console.log(JSON.stringify({root,packaged:!!packaged,checks,errors},null,2));
+}finally{await application.evaluate(()=>process.exit(0));await application.close().catch(()=>{});}
+})().catch(e=>{console.error(e);process.exitCode=1;});

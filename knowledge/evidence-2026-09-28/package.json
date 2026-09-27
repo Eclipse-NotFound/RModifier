@@ -1,0 +1,13 @@
+{
+  "version": "0.1.0",
+  "destination": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\LootEditor\\dist\\LootWorkshop",
+  "exeHash": "bd14928e0728366fd3f41499cb398ff3f4304dab259a3e605077899a6f8c748e",
+  "payload": {
+    "version": "0.1.0",
+    "gameVersion": "1.02",
+    "sourceHash": "b78244657ed407d03808c90e97325509db35f802122835f58933fff8003305ac",
+    "bridgeHash": "c631cbf3511b6ee303f533d08d51511fe0eb702f43e5db17f5241d8576c64867",
+    "runtimeHash": "f1a0078873c922786909ea22861ed0468274db05f3f28136b5b337c38a7bce49",
+    "builtAt": "2026-09-27T23:34:21.326Z"
+  }
+}

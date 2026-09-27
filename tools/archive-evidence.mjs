@@ -1,0 +1,15 @@
+import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';
+const root=path.resolve(import.meta.dirname,'..');process.chdir(root);
+const output='knowledge/evidence-2026-09-28';fs.mkdirSync(output,{recursive:true});
+const ui=JSON.parse(fs.readFileSync('build/out/ui-packaged-test.log','utf8').replace(/^\uFEFF/,''));
+const run=JSON.parse(fs.readFileSync('build/out/test-process.json','utf8').replace(/^\uFEFF/,''));
+const storage=path.join(process.env.APPDATA,run.appId,'Local Store');
+const copy=(source,name)=>fs.copyFileSync(source,path.join(output,name));
+const gameLog=fs.readFileSync(path.join(storage,'LootProbe.log'),'utf8');
+if(!/COMPLETE assertions=128 failures=0/.test(gameLog)||/FAIL|FATAL|GAME ERROR/.test(gameLog))throw new Error('Game assertions did not complete successfully');
+if(ui.errors.length||!ui.packaged||ui.checks.length!==14)throw new Error('Packaged UI verification incomplete');
+copy(path.join(storage,'LootProbe.log'),'game-assertions.txt');copy(path.join(storage,'LootEditor.log'),'runtime.txt');copy(path.join(storage,'LootEditor.receipt.json'),'receipt.json');
+copy('build/out/node-test.log','node-tests.txt');copy('build/out/method-patch.log','bridge-verification.txt');copy('build/out/package-report.json','package.json');copy(path.join(ui.root,'report.json'),'ui-report.json');
+for(const f of ['02-edited.png','03-ammo.png','04-item-picker.png','layout-1440-1.25.png','layout-1440-1.5.png','layout-1440-2.png','layout-900-1.png'])copy(path.join(ui.root,f),f);
+const hashes={};for(const file of ['../../pfe.swf','build/out/pfe-loot-safe.swf','build/out/LootEditorMod.swf','dist/LootWorkshop/resources/app/desktop/main.cjs','dist/LootWorkshop/resources/app/desktop/install.cjs','dist/LootWorkshop/resources/app/desktop/core.mjs','dist/LootWorkshop/resources/app/desktop/ui/app.js'])hashes[file]=crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+fs.writeFileSync(path.join(output,'summary.json'),JSON.stringify({archivedAt:new Date().toISOString(),appId:run.appId,ui,hashes},null,2));console.log('Archived verified evidence in '+output);
