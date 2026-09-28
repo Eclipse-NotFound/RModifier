@@ -1,0 +1,49 @@
+{
+  "verifiedAt": "2026-09-28T00:17:36.257Z",
+  "installation": {
+    "version": "0.1.0",
+    "installedAt": 1790554385660,
+    "sourceHash": "b78244657ed407d03808c90e97325509db35f802122835f58933fff8003305ac",
+    "installedHash": "c631cbf3511b6ee303f533d08d51511fe0eb702f43e5db17f5241d8576c64867",
+    "runtimeHash": "f1a0078873c922786909ea22861ed0468274db05f3f28136b5b337c38a7bce49",
+    "backup": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\pfe_before_LootEditor_2026-09-28T00-13-05-389Z-2a4d4198.swf",
+    "backupDir": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\LootEditor\\backups\\2026-09-28T00-13-05-389Z-2a4d4198",
+    "previousRuntime": false,
+    "previousRegistry": []
+  },
+  "checks": {
+    "backupMatchesSource": true,
+    "gameMatchesVerifiedCandidate": true,
+    "runtimeMatchesVerifiedCandidate": true,
+    "allPriorRegistrationsPreserved": true,
+    "onlyLootEditorAdded": true
+  },
+  "installerState": {
+    "available": true,
+    "compatible": false,
+    "connected": true,
+    "loader": true,
+    "canRestore": true,
+    "backup": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\pfe_before_LootEditor_2026-09-28T00-13-05-389Z-2a4d4198.swf",
+    "version": "0.1.0"
+  },
+  "manifest": [
+    "ModLoader|ModLoaderMod|1|0|0",
+    "ModSettings|ModSettingsMod|0|0|0",
+    "Sandevistan|SandevistanMod|1|1|1",
+    "Rconnect|RConnectMod|1|1|1",
+    "RealisticVision|RealisticVisionMod|1|0|0",
+    "MoreSkills&Weapons|MoreSkillsWeaponsMod|1|0|0",
+    "TDFC|TDFCMod|1|0|0",
+    "RandomRooms|RandomRoomsMod|1|1|0",
+    "LootEditor|LootEditorMod|1|0|0"
+  ],
+  "activeConfigExists": false,
+  "productionRestart": {
+    "status": "deferred-by-user",
+    "decision": "保留当前游戏，我稍后自行重启",
+    "receiptPresentAtVerification": false
+  },
+  "existingGameProcessesModified": false,
+  "realSavesUsedForTesting": false
+}
