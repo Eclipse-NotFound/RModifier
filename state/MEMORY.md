@@ -37,3 +37,7 @@
 - tests/host-ui.cjs、tests/ui.cjs 可用RMODIFIER_EXE指向win-unpacked；tests/portable.cjs 实际单文件；地图专用tests、台词专用tests。
 - 游戏隔离：tools/run-game-test.ps1 -Fallback -AllMods；只处置自己记录的测试PID。测试需唯一AIR id，正式pfe存储只读。
 - 不安装build/out/pfe-loot.swf供体，只消费固定已验证的pfe-loot-safe.swf；主文件字节码保持证据在旧0.1.0验证报告。
+
+## 8. 交付后的新需求转述（尚未实施）
+台词会话转来用户新需求：“我想在地图编辑器功能中使用原flash版地图编辑器的UI和预渲染。”该会话与地图方正在只读核对原增强版 Editor.swf / EditorTools.swf；主会话已将宿主限制同步给两边。当前0.2.0是网页地图交互加隐藏AIR绘图，没有原Flash窗口嵌入通道。原有同窗口三页要求继续作为约束，独立地图窗口尚未获用户重新选择，不能默认恢复旧规划。
+需要先验证原UI接入与完整地图保存/未保存状态协议，再明确改动分工；后续需涵盖切页、焦点、DPI、输入、关闭与portable资源路径。现有ToolsSnapshot只覆盖当前房间。此次仅只读核对与协调，未修改宿主、地图代码、发行包或运行中的游戏。当前交付提交56eee49仍是可用基线。
