@@ -1,0 +1,15 @@
+{
+  "at": "2026-09-28T12:05:08.1755244Z",
+  "status": "installed",
+  "candidate": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\dist\\compact-ui-0.3.1\\RModifier.exe",
+  "entry": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\RModifier.exe",
+  "staging": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\RModifier-0.3.1-3761439e8f03456b998ec4f2c48e9c7c.new.exe",
+  "backup": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\backups\\editor\\20260928T115330Z-before-0.3.1\\RModifier-0.3.0.exe",
+  "beforeHash": "738dcec6e14aaad8dd3bcd32078d4ffa6a13ba1efe64c333e943caa1024dc9c7",
+  "afterHash": "b0325614eda55f28c1549f8e9b7bb5cec0c37cb6dc9b4ee9091e96660752bec9",
+  "candidateHash": "b0325614eda55f28c1549f8e9b7bb5cec0c37cb6dc9b4ee9091e96660752bec9",
+  "reason": "",
+  "atomicBackup": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\backups\\editor\\20260928T115330Z-before-0.3.1\\atomic-4475fd5239a9464c9622f7c118435324.exe",
+  "userDecision": "已保存并关闭旧编辑器，继续更新",
+  "previousFailure": "用户关闭前Windows因旧编辑器占用拒绝替换；原入口未改变。"
+}

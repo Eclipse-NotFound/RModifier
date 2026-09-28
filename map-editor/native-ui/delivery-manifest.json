@@ -1,7 +1,7 @@
 {
   "format": "rmodifier-native-map-delivery",
   "version": 1,
-  "frozenAt": "2026-09-28T11:50:20.143Z",
+  "frozenAt": "2026-09-28T11:55:30.548Z",
   "files": {
     "desktop/map/native-document.cjs": {
       "sha256": "6c6275d2144e31c864439a19ad2193e07f18668d621c322eca3f1b9000114aa5",
@@ -114,7 +114,7 @@
       "bytes": 1971
     }
   },
-  "evidence": {
+  "historicalEvidence": {
     "nativeUI19": "build/out/map-native-ui/37232f8f-ecd2-4060-994a-c63ad8ceb402/report.json",
     "nativeMap31AndExtended5": "build/out/map-native-ui-preservation/bae3c838-c3e9-4df3-adba-dfcbc17c8622/report.json",
     "nativeControls5": "build/out/map-native-ui-controls/17a7eebd-8c5d-4d27-bb80-5a1f666cea9c/report.json",
@@ -122,23 +122,37 @@
   },
   "scope": "Original Flash UI + semantic full-document persistence + original PreviewPanel. Host/package certification remains host-owned.",
   "notes": [
-    "19 native UI groups, all 31 map open/save cases plus 4 extended fixture groups, and 5 original-control regression groups all rerun on these exact final components.",
-    "The switch-layer and coordinate-map handlers now reject random collections before reading the absent or stale floor map; fixed-map 0/1 transitions remain unchanged.",
-    "Original-control regression dispatches full mouse event sequences through actual Flash controls. Real screen pointer crossing, native OS dialogs and final packaged host acceptance remain host-owned.",
-    "Native-document model sources unchanged; existing 10-group model pass remains applicable.",
-    "Original game/editor files, RandomRooms module and 0.2.0 EXE verified unchanged."
+    "0.3.1 原界面19组在最终按钮高度修正前通过；最终几何、文档按钮、错误反馈和恢复由源及实际包宿主11组覆盖。",
+    "最终组件的原材质按钮9组/67种素材通过；最终包7个原生输出与该组件逐项一致。",
+    "0.3.0 的31份原图/4个扩展夹具与5组原控件检查只作为历史证据，本轮未重复执行。"
   ],
   "revision": 3,
-  "supersedes": {
+  "historicalSupersedes": {
     "sha256": "456054a30277eebe48b96d5226f35e25bf5593b0a00c0749f0c3fe6048826e14",
     "reason": "Prior candidate rejected: original floor button entered fixed-map logic for random room collections and caused AIR #1009."
   },
   "editorVersion": "0.3.1",
+  "supersedes": {
+    "editorVersion": "0.3.0",
+    "sha256": "2b96847999ddde650405d452063c68f39ae10c75d2808126ef5016dbb564e2b4",
+    "reason": "0.3.1 adds whole-stage auto-fit, native document controls and palette ID serialization fix; previous acceptance remains historical evidence."
+  },
   "note": "0.3.1 自动完整适配、Flash内文档操作、原材质编号修复。31图/4扩展和5旧控件结果是0.3.0历史证据，本轮没有重跑。",
   "currentEvidence": {
     "nativeUI": "build/out/map-native-ui/c0d97934-bd6b-41d6-9d31-79debf00fd63/report.json",
     "nativeHost": "build/out/native-host/1790595856595-d3d1327a/report.json",
     "wallPaint": "knowledge/evidence-native-wall-2026-09-28/final-green-report.json",
-    "componentManifestSHA256": "06bf354b5dd13f617f21b4c00e5235955e3b8c91deac57b59cb646388b0da0cc"
+    "componentManifestSHA256": "06bf354b5dd13f617f21b4c00e5235955e3b8c91deac57b59cb646388b0da0cc",
+    "nativeHostPackage": "knowledge/evidence-compact-ui-2026-09-28/map-host-package.json"
+  },
+  "historicalNotes": {
+    "editorVersion": "0.3.0",
+    "notes": [
+      "19 native UI groups, all 31 map open/save cases plus 4 extended fixture groups, and 5 original-control regression groups all rerun on these exact final components.",
+      "The switch-layer and coordinate-map handlers now reject random collections before reading the absent or stale floor map; fixed-map 0/1 transitions remain unchanged.",
+      "Original-control regression dispatches full mouse event sequences through actual Flash controls. Real screen pointer crossing, native OS dialogs and final packaged host acceptance remain host-owned.",
+      "Native-document model sources unchanged; existing 10-group model pass remains applicable.",
+      "Original game/editor files, RandomRooms module and 0.2.0 EXE verified unchanged."
+    ]
   }
 }
