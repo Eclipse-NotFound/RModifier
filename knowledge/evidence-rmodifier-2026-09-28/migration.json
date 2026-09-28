@@ -1,0 +1,21 @@
+{
+  "format": "rmodifier-migration",
+  "version": 1,
+  "status": "complete",
+  "at": 1790576794146,
+  "gameRoot": "D:\\Program Files\\Steam\\steamapps\\common\\Remains",
+  "oldRoot": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\LootEditor",
+  "newRoot": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier",
+  "gameHash": "c631cbf3511b6ee303f533d08d51511fe0eb702f43e5db17f5241d8576c64867",
+  "oldRuntimeHash": "f1a0078873c922786909ea22861ed0468274db05f3f28136b5b337c38a7bce49",
+  "newRuntimeHash": "fe1049393541f2ffc88cc88d4a61f4a83e550d8f30e91bc3c44fc8761cbc0a31",
+  "before": {},
+  "backupHashes": {
+    "registry": "8d1af4a63b3d859232ea192a42218be8623573eb044dbf0ae4d6b42d49c95d5d",
+    "manifest": "6dbf774762622353a4c5b7b0e4be32039d9c532582b2465ac9fa07384936597e",
+    "record": "954510922f9cccedcdff3f963ed0dce449d66222011c25c8c34b182d8fed8b46",
+    "runtime": "f1a0078873c922786909ea22861ed0468274db05f3f28136b5b337c38a7bce49"
+  },
+  "registryHash": "88678d52df036c1bf75fbb06b72bd2ede8c6b576655efcd308c5ead142dfa814",
+  "manifestHash": "2d4a64a608a6482168fbfe9e8cd7bb53f006ab1f8993fcc737cf9d32f2293592"
+}

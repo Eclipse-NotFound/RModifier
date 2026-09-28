@@ -1,0 +1,2 @@
+window.states={loot:{dirty:true,revision:8}};window.editors={};window.RMHost={register:(id,editor)=>window.editors[id]=editor,state:(id,state)=>{window.states[id]=state;document.getElementById('state').textContent=state.dirty?'台词未保存':'台词已保存';}};
+document.getElementById('showBarks').onclick=()=>{document.getElementById('barks-frame').hidden=false;document.getElementById('placeholder').hidden=true;};document.getElementById('showOther').onclick=()=>{document.getElementById('barks-frame').hidden=true;document.getElementById('placeholder').hidden=false;};

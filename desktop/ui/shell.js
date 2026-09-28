@@ -1,0 +1,75 @@
+'use strict';
+(() => {
+  const labels={loot:'掉落编辑',barks:'角色台词',map:'地图编辑'};
+  const hints={loot:'保存方案留作草稿；应用方案后，下次启动游戏读取。',barks:'先编辑并保存草稿，确认预览后再写入游戏台词。',map:'打开原图后另存工作副本。预览和保存地图不会替换游戏原图。'};
+  const pages=new Map(),states=new Map();
+  let active='loot',busy=false,ready=false;
+  const status=message=>{const el=document.getElementById('shell-status');if(el)el.textContent=message;};
+  function state(id,value){
+    if(!labels[id])throw Error('未知编辑页');
+    states.set(id,{...states.get(id),...value});
+    const mark=document.querySelector('[data-workspace="'+id+'"] .mark');
+    if(mark){mark.textContent=states.get(id).dirty?'●':'';mark.title=states.get(id).dirty?'尚未保存':'';}
+    workshop.state(id,states.get(id)).catch(e=>status(e.message));
+  }
+  function activate(id){
+    if(!labels[id]||!ready)return;
+    active=id;
+    document.querySelectorAll('[data-workspace]').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.workspace===id)));
+    for(const name of Object.keys(labels))document.getElementById(name+'-frame').hidden=name!==id;
+    document.getElementById('workspace-hint').textContent=hints[id];
+    document.title='RModifier · '+labels[id];
+    Promise.resolve(pages.get(id)?.activate?.()).catch(e=>status(e.message));
+  }
+  function flushInputs(){
+    for(const id of pages.keys()){
+      const frame=document.getElementById(id+'-frame');
+      frame?.contentDocument?.activeElement?.blur();
+    }
+  }
+  const version=id=>JSON.stringify(states.get(id)||{});
+  async function prepare(reason){
+    flushInputs();
+    const dirty=Object.keys(labels).filter(id=>states.get(id)?.dirty);
+    if(!dirty.length)return true;
+    const choice=await workshop.closeChoice(reason,dirty.map(id=>labels[id]));
+    if(choice==='continue')return false;
+    const confirmed=new Map();
+    for(const id of dirty){
+      const handler=pages.get(id);
+      if(!handler)throw Error(labels[id]+'尚未就绪，请等加载完成');
+      const before=version(id);
+      const ok=await handler[choice==='save'?'saveDraft':'recover']();
+      if(!ok){activate(id);status(labels[id]+'未完成保存，内容仍保留在窗口中');return false;}
+      if((choice==='save'&&states.get(id)?.dirty)||(choice==='recover'&&version(id)!==before)){
+        activate(id);status(labels[id]+'又有新的改动，请先处理后再继续');return false;
+      }
+      confirmed.set(id,version(id));
+    }
+    // Changes in a different editor during a pending dialog must also keep it open.
+    for(const [id,s] of states)if(s.dirty&&(choice==='save'||confirmed.get(id)!==version(id)))return false;
+    return true;
+  }
+  async function action(fn){
+    if(busy)return false;
+    busy=true;
+    try{return await fn();}catch(e){status('操作未完成：'+e.message);return false;}finally{busy=false;}
+  }
+  async function chooseGame(){return action(async()=>{
+    if(!await prepare('更换游戏位置前'))return false;
+    if(!await workshop.pickGame())return false;
+    location.reload();return true;
+  });}
+  window.RMHost=Object.freeze({
+    register(id,handler){if(!labels[id]||typeof handler.saveDraft!=='function'||typeof handler.recover!=='function')throw Error('编辑页接口不完整');pages.set(id,handler);},
+    state,chooseGame,activate,
+  });
+  workshop.onClose(()=>action(async()=>{if(await prepare('退出前'))await workshop.close();}));
+  workshop.onNavigate(activate);
+  document.addEventListener('DOMContentLoaded',async()=>{
+    ready=true;
+    for(const button of document.querySelectorAll('[data-workspace]'))button.addEventListener('click',()=>activate(button.dataset.workspace));
+    document.getElementById('game-location').addEventListener('click',chooseGame);
+    try{const info=await workshop.info();document.getElementById('game-location').title=info.gameRoot;status('游戏位置：'+info.gameRoot);activate(info.workspace||active);}catch(e){status(e.message);}
+  });
+})();

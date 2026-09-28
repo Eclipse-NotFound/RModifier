@@ -1,5 +1,5 @@
 import {clone,newProfile,newReward,validate,ruleFor,Simulator,fingerprint,ammoDrop,seeded} from '../core.mjs';
-declare global {interface Window {loot:any}}
+declare global {interface Window {loot:any;RMHost:any;workshop:any}}
 const $=<T extends HTMLElement=HTMLElement>(id:string)=>document.getElementById(id) as T;
 const esc=(v:any)=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
 let catalog:any,sim:any,profile:any,profiles:any[]=[],status:any,tab='container',source:any;
@@ -19,13 +19,17 @@ function record(){undo.push(clone(profile));if(undo.length>80)undo.shift();redo=
 function change(fn:()=>void){if(readOnly)return;record();fn();render();}
 async function beforeLeave(){return !dirty()||await window.loot.confirm({message:'当前方案还没有保存',detail:'切换后将放弃未保存的改动。也可以继续编辑，先点击“保存方案”。'});}
 function sourceLabel(s:any){return s.name===s.id?(s.kind==='enemy'?'敌人奖励':'容器奖励')+' · '+s.id:s.name;}
+let recoveryTimer:any,revision=0,lastContent='';
+function recoverLoot(){return parent.workshop.lootRecover({profile:clone(profile),dirty:dirty(),revision,view:{tab,source:source?.key}});}
+async function saveLoot(){if(readOnly)return true;const errors=validate(profile,catalog);if(errors.length)throw Error(errors.join('\n'));const snapshot=clone(profile);status=await window.loot.save(snapshot);saved.set(snapshot.id,JSON.stringify(snapshot));const i=profiles.findIndex(p=>p.id===snapshot.id);if(i<0)profiles.push(snapshot);else profiles[i]=snapshot;drawHeader();await recoverLoot();return !dirty();}
 function drawHeader(){
   const list=[original,...profiles];if(!list.some(p=>p.id===profile.id))list.push(profile);
   $('profileSelect').innerHTML=list.map(p=>`<option value="${esc(p.id)}" ${p.id===profile.id?'selected':''}>${esc(p.name)}</option>`).join('');
   $('dirtyLabel').textContent=readOnly?'只读':dirty()?'未保存':'已保存';
   ($('undo') as HTMLButtonElement).disabled=readOnly||!undo.length;($('redo') as HTMLButtonElement).disabled=readOnly||!redo.length;
   ($('save') as HTMLButtonElement).disabled=readOnly;($('apply') as HTMLButtonElement).disabled=readOnly;
-  window.loot.dirty(dirty());
+  const content=JSON.stringify(profile);if(content!==lastContent){lastContent=content;revision++;}
+  parent.RMHost.state('loot',{dirty:dirty(),revision,documentId:profile.id});clearTimeout(recoveryTimer);recoveryTimer=setTimeout(()=>recoverLoot().catch((e:any)=>notice('自动留存失败：'+e.message)),450);
   const s=status;
   $('gameStatus').className=s.receiptFresh?'status-ready':'';
   $('gameStatus').textContent=s.receiptFresh?`✓ 游戏在最近一次启动中已读取「${s.receipt.profileName}」${s.receipt.enabled?'':'（本次运行已暂停）'}`:s.activeHash?(s.runtimePresent&&s.listed?'方案已应用 · 等待游戏重启读取':'方案已应用 · 游戏读取模块尚未安装'):'尚未应用方案 · 保存只保留草稿';
@@ -137,9 +141,9 @@ document.addEventListener('click',event=>{void (async()=>{
   if(target.id==='redo'&&redo.length){undo.push(clone(profile));profile=redo.pop();render();}
   if(target.id==='save'||target.id==='apply'){
     const errors=validate(profile,catalog);if(errors.length){notice(errors.join('\n'));return;}
-    status=await window.loot[target.id](profile);saved.set(profile.id,JSON.stringify(profile));const i=profiles.findIndex(p=>p.id===profile.id);if(i<0)profiles.push(clone(profile));else profiles[i]=clone(profile);render();notice(target.id==='save'?'方案已保存。点击“应用方案”后，游戏下次启动读取。':'方案已应用。'+(status.runtimePresent&&status.listed?'请保存退出游戏并重新启动。':'还需安装游戏读取模块，当前游戏尚未改变掉落。'),true);
+    const snapshot=clone(profile);status=await window.loot[target.id](snapshot);saved.set(snapshot.id,JSON.stringify(snapshot));const i=profiles.findIndex(p=>p.id===snapshot.id);if(i<0)profiles.push(snapshot);else profiles[i]=snapshot;render();await recoverLoot();notice(target.id==='save'?'方案已保存。点击“应用方案”后，游戏下次启动读取。':'方案已应用。'+(status.runtimePresent&&status.listed?'请保存退出游戏并重新启动。':'还需安装游戏读取模块，当前游戏尚未改变掉落。'),true);
   }
-  if(target.id==='chooseGame'){if(!await beforeLeave())return;const result=await window.loot.pickGame();if(result){status=result.status;profiles=result.profiles.filter((p:any)=>p.profile).map((p:any)=>p.profile);for(const p of profiles)saved.set(p.id,JSON.stringify(p));profile=clone(original);readOnly=true;render();notice('已选择游戏位置。',true);}}
+  if(target.id==='chooseGame')await parent.RMHost.chooseGame();
   if(target.id==='refreshStatus'){status=await window.loot.status();drawHeader();}
   if(target.id==='connectGame')await command('connect');
 })().catch(e=>notice(String(e.message||e)));});
@@ -158,9 +162,9 @@ document.addEventListener('change',event=>{
 });
 $('sourceSearch').addEventListener('input',drawSources);$('itemSearch').addEventListener('input',drawItems);
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&($('itemDialog') as HTMLDialogElement).open){event.preventDefault();($('itemDialog') as HTMLDialogElement).close();}},true);
-document.addEventListener('keydown',event=>{if(event.ctrlKey&&!['INPUT','TEXTAREA','SELECT'].includes((event.target as HTMLElement).tagName)){
+document.addEventListener('keydown',event=>{if(event.isComposing)return;if(event.ctrlKey&&event.key.toLowerCase()==='s'){event.preventDefault();$('save').click();return;}if(event.ctrlKey&&!['INPUT','TEXTAREA','SELECT'].includes((event.target as HTMLElement).tagName)){
   if(event.key.toLowerCase()==='z'){event.preventDefault();$('undo').click();}if(event.key.toLowerCase()==='y'){event.preventDefault();$('redo').click();}
   if(event.key.toLowerCase()==='s'){event.preventDefault();$('save').click();}
 }});
-async function init(){const data=await window.loot.bootstrap();catalog=data.catalog;icons=data.icons||{};status=data.status;sim=new Simulator(catalog);for(const i of catalog.items)itemMap.set(i.key,i);profiles=data.profiles.filter((r:any)=>r.profile).map((r:any)=>r.profile);for(const p of profiles)saved.set(p.id,JSON.stringify(p));if(!profiles.length){const example:any=newProfile('示例 · 敌人额外弹药');example.ammo.enabled=true;profiles.push(example);}profile=clone(profiles.find(p=>p.id===data.view?.profile)||original);readOnly=profile.id==='vanilla';tab=['container','enemy','ammo','profiles'].includes(data.view?.tab)?data.view.tab:'container';source=catalog.sources.find((s:any)=>s.key===data.view?.source)||catalog.sources.find((s:any)=>s.kind===(tab==='enemy'?'enemy':'container')&&s.scope==='table');($('scopeFilter') as HTMLSelectElement).value=source.scope;document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',(b as HTMLElement).dataset.tab===tab));render();if(data.profiles.some((p:any)=>p.broken))notice('部分方案文件无法读取，原文件已保留。可在“我的方案”中打开文件夹检查。');}
+async function init(){const data=await window.loot.bootstrap();catalog=data.catalog;icons=data.icons||{};status=data.status;sim=new Simulator(catalog);for(const i of catalog.items)itemMap.set(i.key,i);profiles=data.profiles.filter((r:any)=>r.profile).map((r:any)=>r.profile);for(const p of profiles)saved.set(p.id,JSON.stringify(p));if(!profiles.length){const example:any=newProfile('示例 · 敌人额外弹药');example.ammo.enabled=true;profiles.push(example);}profile=clone(profiles.find(p=>p.id===data.view?.profile)||original);readOnly=profile.id==='vanilla';tab=['container','enemy','ammo','profiles'].includes(data.view?.tab)?data.view.tab:'container';source=catalog.sources.find((s:any)=>s.key===data.view?.source)||catalog.sources.find((s:any)=>s.kind===(tab==='enemy'?'enemy':'container')&&s.scope==='table');($('scopeFilter') as HTMLSelectElement).value=source.scope;document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',(b as HTMLElement).dataset.tab===tab));if(data.recovery?.dirty&&data.recovery?.profile){profile=data.recovery.profile;readOnly=false;}parent.RMHost.register('loot',{saveDraft:saveLoot,recover:recoverLoot});render();if(data.recoveryError)notice(data.recoveryError);if(data.profiles.some((p:any)=>p.broken))notice('部分方案文件无法读取，原文件已保留。可在“我的方案”中打开文件夹检查。');}
 void init().catch(e=>notice('编辑器启动失败：'+e));

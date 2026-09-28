@@ -1,6 +1,6 @@
 import {vanillaTable} from './data/vanilla.mjs';
 
-export const VERSION = '0.1.0';
+export const VERSION = '0.2.0';
 export const clone = x => JSON.parse(JSON.stringify(x));
 export function fingerprint(text) {
   let h=2166136261;

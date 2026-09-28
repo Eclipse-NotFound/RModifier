@@ -1,0 +1,27 @@
+{
+  "at": "2026-09-28T06:22:03.994Z",
+  "passed": 18,
+  "checks": [
+    "Chinese corpus opened through host IPC",
+    "Editing sets only bark dirty state",
+    "Workspace switch preserves text, note and history",
+    "Undo and redo include notes",
+    "Disabled lines and profanity filtering preview",
+    "Canceled native dialog leaves dirty state",
+    "Native save writes valid v1 draft to disk",
+    "Native XML export writes full file without author notes",
+    "Late save response never marks a newer edit saved",
+    "Ctrl+S works inside a text field",
+    "Composition key event is not used as a shortcut",
+    "Native open reloads existing v1 draft",
+    "Reload restores durable unsaved draft",
+    "UI applies to isolated game with backup",
+    "UI consecutive application and last-write restoration",
+    "900px window retains top actions",
+    "150 percent zoom renders usable layout",
+    "No JavaScript or CSP errors"
+  ],
+  "errors": [],
+  "gameWrites": "isolated fake game only",
+  "root": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\LootEditor\\build\\out\\barks-ui-1790576503855"
+}

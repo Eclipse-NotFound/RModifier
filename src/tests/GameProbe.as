@@ -46,7 +46,7 @@ package tests {
                     check(true,"manifest module registered bridge");
                     loader=new Loader();loader.contentLoaderInfo.addEventListener(Event.COMPLETE,loaded);
                     var context:LoaderContext=new LoaderContext(false,new ApplicationDomain(domain));context.allowCodeImport=true;
-                    loader.load(new URLRequest("app:/mods/LootEditor/release/LootEditorMod.swf"),context);
+                    loader.load(new URLRequest("app:/mods/RModifier/release/LootEditorMod.swf"),context);
                     w.mm.active=false;w.newGame(-1,"LP",null);step=1;log("new game requested");return;
                 }
                 if(step==1&&w.gg!=null&&w.loc!=null&&w.game!=null&&w.land!=null&&engine!=null){step=2;log("world ready land="+w.game.curLandId);w.gg.invulner=true;runGame();gameDone=true;return;}

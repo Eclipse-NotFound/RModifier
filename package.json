@@ -1,8 +1,8 @@
 {
-  "name": "remains-loot-workshop",
-  "version": "0.1.0",
+  "name": "remains-rmodifier",
+  "version": "0.2.0",
   "private": true,
-  "description": "Remains 中文可视化掉落编辑器",
+  "description": "Remains 掉落、角色台词与地图编辑工坊",
   "main": "desktop/main.cjs",
   "scripts": {
     "start": "electron .",
@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "electron": "44.4.5",
+    "electron-builder": "26.15.3",
     "esbuild": "0.28.2",
     "typescript": "7.0.2"
   }

@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "checks": [
+    "map iframe opens in shared host with 55 rooms and Chinese palette",
+    "open preserves full XML, BOM, comments and unknown node",
+    "object placement keeps unrecognized data",
+    "undo and redo restore exact XML",
+    "room rename changes only its own attribute",
+    "terrain paint and half-height encode correctly",
+    "room copy and delete preserve multi-room collection",
+    "cancelled save keeps dirty state",
+    "save-as writes and verifies full map, original untouched",
+    "real native preview appears inside the map page",
+    "PNG export opens save flow and creates a valid image",
+    "switching room invalidates previous PNG",
+    "changing preview options invalidates previous PNG",
+    "switching among three pages keeps map changes and undo history",
+    "recovery awaits persisted current room and complete map",
+    "restart restores dirty document and selected room",
+    "late save response cannot clear newer changes",
+    "no JavaScript or CSP errors"
+  ],
+  "errors": [],
+  "root": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\LootEditor\\build\\out\\map-ui\\a8d492e4-3fba-4894-9f50-990bd9a9c1ac",
+  "fixtureHash": "35a708e02dac6b9c55c8f69e3c8ed51e525948bb5cb7cfe2bca4c2d62994dfd9"
+}

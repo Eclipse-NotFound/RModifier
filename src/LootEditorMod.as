@@ -11,7 +11,7 @@ package {
     import loot.RuleEngine;
 
     public class LootEditorMod {
-        public static const VERSION:String="0.1.0";
+        public static const VERSION:String="0.2.0";
         [Embed(source="../desktop/data/catalog.json",mimeType="application/octet-stream")]
         private static var CatalogBytes:Class;
         private static var timer:Timer;
@@ -50,7 +50,7 @@ package {
         private static function loadProfile():void {
             var b:ByteArray=new CatalogBytes();catalog=JSON.parse(b.readUTFBytes(b.length));
             for each(var item:Object in catalog.items)items[item.key]=item;
-            var file:File=File.applicationDirectory.resolvePath("mods/LootEditor/config/active.json");
+            var file:File=File.applicationDirectory.resolvePath("mods/RModifier/config/active.json");
             var candidates:Array=[file,file.parent.resolvePath("active.previous.json")];
             for each(var candidate:File in candidates){
                 if(!candidate.exists)continue;
@@ -86,7 +86,7 @@ package {
             var fs:FileStream=new FileStream();
             try {
                 fs.open(File.applicationStorageDirectory.resolvePath("LootEditor.receipt.json"),FileMode.WRITE);
-                fs.writeUTFBytes(JSON.stringify({version:VERSION,session:session,startedAt:Number(session),readAt:new Date().time,status:status,profileHash:profileHash,profileName:profile?profile.name:"原版",profileId:profile?profile.id:"",enabled:enabled,error:configError,gameVersion:status=="unsupported"?"unsupported":"1.02",gameRoot:File.applicationDirectory.nativePath,applicationId:NativeApplication.nativeApplication.applicationID}));
+                fs.writeUTFBytes(JSON.stringify({version:VERSION,configRoot:"mods/RModifier",session:session,startedAt:Number(session),readAt:new Date().time,status:status,profileHash:profileHash,profileName:profile?profile.name:"原版",profileId:profile?profile.id:"",enabled:enabled,error:configError,gameVersion:status=="unsupported"?"unsupported":"1.02",gameRoot:File.applicationDirectory.nativePath,applicationId:NativeApplication.nativeApplication.applicationID}));
             }catch(e:*){log("receipt failed "+e);}finally{try{fs.close();}catch(ignore:*){}}
         }
         private static function registerMenu():void {

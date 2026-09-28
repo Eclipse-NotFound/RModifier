@@ -1,0 +1,93 @@
+{
+  "at": "2026-09-28T05:41:18.094Z",
+  "checksPassed": 44,
+  "checks": [
+    "Actual Chinese corpus: 17 speakers, 102 pools, 976 lines",
+    "Unedited XML is byte-identical, including BOM and newline style",
+    "Changed text, Unicode, XML escaping and line breaks survive reopening",
+    "Literal CR normalizes but a referenced CR survives XML decoding",
+    "Adding one line gives 977; marker removal retains other rows",
+    "Everything outside edited group is byte-identical",
+    "Export does not mutate source or editable state",
+    "Disabled line is omitted from XML but retained in draft",
+    "Deleted line is absent, other pools unchanged",
+    "Adding m marker is understood after reopening",
+    "CDATA, m=0 and quoted attributes parse correctly",
+    "Unknown attributes, comments and sibling elements survive modification",
+    "Empty self-closing pool accepts a new line",
+    "Unfinished active line blocks export with a Chinese message",
+    "Unfinished disabled draft does not block export",
+    "Duplicate pool keys are rejected rather than silently overwritten",
+    "Broken XML nesting rejected",
+    "Duplicate attributes rejected",
+    "Raw ampersand rejected instead of repaired",
+    "DTD and external entities rejected",
+    "Nested content inside a sentence is rejected without data loss",
+    "Multiple hashes and illegal characters stop unsafe export",
+    "Friendly name and gender controls round-trip",
+    "Literal player names cannot trigger replacement-string syntax",
+    "Only the first player-name token is replaced",
+    "Male and female forms match the game rule",
+    "Filtered draw is silence, not pre-filtered resampling",
+    "Player retries repeated result once then goes silent",
+    "NPC can repeat a sentence",
+    "A single player line and all-marked pool produce warnings",
+    "History combines a text session and restores deletions",
+    "Browser-compatible SHA-256 matches original file bytes",
+    "Saved project restores source, disabled rows, notes and selected scene",
+    "Tampered baseline in saved project rejected",
+    "Corrupt draft with duplicate line identity rejected",
+    "Byte-identical no-op export for text_de.xml",
+    "Byte-identical no-op export for text_en.xml",
+    "Byte-identical no-op export for text_es.xml",
+    "Byte-identical no-op export for text_jp.xml",
+    "Existing Polish XML problem surfaced without repair",
+    "Byte-identical no-op export for text_ru.xml",
+    "Byte-identical no-op export for text_tw.xml",
+    "Byte-identical no-op export for text_ua.xml",
+    "Byte-identical no-op export for text_zh.xml"
+  ],
+  "languages": [
+    {
+      "file": "text_de.xml",
+      "groups": 102,
+      "lines": 976
+    },
+    {
+      "file": "text_en.xml",
+      "groups": 102,
+      "lines": 982
+    },
+    {
+      "file": "text_es.xml",
+      "groups": 102,
+      "lines": 982
+    },
+    {
+      "file": "text_jp.xml",
+      "groups": 102,
+      "lines": 973
+    },
+    {
+      "file": "text_ru.xml",
+      "groups": 102,
+      "lines": 982
+    },
+    {
+      "file": "text_tw.xml",
+      "groups": 90,
+      "lines": 826
+    },
+    {
+      "file": "text_ua.xml",
+      "groups": 102,
+      "lines": 1019
+    },
+    {
+      "file": "text_zh.xml",
+      "groups": 102,
+      "lines": 976
+    }
+  ],
+  "sourceSha256": "66da212793683b19e65e3973b726a94a2885d5032395af8a2e5a0fd20a17f895"
+}

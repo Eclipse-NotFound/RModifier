@@ -1,0 +1,141 @@
+probe init
+PASS manifest module registered bridge
+new game requested
+PASS UTF-8 config fingerprint parity
+PASS profile validation parity
+PASS profile validation parity
+PASS profile validation parity
+PASS profile validation parity
+PASS profile validation parity
+PASS profile validation parity
+PASS profile validation parity
+PASS JS/AIR rewards seed=478
+PASS JS/AIR rewards seed=479
+PASS JS/AIR rewards seed=480
+PASS JS/AIR rewards seed=481
+PASS JS/AIR rewards seed=482
+PASS JS/AIR rewards seed=483
+PASS JS/AIR rewards seed=484
+PASS JS/AIR rewards seed=485
+PASS JS/AIR rewards seed=486
+PASS JS/AIR rewards seed=487
+PASS JS/AIR rewards seed=488
+PASS JS/AIR rewards seed=489
+PASS JS/AIR rewards seed=490
+PASS JS/AIR rewards seed=491
+PASS JS/AIR rewards seed=492
+PASS JS/AIR rewards seed=493
+PASS JS/AIR rewards seed=494
+PASS JS/AIR rewards seed=495
+PASS JS/AIR rewards seed=496
+PASS JS/AIR rewards seed=497
+PASS JS/AIR rewards seed=498
+PASS JS/AIR rewards seed=499
+PASS JS/AIR rewards seed=500
+PASS JS/AIR rewards seed=501
+PASS JS/AIR rewards seed=502
+PASS JS/AIR rewards seed=503
+PASS JS/AIR rewards seed=504
+PASS JS/AIR rewards seed=505
+PASS JS/AIR rewards seed=506
+PASS JS/AIR rewards seed=507
+PASS JS/AIR rewards seed=508
+PASS JS/AIR rewards seed=509
+PASS JS/AIR rewards seed=510
+PASS JS/AIR rewards seed=511
+PASS JS/AIR rewards seed=512
+PASS JS/AIR rewards seed=513
+PASS JS/AIR rewards seed=514
+PASS JS/AIR rewards seed=515
+PASS JS/AIR rewards seed=516
+PASS JS/AIR rewards seed=517
+PASS JS/AIR rewards seed=719
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+PASS JS/AIR ammo seed=431
+golden complete
+world ready land=begin
+PASS direct container table replacement = 13 rounds
+PASS real box model overrides table = 17 rounds
+PASS map-specified important item preserved
+PASS opened container cannot drop again
+PASS important item retains receipt owner and flag
+PASS picking important item acknowledges receipt
+PASS saved opened container stays settled after native load
+PASS hostile gun user adds 6 rounds after native death
+PASS duplicate death adds no ammo
+PASS native gun drop still receives separate ammo
+PASS native weapon drop preserved
+PASS picking dropped weapon retains original 1..12 bonus ammo
+PASS friendly excluded
+PASS revivable downed unit does not pay
+PASS final death after downing pays once despite faction zero
+PASS final death cannot pay twice
+PASS ranger gets ammo despite no weapon drop
+PASS uses actual specialized ammo
+PASS rare rocket toggle excludes new rockets
+PASS melee produces no fictional ammo
+PASS absent module preserves native drops
+PASS custom skill book respects exhausted native quota
+PASS custom caps retain perk multiplier and broken-container loss
+PASS existing ModLoader settings host present
+PASS LootEditor status page registered with ModLoader
+icons exported
+gameplay complete
+heartbeat after tests 10
+heartbeat after tests 20
+heartbeat after tests 30
+heartbeat after tests 40
+heartbeat after tests 50
+heartbeat after tests 60
+PASS world loop alive after drop tests
+COMPLETE assertions=128 failures=0

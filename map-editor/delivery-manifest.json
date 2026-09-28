@@ -1,0 +1,81 @@
+{
+  "format": "rmodifier-map-delivery",
+  "version": 1,
+  "createdAt": "2026-09-28T06:19:39.457250+00:00",
+  "status": "map module ready for host integration",
+  "scope": [
+    "desktop/map",
+    "desktop/ui/map",
+    "map-editor"
+  ],
+  "evidence": {
+    "modelService": {
+      "command": "node --test map-editor/tests/document.test.cjs map-editor/tests/workspace.test.cjs",
+      "passed": 16,
+      "failed": 0,
+      "stockMaps": 31,
+      "stockRooms": 662,
+      "record": "2026-09-28 completed tool test output"
+    },
+    "native": {
+      "file": "build/out/map-native/7651ace7-4908-4db9-a94a-83313b27c71a/report.json",
+      "passed": 12,
+      "sha256": "c8f91ce9ddedddd3aded4c3525a2aa0e9747b72a3b6bee0d39593bae9859d5d5"
+    },
+    "ui": {
+      "file": "build/out/map-ui/a8d492e4-3fba-4894-9f50-990bd9a9c1ac/report.json",
+      "passed": 18,
+      "sha256": "29665d8ee90170ce975a94e872f7fa5d6de05e3d546f634b85f3063a7337faa6"
+    },
+    "images": {
+      "manualReview": [
+        "build/out/map-ui/a8d492e4-3fba-4894-9f50-990bd9a9c1ac/native-preview.png",
+        "build/out/map-ui/a8d492e4-3fba-4894-9f50-990bd9a9c1ac/editor.png"
+      ],
+      "independentDecode": {
+        "tool": "Pillow",
+        "size": [
+          1920,
+          1000
+        ],
+        "mode": "RGB"
+      }
+    }
+  },
+  "files": {
+    "desktop/map/catalog.json": "756f21751480b3a760a746894c661ffbbcbfc7bcf3bb5fc5e4ad59285be310d8",
+    "desktop/map/document.js": "b2b4f02ee33d1b81c06c80172c8301d248b9e0bcff01d65641c9f1c250608246",
+    "desktop/map/interface.md": "a439f6d22da028de2cef7147aa9b6ab78f22e4de7ac6657f44faf23122c4419f",
+    "desktop/map/labels.js": "ddfb3557a400a828df62dab5be9e35550fff357ed8fa4f855f915696f392bbd6",
+    "desktop/map/native-session.cjs": "219e57b7e3d36a74077016504d982f33f46f79abbaaaa93fd1393d6574479ce3",
+    "desktop/map/workspace.cjs": "ede84a2bbac3f0f01109d59ba85487b6907d54e81493878826f59d1a5f1425c1",
+    "desktop/map/xml.js": "d272ca5a23798f3ad8e7678e29334a159ea6e6ff7fe0d326968eaba3cf71797a",
+    "desktop/ui/map/app.js": "66849710548668baf553c25a1a3f0e871978fb99c73fcc51f397ccaf63aba9e3",
+    "desktop/ui/map/catalog.js": "236324edead9a3f1241b29df51aa0474c0e8e965ed2e7df92476f831c4d55fff",
+    "desktop/ui/map/index.html": "bfaeb92685793c2cbd56bcb7502577a3f9d24b1d1bfc36efd8da006353b800f4",
+    "desktop/ui/map/style.css": "ceb483759ef10fca843f82e6098e903d2445af3b1adf3b49eb46fef52b559678",
+    "map-editor/build-manifest.json": "94bc7d06dfc81060bc02dd8df83864b5de180051a3e49049d0e16b52087183a7",
+    "map-editor/component/NativeScene.swf": "fcb620b9f4dc25eb3b4b54d420dfdf2549894472e8d0a331f06cdc321fc7cba7",
+    "map-editor/component/SceneHost.swf": "a1c0a4ca1ea1e50ce54e7672378937e8e57554827649792af8401061d9eb93cb",
+    "map-editor/integration-report-2026-09-28.md": "6c628b7281d9e54a62fa7a56bf456baf9a31cd00b56239d755df68dbe4ea6bef",
+    "map-editor/legacy/scripts/edTile.as": "cd4c55c7fe2553a0641da3c757e1650718794b817d2bbe2d7d4bb4a1cdef2c4d",
+    "map-editor/legacy/scripts/edTileBack.as": "9d4941ed6f7745c7fb4ea7aa6a79a5d207a56e7be7fa6a41e2893fce63232876",
+    "map-editor/legacy/scripts/fe/AllData.as": "975b0d0e68059a288549805c960c4402b34cc88740a8309007f75b6f0e2763e2",
+    "map-editor/localization/editor-zh.xml": "8c2a66f273762fe17954c2fde5d39bca36f4a4df563d57cd8d42567501d3789c",
+    "map-editor/localization/game-zh.xml": "66da212793683b19e65e3973b726a94a2885d5032395af8a2e5a0fd20a17f895",
+    "map-editor/native/fe/loc/EditorPreviewProfile.as": "9e35227cfdda81570f289d27661214bbd2761b108fd01b03600dddb4f60cc7a8",
+    "map-editor/native/NativeEntities.as": "07faff9fcaa1258d6afb1bbdeaab5bbfcc4132024dccd012677e6f4f7ad01a5b",
+    "map-editor/native/NativeRenderer.as": "6ded6c5556eb2bed078b4c45eabc406ce6b4471a6cc4b74a0f57f29d3c6dae20",
+    "map-editor/native/PngWriter.as": "3a926b0e22597af8762fbdb777ccbed97a1fd584875a92311b17e975cb90d087",
+    "map-editor/native/SceneHost.as": "3bb29a6fba3fa2f4f47e78a6d3f732bb84d9faa1b5a782aa42aed1f0adb8e401",
+    "map-editor/README.md": "a5d4806efdf24c3fcc3127a0cf7e489590a32b8cd4f16f877c9eaa257ef86afd",
+    "map-editor/tests/document.test.cjs": "6da164f4764e73f70699a74c4729962ff08bcab84641126e8adff7c083f5e73a",
+    "map-editor/tests/native.cjs": "e4bbd8c36ebfac09150e2a438cc7a1292789b14fd6b650948aad05eacffca4eb",
+    "map-editor/tests/ui.cjs": "bf0177c188f75ed1023c8bed073dfb26f8c9ee055f7c49b07e676df4c092e53c",
+    "map-editor/tests/workspace.test.cjs": "430f260156962db26f3f762b1acc9e7b085705136fb951caa87e69e781908a90",
+    "map-editor/tools/build.ps1": "546818406f9fe10ffbc4f1e5c0c28eeb2724e0762c139e6883ebb0bc677cd2e7",
+    "map-editor/tools/generate_catalog.py": "23413f87a4e428e560fd46e647ec93112bb9c956daf99a5369b9501d1153eadf"
+  },
+  "nativeSceneUnchangedFromLegacy": true,
+  "hostMigrationOwnedBy": "LootEditor developer"
+}

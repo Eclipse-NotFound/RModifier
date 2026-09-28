@@ -1,12 +1,21 @@
-# 掉落工坊 0.1.0
+# RModifier 0.2.0
 
-用于 Remains 1.02 单人游戏的中文独立掉落编辑器。玩家不需要安装 Node、输入命令或编辑代码。
+用于 Remains 1.02 的中文编辑工坊：一个窗口切换掉落、角色台词、地图三个编辑器。玩家不需要安装 Node、输入命令或编辑代码。掉落模块适用单人游戏。
 
-本版已完成程序与隔离验证。2026-09-28 已在本机备份并更新正式游戏，通过现有 ModLoader 登记为仅 1.02 启用。按用户选择保留当前游戏进程，正式重启后的读取回执尚待核验；目前未应用自定义方案，保持原版掉落。
+`LootEditor` 目录迁移为 `RModifier` 后，原有掉落方案、配置和安装备份继续使用。按用户选择保留当前游戏进程，正式重启后的新版本读取回执仍待核验。整合记录见 [返回报告](design/2026-09-28-rmodifier-integration-result.md)。
 
 ## 打开与使用
 
-双击本项目中的 `dist\LootWorkshop\掉落工坊.exe`。请保留整个 LootWorkshop 文件夹，不能只移动 EXE。
+双击本项目根目录的 `RModifier.exe`。这是单文件便携入口，可单独复制；首次启动会自动释放自带组件，不需要手动解压或安装运行环境。程序仍需要本机游戏素材。放在游戏目录外时，首次选择含 `application.xml` 与 `pfe.swf` 的游戏文件夹。
+
+顶部“掉落编辑 / 角色台词 / 地图编辑”自由切换；未保存标记分别显示，切页保留内容和撤销记录。关闭时可逐项保存，或保留恢复草稿下次继续。保存任何一页都不会自动应用另外两页。
+
+## 角色台词与地图
+
+- **角色台词**：选角色与场景，直接编辑句子，查看右侧预览。“保存草稿”保留修改、停用和作者备注；“导出给游戏”可另存完整语言文件，或先备份再写入游戏，也可恢复上次写入。备注不会进入游戏。已有浏览器草稿先从旧工具导出，再在这里打开。
+- **地图**：打开现有地图，或新建随机房间集合/固定地图，使用中文素材选择、笔刷、物体拖动、房间属性和撤销。点“查看游戏画面”生成原生静态预览，点“导出 PNG”保存 1920×1000 图片。“保存地图”保存整份地图；原游戏地图会要求另存工作副本，保存不会自动安装地图。详见 [地图说明](map-editor/README.md)。
+
+## 编辑掉落
 
 1. 点击“复制原版，开始编辑”。原版方案始终只读。
 2. 在“容器奖励”或“敌人战利品”中搜索对象。可以按共享奖励分类，也可以只改一个具体型号。
@@ -51,7 +60,7 @@
 - “恢复全部原版”清除当前方案的自定义普通奖励并关闭额外弹药；应用并重启后回到原版掉落行为。
 - “我的方案 → 恢复连接前的游戏”卸载本次连接，保留方案和存档。先退出游戏。若主 SWF 后来被别的工具修改，自动恢复会停止，以免覆盖后续改动。
 
-安装会在游戏根目录生成唯一的 `pfe_before_LootEditor_<时间与编号>.swf` 备份。不要删除这份备份或 `mods\LootEditor\backups` 中的安装记录。
+安装会在游戏根目录生成唯一的 `pfe_before_LootEditor_<时间与编号>.swf` 备份。不要删除这份备份或 `mods\RModifier\backups` 中的安装记录。旧备份文件名保留，游戏模块类名仍为 `LootEditorMod`。
 
 连接沿用现有 ModLoader：安装本模块、登记为仅 1.02 启用，再调用原有扫描器。首次安装需要一次小范围掉落接口补丁；之后日常编辑只更新配置。安装包只接受本次验证过的游戏指纹，游戏更新或其他补丁改动后须重新适配。
 
@@ -68,10 +77,12 @@
 
 ## 开发与验证
 
-源码：`desktop` 为桌面端，`src` 为游戏端。`src/tests` 及 LootProbe 只用于隔离验证，不进入正式模块。当前包约 383 MiB，包含独立桌面运行环境和针对本机的接口补丁，不是通用游戏分发包。
+源码：`desktop` 为桌面端，`src` 为掉落游戏模块，`map-editor` 为原生绘图组件与构建资料。`src/tests` 及 LootProbe 只用于隔离验证，不进入正式模块。发行包包含独立桌面运行环境与已经验证的连接载荷；游戏资源读取选中的安装目录。
 
-工具位置可通过构建脚本参数覆盖。开发者操作顺序：安装 package-lock 中的依赖；运行 `npm run build:ui`、`npm run check`、`npm test`；运行 `build/build.ps1` 编译模块、`build/bridge.ps1` 从已核验基线生成接口；用 `tools/run-game-test.ps1` 验证；最后 `npm run package`。
+工具位置可通过构建脚本参数覆盖。开发顺序：安装 package-lock 中的依赖；运行 `npm run build:ui`、`npm run check`、`npm test`；运行 `build/build.ps1` 编译掉落模块，运行 `map-editor/tools/build.ps1` 构建绘图桥；用隔离测试验证；最后 `npm run package`。打包可先运行 `tools/prepare-packager.ps1` 准备带固定校验值的 NSIS 组件。最终文件在 `dist/RModifier.exe`。
 
-`tools/extract_catalog.py` 可重新提取本体目录。`tools/generate-fixtures.mjs` 生成两端一致性样本。游戏测试驱动需单独编译 `src/LootProbeDoc.as` 到 `build/out/LootProbeMod.swf`。`tests/ui.cjs` 通过本机 Playwright 控制真实 Electron；用 `LOOT_EDITOR_EXE` 指向打包程序。
+桌面打包消费已经验证的 `pfe-loot-safe.swf`，不要求恢复或改写正在使用的游戏主文件。确需重建桥接时，`build/bridge.ps1` 只能从已核验原始基线构建。
+
+`tools/extract_catalog.py` 可重新提取本体目录。`tools/generate-fixtures.mjs` 生成两端一致性样本。游戏测试驱动需单独编译 `src/LootProbeDoc.as` 到 `build/out/LootProbeMod.swf`。`tests/ui.cjs`、`tests/host-ui.cjs` 控制真实 Electron；用 `RMODIFIER_EXE` 指向 `dist/win-unpacked/RModifier.exe`。`tests/portable.cjs` 实际启动单文件 EXE，检查独立分发、重复启动与原生地图预览。测试必须同时提供独立测试根和明确游戏根，不能落入真实存档。
 
 不要安装 `build/out/pfe-loot.swf`：它只是编译供体。唯一可安装候选是通过方法保持检查的 `pfe-loot-safe.swf`。完整证据见 `knowledge/verification-2026-09-28.md`。

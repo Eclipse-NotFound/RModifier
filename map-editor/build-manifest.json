@@ -1,0 +1,11 @@
+{
+  "sources": {
+    "native/SceneHost.as": "3bb29a6fba3fa2f4f47e78a6d3f732bb84d9faa1b5a782aa42aed1f0adb8e401",
+    "native/PngWriter.as": "3a926b0e22597af8762fbdb777ccbed97a1fd584875a92311b17e975cb90d087",
+    "native/NativeEntities.as": "07faff9fcaa1258d6afb1bbdeaab5bbfcc4132024dccd012677e6f4f7ad01a5b",
+    "native/fe/loc/EditorPreviewProfile.as": "9e35227cfdda81570f289d27661214bbd2761b108fd01b03600dddb4f60cc7a8",
+    "native/NativeRenderer.as": "6ded6c5556eb2bed078b4c45eabc406ce6b4471a6cc4b74a0f57f29d3c6dae20"
+  },
+  "NativeScene": "fcb620b9f4dc25eb3b4b54d420dfdf2549894472e8d0a331f06cdc321fc7cba7",
+  "SceneHost": "a1c0a4ca1ea1e50ce54e7672378937e8e57554827649792af8401061d9eb93cb"
+}

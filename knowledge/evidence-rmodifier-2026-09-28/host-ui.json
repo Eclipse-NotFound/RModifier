@@ -1,0 +1,16 @@
+{
+  "passed": 8,
+  "checks": [
+    "Three-page host starts on loot page",
+    "Switching keeps edits, per-page dirty markers and mounted pages",
+    "Continue editing cancels native window close",
+    "Canceling second page save leaves window and remaining drafts intact",
+    "Keep recovery drafts durably writes both dirty pages before close",
+    "Restart restores unsaved barks and whole-map drafts",
+    "Saved loot profile survives alongside other recovered documents",
+    "No renderer JavaScript or CSP errors"
+  ],
+  "errors": [],
+  "root": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\host-ui-1790577071034",
+  "executable": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\dist\\win-unpacked\\RModifier.exe"
+}

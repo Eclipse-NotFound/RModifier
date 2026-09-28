@@ -9,3 +9,5 @@ config/
 backups/
 release/*.swf
 *.log
+/RModifier.exe
+/map-editor/component/SceneHost.swf

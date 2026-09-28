@@ -1,0 +1,1 @@
+const {contextBridge,ipcRenderer}=require('electron');const api={};for(const name of ['barksBoot','barksOpen','barksRecover','barksSave','barksExport','barksRestore'])api[name]=(...args)=>ipcRenderer.invoke(name,...args);contextBridge.exposeInMainWorld('workshop',Object.freeze(api));

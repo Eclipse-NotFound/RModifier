@@ -1,2 +1,6 @@
 * text=auto eol=lf
 *.png binary
+*.swf binary
+# Preserve the exact frozen component bytes recorded by the integration manifests.
+desktop/** -text
+map-editor/** -text

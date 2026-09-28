@@ -14,13 +14,13 @@ function fixture(){
 test('installation uses real ModLoader scanner, backs up exact game, is idempotent, and restores without deleting profiles',()=>{
  const {root,payload,metadata}=fixture();const other=installer.hash(path.join(root,'mods/TDFC/release/TDFCMod.swf'));
  assert.equal(installer.inspect(root,payload).compatible,true);const installed=installer.install(root,payload);assert.equal(installed.connected,true);assert.equal(installer.hash(installed.backup),metadata.sourceHash);
- assert.match(fs.readFileSync(path.join(root,'mods/loader-manifest.txt'),'utf8'),/^LootEditor\|LootEditorMod\|1\|0\|0$/m);
+ assert.match(fs.readFileSync(path.join(root,'mods/loader-manifest.txt'),'utf8'),/^RModifier\|LootEditorMod\|1\|0\|0$/m);
  assert.equal(installer.install(root,payload).backup,installed.backup);
- fs.mkdirSync(path.join(root,'mods/LootEditor/profiles'),{recursive:true});fs.writeFileSync(path.join(root,'mods/LootEditor/profiles/mine.json'),'keep');
+ fs.mkdirSync(path.join(root,'mods/RModifier/profiles'),{recursive:true});fs.writeFileSync(path.join(root,'mods/RModifier/profiles/mine.json'),'keep');
  fs.appendFileSync(path.join(root,'mods/ModLoader/supported-mods.txt'),'# added after installation\n');
  assert.equal(installer.restore(root,payload).connected,false);assert.equal(installer.hash(path.join(root,'pfe.swf')),metadata.sourceHash);
- assert.equal(installer.hash(path.join(root,'mods/TDFC/release/TDFCMod.swf')),other);assert.equal(fs.readFileSync(path.join(root,'mods/LootEditor/profiles/mine.json'),'utf8'),'keep');
- assert.match(fs.readFileSync(path.join(root,'mods/ModLoader/supported-mods.txt'),'utf8'),/# added after installation/);assert.doesNotMatch(fs.readFileSync(path.join(root,'mods/loader-manifest.txt'),'utf8'),/^LootEditor\|/m);
+ assert.equal(installer.hash(path.join(root,'mods/TDFC/release/TDFCMod.swf')),other);assert.equal(fs.readFileSync(path.join(root,'mods/RModifier/profiles/mine.json'),'utf8'),'keep');
+ assert.match(fs.readFileSync(path.join(root,'mods/ModLoader/supported-mods.txt'),'utf8'),/# added after installation/);assert.doesNotMatch(fs.readFileSync(path.join(root,'mods/loader-manifest.txt'),'utf8'),/^RModifier\|/m);
 });
 test('unknown game/payload fingerprints are refused before mutation; later game patches prevent automatic rollback',()=>{
  const {root,payload,metadata}=fixture();fs.appendFileSync(path.join(root,'pfe.swf'),'other mod');const other=installer.hash(path.join(root,'pfe.swf'));assert.throws(()=>installer.install(root,payload),/版本不同/);assert.equal(installer.hash(path.join(root,'pfe.swf')),other);
@@ -29,5 +29,5 @@ test('unknown game/payload fingerprints are refused before mutation; later game 
 });
 test('scanner failure rolls registry/runtime back and retains the original game',()=>{
  const {root,payload,metadata}=fixture();const registry=fs.readFileSync(path.join(root,'mods/ModLoader/supported-mods.txt'),'utf8');fs.writeFileSync(path.join(root,'mods/ModLoader/RemainsModScanner.exe'),'invalid exe');
- assert.throws(()=>installer.install(root,payload),/已回退/);assert.equal(installer.hash(path.join(root,'pfe.swf')),metadata.sourceHash);assert.equal(fs.readFileSync(path.join(root,'mods/ModLoader/supported-mods.txt'),'utf8'),registry);assert.equal(fs.existsSync(path.join(root,'mods/LootEditor/release/LootEditorMod.swf')),false);
+ assert.throws(()=>installer.install(root,payload),/已回退/);assert.equal(installer.hash(path.join(root,'pfe.swf')),metadata.sourceHash);assert.equal(fs.readFileSync(path.join(root,'mods/ModLoader/supported-mods.txt'),'utf8'),registry);assert.equal(fs.existsSync(path.join(root,'mods/RModifier/release/LootEditorMod.swf')),false);
 });

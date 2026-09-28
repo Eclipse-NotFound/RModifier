@@ -1,0 +1,1180 @@
+{
+  "passed": true,
+  "checks": [
+    "hidden renderer ready with unique session",
+    "exported PNG bytes match current request",
+    "all 55 factory rooms rendered in one persistent session",
+    "six environments, mirror and strength 50",
+    "object and entity switches",
+    "malformed request reports failure and session recovers",
+    "cancelled request is discarded, next request succeeds",
+    "editing during render invalidates result and old PNG",
+    "two renderer instances are isolated; owned process exits cleanly",
+    "source map unchanged",
+    "primary renderer exits cleanly",
+    "missing assets produce actionable error"
+  ],
+  "outputs": [
+    {
+      "requestId": "e4fac6ec-570b-4d64-b1e9-adef8b323ff1",
+      "pngHash": "d40cb7bd244c9f62ecbac320e8ff6627563cd2cbbf14e944eafec59edc340075",
+      "room": "сортиры",
+      "warnings": []
+    },
+    {
+      "requestId": "4a822b63-2da8-4a5d-8a0e-55a7aeaa753d",
+      "pngHash": "807618ea37519ff877d33577e4cfa453f876afa77d884a17e89c0ff08653058e",
+      "room": "арсенал2",
+      "warnings": []
+    },
+    {
+      "requestId": "882cdaa3-c811-4cf1-bc03-677d920db638",
+      "pngHash": "f02b2def70c59323729f2624adfd50430c5d6f97e5b0b2f89467c9ffaee08011",
+      "room": "цех3",
+      "warnings": []
+    },
+    {
+      "requestId": "26bec5b0-6810-44e4-a3d6-e5aa6433f2c8",
+      "pngHash": "034262bc20cc2165d3b99a9176cf9883242a0729932be73aaa8701994cdb3b3c",
+      "room": "офисы",
+      "warnings": []
+    },
+    {
+      "requestId": "9e205898-8cd1-4cae-b4eb-6ec6e898519b",
+      "pngHash": "5f6c432d661b77705bdd0e4c89d2649baadeb0f5428e85d42c0f395f9613eae5",
+      "room": "архив_1",
+      "warnings": []
+    },
+    {
+      "requestId": "0c2f46e9-fa27-4bc6-838a-1eaeeb17a4fa",
+      "pngHash": "14cdd369fcac460bf738717f105739f480c335ddb24dc663c952e6091c402a3d",
+      "room": "вертикаль_1",
+      "warnings": []
+    },
+    {
+      "requestId": "753a6fe3-2556-4360-a7c1-8309902acf6a",
+      "pngHash": "fbc709c08380d56b4bcfb77fb55d410699ad3612c6cac64cfcc1fa295219254f",
+      "room": "архив",
+      "warnings": []
+    },
+    {
+      "requestId": "15dd5f19-898b-4152-b7d3-191cc06a2662",
+      "pngHash": "6ebf3a99518e7a9647553a3ad9b52ddf43717798420505caaea06090f1f92f01",
+      "room": "легкость3",
+      "warnings": []
+    },
+    {
+      "requestId": "910cba5a-eedc-4304-8029-26ff0120b8d6",
+      "pngHash": "d8faed81b704c7df099cac3a17a0833c367f1e220ed5ba40a3689cc829fcd876",
+      "room": "арсенал",
+      "warnings": []
+    },
+    {
+      "requestId": "3a62ad48-ba7f-4479-a8e3-d1998f1e7b2a",
+      "pngHash": "357cc9a6dfff0d34e8d9e1fad146eb87f34fb83ea91540ca1f73f358670f6b4f",
+      "room": "скорпионы",
+      "warnings": []
+    },
+    {
+      "requestId": "2d532a1b-bcbd-47ef-b144-bba3a64a5608",
+      "pngHash": "d726e68c93457ee4351f8123741ebf99059c25f5b017227784b9b0af1e9ccc0e",
+      "room": "склад1",
+      "warnings": []
+    },
+    {
+      "requestId": "7b092178-e82b-4218-8a19-49ef79d3fe3e",
+      "pngHash": "70118a0f4fe7fbaa4f72fb3679a4395590b234854b8bfb8c595235cb6a2fb612",
+      "room": "проходы2",
+      "warnings": []
+    },
+    {
+      "requestId": "822a2653-eef2-447e-9d4c-3ec6cecbea3f",
+      "pngHash": "ee049c29f2968302f23c4647a7f4ddd523c10c78e9db53f209a90eef2c46904d",
+      "room": "вход1",
+      "warnings": []
+    },
+    {
+      "requestId": "ecad8c54-fa25-4a7d-9fad-6d08f6b7b7ab",
+      "pngHash": "030d9852bd1423eaf69f609fafae729b49a5b9139526076b9e6c4708acc0a2f9",
+      "room": "легкость2",
+      "warnings": []
+    },
+    {
+      "requestId": "29953938-7f48-40c1-ba37-39883021fde5",
+      "pngHash": "2abec0e974443713a5a295a1242968910f72146b5031564804fa404fa4ef5c3f",
+      "room": "склад2",
+      "warnings": []
+    },
+    {
+      "requestId": "22b60cae-cfa6-4872-8c66-5a5d4d43adbb",
+      "pngHash": "aad59b45ad2effe1a015a6ee540f70808e6c7f13e65efaadf27422b1d68381ec",
+      "room": "дерьмище",
+      "warnings": []
+    },
+    {
+      "requestId": "d8501bb4-23cd-4317-b5d5-65c99db13481",
+      "pngHash": "d5593d6e327d24ca06c2513cb90e65708c7c86bb1ec25323ca8696864ff16c88",
+      "room": "цех1",
+      "warnings": []
+    },
+    {
+      "requestId": "b0e8133a-433c-46e8-927e-653e5525d540",
+      "pngHash": "9ecb099c3da25f8c9ca64653832b718cd109b12228ad644ea45f44dac774fbfc",
+      "room": "рейдеры",
+      "warnings": []
+    },
+    {
+      "requestId": "5e69a029-5ff1-495b-aa22-40a397a3f1fc",
+      "pngHash": "891223a295c58ef0f01e4e2b3d58f89d3e99ec83e71e59f0be6e2fd9b8271ec4",
+      "room": "ячейки",
+      "warnings": []
+    },
+    {
+      "requestId": "96c2afbf-260f-468f-8a9d-0927545648ce",
+      "pngHash": "ef811c288bf6c0335c2c290300011ffe7f6a284583b14d8e893fd1ee01ccc4f2",
+      "room": "библиотека",
+      "warnings": []
+    },
+    {
+      "requestId": "b047194f-417c-495b-96c1-92dfa2affa10",
+      "pngHash": "6643ce76dc31f0467e3ee8a8bce3974f295c7812496810a2a96213428a4ca197",
+      "room": "отдых [back]",
+      "warnings": []
+    },
+    {
+      "requestId": "331d0882-627e-4934-a6ad-1305b1a36a26",
+      "pngHash": "6379d846de75786decaab52bb8046c9ac48fed5c1833044c339c12a8b8ef8898",
+      "room": "змейка",
+      "warnings": []
+    },
+    {
+      "requestId": "5abf41c5-766b-4a9e-ada2-1086915236ab",
+      "pngHash": "0c7726a29cafffbfb1f6677d6dfe86d72ad8cafc7a6e0ff011e3ce367c211b60",
+      "room": "бассейн",
+      "warnings": []
+    },
+    {
+      "requestId": "ed495bfe-f2fb-4c91-a20a-28c946c5f5c9",
+      "pngHash": "1074168ce710738a868f96c2d51902beab260a044bce0c6a5c035de5fe685fe8",
+      "room": "легкость1_1",
+      "warnings": []
+    },
+    {
+      "requestId": "621dd8d0-d67f-4196-9010-fdca4bf718d4",
+      "pngHash": "a05fd6cd7ce06d5a64bedc6ec796fc195550cb40ef518ba37de1de46fa63c9d0",
+      "room": "офисы2",
+      "warnings": []
+    },
+    {
+      "requestId": "2a38e046-dc7a-49c0-bcc3-d424327a3078",
+      "pngHash": "81fdc0ce9051eb7120d3f0d547a2778f8baf8aa0e11937f3f5cd56ec532da019",
+      "room": "проходы",
+      "warnings": []
+    },
+    {
+      "requestId": "32760ed7-9119-48ca-bab9-1f87afb168bd",
+      "pngHash": "ddf971e7e71ccd198beda9761f727696dc5598e2ecdcc614bcfdebd7426e59cb",
+      "room": "отдых",
+      "warnings": []
+    },
+    {
+      "requestId": "ddec1906-73bd-4338-b328-419ae672f265",
+      "pngHash": "5f0edcb1ae8a2af5bbaeaa0c3ccb895c017ff871c1fd26b0da976f0a892a7225",
+      "room": "завод",
+      "warnings": []
+    },
+    {
+      "requestId": "1529294b-d808-48da-985f-327bb73b37c1",
+      "pngHash": "bccaf5173e91cb65896b1ff3c3b5ca92e1b7e1e533d041fe43a44c9c4e2fe7a6",
+      "room": "кпп",
+      "warnings": []
+    },
+    {
+      "requestId": "6caf5de5-65dc-4d95-8b5a-01dfd8055b72",
+      "pngHash": "9ed3e59a036c9a73cc9ee054abe5ca1836744ed194d6d8112aae071d4a7b2aaa",
+      "room": "подвал",
+      "warnings": []
+    },
+    {
+      "requestId": "3f8e1b70-7dc3-4597-9d05-47c96d925b7f",
+      "pngHash": "e221c6effdd072937f4b9bec85054b8950911a5ca6a29d549f5620db9362eed5",
+      "room": "медблок",
+      "warnings": []
+    },
+    {
+      "requestId": "6146b136-81f8-44d1-881e-fede4925f269",
+      "pngHash": "3a8e5595109934a2d7090b085d793906b01c2382d672ed2d203c4d66fc448aa6",
+      "room": "базар",
+      "warnings": []
+    },
+    {
+      "requestId": "7abf8e75-07ff-4ca5-8365-2f9cf1e0a3d4",
+      "pngHash": "d2cb03886e7bbce39358499c474f00920947fc579dbd103d7361758ba0828800",
+      "room": "офисы3",
+      "warnings": []
+    },
+    {
+      "requestId": "258a7ab9-3684-40ef-a70b-039480d36084",
+      "pngHash": "5f74279348118d65a8d76dfa4d8925fd9e6a82bc1001b00cc86732e78f2db7de",
+      "room": "вход2",
+      "warnings": []
+    },
+    {
+      "requestId": "0723d043-963c-479c-8739-0730ae6861de",
+      "pngHash": "deb4e68c28b890b8df05c07f1d1fe89392e9d319faa85758558eb6735350f00e",
+      "room": "взрывчатка",
+      "warnings": []
+    },
+    {
+      "requestId": "9a1b7d7b-9f7c-41ff-8c62-18694304e792",
+      "pngHash": "314b3fbec7d8a84904266b0f52da2b5a6649b6445ead67afc36a3110aa24fa91",
+      "room": "легкость1",
+      "warnings": []
+    },
+    {
+      "requestId": "0967e9db-b4e6-4d01-a67a-c0a1bd3a51f7",
+      "pngHash": "9208791f7487e5a11036afa06d072c6fabcd3743e3b0da6d6479957f4e09d885",
+      "room": "медик",
+      "warnings": []
+    },
+    {
+      "requestId": "5b376c02-4c64-4679-9936-deb34805b63d",
+      "pngHash": "1f2aa0052e5132d82a741130a2a79e1cc99bee5a55e24f506bab1bc05b59e5d5",
+      "room": "несложно",
+      "warnings": []
+    },
+    {
+      "requestId": "7c94c00c-e12c-4af4-acb3-fcfab171ed0d",
+      "pngHash": "f3643ae3e4a05559a8acdaf6964b22ce72095ff4ee60030e8725d2a772d56d1b",
+      "room": "проходы_1",
+      "warnings": []
+    },
+    {
+      "requestId": "3479c913-9542-4096-8644-c7fc9d633601",
+      "pngHash": "1039016bf54eb333b04cf212ba2311ee363fbbf8cfa48b8b74c1725dc1838998",
+      "room": "слизни",
+      "warnings": []
+    },
+    {
+      "requestId": "935fbddb-284d-4cfa-8b78-69f51617371c",
+      "pngHash": "d08e10d21c431a48c206ec049c864ef40927928d74ea8133aa9f91605d0b299f",
+      "room": "камера",
+      "warnings": []
+    },
+    {
+      "requestId": "d9505682-37cb-4012-bc5e-e93d0c5e2294",
+      "pngHash": "7018fa8172f8aed3051cf748d8945c095595f50df23779a058540712a27537bc",
+      "room": "цех4",
+      "warnings": []
+    },
+    {
+      "requestId": "cd13f028-5b5c-4ee6-baf0-645ac9fae8e7",
+      "pngHash": "b87ca3dd67b923be9838868ee161edb49ffd66400f19b32327616e9fdae28d1e",
+      "room": "диагон",
+      "warnings": []
+    },
+    {
+      "requestId": "f08d1530-084b-4dfd-b015-15878621dfa2",
+      "pngHash": "6df1896a5ccf0678115ed636f271e150172494d7f9943deff4588857b0e581ee",
+      "room": "логово2",
+      "warnings": []
+    },
+    {
+      "requestId": "527ae8ac-3f0f-459c-960a-e5d1dec6df39",
+      "pngHash": "1961d031a68437792edb84a81652fca5732d0e3853cf1b2267eb640927388e30",
+      "room": "вертикаль",
+      "warnings": []
+    },
+    {
+      "requestId": "27cdea34-e66c-40b0-ac2c-605b8483d8c3",
+      "pngHash": "26b0411e49c77319f8e6379b42f66f870a0dc50d4ce725e68a3bde3308878258",
+      "room": "логово",
+      "warnings": []
+    },
+    {
+      "requestId": "6bb253c5-2eef-4ec2-bed1-7df2a890c3c0",
+      "pngHash": "10c2ffe52b835840b03a2fec19c466c3af8f97845c3f2e5a3485b3b30bb05918",
+      "room": "цех2",
+      "warnings": []
+    },
+    {
+      "requestId": "93b6de3b-c0fe-4e49-b77d-40a983b4410d",
+      "pngHash": "411f21f24f6d1b4680ed4c554c9136adfba7576243fb64352dfc060c39481e05",
+      "room": "сюрприз",
+      "warnings": []
+    },
+    {
+      "requestId": "8b042275-289e-47dd-967b-295788ec48d2",
+      "pngHash": "7129935c0082c775778a46f2a57a94f1dc7ee57c4f7c71bfc09b542d0b3788b6",
+      "room": "вентиляция",
+      "warnings": []
+    },
+    {
+      "requestId": "60dd1408-87f5-4ae7-9f7a-60a7fdea3163",
+      "pngHash": "4117dea37884226934a27575dd52c3185acbddda1d90ef6398cb45ddac0377b0",
+      "room": "цех5",
+      "warnings": []
+    },
+    {
+      "requestId": "d1f21843-5499-40c9-b901-b5495a72af6d",
+      "pngHash": "351b873e033a36709280825d206f575ff92070691c1b289fd18dafcfa9e60224",
+      "room": "канализация",
+      "warnings": []
+    },
+    {
+      "requestId": "99479739-6809-4fae-9877-ceaa5a1b5b74",
+      "pngHash": "c64e666ed68cfcc4ea37635de1ea16ccd43f69898abdc1105cc4ff54a77d646b",
+      "room": "блотспрайты",
+      "warnings": []
+    },
+    {
+      "requestId": "2ab89cfe-6bd1-4f59-93a9-892326c5b56e",
+      "pngHash": "fd5ece6e63ffbfdc7a9774af5e2473ee15ed489b5cc806e1f4acd922233e7545",
+      "room": "яма",
+      "warnings": []
+    },
+    {
+      "requestId": "8f0a4a60-a066-4af0-b077-56b06e841c36",
+      "pngHash": "c1013a4c6d793fb290978c6a136213b5e59df4be9e84a6e0ca3cfdf2d56fa493",
+      "room": "парковка",
+      "warnings": []
+    },
+    {
+      "requestId": "4645b511-5a9c-462c-9e5c-4877e03bc6a3",
+      "pngHash": "dd9a415dfc522c9c4df17f56f99fd152171fd8200d7cf95abc35ca304859b4ff",
+      "room": "обвал",
+      "warnings": []
+    },
+    {
+      "region": "random_stable",
+      "pngHash": "4418072f65bd19e4afe61e7b983da93309eb9cc70d81c325f469272fcd8fa618",
+      "report": {
+        "regionName": "废弃避难厩",
+        "objects": 25,
+        "emptyPoints": 0,
+        "entities": 6,
+        "region": "random_stable",
+        "nativeRenderer": true,
+        "examples": 6,
+        "enemyLevel": 50,
+        "entityDetails": [
+          {
+            "variant": "1",
+            "id": "bloodwing",
+            "y": 399,
+            "facing": 1,
+            "x": 1260,
+            "source": "bloodwing",
+            "example": false
+          },
+          {
+            "variant": null,
+            "id": "tarakan",
+            "y": 799,
+            "facing": -1,
+            "x": 1660,
+            "source": "tarakan",
+            "example": false
+          },
+          {
+            "variant": null,
+            "id": "tarakan",
+            "y": 799,
+            "facing": -1,
+            "x": 1220,
+            "source": "tarakan",
+            "example": false
+          },
+          {
+            "variant": null,
+            "id": "trap",
+            "y": 159,
+            "facing": -1,
+            "x": 1700,
+            "source": "trap",
+            "example": false
+          },
+          {
+            "variant": null,
+            "id": "robot",
+            "y": 319,
+            "facing": 1,
+            "x": 1120,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "0",
+            "id": "gutsy",
+            "y": 319,
+            "facing": -1,
+            "x": 680,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "0",
+            "id": "protect",
+            "y": 959,
+            "facing": -1,
+            "x": 360,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": null,
+            "id": "landturret",
+            "y": 959,
+            "facing": 1,
+            "x": 1420,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": null,
+            "id": "eqd",
+            "y": 959,
+            "facing": -1,
+            "x": 1560,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": null,
+            "id": "robot",
+            "y": 959,
+            "facing": -1,
+            "x": 480,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "4",
+            "id": "bloat",
+            "y": 519,
+            "facing": -1,
+            "x": 700,
+            "source": "bloat",
+            "example": false
+          },
+          {
+            "variant": "2",
+            "id": "bloat",
+            "y": 439,
+            "facing": -1,
+            "x": 460,
+            "source": "bloat",
+            "example": false
+          }
+        ],
+        "difficulty": 50,
+        "mirror": true,
+        "mode": "static native entities; random points are examples; no simulation, scripts or discovery fog",
+        "renderSize": [
+          1920,
+          1000
+        ],
+        "warnings": [],
+        "enemyType": 2,
+        "room": "сортиры",
+        "spawnMarkers": 16,
+        "biome": 2,
+        "milliseconds": 1450,
+        "invisibleTriggers": 0
+      }
+    },
+    {
+      "region": "random_sewer",
+      "pngHash": "aa52f3e966c4ba9527401273a3aaac53e9cd7a3b9f0e1f82a097b3e344b66eb9",
+      "report": {
+        "regionName": "下水道",
+        "objects": 25,
+        "emptyPoints": 0,
+        "entities": 6,
+        "region": "random_sewer",
+        "nativeRenderer": true,
+        "examples": 6,
+        "enemyLevel": 50,
+        "entityDetails": [
+          {
+            "variant": "1",
+            "id": "bloodwing",
+            "y": 399,
+            "facing": 1,
+            "x": 1260,
+            "source": "bloodwing",
+            "example": false
+          },
+          {
+            "variant": null,
+            "id": "tarakan",
+            "y": 799,
+            "facing": -1,
+            "x": 1660,
+            "source": "tarakan",
+            "example": false
+          },
+          {
+            "variant": null,
+            "id": "tarakan",
+            "y": 799,
+            "facing": -1,
+            "x": 1220,
+            "source": "tarakan",
+            "example": false
+          },
+          {
+            "variant": null,
+            "id": "trap",
+            "y": 159,
+            "facing": -1,
+            "x": 1700,
+            "source": "trap",
+            "example": false
+          },
+          {
+            "variant": "4",
+            "id": "zombie",
+            "y": 319,
+            "facing": 1,
+            "x": 1120,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "2",
+            "id": "zombie",
+            "y": 319,
+            "facing": 1,
+            "x": 680,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "6",
+            "id": "zombie",
+            "y": 959,
+            "facing": -1,
+            "x": 360,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "5",
+            "id": "zombie",
+            "y": 959,
+            "facing": 1,
+            "x": 1440,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "6",
+            "id": "zombie",
+            "y": 959,
+            "facing": 1,
+            "x": 1560,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "0",
+            "id": "zombie",
+            "y": 959,
+            "facing": 1,
+            "x": 480,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "0",
+            "id": "bloat",
+            "y": 519,
+            "facing": -1,
+            "x": 700,
+            "source": "bloat",
+            "example": false
+          },
+          {
+            "variant": "2",
+            "id": "bloat",
+            "y": 439,
+            "facing": 1,
+            "x": 460,
+            "source": "bloat",
+            "example": false
+          }
+        ],
+        "difficulty": 50,
+        "mirror": true,
+        "mode": "static native entities; random points are examples; no simulation, scripts or discovery fog",
+        "renderSize": [
+          1920,
+          1000
+        ],
+        "warnings": [],
+        "enemyType": 0,
+        "room": "сортиры",
+        "spawnMarkers": 16,
+        "biome": 1,
+        "milliseconds": 1847,
+        "invisibleTriggers": 0
+      }
+    },
+    {
+      "region": "random_mbase",
+      "pngHash": "ac125f348a526aed794abb1acbc7270273a4a47f31a2da2c16d4fbee1d393ec3",
+      "report": {
+        "regionName": "军事基地",
+        "objects": 25,
+        "emptyPoints": 0,
+        "entities": 6,
+        "region": "random_mbase",
+        "nativeRenderer": true,
+        "examples": 6,
+        "enemyLevel": 50,
+        "entityDetails": [
+          {
+            "variant": "1",
+            "id": "bloodwing",
+            "y": 399,
+            "facing": -1,
+            "x": 1260,
+            "source": "bloodwing",
+            "example": false
+          },
+          {
+            "variant": null,
+            "id": "tarakan",
+            "y": 799,
+            "facing": 1,
+            "x": 1660,
+            "source": "tarakan",
+            "example": false
+          },
+          {
+            "variant": null,
+            "id": "tarakan",
+            "y": 799,
+            "facing": -1,
+            "x": 1220,
+            "source": "tarakan",
+            "example": false
+          },
+          {
+            "variant": null,
+            "id": "trap",
+            "y": 159,
+            "facing": -1,
+            "x": 1700,
+            "source": "trap",
+            "example": false
+          },
+          {
+            "variant": "1",
+            "id": "ranger",
+            "y": 319,
+            "facing": -1,
+            "x": 1120,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "1",
+            "id": "protect",
+            "y": 319,
+            "facing": -1,
+            "x": 680,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "1",
+            "id": "ranger",
+            "y": 959,
+            "facing": 1,
+            "x": 360,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "1",
+            "id": "protect",
+            "y": 959,
+            "facing": 1,
+            "x": 1440,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "1",
+            "id": "protect",
+            "y": 959,
+            "facing": -1,
+            "x": 1560,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "1",
+            "id": "protect",
+            "y": 959,
+            "facing": -1,
+            "x": 480,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "4",
+            "id": "bloat",
+            "y": 519,
+            "facing": -1,
+            "x": 700,
+            "source": "bloat",
+            "example": false
+          },
+          {
+            "variant": "3",
+            "id": "bloat",
+            "y": 439,
+            "facing": 1,
+            "x": 460,
+            "source": "bloat",
+            "example": false
+          }
+        ],
+        "difficulty": 50,
+        "mirror": true,
+        "mode": "static native entities; random points are examples; no simulation, scripts or discovery fog",
+        "renderSize": [
+          1920,
+          1000
+        ],
+        "warnings": [],
+        "enemyType": 7,
+        "room": "сортиры",
+        "spawnMarkers": 16,
+        "biome": 4,
+        "milliseconds": 1714,
+        "invisibleTriggers": 0
+      }
+    },
+    {
+      "region": "random_plant",
+      "pngHash": "f54386c84c6d02ab71a7da28e345f2c0eacc32fcebe93e0bd4d8776008c414d6",
+      "report": {
+        "regionName": "工厂",
+        "objects": 25,
+        "emptyPoints": 0,
+        "entities": 6,
+        "region": "random_plant",
+        "nativeRenderer": true,
+        "examples": 6,
+        "enemyLevel": 50,
+        "entityDetails": [
+          {
+            "variant": "1",
+            "id": "bloodwing",
+            "y": 399,
+            "facing": 1,
+            "x": 1260,
+            "source": "bloodwing",
+            "example": false
+          },
+          {
+            "variant": null,
+            "id": "tarakan",
+            "y": 799,
+            "facing": 1,
+            "x": 1660,
+            "source": "tarakan",
+            "example": false
+          },
+          {
+            "variant": null,
+            "id": "tarakan",
+            "y": 799,
+            "facing": -1,
+            "x": 1220,
+            "source": "tarakan",
+            "example": false
+          },
+          {
+            "variant": null,
+            "id": "trap",
+            "y": 159,
+            "facing": -1,
+            "x": 1700,
+            "source": "trap",
+            "example": false
+          },
+          {
+            "variant": "3",
+            "id": "raider",
+            "y": 319,
+            "facing": 1,
+            "x": 1120,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "8",
+            "id": "raider",
+            "y": 319,
+            "facing": 1,
+            "x": 680,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "2",
+            "id": "raider",
+            "y": 959,
+            "facing": -1,
+            "x": 360,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "3",
+            "id": "raider",
+            "y": 959,
+            "facing": 1,
+            "x": 1440,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "4",
+            "id": "raider",
+            "y": 959,
+            "facing": -1,
+            "x": 1560,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "4",
+            "id": "raider",
+            "y": 959,
+            "facing": 1,
+            "x": 480,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "1",
+            "id": "bloat",
+            "y": 519,
+            "facing": -1,
+            "x": 700,
+            "source": "bloat",
+            "example": false
+          },
+          {
+            "variant": "3",
+            "id": "bloat",
+            "y": 439,
+            "facing": -1,
+            "x": 460,
+            "source": "bloat",
+            "example": false
+          }
+        ],
+        "difficulty": 50,
+        "mirror": true,
+        "mode": "static native entities; random points are examples; no simulation, scripts or discovery fog",
+        "renderSize": [
+          1920,
+          1000
+        ],
+        "warnings": [],
+        "enemyType": 1,
+        "room": "сортиры",
+        "spawnMarkers": 16,
+        "biome": 0,
+        "milliseconds": 1632,
+        "invisibleTriggers": 0
+      }
+    },
+    {
+      "region": "random_mane",
+      "pngHash": "128a08c272e0d8293a2a3c2f87af37d41735e5ed08ef8ec4cf759eb9d3fcac27",
+      "report": {
+        "regionName": "马哈顿废墟",
+        "objects": 25,
+        "emptyPoints": 0,
+        "entities": 6,
+        "region": "random_mane",
+        "nativeRenderer": true,
+        "examples": 6,
+        "enemyLevel": 50,
+        "entityDetails": [
+          {
+            "variant": "1",
+            "id": "bloodwing",
+            "y": 399,
+            "facing": -1,
+            "x": 1260,
+            "source": "bloodwing",
+            "example": false
+          },
+          {
+            "variant": null,
+            "id": "tarakan",
+            "y": 799,
+            "facing": -1,
+            "x": 1660,
+            "source": "tarakan",
+            "example": false
+          },
+          {
+            "variant": null,
+            "id": "tarakan",
+            "y": 799,
+            "facing": 1,
+            "x": 1220,
+            "source": "tarakan",
+            "example": false
+          },
+          {
+            "variant": null,
+            "id": "trap",
+            "y": 159,
+            "facing": -1,
+            "x": 1700,
+            "source": "trap",
+            "example": false
+          },
+          {
+            "variant": "2",
+            "id": "zebra",
+            "y": 319,
+            "facing": -1,
+            "x": 1120,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "5",
+            "id": "zebra",
+            "y": 319,
+            "facing": 1,
+            "x": 680,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "2",
+            "id": "zebra",
+            "y": 959,
+            "facing": 1,
+            "x": 360,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "3",
+            "id": "zebra",
+            "y": 959,
+            "facing": -1,
+            "x": 1440,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "3",
+            "id": "zebra",
+            "y": 959,
+            "facing": -1,
+            "x": 1560,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "1",
+            "id": "zebra",
+            "y": 959,
+            "facing": 1,
+            "x": 480,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "4",
+            "id": "bloat",
+            "y": 519,
+            "facing": -1,
+            "x": 700,
+            "source": "bloat",
+            "example": false
+          },
+          {
+            "variant": "2",
+            "id": "bloat",
+            "y": 439,
+            "facing": -1,
+            "x": 460,
+            "source": "bloat",
+            "example": false
+          }
+        ],
+        "difficulty": 50,
+        "mirror": true,
+        "mode": "static native entities; random points are examples; no simulation, scripts or discovery fog",
+        "renderSize": [
+          1920,
+          1000
+        ],
+        "warnings": [],
+        "enemyType": 6,
+        "room": "сортиры",
+        "spawnMarkers": 16,
+        "biome": 3,
+        "milliseconds": 1171,
+        "invisibleTriggers": 0
+      }
+    },
+    {
+      "region": "random_canter",
+      "pngHash": "62ce18badf69e5774aac2d911296ef9c9ec65c74db8f37a4337c1c5a8f8a97a6",
+      "report": {
+        "regionName": "中心城废墟",
+        "objects": 25,
+        "emptyPoints": 0,
+        "entities": 6,
+        "region": "random_canter",
+        "nativeRenderer": true,
+        "examples": 6,
+        "enemyLevel": 50,
+        "entityDetails": [
+          {
+            "variant": "2",
+            "id": "bloodwing",
+            "y": 399,
+            "facing": -1,
+            "x": 1260,
+            "source": "bloodwing",
+            "example": false
+          },
+          {
+            "variant": null,
+            "id": "tarakan",
+            "y": 799,
+            "facing": 1,
+            "x": 1660,
+            "source": "tarakan",
+            "example": false
+          },
+          {
+            "variant": null,
+            "id": "tarakan",
+            "y": 799,
+            "facing": -1,
+            "x": 1220,
+            "source": "tarakan",
+            "example": false
+          },
+          {
+            "variant": null,
+            "id": "trap",
+            "y": 159,
+            "facing": -1,
+            "x": 1700,
+            "source": "trap",
+            "example": false
+          },
+          {
+            "variant": null,
+            "id": "necros",
+            "y": 319,
+            "facing": 1,
+            "x": 1120,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "5",
+            "id": "zombie",
+            "y": 319,
+            "facing": -1,
+            "x": 680,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "8",
+            "id": "zombie",
+            "y": 959,
+            "facing": -1,
+            "x": 360,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "7",
+            "id": "zombie",
+            "y": 959,
+            "facing": -1,
+            "x": 1440,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "6",
+            "id": "zombie",
+            "y": 959,
+            "facing": 1,
+            "x": 1560,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "6",
+            "id": "zombie",
+            "y": 959,
+            "facing": -1,
+            "x": 480,
+            "source": "enl2",
+            "example": true
+          },
+          {
+            "variant": "5",
+            "id": "bloat",
+            "y": 519,
+            "facing": -1,
+            "x": 700,
+            "source": "bloat",
+            "example": false
+          },
+          {
+            "variant": "5",
+            "id": "bloat",
+            "y": 439,
+            "facing": -1,
+            "x": 460,
+            "source": "bloat",
+            "example": false
+          }
+        ],
+        "difficulty": 50,
+        "mirror": true,
+        "mode": "static native entities; random points are examples; no simulation, scripts or discovery fog",
+        "renderSize": [
+          1920,
+          1000
+        ],
+        "warnings": [],
+        "enemyType": 8,
+        "room": "сортиры",
+        "spawnMarkers": 16,
+        "biome": 5,
+        "milliseconds": 2791,
+        "invisibleTriggers": 0
+      }
+    }
+  ],
+  "root": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\LootEditor\\build\\out\\map-native\\7651ace7-4908-4db9-a94a-83313b27c71a",
+  "session": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\LootEditor\\build\\out\\map-native\\7651ace7-4908-4db9-a94a-83313b27c71a\\sessions\\3dc4640d-2090-465c-a943-79234da7d04b",
+  "sourceHash": "7466ded79a7438ee3de776bb1b7e00c97f1c6a8776a7f0b2ed28bf0b1e69fb68"
+}
