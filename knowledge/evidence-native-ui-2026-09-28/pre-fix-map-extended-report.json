@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "root": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\map-native-ui-preservation\\f150f48c-fbb0-4d70-b8dd-8de1c4ee4106",
+  "checks": [
+    "missing-code duplicate objects and CRLF CDATA selection do not dirty original",
+    "sidecar identity changes only second duplicate, retains unknown root/room/fixed doors/scripts",
+    "fixed-map empty position stays clean until first real drawing creates full room",
+    "clean document disposes without a nonexistent save token"
+  ],
+  "rounds": [],
+  "session": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\map-native-ui-preservation\\f150f48c-fbb0-4d70-b8dd-8de1c4ee4106\\sessions\\2abc1e64-ed40-42db-b1c5-a40a93cde193"
+}

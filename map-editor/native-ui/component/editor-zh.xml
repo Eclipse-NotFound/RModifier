@@ -1,0 +1,1403 @@
+<?xml version='1.0' encoding='utf-8'?>
+<all>
+  <lang id="zh">简体中文</lang>
+  <obj id="[пусто]">
+    <n>[空]</n>
+  </obj>
+  <obj id="Сталь">
+    <n>钢</n>
+  </obj>
+  <obj id="Супербетон">
+    <n>超强混凝土</n>
+  </obj>
+  <obj id="Бетон">
+    <n>混凝土</n>
+  </obj>
+  <obj id="Побитый бетон">
+    <n>破损混凝土</n>
+  </obj>
+  <obj id="Трещины">
+    <n>裂缝</n>
+  </obj>
+  <obj id="Рухлядь">
+    <n>杂物</n>
+  </obj>
+  <obj id="Камень">
+    <n>石头</n>
+  </obj>
+  <obj id="Земля">
+    <n>泥土</n>
+  </obj>
+  <obj id="Кирпич">
+    <n>砖</n>
+  </obj>
+  <obj id="Железная стенка">
+    <n>铁墙</n>
+  </obj>
+  <obj id="Железные конструкции">
+    <n>铁结构</n>
+  </obj>
+  <obj id="Мох">
+    <n>苔藓</n>
+  </obj>
+  <obj id="Ржавый металл">
+    <n>锈蚀金属</n>
+  </obj>
+  <obj id="Стена здания">
+    <n>建筑墙体</n>
+  </obj>
+  <obj id="Стена базы">
+    <n>基地墙体</n>
+  </obj>
+  <obj id="Кирпич Кантерлота">
+    <n>中心城砖墙</n>
+  </obj>
+  <obj id="Бетон Кантерлота">
+    <n>中心城混凝土</n>
+  </obj>
+  <obj id="Крыша">
+    <n>屋顶</n>
+  </obj>
+  <obj id="Прочная Стена Анклава">
+    <n>坚固英克雷墙体</n>
+  </obj>
+  <obj id="Стена Анклава">
+    <n>英克雷墙体</n>
+  </obj>
+  <obj id="Задник стены">
+    <n>墙面背景</n>
+  </obj>
+  <obj id="Плитка">
+    <n>瓷砖</n>
+  </obj>
+  <obj id="Бетонные плиты">
+    <n>混凝土板</n>
+  </obj>
+  <obj id="Кирпичная стенка">
+    <n>砖墙</n>
+  </obj>
+  <obj id="Большие блоки">
+    <n>大型砌块</n>
+  </obj>
+  <obj id="Металл. плиты">
+    <n>金属板</n>
+  </obj>
+  <obj id="Металл. профиль">
+    <n>金属型材</n>
+  </obj>
+  <obj id="Вентиляция">
+    <n>通风管道</n>
+  </obj>
+  <obj id="Облезлая штукатурка">
+    <n>剥落灰泥</n>
+  </obj>
+  <obj id="Сетка">
+    <n>网格</n>
+  </obj>
+  <obj id="Доски">
+    <n>木板</n>
+  </obj>
+  <obj id="Плиты стойла">
+    <n>避难厩墙板</n>
+  </obj>
+  <obj id="Механизмы">
+    <n>机械装置</n>
+  </obj>
+  <obj id="Тёмная стенка">
+    <n>深色墙面</n>
+  </obj>
+  <obj id="Тёмные плиты">
+    <n>深色板材</n>
+  </obj>
+  <obj id="Тёмные заклёпки">
+    <n>深色铆钉板</n>
+  </obj>
+  <obj id="Трубы">
+    <n>管道</n>
+  </obj>
+  <obj id="Ржавые плиты">
+    <n>锈蚀板材</n>
+  </obj>
+  <obj id="Стена Кантерлота">
+    <n>中心城墙体</n>
+  </obj>
+  <obj id="Плитка Кантерлота">
+    <n>中心城瓷砖</n>
+  </obj>
+  <obj id="Орнамент">
+    <n>装饰纹样</n>
+  </obj>
+  <obj id="Стена Аклава">
+    <n>英克雷墙体</n>
+  </obj>
+  <obj id="Облачная стена">
+    <n>云墙</n>
+  </obj>
+  <obj id="Лестница справа">
+    <n>右侧梯子</n>
+  </obj>
+  <obj id="Лестница слева">
+    <n>左侧梯子</n>
+  </obj>
+  <obj id="Ржавая балка">
+    <n>锈蚀横梁</n>
+  </obj>
+  <obj id="Ступеньки /">
+    <n>台阶 /</n>
+  </obj>
+  <obj id="Ступеньки \">
+    <n>台阶 \</n>
+  </obj>
+  <obj id="Деревянная балка">
+    <n>木横梁</n>
+  </obj>
+  <obj id="Деревянные ст. /">
+    <n>木台阶 /</n>
+  </obj>
+  <obj id="Деревянные ст. \">
+    <n>木台阶 \</n>
+  </obj>
+  <obj id="Стальная балка">
+    <n>钢横梁</n>
+  </obj>
+  <obj id="Стальные ст. /">
+    <n>钢台阶 /</n>
+  </obj>
+  <obj id="Стальные ст. \">
+    <n>钢台阶 \</n>
+  </obj>
+  <obj id="Бетонная балка">
+    <n>混凝土横梁</n>
+  </obj>
+  <obj id="Бетонные ст. /">
+    <n>混凝土台阶 /</n>
+  </obj>
+  <obj id="Бетонные ст. \">
+    <n>混凝土台阶 \</n>
+  </obj>
+  <obj id="Кант балка">
+    <n>中心城横梁</n>
+  </obj>
+  <obj id="Кант ст. /">
+    <n>中心城台阶 /</n>
+  </obj>
+  <obj id="Кант ст. \">
+    <n>中心城台阶 \</n>
+  </obj>
+  <obj id="Облачная балка">
+    <n>云横梁</n>
+  </obj>
+  <obj id="Облачные ст. /">
+    <n>云台阶 /</n>
+  </obj>
+  <obj id="Облачные ст. \">
+    <n>云台阶 \</n>
+  </obj>
+  <obj id="Вода">
+    <n>水</n>
+  </obj>
+  <obj id="safe">
+    <n>保险箱</n>
+  </obj>
+  <obj id="wallsafe">
+    <n>墙壁保险箱</n>
+  </obj>
+  <obj id="chest">
+    <n>大箱子</n>
+  </obj>
+  <obj id="case">
+    <n>盒子</n>
+  </obj>
+  <obj id="ammobox">
+    <n>弹药盒</n>
+  </obj>
+  <obj id="explbox">
+    <n>炸药箱</n>
+  </obj>
+  <obj id="bigexpl">
+    <n>大型炸药箱</n>
+  </obj>
+  <obj id="weapbox">
+    <n>枪械柜</n>
+  </obj>
+  <obj id="weapcase">
+    <n>枪械箱</n>
+  </obj>
+  <obj id="bookcase">
+    <n>书架</n>
+  </obj>
+  <obj id="medbox">
+    <n>医疗箱</n>
+  </obj>
+  <obj id="bigmed">
+    <n>药品柜</n>
+  </obj>
+  <obj id="instr1">
+    <n>工具柜</n>
+  </obj>
+  <obj id="instr2">
+    <n>工具架</n>
+  </obj>
+  <obj id="table">
+    <n>办公桌</n>
+  </obj>
+  <obj id="wallcab">
+    <n>柜橱</n>
+  </obj>
+  <obj id="locker">
+    <n>储物柜</n>
+  </obj>
+  <obj id="trash">
+    <n>垃圾桶</n>
+  </obj>
+  <obj id="cup">
+    <n>衣柜</n>
+  </obj>
+  <obj id="tumba1">
+    <n>床头桌</n>
+  </obj>
+  <obj id="tumba2">
+    <n>金属床头桌</n>
+  </obj>
+  <obj id="filecab">
+    <n>文件柜</n>
+  </obj>
+  <obj id="fridge">
+    <n>冰箱</n>
+  </obj>
+  <obj id="ccup">
+    <n>厨桌</n>
+  </obj>
+  <obj id="wcup">
+    <n>厨房橱柜</n>
+  </obj>
+  <obj id="tap">
+    <n>水槽</n>
+  </obj>
+  <obj id="cryocap">
+    <n>冷冻仓</n>
+  </obj>
+  <obj id="basechest">
+    <n>大箱子</n>
+  </obj>
+  <obj id="enclchest">
+    <n>大箱子</n>
+  </obj>
+  <obj id="enclcase">
+    <n>英克雷箱子</n>
+  </obj>
+  <obj id="septum">
+    <n>木墙</n>
+  </obj>
+  <obj id="grate">
+    <n>竖向格栅</n>
+  </obj>
+  <obj id="hgrate">
+    <n>横向格栅</n>
+  </obj>
+  <obj id="platform1">
+    <n>实心平台</n>
+  </obj>
+  <obj id="window1">
+    <n>窗户</n>
+  </obj>
+  <obj id="window2">
+    <n>装甲窗户</n>
+  </obj>
+  <obj id="door1">
+    <n>木门</n>
+  </obj>
+  <obj id="door1a">
+    <n>强化的门</n>
+  </obj>
+  <obj id="door1b">
+    <n>坚固的门</n>
+  </obj>
+  <obj id="door2">
+    <n>铁门</n>
+  </obj>
+  <obj id="door2a">
+    <n>铁门</n>
+  </obj>
+  <obj id="stdoor">
+    <n>避难厩门</n>
+  </obj>
+  <obj id="basedoor">
+    <n>兵营门</n>
+  </obj>
+  <obj id="door3">
+    <n>装甲门</n>
+  </obj>
+  <obj id="door4">
+    <n>力场</n>
+  </obj>
+  <obj id="hatch1">
+    <n>活板门</n>
+  </obj>
+  <obj id="hatch2">
+    <n>铁活板门</n>
+  </obj>
+  <obj id="encldoor">
+    <n>基地门</n>
+  </obj>
+  <obj id="enclpole">
+    <n>力场</n>
+  </obj>
+  <obj id="woodbox">
+    <n>木箱</n>
+  </obj>
+  <obj id="mcrate1">
+    <n>集装箱</n>
+  </obj>
+  <obj id="box">
+    <n>箱子</n>
+  </obj>
+  <obj id="mcrate2">
+    <n>金属集装箱</n>
+  </obj>
+  <obj id="mcrate3">
+    <n>金属箱</n>
+  </obj>
+  <obj id="bigbox">
+    <n>重质集装箱</n>
+  </obj>
+  <obj id="bigbox2">
+    <n>货物箱</n>
+  </obj>
+  <obj id="mcrate4">
+    <n>重质箱</n>
+  </obj>
+  <obj id="mcrate5">
+    <n>超重箱</n>
+  </obj>
+  <obj id="radbarrel">
+    <n>放射性废料桶</n>
+  </obj>
+  <obj id="radbigbarrel">
+    <n>巨型废料桶</n>
+  </obj>
+  <obj id="couch">
+    <n>沙发</n>
+  </obj>
+  <obj id="bed">
+    <n>床</n>
+  </obj>
+  <obj id="table1">
+    <n>木桌</n>
+  </obj>
+  <obj id="table2">
+    <n>金属桌</n>
+  </obj>
+  <obj id="table4">
+    <n>钢桌</n>
+  </obj>
+  <obj id="longtable">
+    <n>长桌</n>
+  </obj>
+  <obj id="niche1">
+    <n>管道壁龛</n>
+  </obj>
+  <obj id="term">
+    <n>终端</n>
+  </obj>
+  <obj id="term1">
+    <n>安保终端</n>
+  </obj>
+  <obj id="term2">
+    <n>通行终端</n>
+  </obj>
+  <obj id="term3">
+    <n>信息终端</n>
+  </obj>
+  <obj id="termh">
+    <n>提示终端</n>
+  </obj>
+  <obj id="elpanel">
+    <n>通电保护终端</n>
+  </obj>
+  <obj id="knop1">
+    <n>按钮</n>
+  </obj>
+  <obj id="knop2">
+    <n>射击按钮</n>
+  </obj>
+  <obj id="knop3">
+    <n>需维修的按钮</n>
+  </obj>
+  <obj id="knop4">
+    <n>密码锁按钮</n>
+  </obj>
+  <obj id="platform2">
+    <n>移动平台</n>
+  </obj>
+  <obj id="platform3">
+    <n>薄移动平台</n>
+  </obj>
+  <obj id="dsph">
+    <n>黑暗之球</n>
+  </obj>
+  <obj id="indoor1">
+    <n>木门</n>
+  </obj>
+  <obj id="indoor2">
+    <n>强化的门</n>
+  </obj>
+  <obj id="indoor3">
+    <n>通风口</n>
+  </obj>
+  <obj id="indoor4">
+    <n>坚固的门</n>
+  </obj>
+  <obj id="instdoor">
+    <n>避难厩门</n>
+  </obj>
+  <obj id="inbasedoor">
+    <n>兵营门</n>
+  </obj>
+  <obj id="inencldoor">
+    <n>基地门</n>
+  </obj>
+  <obj id="player">
+    <n>玩家出生点</n>
+  </obj>
+  <obj id="npc">
+    <n>非玩家角色</n>
+  </obj>
+  <obj id="vendor">
+    <n>商马</n>
+  </obj>
+  <obj id="doctor">
+    <n>医生</n>
+  </obj>
+  <obj id="enl1">
+    <n>随机小型爬行敌人</n>
+  </obj>
+  <obj id="enl2">
+    <n>随机普通敌人</n>
+  </obj>
+  <obj id="enf1">
+    <n>随机小型飞行敌人</n>
+  </obj>
+  <obj id="enc1">
+    <n>随机小型悬挂敌人</n>
+  </obj>
+  <obj id="lov">
+    <n>随机陷阱</n>
+  </obj>
+  <obj id="raider">
+    <n>掠夺者</n>
+  </obj>
+  <obj id="slaver">
+    <n>奴隶贩子</n>
+  </obj>
+  <obj id="zebra">
+    <n>斑马军团</n>
+  </obj>
+  <obj id="ranger">
+    <n>铁骑卫</n>
+  </obj>
+  <obj id="merc">
+    <n>雇佣兵</n>
+  </obj>
+  <obj id="encl">
+    <n>天马英克雷</n>
+  </obj>
+  <obj id="bossraider">
+    <n>掠夺者首领</n>
+  </obj>
+  <obj id="bossnecr">
+    <n>亡灵巫师</n>
+  </obj>
+  <obj id="bossencl">
+    <n>毁灭之翼</n>
+  </obj>
+  <obj id="zombie">
+    <n>尸鬼</n>
+  </obj>
+  <obj id="alicorn">
+    <n>天角兽</n>
+  </obj>
+  <obj id="bossalicorn">
+    <n>血月</n>
+  </obj>
+  <obj id="hellhound">
+    <n>地狱犬</n>
+  </obj>
+  <obj id="bloat">
+    <n>肉食灵</n>
+  </obj>
+  <obj id="tarakan">
+    <n>辐射蟑螂</n>
+  </obj>
+  <obj id="rat">
+    <n>老鼠</n>
+  </obj>
+  <obj id="ant">
+    <n>蚂蚁</n>
+  </obj>
+  <obj id="molerat">
+    <n>鼹鼠</n>
+  </obj>
+  <obj id="scorp">
+    <n>辐射蝎</n>
+  </obj>
+  <obj id="scorp3">
+    <n>恐惧毒蝎</n>
+  </obj>
+  <obj id="slime">
+    <n>酸性史莱姆</n>
+  </obj>
+  <obj id="bloodwing">
+    <n>血翼</n>
+  </obj>
+  <obj id="fish">
+    <n>鱼类</n>
+  </obj>
+  <obj id="necros">
+    <n>死灵云团</n>
+  </obj>
+  <obj id="ebloat">
+    <n>肉食灵巢穴</n>
+  </obj>
+  <obj id="eant">
+    <n>蚁穴</n>
+  </obj>
+  <obj id="turret">
+    <n>天花板炮塔</n>
+  </obj>
+  <obj id="landturret">
+    <n>陆地炮塔</n>
+  </obj>
+  <obj id="armturret">
+    <n>装甲炮塔</n>
+  </obj>
+  <obj id="hturret">
+    <n>隐藏炮塔</n>
+  </obj>
+  <obj id="hturret2">
+    <n>未激活炮塔</n>
+  </obj>
+  <obj id="wturret">
+    <n>墙壁炮塔</n>
+  </obj>
+  <obj id="cturret">
+    <n>战斗炮塔</n>
+  </obj>
+  <obj id="bossturret">
+    <n>魔法炮塔</n>
+  </obj>
+  <obj id="robot">
+    <n>机械类</n>
+  </obj>
+  <obj id="protect">
+    <n>机械护卫</n>
+  </obj>
+  <obj id="gutsy">
+    <n>狂风先生</n>
+  </obj>
+  <obj id="eqd">
+    <n>机器小马</n>
+  </obj>
+  <obj id="sentinel">
+    <n>铁卫马</n>
+  </obj>
+  <obj id="ultra">
+    <n>超级铁卫马</n>
+  </obj>
+  <obj id="megadron">
+    <n>炸弹杀手</n>
+  </obj>
+  <obj id="roller">
+    <n>电击球</n>
+  </obj>
+  <obj id="spritebot">
+    <n>机械精灵</n>
+  </obj>
+  <obj id="vortex">
+    <n>旋翼机</n>
+  </obj>
+  <obj id="dron">
+    <n>无马机</n>
+  </obj>
+  <obj id="msp">
+    <n>蜘蛛地雷</n>
+  </obj>
+  <obj id="thunderhead">
+    <n>雷霆之首</n>
+  </obj>
+  <obj id="mine">
+    <n>地雷</n>
+  </obj>
+  <obj id="trap">
+    <n>捕兽夹</n>
+  </obj>
+  <obj id="trcans">
+    <n>瓶罐警铃</n>
+  </obj>
+  <obj id="trridge">
+    <n>绊线</n>
+  </obj>
+  <obj id="trplate">
+    <n>压力板</n>
+  </obj>
+  <obj id="trlaser">
+    <n>激光传感器</n>
+  </obj>
+  <obj id="damshot">
+    <n>陷阱枪</n>
+  </obj>
+  <obj id="damgren">
+    <n>蹄雷串</n>
+  </obj>
+  <obj id="expl1">
+    <n>部署好的炸药</n>
+  </obj>
+  <obj id="transm">
+    <n>发报机</n>
+  </obj>
+  <obj id="mines">
+    <n>雷区</n>
+  </obj>
+  <obj id="spikes">
+    <n>尖刺</n>
+  </obj>
+  <obj id="fspikes">
+    <n>天花板尖刺</n>
+  </obj>
+  <obj id="moln1">
+    <n>闪电装置</n>
+  </obj>
+  <obj id="area">
+    <n>区域</n>
+  </obj>
+  <obj id="checkpoint">
+    <n>记录点</n>
+  </obj>
+  <obj id="checkpoint1">
+    <n>记录点（机械锁）</n>
+  </obj>
+  <obj id="checkpoint2">
+    <n>记录点（电子锁）</n>
+  </obj>
+  <obj id="checkpoint3">
+    <n>记录点（损坏）</n>
+  </obj>
+  <obj id="checkpoint4">
+    <n>记录点（炸弹）</n>
+  </obj>
+  <obj id="checkpoint5">
+    <n>记录点（警报）</n>
+  </obj>
+  <obj id="work">
+    <n>工作台</n>
+  </obj>
+  <obj id="himlab">
+    <n>试验台</n>
+  </obj>
+  <obj id="stove">
+    <n>火炉</n>
+  </obj>
+  <obj id="exit">
+    <n>此等级的出口</n>
+  </obj>
+  <obj id="doorout">
+    <n>返回门</n>
+  </obj>
+  <obj id="doorprob">
+    <n>试炼门</n>
+  </obj>
+  <obj id="doorboss">
+    <n>首领房间门</n>
+  </obj>
+  <obj id="wmap">
+    <n>废土地图</n>
+  </obj>
+  <obj id="stand">
+    <n>武器架</n>
+  </obj>
+  <obj id="vault">
+    <n>储物箱</n>
+  </obj>
+  <obj id="table3">
+    <n>魔法水晶球</n>
+  </obj>
+  <obj id="enspawn">
+    <n>敌人生成点</n>
+  </obj>
+  <obj id="p_luna">
+    <n>露娜公主画像</n>
+  </obj>
+  <obj id="barst">
+    <n>吧台</n>
+  </obj>
+  <obj id="smotr">
+    <n>监督的办公桌</n>
+  </obj>
+  <obj id="camp">
+    <n>营地</n>
+  </obj>
+  <obj id="brspr">
+    <n>机械精灵残骸</n>
+  </obj>
+  <obj id="xp">
+    <n>经验</n>
+  </obj>
+  <obj id="detonator">
+    <n>起爆器</n>
+  </obj>
+  <obj id="robocell">
+    <n>机器马休眠仓</n>
+  </obj>
+  <obj id="alarm">
+    <n>警报按钮</n>
+  </obj>
+  <obj id="reactor">
+    <n>反应堆</n>
+  </obj>
+  <obj id="generat">
+    <n>发电机</n>
+  </obj>
+  <obj id="tcloud1">
+    <n>毒气云</n>
+  </obj>
+  <obj id="pcloud1">
+    <n>粉雾</n>
+  </obj>
+  <obj id="alib1">
+    <n>天角兽屏障（竖向）</n>
+  </obj>
+  <obj id="alib2">
+    <n>天角兽屏障（横向）</n>
+  </obj>
+  <obj id="door_st1">
+    <n>避难厩入口</n>
+  </obj>
+  <obj id="door_st2">
+    <n>避难厩出口</n>
+  </obj>
+  <obj id="aaa">
+    <n>护甲展示架</n>
+  </obj>
+  <obj id="tomb">
+    <n>坟墓</n>
+  </obj>
+  <obj id="ponpon">
+    <n>小马</n>
+  </obj>
+  <obj id="zebpon">
+    <n>斑马</n>
+  </obj>
+  <obj id="stabpon">
+    <n>避难厩居民</n>
+  </obj>
+  <obj id="captive">
+    <n>被关押的俘虏</n>
+  </obj>
+  <obj id="training">
+    <n>训练假马</n>
+  </obj>
+  <obj id="spectre">
+    <n>死亡幻影</n>
+  </obj>
+  <obj id="stolp">
+    <n>雷霆之首反应堆</n>
+  </obj>
+  <obj id="окна и двери">
+    <n>门窗</n>
+  </obj>
+  <obj id="fwindow">
+    <n>工厂窗户</n>
+  </obj>
+  <obj id="bwindow">
+    <n>大窗户</n>
+  </obj>
+  <obj id="swindow">
+    <n>小窗户</n>
+  </obj>
+  <obj id="cwindow">
+    <n>中心城窗户</n>
+  </obj>
+  <obj id="awindow">
+    <n>中心城窗户 2</n>
+  </obj>
+  <obj id="zhaluzi">
+    <n>百叶窗</n>
+  </obj>
+  <obj id="stwindow">
+    <n>避难厩窗户</n>
+  </obj>
+  <obj id="stwindow2">
+    <n>π避难厩窗户</n>
+  </obj>
+  <obj id="illum">
+    <n>舷窗</n>
+  </obj>
+  <obj id="vent">
+    <n>通风格栅</n>
+  </obj>
+  <obj id="door">
+    <n>门</n>
+  </obj>
+  <obj id="stabledoor">
+    <n>避难厩门</n>
+  </obj>
+  <obj id="stabledoor2">
+    <n>避难厩入口门</n>
+  </obj>
+  <obj id="gate">
+    <n>大门</n>
+  </obj>
+  <obj id="biggate">
+    <n>大型大门</n>
+  </obj>
+  <obj id="plantgate">
+    <n>工厂大门</n>
+  </obj>
+  <obj id="doorbase1">
+    <n>基地门</n>
+  </obj>
+  <obj id="doorbase2">
+    <n>圆形基地门</n>
+  </obj>
+  <obj id="enclwindow">
+    <n>英克雷窗户</n>
+  </obj>
+  <obj id="enil">
+    <n>圆形窗户</n>
+  </obj>
+  <obj id="doorencl1">
+    <n>英克雷门</n>
+  </obj>
+  <obj id="балки">
+    <n>梁柱</n>
+  </obj>
+  <obj id="konstr">
+    <n>竖梁</n>
+  </obj>
+  <obj id="bigbeam">
+    <n>大型横梁</n>
+  </obj>
+  <obj id="vkonstr">
+    <n>粗竖梁</n>
+  </obj>
+  <obj id="hkonstr">
+    <n>横梁</n>
+  </obj>
+  <obj id="hrail">
+    <n>横向轨道</n>
+  </obj>
+  <obj id="vrail">
+    <n>竖向轨道</n>
+  </obj>
+  <obj id="railing">
+    <n>栏杆</n>
+  </obj>
+  <obj id="karniz1">
+    <n>檐口 1</n>
+  </obj>
+  <obj id="karniz2">
+    <n>檐口 2</n>
+  </obj>
+  <obj id="karniz2a">
+    <n>破损檐口 2</n>
+  </obj>
+  <obj id="karniz3">
+    <n>檐口 3</n>
+  </obj>
+  <obj id="kolonna">
+    <n>柱子</n>
+  </obj>
+  <obj id="arc">
+    <n>拱门</n>
+  </obj>
+  <obj id="balus">
+    <n>栏杆柱</n>
+  </obj>
+  <obj id="ugolr">
+    <n>右墙角</n>
+  </obj>
+  <obj id="ugoll">
+    <n>左墙角</n>
+  </obj>
+  <obj id="awningr">
+    <n>右侧雨棚</n>
+  </obj>
+  <obj id="awningl">
+    <n>左侧雨棚</n>
+  </obj>
+  <obj id="opora">
+    <n>混凝土支撑</n>
+  </obj>
+  <obj id="трубы">
+    <n>管道</n>
+  </obj>
+  <obj id="pipes">
+    <n>管道</n>
+  </obj>
+  <obj id="pipes2">
+    <n>管道 2</n>
+  </obj>
+  <obj id="pipe1">
+    <n>横向粗管道</n>
+  </obj>
+  <obj id="pipe2">
+    <n>主管道</n>
+  </obj>
+  <obj id="pipe3">
+    <n>横向细管道</n>
+  </obj>
+  <obj id="pipe4">
+    <n>竖向细管道</n>
+  </obj>
+  <obj id="stok">
+    <n>排水管</n>
+  </obj>
+  <obj id="stok2">
+    <n>小排水管</n>
+  </obj>
+  <obj id="battery">
+    <n>暖气片</n>
+  </obj>
+  <obj id="unitaz">
+    <n>马桶</n>
+  </obj>
+  <obj id="unitazm">
+    <n>金属马桶</n>
+  </obj>
+  <obj id="rak">
+    <n>水槽</n>
+  </obj>
+  <obj id="shower">
+    <n>淋浴器</n>
+  </obj>
+  <obj id="vpipe">
+    <n>通风管道</n>
+  </obj>
+  <obj id="vpipel">
+    <n>左向通风管道</n>
+  </obj>
+  <obj id="vpiper">
+    <n>右向通风管道</n>
+  </obj>
+  <obj id="vyt">
+    <n>抽油烟机</n>
+  </obj>
+  <obj id="vpipes">
+    <n>通风设备</n>
+  </obj>
+  <obj id="освещение">
+    <n>照明</n>
+  </obj>
+  <obj id="light1">
+    <n>圆灯</n>
+  </obj>
+  <obj id="stlight1">
+    <n>避难厩圆灯</n>
+  </obj>
+  <obj id="light2">
+    <n>矩形壁灯</n>
+  </obj>
+  <obj id="light3">
+    <n>圆形壁灯</n>
+  </obj>
+  <obj id="stlight3">
+    <n>避难厩圆形壁灯</n>
+  </obj>
+  <obj id="light4">
+    <n>吊灯</n>
+  </obj>
+  <obj id="stlight4">
+    <n>避难厩吊灯</n>
+  </obj>
+  <obj id="light5">
+    <n>红灯</n>
+  </obj>
+  <obj id="light6">
+    <n>基地灯</n>
+  </obj>
+  <obj id="light7">
+    <n>英克雷灯</n>
+  </obj>
+  <obj id="оборудование">
+    <n>设备</n>
+  </obj>
+  <obj id="pult">
+    <n>控制台</n>
+  </obj>
+  <obj id="pult2">
+    <n>奇异控制台</n>
+  </obj>
+  <obj id="komp">
+    <n>计算机</n>
+  </obj>
+  <obj id="monitor">
+    <n>显示器</n>
+  </obj>
+  <obj id="monitor2">
+    <n>大型显示器</n>
+  </obj>
+  <obj id="electro">
+    <n>电气柜</n>
+  </obj>
+  <obj id="server">
+    <n>服务器</n>
+  </obj>
+  <obj id="fuse">
+    <n>变压器</n>
+  </obj>
+  <obj id="vents">
+    <n>风扇</n>
+  </obj>
+  <obj id="wires1">
+    <n>电线 1</n>
+  </obj>
+  <obj id="wires2">
+    <n>电线 2</n>
+  </obj>
+  <obj id="bvent">
+    <n>大型风扇</n>
+  </obj>
+  <obj id="zavod1">
+    <n>机器设备</n>
+  </obj>
+  <obj id="zavod2">
+    <n>废金属</n>
+  </obj>
+  <obj id="generator">
+    <n>发电机</n>
+  </obj>
+  <obj id="orudie">
+    <n>火炮</n>
+  </obj>
+  <obj id="интерьер">
+    <n>室内陈设</n>
+  </obj>
+  <obj id="clock">
+    <n>时钟</n>
+  </obj>
+  <obj id="vase">
+    <n>花瓶</n>
+  </obj>
+  <obj id="barrow">
+    <n>担架</n>
+  </obj>
+  <obj id="oper">
+    <n>手术台</n>
+  </obj>
+  <obj id="cot">
+    <n>三层床</n>
+  </obj>
+  <obj id="lab">
+    <n>实验桌</n>
+  </obj>
+  <obj id="chert">
+    <n>制图桌</n>
+  </obj>
+  <obj id="kolb">
+    <n>烧瓶</n>
+  </obj>
+  <obj id="vitrina">
+    <n>印象部展示柜</n>
+  </obj>
+  <obj id="склады">
+    <n>仓储</n>
+  </obj>
+  <obj id="depot">
+    <n>货架</n>
+  </obj>
+  <obj id="storage">
+    <n>储物柜</n>
+  </obj>
+  <obj id="books">
+    <n>书架</n>
+  </obj>
+  <obj id="stillage">
+    <n>货架 2</n>
+  </obj>
+  <obj id="dresser">
+    <n>储物柜 2</n>
+  </obj>
+  <obj id="barf">
+    <n>酒柜</n>
+  </obj>
+  <obj id="snar">
+    <n>炮弹箱</n>
+  </obj>
+  <obj id="изображения">
+    <n>图画标识</n>
+  </obj>
+  <obj id="poster">
+    <n>海报</n>
+  </obj>
+  <obj id="med">
+    <n>医疗海报</n>
+  </obj>
+  <obj id="schem">
+    <n>示意图</n>
+  </obj>
+  <obj id="paint">
+    <n>画作</n>
+  </obj>
+  <obj id="draw">
+    <n>设计图</n>
+  </obj>
+  <obj id="rgraff">
+    <n>掠夺者涂鸦</n>
+  </obj>
+  <obj id="minkrut">
+    <n>必胜部标志</n>
+  </obj>
+  <obj id="rangers">
+    <n>铁骑卫标志</n>
+  </obj>
+  <obj id="banner">
+    <n>小马国旗帜</n>
+  </obj>
+  <obj id="bannerl">
+    <n>斑马军团旗帜</n>
+  </obj>
+  <obj id="rad">
+    <n>辐射标志</n>
+  </obj>
+  <obj id="bio">
+    <n>生物危害标志</n>
+  </obj>
+  <obj id="signboard">
+    <n>招牌</n>
+  </obj>
+  <obj id="znak">
+    <n>警告标志</n>
+  </obj>
+  <obj id="enclave">
+    <n>英克雷标志</n>
+  </obj>
+  <obj id="enclbanner">
+    <n>英克雷旗帜</n>
+  </obj>
+  <obj id="stbanner">
+    <n>印象部旗帜</n>
+  </obj>
+  <obj id="minst">
+    <n>印象部标志</n>
+  </obj>
+  <obj id="pi">
+    <n>π标志</n>
+  </obj>
+  <obj id="пятна">
+    <n>污渍</n>
+  </obj>
+  <obj id="potek">
+    <n>水渍</n>
+  </obj>
+  <obj id="plesen">
+    <n>霉斑</n>
+  </obj>
+  <obj id="moss">
+    <n>苔藓</n>
+  </obj>
+  <obj id="blood1">
+    <n>血迹</n>
+  </obj>
+  <obj id="blood2">
+    <n>流淌血迹</n>
+  </obj>
+  <obj id="web1tl">
+    <n>左上蛛网</n>
+  </obj>
+  <obj id="web1tr">
+    <n>右上蛛网</n>
+  </obj>
+  <obj id="web1bl">
+    <n>左下蛛网</n>
+  </obj>
+  <obj id="web1br">
+    <n>右下蛛网</n>
+  </obj>
+  <obj id="дырки">
+    <n>孔洞</n>
+  </obj>
+  <obj id="chole">
+    <n>混凝土孔洞</n>
+  </obj>
+  <obj id="chole1">
+    <n>混凝土孔洞 8×5</n>
+  </obj>
+  <obj id="chole2">
+    <n>混凝土孔洞 6×9</n>
+  </obj>
+  <obj id="chole3">
+    <n>混凝土孔洞 9×6</n>
+  </obj>
+  <obj id="chole4">
+    <n>混凝土孔洞 11×8</n>
+  </obj>
+  <obj id="chole5">
+    <n>混凝土孔洞 6×5</n>
+  </obj>
+  <obj id="chole6">
+    <n>混凝土孔洞 11×4</n>
+  </obj>
+  <obj id="hole">
+    <n>孔洞</n>
+  </obj>
+  <obj id="hole1">
+    <n>孔洞 1</n>
+  </obj>
+  <obj id="hole2">
+    <n>孔洞 2</n>
+  </obj>
+  <obj id="hole3">
+    <n>孔洞 3</n>
+  </obj>
+  <obj id="hole4">
+    <n>孔洞 4</n>
+  </obj>
+  <obj id="hole5">
+    <n>孔洞 5</n>
+  </obj>
+  <obj id="heap1">
+    <n>碎石堆 1</n>
+  </obj>
+  <obj id="heap2">
+    <n>碎石堆 2</n>
+  </obj>
+  <obj id="heap3">
+    <n>碎石堆 3</n>
+  </obj>
+  <obj id="musor1">
+    <n>垃圾</n>
+  </obj>
+  <obj id="musor2">
+    <n>小垃圾堆</n>
+  </obj>
+  <obj id="подсветка">
+    <n>光照效果</n>
+  </obj>
+  <obj id="shadow">
+    <n>阴影</n>
+  </obj>
+  <obj id="lwhite">
+    <n>白光</n>
+  </obj>
+  <obj id="lred">
+    <n>红光</n>
+  </obj>
+  <obj id="lorange">
+    <n>橙光</n>
+  </obj>
+  <obj id="lyellow">
+    <n>黄光</n>
+  </obj>
+  <obj id="lacid">
+    <n>酸性光</n>
+  </obj>
+  <obj id="lgreen">
+    <n>绿光</n>
+  </obj>
+  <obj id="lcyan">
+    <n>青光</n>
+  </obj>
+  <obj id="lblue">
+    <n>蓝光</n>
+  </obj>
+  <obj id="lpurple">
+    <n>紫光</n>
+  </obj>
+  <obj id="lpink">
+    <n>粉光</n>
+  </obj>
+  <obj id="всякое">
+    <n>杂项</n>
+  </obj>
+  <obj id="chains">
+    <n>锁链</n>
+  </obj>
+  <obj id="skel">
+    <n>骸骨</n>
+  </obj>
+  <obj id="stenka1">
+    <n>墙体 1</n>
+  </obj>
+  <obj id="stenka2">
+    <n>墙体 2</n>
+  </obj>
+  <obj id="stenka3">
+    <n>墙体 3</n>
+  </obj>
+  <obj id="trava">
+    <n>草</n>
+  </obj>
+  <obj id="tree">
+    <n>大树</n>
+  </obj>
+  <obj id="stree">
+    <n>树</n>
+  </obj>
+  <obj id="remains1">
+    <n>建筑剪影</n>
+  </obj>
+  <obj id="remains2">
+    <n>小型建筑剪影</n>
+  </obj>
+  <obj id="metal">
+    <n>金属</n>
+  </obj>
+  <obj id="bar">
+    <n>酒吧招牌</n>
+  </obj>
+  <obj id="celest">
+    <n>塞拉斯提亚雕像</n>
+  </obj>
+  <obj id="butObjSelect">
+    <n>选择对象</n>
+  </obj>
+  <obj id="butCheck">
+    <n>检查</n>
+  </obj>
+  <obj id="butOptRoom">
+    <n>房间属性</n>
+  </obj>
+  <obj id="butToList">
+    <n>更新列表</n>
+  </obj>
+  <obj id="butZLay">
+    <n>切换层</n>
+  </obj>
+  <obj id="butDelRoom">
+    <n>删除房间（Ctrl）</n>
+  </obj>
+  <obj id="butSave">
+    <n>保存</n>
+  </obj>
+  <obj id="butLoad">
+    <n>载入
+（按住 Ctrl）</n>
+  </obj>
+  <obj id="butObjErase">
+    <n>擦除对象</n>
+  </obj>
+  <obj id="butBackObjErase">
+    <n>擦除背景对象</n>
+  </obj>
+  <obj id="butFrontErase">
+    <n>擦除前景</n>
+  </obj>
+  <obj id="butBackErase">
+    <n>擦除背景</n>
+  </obj>
+  <obj id="butDetailsErase">
+    <n>擦除细节</n>
+  </obj>
+  <obj id="butChooseLanguage">
+    <n>语言</n>
+  </obj>
+  <obj id="editorRoomBack">
+    <n>背景房间</n>
+  </obj>
+  <obj id="editorItemCount">
+    <n>物品数</n>
+  </obj>
+  <obj id="editorScripts">
+    <n>脚本</n>
+  </obj>
+</all>

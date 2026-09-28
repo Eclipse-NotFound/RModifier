@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "checks": [
+    "actual original Flash UI loads full map without normalization",
+    "native viewport zoom/pan clamp, DPI scale and stage capture",
+    "real object attribute field commits only selected original XML",
+    "save work copy with revision/content receipt",
+    "reopen saved work copy in original Flash UI",
+    "invalid XML blocks save and survives durable recovery with selection",
+    "restored original input field retains invalid raw text",
+    "real rectangular paint and native canvas undo/redo",
+    "original update-list control copies full room",
+    "save captures its revision while newer edit survives and next action waits",
+    "open dialog late input archived, stale document event rejected",
+    "pending filename is saved through host transaction",
+    "language preference lives in data root without dirtying map",
+    "original PreviewPanel renders and persists across page visibility changes",
+    "original preview export uses host dialog and verified PNG file",
+    "nested host dialogs resume only after last lock",
+    "source maps unchanged",
+    "only owned candidate process closes after matching recovery receipt",
+    "new process restores canonical document, selection and original preview state"
+  ],
+  "root": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\map-native-ui\\37232f8f-ecd2-4060-994a-c63ad8ceb402",
+  "session": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\map-native-ui\\37232f8f-ecd2-4060-994a-c63ad8ceb402\\sessions\\207f3359-96d4-4d6e-9153-5636e56a60fb",
+  "restartedSession": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\map-native-ui\\37232f8f-ecd2-4060-994a-c63ad8ceb402\\sessions\\1f88b718-8432-4540-80b3-fa5630da73b5",
+  "preview": {
+    "busy": false,
+    "x": 212.15,
+    "ready": true,
+    "examples": true,
+    "region": "random_plant",
+    "y": 0,
+    "entities": true,
+    "zoom": 1,
+    "objects": true,
+    "mirror": false,
+    "difficulty": -1,
+    "open": true
+  },
+  "captures": [
+    "capture-4.png",
+    "capture-68.png"
+  ]
+}

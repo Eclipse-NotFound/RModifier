@@ -3,8 +3,8 @@
   const labels={loot:'掉落编辑',barks:'角色台词',map:'地图编辑'};
   const hints={loot:'保存方案留作草稿；应用方案后，下次启动游戏读取。',barks:'先编辑并保存草稿，确认预览后再写入游戏台词。',map:'打开原图后另存工作副本。预览和保存地图不会替换游戏原图。'};
   const pages=new Map(),states=new Map();
-  let active='loot',busy=false,ready=false;
-  const status=message=>{const el=document.getElementById('shell-status');if(el)el.textContent=message;};
+  let active='loot',busy=false,ready=false,nativeMap=false,navigation=0;
+  const status=message=>{const el=document.getElementById('shell-status');if(el)el.textContent=message;if(nativeMap&&active==='map'){const hint=document.getElementById('workspace-hint');if(hint)hint.textContent=message;}};
   function state(id,value){
     if(!labels[id])throw Error('未知编辑页');
     states.set(id,{...states.get(id),...value});
@@ -12,24 +12,35 @@
     if(mark){mark.textContent=states.get(id).dirty?'●':'';mark.title=states.get(id).dirty?'尚未保存':'';}
     workshop.state(id,states.get(id)).catch(e=>status(e.message));
   }
-  function activate(id){
+  async function activate(id){
     if(!labels[id]||!ready)return;
+    const sequence=++navigation;
+    try{
+    if(id!==active){if(await pages.get(active)?.beforeLeave?.()===false)return false;if(sequence!==navigation)return false;await pages.get(active)?.deactivate?.();if(sequence!==navigation)return false;}
     active=id;
     document.querySelectorAll('[data-workspace]').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.workspace===id)));
     for(const name of Object.keys(labels))document.getElementById(name+'-frame').hidden=name!==id;
     document.getElementById('workspace-hint').textContent=hints[id];
     document.title='RModifier · '+labels[id];
-    Promise.resolve(pages.get(id)?.activate?.()).catch(e=>status(e.message));
+    document.body.classList.toggle('native-map-active',nativeMap&&id==='map');
+    document.getElementById('native-map-strip').hidden=!(nativeMap&&id==='map');
+    const top=nativeMap&&id==='map'?document.getElementById('native-map-strip').getBoundingClientRect().bottom:104;
+    await workshop.workspace(id,sequence,top);
+    if(sequence!==navigation)return false;
+    await pages.get(id)?.activate?.();return sequence===navigation;
+    }catch(error){status('切换未完成：'+error.message);return false;}
   }
-  function flushInputs(){
+  async function flushInputs(){
     for(const id of pages.keys()){
       const frame=document.getElementById(id+'-frame');
       frame?.contentDocument?.activeElement?.blur();
+      if(await pages.get(id)?.flush?.()===false)return false;
     }
+    return true;
   }
   const version=id=>JSON.stringify(states.get(id)||{});
   async function prepare(reason){
-    flushInputs();
+    if(!await flushInputs())return false;
     const dirty=Object.keys(labels).filter(id=>states.get(id)?.dirty);
     if(!dirty.length)return true;
     const choice=await workshop.closeChoice(reason,dirty.map(id=>labels[id]));
@@ -40,9 +51,9 @@
       if(!handler)throw Error(labels[id]+'尚未就绪，请等加载完成');
       const before=version(id);
       const ok=await handler[choice==='save'?'saveDraft':'recover']();
-      if(!ok){activate(id);status(labels[id]+'未完成保存，内容仍保留在窗口中');return false;}
+      if(!ok){await activate(id);status(labels[id]+'未完成保存，内容仍保留在窗口中');return false;}
       if((choice==='save'&&states.get(id)?.dirty)||(choice==='recover'&&version(id)!==before)){
-        activate(id);status(labels[id]+'又有新的改动，请先处理后再继续');return false;
+        await activate(id);status(labels[id]+'又有新的改动，请先处理后再继续');return false;
       }
       confirmed.set(id,version(id));
     }
@@ -67,9 +78,8 @@
   workshop.onClose(()=>action(async()=>{if(await prepare('退出前'))await workshop.close();}));
   workshop.onNavigate(activate);
   document.addEventListener('DOMContentLoaded',async()=>{
-    ready=true;
     for(const button of document.querySelectorAll('[data-workspace]'))button.addEventListener('click',()=>activate(button.dataset.workspace));
     document.getElementById('game-location').addEventListener('click',chooseGame);
-    try{const info=await workshop.info();document.getElementById('game-location').title=info.gameRoot;status('游戏位置：'+info.gameRoot);activate(info.workspace||active);}catch(e){status(e.message);}
+    try{const info=await workshop.info();nativeMap=!!info.nativeMap;if(nativeMap)window.installNativeMapHost();else document.getElementById('map-frame').src='map/index.html';document.getElementById('game-location').title=info.gameRoot;status('游戏位置：'+info.gameRoot);ready=true;await activate(info.workspace||active);}catch(e){status(e.message);}
   });
 })();

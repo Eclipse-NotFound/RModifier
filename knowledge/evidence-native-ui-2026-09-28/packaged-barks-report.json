@@ -1,0 +1,22 @@
+{
+  "success": true,
+  "checks": [
+    "Chinese bark edit is dirty in the real three-page host",
+    "Navigation to the visible original AIR map preserves bark text and its undo/redo history",
+    "Rapid page changes keep the last requested bark page editable",
+    "Canceling a native save leaves bark edits unsaved and intact",
+    "Ctrl+S after native-map navigation saves a valid bark draft",
+    "Continue editing cancels the real host close with a dirty bark",
+    "Closing with a recovery draft and restarting restores the bark text",
+    "No renderer errors and the actual game language file is unchanged"
+  ],
+  "passed": 8,
+  "failure": null,
+  "errors": [],
+  "root": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\barks-host-1790591460061-578ee371",
+  "executable": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\dist\\native-candidate-0.3.0-r2\\win-unpacked\\RModifier.exe",
+  "game": "D:\\Program Files\\Steam\\steamapps\\common\\Remains",
+  "languageBefore": "66da212793683b19e65e3973b726a94a2885d5032395af8a2e5a0fd20a17f895",
+  "languageAfter": "66da212793683b19e65e3973b726a94a2885d5032395af8a2e5a0fd20a17f895",
+  "nativeInputScope": "Programmatic web input only; native map pixels and real IME are verified separately"
+}

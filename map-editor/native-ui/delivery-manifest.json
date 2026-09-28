@@ -1,0 +1,128 @@
+{
+  "format": "rmodifier-native-map-delivery",
+  "version": 1,
+  "frozenAt": "2026-09-28T10:26:54.067Z",
+  "files": {
+    "desktop/map/native-document.cjs": {
+      "sha256": "6c6275d2144e31c864439a19ad2193e07f18668d621c322eca3f1b9000114aa5",
+      "bytes": 11706
+    },
+    "desktop/map/native-ui-module.cjs": {
+      "sha256": "ba9a863827758c89154f2becb8f95091246d180ae9fcdc96ffddeeb4b3e182d6",
+      "bytes": 13081
+    },
+    "desktop/map/native-ui-session.cjs": {
+      "sha256": "63fefe0e054637d40821069702db06f432b7ce60a62a98f71e2d160d544fee82",
+      "bytes": 7888
+    },
+    "map-editor/native-ui/EditorAdapter.as.inc": {
+      "sha256": "4839a2c3babbcb64ae5a768697abf6d6ca4e7551d26f883cc41336749a389bb0",
+      "bytes": 12711
+    },
+    "map-editor/native-ui/NativeUIBootstrap.as": {
+      "sha256": "42a168d35cdd6579e4b21e03bad0253dbe083ef483f4a6c010806221454d6a50",
+      "bytes": 13409
+    },
+    "map-editor/native-ui/component/Editor.swf": {
+      "sha256": "cff66815a82ade71d214632f81ebe1caa2ec4883897eeac3f341975341d281c1",
+      "bytes": 505435
+    },
+    "map-editor/native-ui/component/EditorTools.swf": {
+      "sha256": "3faef81708a1873e0f00b6224e17086d30aade580b9c46624c2ef6f5a0a9eea4",
+      "bytes": 18638
+    },
+    "map-editor/native-ui/component/NativeScene.swf": {
+      "sha256": "fcb620b9f4dc25eb3b4b54d420dfdf2549894472e8d0a331f06cdc321fc7cba7",
+      "bytes": 9619837
+    },
+    "map-editor/native-ui/component/NativeUIBootstrap.swf": {
+      "sha256": "a42527e9ab664157c33afc44785b1db1e5842ead46070de58527de9f6ad53541",
+      "bytes": 5936
+    },
+    "map-editor/native-ui/component/editor-en.xml": {
+      "sha256": "4ed4516f7fe33c15df5292ae31186b5dd247dcd3fe07d0028bbcfda5fc4afb2e",
+      "bytes": 21437
+    },
+    "map-editor/native-ui/component/editor-ru.xml": {
+      "sha256": "16bd57f5d3904664c841e415198b1cc750b84900bf677c9ad8fe46c2d2630ccf",
+      "bytes": 26768
+    },
+    "map-editor/native-ui/component/editor-zh.xml": {
+      "sha256": "8c2a66f273762fe17954c2fde5d39bca36f4a4df563d57cd8d42567501d3789c",
+      "bytes": 26890
+    },
+    "map-editor/native-ui/component/manifest.json": {
+      "sha256": "537704c3e74f3f6f279ad72a87a2d846fa1b8bc6ed831e361e410826f339523b",
+      "bytes": 993
+    },
+    "map-editor/tests/native-document.test.cjs": {
+      "sha256": "506d9cc19fc508e2e038f621228101b60118821427f2f8753a8b25614c1173d4",
+      "bytes": 5304
+    },
+    "map-editor/tests/native-ui-preservation.cjs": {
+      "sha256": "e5ab35c0b2ce8e2d843799897840bbb76896331770a48bf2aa2d469834b44fca",
+      "bytes": 5481
+    },
+    "map-editor/tests/native-ui.cjs": {
+      "sha256": "b224decb58997976e4ee2b56af28fc9d33cd5da5c56377f4552a7b2cb74b0675",
+      "bytes": 11658
+    },
+    "map-editor/tools/build-native-ui.ps1": {
+      "sha256": "ee866c0e41427b77f6e3f5380a3eff5102fb8c23ea91ee3a0c47effeb9c18af0",
+      "bytes": 3356
+    },
+    "map-editor/tools/prepare-native-ui.py": {
+      "sha256": "bd4ef0bb398a11a688afe84e0e48f9763277a3f5944c94271329c0ce224412b7",
+      "bytes": 12398
+    },
+    "map-editor/tests/native-ui-controls.cjs": {
+      "sha256": "8f343ff1c246927206fd654cabd19019dfb3f62bede6a44acda6e4bd10e2360d",
+      "bytes": 5689
+    }
+  },
+  "readOnlyDependencies": {
+    "desktop/map/xml.js": {
+      "sha256": "d272ca5a23798f3ad8e7678e29334a159ea6e6ff7fe0d326968eaba3cf71797a",
+      "bytes": 6164
+    },
+    "desktop/map/document.js": {
+      "sha256": "b2b4f02ee33d1b81c06c80172c8301d248b9e0bcff01d65641c9f1c250608246",
+      "bytes": 6067
+    },
+    "desktop/map/workspace.cjs": {
+      "sha256": "ede84a2bbac3f0f01109d59ba85487b6907d54e81493878826f59d1a5f1425c1",
+      "bytes": 9128
+    },
+    "desktop/map/native-session.cjs": {
+      "sha256": "219e57b7e3d36a74077016504d982f33f46f79abbaaaa93fd1393d6574479ce3",
+      "bytes": 5599
+    },
+    "desktop/map/catalog.json": {
+      "sha256": "756f21751480b3a760a746894c661ffbbcbfc7bcf3bb5fc5e4ad59285be310d8",
+      "bytes": 124918
+    },
+    "desktop/store.cjs": {
+      "sha256": "1950c3261bf40e653e7a5d04f8f2da4a18d3062d938bfa2addb10d0959d20628",
+      "bytes": 1971
+    }
+  },
+  "evidence": {
+    "nativeUI19": "build/out/map-native-ui/37232f8f-ecd2-4060-994a-c63ad8ceb402/report.json",
+    "nativeMap31AndExtended5": "build/out/map-native-ui-preservation/bae3c838-c3e9-4df3-adba-dfcbc17c8622/report.json",
+    "nativeControls5": "build/out/map-native-ui-controls/17a7eebd-8c5d-4d27-bb80-5a1f666cea9c/report.json",
+    "preFixControlsFailure": "build/out/map-native-ui-controls/304cff9d-5fb5-4d8c-861d-b3c69d069f70/report.json"
+  },
+  "scope": "Original Flash UI + semantic full-document persistence + original PreviewPanel. Host/package certification remains host-owned.",
+  "notes": [
+    "19 native UI groups, all 31 map open/save cases plus 4 extended fixture groups, and 5 original-control regression groups all rerun on these exact final components.",
+    "The switch-layer and coordinate-map handlers now reject random collections before reading the absent or stale floor map; fixed-map 0/1 transitions remain unchanged.",
+    "Original-control regression dispatches full mouse event sequences through actual Flash controls. Real screen pointer crossing, native OS dialogs and final packaged host acceptance remain host-owned.",
+    "Native-document model sources unchanged; existing 10-group model pass remains applicable.",
+    "Original game/editor files, RandomRooms module and 0.2.0 EXE verified unchanged."
+  ],
+  "revision": 2,
+  "supersedes": {
+    "sha256": "456054a30277eebe48b96d5226f35e25bf5593b0a00c0749f0c3fe6048826e14",
+    "reason": "Prior candidate rejected: original floor button entered fixed-map logic for random room collections and caused AIR #1009."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "success": true,
+  "checks": [
+    "Original AIR surface is visible below the host tabs, with owned-popup identity",
+    "Rapid three-page switches preserve the same AIR window and web editor state",
+    "Native surface follows resize, hides on minimize and restores without losing its session",
+    "Unfinished native property input remains dirty across page switches",
+    "Canceling unified close resumes the native surface and releases its dialog lock",
+    "Native edits save a verified whole-map work copy through the host",
+    "Actual original PreviewPanel renders and persists across host page switches",
+    "Matching recovery receipt allows host close with pending native input",
+    "Restart restores pending original-UI input and full map draft",
+    "No renderer errors and all formal game/editor files remain unchanged"
+  ],
+  "errors": [],
+  "failure": null,
+  "root": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\native-host\\1790585110241-77d668ab",
+  "executable": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\node_modules\\electron\\dist\\electron.exe",
+  "airPid": 88732,
+  "protectedBefore": {
+    "pfe.swf": "c631cbf3511b6ee303f533d08d51511fe0eb702f43e5db17f5241d8576c64867",
+    "text_zh.xml": "66da212793683b19e65e3973b726a94a2885d5032395af8a2e5a0fd20a17f895",
+    "Editor.swf": "e99e231f83128ea24cd13b2ae36b0dd294e5180a16f54ba3c7b3cb8fa24d99fd",
+    "Editor/Enhancements/EditorTools.swf": "d7ad493f19867c96b600599151275877349a7dbf2155794be42483656ae0f002",
+    "Rooms/rooms_plant.xml": "7466ded79a7438ee3de776bb1b7e00c97f1c6a8776a7f0b2ed28bf0b1e69fb68"
+  },
+  "protectedAfter": {
+    "pfe.swf": "c631cbf3511b6ee303f533d08d51511fe0eb702f43e5db17f5241d8576c64867",
+    "text_zh.xml": "66da212793683b19e65e3973b726a94a2885d5032395af8a2e5a0fd20a17f895",
+    "Editor.swf": "e99e231f83128ea24cd13b2ae36b0dd294e5180a16f54ba3c7b3cb8fa24d99fd",
+    "Editor/Enhancements/EditorTools.swf": "d7ad493f19867c96b600599151275877349a7dbf2155794be42483656ae0f002",
+    "Rooms/rooms_plant.xml": "7466ded79a7438ee3de776bb1b7e00c97f1c6a8776a7f0b2ed28bf0b1e69fb68"
+  }
+}

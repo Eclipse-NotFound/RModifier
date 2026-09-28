@@ -3,9 +3,9 @@ const {_electron:electron}=require('C:/Users/hello/.cache/codex-runtimes/codex-p
 const root=path.resolve('build/out/ui-'+Date.now());fs.mkdirSync(root,{recursive:true});
 (async()=>{
 const packaged=process.env.RMODIFIER_EXE||process.env.LOOT_EDITOR_EXE;
-const application=await electron.launch({executablePath:path.resolve(packaged||'node_modules/electron/dist/electron.exe'),args:packaged?[]:[path.resolve('.')],env:{...process.env,RMODIFIER_TEST_ROOT:root,RMODIFIER_GAME_ROOT:path.resolve('../..')},timeout:30000});
+const application=await electron.launch({executablePath:path.resolve(packaged||'node_modules/electron/dist/electron.exe'),args:packaged?[]:[path.resolve('.')],env:{...process.env,RMODIFIER_SHOW_TEST_WINDOW:'1',RMODIFIER_TEST_ROOT:root,RMODIFIER_GAME_ROOT:path.resolve('../..')},timeout:30000});
 const errors=[];const checks=[];const shellPage=await application.firstWindow();await shellPage.locator('#loot-frame').waitFor();let page=shellPage.frame({url:/loot\.html$/});shellPage.on('pageerror',e=>errors.push(String(e)));shellPage.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
-const capture=async filename=>{const png=await application.evaluate(async({BrowserWindow})=>{const win=BrowserWindow.getAllWindows()[0];const picture=await win.webContents.capturePage();return picture.toPNG().toString('base64');});fs.writeFileSync(path.join(root,filename),Buffer.from(png,'base64'));};
+const capture=async filename=>{const png=await application.evaluate(async({BaseWindow})=>{const win=BaseWindow.getAllWindows()[0];const picture=await win.webContents.capturePage();return picture.toPNG().toString('base64');});fs.writeFileSync(path.join(root,filename),Buffer.from(png,'base64'));};
 try{
  await page.getByRole('heading',{name:'弹药盒',exact:true}).waitFor();checks.push('boot Chinese catalogue');
  await shellPage.screenshot({path:path.join(root,'01-original.png'),fullPage:false});
@@ -44,7 +44,7 @@ try{
  const importedId=await page.locator('#profileSelect').inputValue();await page.getByRole('button',{name:'打开上次应用方案',exact:true}).click();await page.getByText('已打开上次应用的方案副本。检查后点击“应用方案”才会替换当前配置。',{exact:true}).waitFor();assert.match(await page.locator('#profileSelect option:checked').innerText(),/^上次应用/);assert.equal(JSON.parse(fs.readFileSync(path.join(root,'data/config/active.json'))).ammo.enabled,true);await page.locator('#profileSelect').selectOption(importedId);checks.push('previous applied profile opens for review without overwriting current configuration');
  await page.locator('[data-tab="container"]').click();await page.locator('#scopeFilter').selectOption('table');await page.locator('[data-source="container:table:ammo"]').click();
  for(const [width,height,zoom] of [[1440,950,1.25],[1440,950,1.5],[1440,1100,2],[900,800,1]]){
-   await application.evaluate(({BrowserWindow},{width,height,zoom})=>{const w=BrowserWindow.getAllWindows()[0];w.setSize(width,height);w.webContents.setZoomFactor(zoom);},{width,height,zoom});
+   await application.evaluate(({BaseWindow},{width,height,zoom})=>{const w=BaseWindow.getAllWindows()[0];w.setSize(width,height);w.webContents.setZoomFactor(zoom);},{width,height,zoom});
    await page.waitForTimeout(200);const metrics=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,width:document.documentElement.clientWidth}));
    assert.ok(metrics.scroll<=metrics.width+2,JSON.stringify({width,zoom,...metrics}));
    await capture(`layout-${width}-${zoom}.png`);

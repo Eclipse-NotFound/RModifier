@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "checks": [
+    "actual original Flash UI loads full map without normalization",
+    "native viewport zoom/pan clamp, DPI scale and stage capture",
+    "real object attribute field commits only selected original XML",
+    "save work copy with revision/content receipt",
+    "reopen saved work copy in original Flash UI",
+    "invalid XML blocks save and survives durable recovery with selection",
+    "restored original input field retains invalid raw text",
+    "real rectangular paint and native canvas undo/redo",
+    "original update-list control copies full room",
+    "save captures its revision while newer edit survives and next action waits",
+    "open dialog late input archived, stale document event rejected",
+    "pending filename is saved through host transaction",
+    "language preference lives in data root without dirtying map",
+    "original PreviewPanel renders and persists across page visibility changes",
+    "original preview export uses host dialog and verified PNG file",
+    "nested host dialogs resume only after last lock",
+    "source maps unchanged",
+    "only owned candidate process closes after matching recovery receipt",
+    "new process restores canonical document, selection and original preview state"
+  ],
+  "root": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\map-native-ui\\7312b689-d5b2-46bf-b975-5253700d4058",
+  "session": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\map-native-ui\\7312b689-d5b2-46bf-b975-5253700d4058\\sessions\\b1308e19-a559-4a00-a5d4-e56631c542b9",
+  "restartedSession": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\map-native-ui\\7312b689-d5b2-46bf-b975-5253700d4058\\sessions\\69e806d8-e8cf-4e9e-b638-a912790bc155",
+  "preview": {
+    "ready": true,
+    "mirror": false,
+    "difficulty": -1,
+    "zoom": 1,
+    "x": 212.15,
+    "region": "random_plant",
+    "busy": false,
+    "objects": true,
+    "examples": true,
+    "y": 0,
+    "entities": true,
+    "open": true
+  },
+  "captures": [
+    "capture-4.png",
+    "capture-67.png"
+  ]
+}

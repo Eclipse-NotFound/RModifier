@@ -1,8 +1,8 @@
-# RModifier 0.2.0
+# RModifier 0.3.0
 
 用于 Remains 1.02 的中文编辑工坊：一个窗口切换掉落、角色台词、地图三个编辑器。玩家不需要安装 Node、输入命令或编辑代码。掉落模块适用单人游戏。
 
-`LootEditor` 目录迁移为 `RModifier` 后，原有掉落方案、配置和安装备份继续使用。按用户选择保留当前游戏进程，正式重启后的新版本读取回执仍待核验。整合记录见 [返回报告](design/2026-09-28-rmodifier-integration-result.md)。
+`LootEditor` 目录已迁移为 `RModifier`，原有掉落方案、配置和安装备份继续使用。正式入口已更新为 0.3.0。按用户选择保留当前游戏进程，正式重启后的游戏模块读取回执仍待核验。最新交付见 [原界面整合返回报告](design/2026-09-28-rmodifier-native-ui-result.md)，此前目录迁移与 ModLoader 接入见 [0.2.0 整合记录](design/2026-09-28-rmodifier-integration-result.md)。
 
 ## 打开与使用
 
@@ -13,7 +13,11 @@
 ## 角色台词与地图
 
 - **角色台词**：选角色与场景，直接编辑句子，查看右侧预览。“保存草稿”保留修改、停用和作者备注；“导出给游戏”可另存完整语言文件，或先备份再写入游戏，也可恢复上次写入。备注不会进入游戏。已有浏览器草稿先从旧工具导出，再在这里打开。
-- **地图**：打开现有地图，或新建随机房间集合/固定地图，使用中文素材选择、笔刷、物体拖动、房间属性和撤销。点“查看游戏画面”生成原生静态预览，点“导出 PNG”保存 1920×1000 图片。“保存地图”保存整份地图；原游戏地图会要求另存工作副本，保存不会自动安装地图。详见 [地图说明](map-editor/README.md)。
+- **地图**：直接使用原 Flash 编辑器的界面、素材选择、绘制和房间属性，以及原“预渲染”面板。底部“适应 / 100% / ＋ / －”控制字号与画面大小；四向箭头平移，“原点”返回左上。还可按住空格拖动、Ctrl+滚轮缩放。顶部可打开、保存副本、撤销和重做；保存的是完整地图，正式地图须另存工作副本。原预览可导出 PNG，保存不会自动安装地图。详见 [原界面说明](map-editor/native-ui/README.md)。
+
+原地图界面保留已有的专业属性输入；不熟悉 XML 时，可先使用素材列表和画布绘制。属性没写完时，切页会保留原文，关闭可选择保留恢复草稿。新版保留现有“随机房审查”入口；其功能仍依赖所选游戏中的 RandomRooms 编辑组件。
+
+如果打开预渲染后看不到顶部工具栏，点底部“原点”找回顶部，或点“适应”查看全貌；按 Esc 返回编辑界面。“切换层”只用于固定地图，随机房间集合会显示用途提示。
 
 ## 编辑掉落
 
@@ -73,16 +77,19 @@
 - 不编辑地图逐个容器的任务物品、陷阱、生怪、死亡脚本，也不创建新武器。
 - 自定义普通奖励支持独立机会、候选权重、数量、耐久、重复抽取、阶段和精英条件；原版复杂条件作为整体保留，没有开放任意脚本或自编条件树。
 - 预览显示地面生成，不包含拾枪赠弹、重复武器修理和地图指定奖励。批量试抽是估计，结果会波动；连续模式会累计配额消耗。
+- 地图原预渲染是静态场景；保留随机房路线信息不等于重新计算路线。复杂或不支持的 XML 结构会拒绝编辑以保留原文。原界面缩放与中文文本输入已在本机 200% 系统缩放下实测，真实中文输入法候选组合及跨不同缩放的显示器仍未实测。
 - 已做程序化实际操作和隔离游戏验证，尚未进行真人新手试用、长时间平衡游玩或所有敌人/地图的穷举测试。
 
 ## 开发与验证
 
 源码：`desktop` 为桌面端，`src` 为掉落游戏模块，`map-editor` 为原生绘图组件与构建资料。`src/tests` 及 LootProbe 只用于隔离验证，不进入正式模块。发行包包含独立桌面运行环境与已经验证的连接载荷；游戏资源读取选中的安装目录。
 
-工具位置可通过构建脚本参数覆盖。开发顺序：安装 package-lock 中的依赖；运行 `npm run build:ui`、`npm run check`、`npm test`；运行 `build/build.ps1` 编译掉落模块，运行 `map-editor/tools/build.ps1` 构建绘图桥；用隔离测试验证；最后 `npm run package`。打包可先运行 `tools/prepare-packager.ps1` 准备带固定校验值的 NSIS 组件。最终文件在 `dist/RModifier.exe`。
+工具位置可通过构建脚本参数覆盖。开发顺序：安装 package-lock 中的依赖；运行 `npm run build:ui`、`npm run check`、`npm test`；掉落模块和旧绘图桥分别由 `build/build.ps1`、`map-editor/tools/build.ps1` 构建；原界面由 `map-editor/tools/build-native-ui.ps1` 构建，窗口适配器由 `tools/build-native-surface.ps1` 构建。隔离验证通过并冻结组件后，运行 `npm run package`。打包可先运行 `tools/prepare-packager.ps1` 准备带固定校验值的 NSIS 组件。默认输出 `dist/RModifier.exe`，可用 `RMODIFIER_PACKAGE_OUT` 指定项目内候选目录。
 
 桌面打包消费已经验证的 `pfe-loot-safe.swf`，不要求恢复或改写正在使用的游戏主文件。确需重建桥接时，`build/bridge.ps1` 只能从已核验原始基线构建。
 
-`tools/extract_catalog.py` 可重新提取本体目录。`tools/generate-fixtures.mjs` 生成两端一致性样本。游戏测试驱动需单独编译 `src/LootProbeDoc.as` 到 `build/out/LootProbeMod.swf`。`tests/ui.cjs`、`tests/host-ui.cjs` 控制真实 Electron；用 `RMODIFIER_EXE` 指向 `dist/win-unpacked/RModifier.exe`。`tests/portable.cjs` 实际启动单文件 EXE，检查独立分发、重复启动与原生地图预览。测试必须同时提供独立测试根和明确游戏根，不能落入真实存档。
+`tools/extract_catalog.py` 可重新提取本体目录。`tools/generate-fixtures.mjs` 生成两端一致性样本。游戏测试驱动需单独编译 `src/LootProbeDoc.as` 到 `build/out/LootProbeMod.swf`。`tests/ui.cjs`、`tests/native-host.cjs`、`tests/barks-host-regression.cjs` 控制真实 Electron 与隔离 AIR；用 `RMODIFIER_EXE` 指向解包候选。`tests/portable.cjs` 实际启动单文件 EXE，检查独立分发、重复启动与原界面加载，`RMODIFIER_PORTABLE_EXE` 可指定候选。旧 `tests/host-ui.cjs` 只对应 0.2.0 网页地图。测试必须同时提供独立测试根和明确游戏根，不能落入真实存档。
+
+桌面版本是 0.3.0，掉落运行模块与配置协议继续使用 0.2.0；本轮不需要重打游戏补丁。已打开的旧编辑器需自行保存并关闭，再启动新版入口。
 
 不要安装 `build/out/pfe-loot.swf`：它只是编译供体。唯一可安装候选是通过方法保持检查的 `pfe-loot-safe.swf`。完整证据见 `knowledge/verification-2026-09-28.md`。

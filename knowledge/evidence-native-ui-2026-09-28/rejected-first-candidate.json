@@ -1,0 +1,7 @@
+{
+  "case": "Original PreviewPanel opened by mouse, then host save",
+  "error": "TypeError: Error #1009",
+  "session": "cc9a0821-1310-4986-8cd3-4c9fa385a9a6",
+  "frozenExe": "61807e71565a5625884290d97822e5ed85f787584227aa906e2a69b44acaf1be",
+  "status": "rejected for release; original entry kept"
+}

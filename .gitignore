@@ -6,6 +6,7 @@ build/tool-home/
 dist/
 profiles/
 config/
+cache/
 backups/
 release/*.swf
 *.log

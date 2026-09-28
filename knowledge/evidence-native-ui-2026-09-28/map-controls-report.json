@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checks": [
+    "Original switch-layer button with no selected object keeps random-room data clean and the session usable",
+    "Host save still opens a dialog and writes the full byte-identical document after the button click",
+    "Original fixed-map floor button still switches both directions without changing any XML",
+    "Random collections ignore stale fixed-map floor controls and minimap presses after a document switch",
+    "Original preview button with no selected object supports host Save As cancellation and success while staying open"
+  ],
+  "session": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\map-native-ui-controls\\17a7eebd-8c5d-4d27-bb80-5a1f666cea9c\\sessions\\7838df3c-df77-4a06-b2b7-f4eba56c843b",
+  "root": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\map-native-ui-controls\\17a7eebd-8c5d-4d27-bb80-5a1f666cea9c"
+}

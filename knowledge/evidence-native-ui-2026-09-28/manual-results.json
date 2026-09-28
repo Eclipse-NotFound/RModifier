@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "verifiedAt": "2026-09-28T10:47:56.9133161Z",
+  "executableSha256": "738dcec6e14aaad8dd3bcd32078d4ffa6a13ba1efe64c333e943caa1024dc9c7",
+  "run": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\portable-1790591530019",
+  "checks": [
+    "Real pointer clicked original switch-layer control in an unselected random collection without fatal error",
+    "Real pointer opened original PreviewPanel",
+    "Host Save As showed the real system file dialog",
+    "Cancelling the dialog restored the same preview",
+    "Typed a Windows path in the real file name field and saved successfully within the session isolation root",
+    "Saved full XML is byte-identical to Rooms/rooms_plant.xml",
+    "Original preview stayed open after save and Fit exposed its full toolbar"
+  ],
+  "savedFile": "session/native-save.xml",
+  "savedSha256": "7466ded79a7438ee3de776bb1b7e00c97f1c6a8776a7f0b2ed28bf0b1e69fb68",
+  "notes": [
+    "First input attempt under Chinese IME produced no committed filename; explicit file-field focus and English input accepted the path. This is not certification of original AIR IME composition.",
+    "A forward-slash path was rejected by the Windows save dialog. Standard backslashes were accepted.",
+    "An initial target outside RMODIFIER_TEST_ROOT/session was refused by the test-only write guard; no file was written. Final target is inside session.",
+    "The 05 screenshot is the refused attempt and is not successful-save evidence."
+  ]
+}

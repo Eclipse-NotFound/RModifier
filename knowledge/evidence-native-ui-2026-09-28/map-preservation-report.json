@@ -1,0 +1,138 @@
+{
+  "passed": true,
+  "root": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\map-native-ui-preservation\\bae3c838-c3e9-4df3-adba-dfcbc17c8622",
+  "checks": [
+    "all 31 original maps passed actual Flash load/save byte-for-byte",
+    "missing-code duplicate objects and CRLF CDATA selection do not dirty original",
+    "sidecar identity changes only second duplicate, retains unknown root/room/fixed doors/scripts",
+    "fixed-map empty position stays clean until first real drawing creates full room",
+    "clean document disposes without a nonexistent save token"
+  ],
+  "rounds": [
+    {
+      "file": "rooms2.xml",
+      "hash": "d3f21afc2171e2cc5ab7c5789f598dc5df148056710a8b6cda790202bc85f6d5"
+    },
+    {
+      "file": "rooms_art.xml",
+      "hash": "72c1d61baa2fb319c58b9ab1377c8ef6e8a43be96f222de09c065e73a137f244"
+    },
+    {
+      "file": "rooms_begin.xml",
+      "hash": "c67dd9414195d8cc88b904c69af42c9c615c1d7348ff10edd20b11c5e576fe1e"
+    },
+    {
+      "file": "rooms_canter.xml",
+      "hash": "2ab719eaac8114831bda14d9a1ddd97f439ce1055d7c2dea884276bb5ee9d015"
+    },
+    {
+      "file": "rooms_comm.xml",
+      "hash": "ddab955ec3342acfd7391cac224410b87dd1b15d554e6e3118bc8fd39792f284"
+    },
+    {
+      "file": "rooms_core.xml",
+      "hash": "9703aa097d27fcce4170817495ad0c46a132fbaf4cb59650335cd8661d9cadf6"
+    },
+    {
+      "file": "rooms_covert.xml",
+      "hash": "2c179de25d60bf5d010bc13b0746d94c88f25ed0fc034124417c64ab60ef739c"
+    },
+    {
+      "file": "rooms_encl.xml",
+      "hash": "925b667ad9b6082a732f19b0eccbacec87edff4b7931f7b7cafd3d2d210cd8f7"
+    },
+    {
+      "file": "rooms_garages.xml",
+      "hash": "2e85be07fa803e630d7420f2994a791e8b5371071f521f18e104ed24e9c8a709"
+    },
+    {
+      "file": "rooms_grave.xml",
+      "hash": "57046ce0c0ed1e4ef38306e8022d6f86178676cc03732c06dcc79c354d5c4686"
+    },
+    {
+      "file": "rooms_hql.xml",
+      "hash": "f1e12ca30aca302a78fc1dd12781bc0de9d69b6458c0804d9a87bd5ea41111aa"
+    },
+    {
+      "file": "rooms_mane.xml",
+      "hash": "d743dea9fa1eab3b5d09144ad4975e56bfdd4359fabbd73d43963a5ac5b6708e"
+    },
+    {
+      "file": "rooms_mbase.xml",
+      "hash": "c24242decb03d23b6c7a5beb52100a13cf3a9c6296d6533e516ee88378312c0a"
+    },
+    {
+      "file": "rooms_minst.xml",
+      "hash": "43c8973fb9eab7846dae4378b1d14dddf9fa03be1bbeffeaa7dcb445c8e933a1"
+    },
+    {
+      "file": "rooms_mtn.xml",
+      "hash": "929dfe7c285b30178eff6547fe200482f255ca29183850b29eeb2039756b55a3"
+    },
+    {
+      "file": "rooms_nio.xml",
+      "hash": "719e587275d726f26f3810c4148f5f083297c4251cfe43d210a202426bc0e34a"
+    },
+    {
+      "file": "rooms_pi.xml",
+      "hash": "ea0e89e007398f5d8ff6c4932a5ecdf1be7f5019a57db6f9df0f42b9b92851f9"
+    },
+    {
+      "file": "rooms_pis.xml",
+      "hash": "92ab52afd09429959658dd22e86a63b1e47e0bd7888f24177d735b798e951550"
+    },
+    {
+      "file": "rooms_plant.xml",
+      "hash": "7466ded79a7438ee3de776bb1b7e00c97f1c6a8776a7f0b2ed28bf0b1e69fb68"
+    },
+    {
+      "file": "rooms_post.xml",
+      "hash": "6e5ba29ef22ef5001356f942b74890d0e868f084bc22c6ce65fe72aacbee9f23"
+    },
+    {
+      "file": "rooms_prob.xml",
+      "hash": "13a359153c982ffd1ef95a643fdb5cf48e8b4bf44e258acf30e29a0ad472c5ca"
+    },
+    {
+      "file": "rooms_raiders.xml",
+      "hash": "71b047598cff815fabf20f32797b53fe894d33f7094f26749760879fee29e62d"
+    },
+    {
+      "file": "rooms_rbl.xml",
+      "hash": "f2522b2c78f07988f28a0c88f87076a52448de9fbb54416d6306de68ce9ca527"
+    },
+    {
+      "file": "rooms_sewer.xml",
+      "hash": "e7e178f48826de4982b64e85bb380a85f891bf421cb5e93d07ff15d3202b2dd4"
+    },
+    {
+      "file": "rooms_src.xml",
+      "hash": "c97633c02772ca25747aeb8e4c98b9380f3e6053dbf213e2c3c923176127eaa9"
+    },
+    {
+      "file": "rooms_stable.xml",
+      "hash": "6119717f2ff5de034f6c7b148b01c0d2e28d1f2076cc1be878f55b40b7e26109"
+    },
+    {
+      "file": "rooms_surf.xml",
+      "hash": "a6f33dbee5d4fe3a0b993088ce76d94ced12cd1637a1da98e4a47699ec6817a8"
+    },
+    {
+      "file": "rooms_thunder.xml",
+      "hash": "b0eb12dc0c3e90a2e3d72291082b0a4bd00ad6d974a1bf005c3d794456a4da67"
+    },
+    {
+      "file": "rooms_way.xml",
+      "hash": "976f849f58cc787c0ca1a84c37ac77ec15085e7bf9a48aeaaae0874d9c50d3d5"
+    },
+    {
+      "file": "rooms_workshop.xml",
+      "hash": "224eea9130073167859a4779baf36380320928e2deeea44d05e40b9391cb0ab1"
+    },
+    {
+      "file": "z_shablon.xml",
+      "hash": "0511e13d0d6be4ee356cb334aaff707f30575b301c479a0d896327b4d4d6b04a"
+    }
+  ],
+  "session": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\map-native-ui-preservation\\bae3c838-c3e9-4df3-adba-dfcbc17c8622\\sessions\\fa5bd76a-836f-4a7f-a43a-6ab1027ada1e"
+}

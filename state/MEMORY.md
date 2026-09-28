@@ -1,46 +1,40 @@
 # RModifier 外置记忆
 
 ## 1. 项目
-中文独立编辑工坊，单文件 RModifier.exe、同窗口掉落/角色台词/地图三页。掉落模块沿用 LootEditorMod 与现有 ModLoader，仅1.02单人；地图页面调用隐藏 AIR 绘制原生静态图；台词编辑现有语言文件与v1草稿。
+中文独立编辑工坊，一个便携 RModifier.exe、同窗口掉落/角色台词/地图三页。0.3.0 地图页承载原 Flash UI 与原 PreviewPanel；掉落游戏模块仍为 LootEditorMod 0.2.0，接入现有 ModLoader，仅验证1.02单人。
 
-## 2. 用户决定与授权
-独立窗口、多方案；敌人对应弹药额外叠加，保留原随机弹药和拾枪赠弹。2026-09-28 用户授权并完成根游戏备份/桥接安装，随后选择“保留当前游戏，我稍后自行重启”。不关闭正式游戏，不用真实存档测试。
-本轮用户授权本会话接管总整合、向地图与台词会话直接协调；明确文件夹改名为 RModifier。迁移已完成，后续只使用 mods/RModifier，不重建旧 LootEditor。原地图/台词工具保留，不改其他模组源码。
+## 2. 用户决定与协作
+独立窗口、多方案；对应弹药作为额外掉落，保留原随机弹药与拾枪赠弹。用户已授权主文件备份/接入、RModifier 总整合及与地图/台词两会话直接协调。目录已从 mods/LootEditor 迁移为 mods/RModifier，不重建旧目录，不改原地图/台词工具或其他模组源码。
+用户选择正式游戏稍后自行重启；本轮保留正式游戏。已授权屏幕操作，并在旧编辑器占用EXE时明确确认“已保存，可以关闭旧编辑器并完成更新”。旧编辑器以Alt+F4正常退出，无强杀。正式新版已打开，用户开始自行操作后停止输入，不关闭这个新窗口。
+地图会话 01a0e2df-f3a5-7661-8de6-4a396306e8d3；台词会话 01a0e2d6-d192-7232-81d0-7a9017db9ba9。宿主/打包/统一提交由本会话负责，两方已冻结。
 
 ## 3. 当前状态
-0.2.0 已实现、打包、验证并部署。用户入口为本目录顶层 RModifier.exe（131,390,882字节，SHA-256 4fa9a002eadc23d0f8fb05a628b2aced0757ffa2252d9c4914730e01a2cd3533）。
-正式登记唯一为 RModifier|LootEditorMod|1|0|0；release模块 fe1049393541f2ffc88cc88d4a61f4a83e550d8f30e91bc3c44fc8761cbc0a31。根 pfe 未再修改，仍 c631cbf3...6c64867。安装器 connected/canRestore=true，原备份保留。
-最终发行包通过8组宿主、14组掉落UI、6组实际单文件验证，无JS/CSP错误；Node46项、地图模型16组、台词核心44项/服务25项/UI18组、地图原生12组/UI18组均通过。新版掉落模块隔离AIR128断言通过，回执0.2.0与mods/RModifier确认；测试进程已结束。
-构建前后386项运行输入一致，实际打包SceneHost/NativeScene与地图冻结清单匹配，三页截图已查看。地图32项交付文件迁移前后核对无差异。
+0.3.0 原界面整合已实现并完成全部验收。最终单文件 dist/native-candidate-0.3.0-r2/RModifier.exe，131589362字节，SHA256 738dcec6e14aaad8dd3bcd32078d4ffa6a13ba1efe64c333e943caa1024dc9c7。
+真实最终包：宿主10组、掉落14组、台词8组、实际portable6组全通过，无JS/CSP错误。真实鼠标验证随机集合原切换层→原预渲染→系统另存取消→成功保存；实际副本与原地图逐字节相同，保存后预览仍开。自己测试实例已退出。原组件19组交互、31图逐字节开存+4扩展夹具、5原控件回归均通过；Node46项、地图模型10组沿用同源有效证据。
+构建402项输入前后一致，实际ASAR386源码+7原生组件+窗口适配器核对一致；地图冻结revision2，19文件+6只读依赖已核对。第一候选因真实点击原切换层触发#1009拒收；r2修复随机集合访问空/遗留mapArr，所有相关测试重跑。
+正式顶层RModifier.exe已更新为上述0.3.0，hash与验收r2相同，并已从正式入口启动显示原地图UI（08-installed-original-map.png）。ModLoader唯一登记仍 RModifier|LootEditorMod|1|0|0，release模块 fe104939...cbc0a31；根pfe c631cbf3...6c64867。本轮没有重打游戏补丁。
 
-## 4. 停点
-工作已交付，实际返回报告 design/2026-09-28-rmodifier-integration-result.md；原 preparation 报告继续作为历史保留。双方组件冻结，主会话统一提交。
-用户正式游戏未重启，新版本正式读取回执尚未核验；没有替用户应用自定义掉落示例或写正式台词/地图。迁移时只有旧安装记录，无用户方案/active.json。
-地图会话 01a0e2df-f3a5-7661-8de6-4a396306e8d3；台词会话 01a0e2d6-d192-7232-81d0-7a9017db9ba9。用户授权的本轮直接协调有效，两边已收到新路径，禁止恢复旧目录。
+## 4. 当前停点
+原界面整合已交付，没有未完成实现。最后入口替换曾被旧进程锁住；用户确认保存并授权后正常退出，原子替换成功。不是沙箱审批拒绝。
+旧备份 backups/editor/20260928T105106Z-before-0.3.0/RModifier-0.2.0.exe，hash 4fa9a002eadc23d0f8fb05a628b2aced0757ffa2252d9c4914730e01a2cd3533；更新记录同目录update.json及knowledge/evidence-native-ui-2026-09-28/editor-update.json。6项游戏/原工具文件前后hash不变，暂存入口已被原子替换消费。
+报告 design/2026-09-28-rmodifier-native-ui-result.md 已记交付、使用、全部验收与回退。源码/证据/记忆由本会话统一提交。
 
 ## 5. 已知边界
-游戏支持仍为1.02单人掉落，未认证DLC/联机/长期平衡/真人新手使用。地图预览静态，不运行剧情、AI或实战随机生成；保存工作副本不自动安装。旧浏览器台词草稿需导出后打开。
-台词/地图编辑可直接用中文控件；高级原文/脚本保留给已有作品。真实系统文件选择器鼠标操作及真实中文输入法组合未实测，程序化返回路径与组合事件已验证。
-不能用早期候选包的验证认证新源；package.mjs 已校验构建前后输入及实际进入包的组件。详见 knowledge/rmodifier-build-and-coordination.md。
+原预渲染是静态场景，不认证实战剧情/AI；保留rrPlan不等于路线重算。未知字段、脚本、换行和完整地图保留；无法可靠映射的复杂XML拒绝编辑。正常关闭保护待输入内容，断电前未送达按键/IME组合不承诺零丢失。
+本机200%DPI实际显示、中文Unicode文本已测；真实原AIR中文输入法组合、跨不同DPI显示器未认证。本轮系统保存框中实际IME候选出现，但不扩大为原AIR输入认证。文件框在英文模式接受完整Windows反斜杠路径。
+预览继承原界面平移；顶部工具栏在视野外时点底部“原点”或“适应”，Esc返回编辑，README已说明。
+正式游戏尚未重启验证0.2.0读取回执。未替用户应用掉落示例或写正式台词/地图。没有真人新手试用、长期平衡或DLC/联机认证。
 
 ## 6. 后续与恢复
-现在无未完成的整合实现。用户自行重启游戏后，按需核对正式 Local Store/LootEditor.receipt.json 的0.2.0、configRoot、当前会话和配置指纹；没有设后台监控。
-最初根备份：../../pfe_before_LootEditor_2026-09-28T00-13-05-389Z-2a4d4198.swf，hash b7824465...03305ac。掉落页“我的方案 → 恢复连接前的游戏”恢复桥接前版本，先保存退出游戏。
-本次迁移记录：../.rmodifier-migration/1790576794146-3f61d4d1-3cbd-4ab6-ad98-cc8a4d33f6a8/migration.json。维护者先关闭编辑器，使用 tools/migrate.cjs --rollback <记录> 撤回目录/旧模块/登记；保留后来方案，后续外部变更会阻止自动撤回。不要把两种恢复混用。
-共享资源表已在游戏区与D:/RemainsMod对应来源更新本项目登记；没有覆盖双方原先其他模组的差异。
+目前无需继续整合或重复测试。用户自行重启正式游戏后，按需核对Local Store/LootEditor.receipt.json中的版本、configRoot与配置指纹；没有设置后台监控。
+桌面回退：关闭编辑器后把上述0.2.0备份复制回顶层EXE，保留方案/配置。游戏桥接恢复为独立操作，最初备份 ../../pfe_before_LootEditor_2026-09-28T00-13-05-389Z-2a4d4198.swf，hash b7824465...03305ac；掉落页“恢复连接前的游戏”先要求游戏退出。
+目录迁移记录 ../.rmodifier-migration/1790576794146-3f61d4d1-3cbd-4ab6-ad98-cc8a4d33f6a8/migration.json，维护者关闭编辑器后可用tools/migrate.cjs --rollback；它与桌面/游戏回退不能混用。
 
 ## 7. 深入与复现
-- README.md、CHANGELOG.md、design/2026-09-28-rmodifier-integration-result.md；证据 knowledge/evidence-rmodifier-2026-09-28/。
-- 台词 design/2026-09-28-barks-integration-api.md；地图 map-editor/README.md、integration-report-2026-09-28.md、delivery-manifest.json。
-- 公共契约 parent.workshop / parent.RMHost；desktop/platform/documents.cjs 组合两方服务。旧 workspaceState/editorHost 原型已归档。
-- npm run build:ui / npm run check / npm test；build/build.ps1；map-editor/tools/build.ps1；tools/prepare-packager.ps1；npm run package。
-- tests/host-ui.cjs、tests/ui.cjs 可用RMODIFIER_EXE指向win-unpacked；tests/portable.cjs 实际单文件；地图专用tests、台词专用tests。
-- 游戏隔离：tools/run-game-test.ps1 -Fallback -AllMods；只处置自己记录的测试PID。测试需唯一AIR id，正式pfe存储只读。
-- 不安装build/out/pfe-loot.swf供体，只消费固定已验证的pfe-loot-safe.swf；主文件字节码保持证据在旧0.1.0验证报告。
-
-## 8. 交付后的新需求转述（尚未实施）
-台词会话转来用户新需求：“我想在地图编辑器功能中使用原flash版地图编辑器的UI和预渲染。”该会话与地图方正在只读核对原增强版 Editor.swf / EditorTools.swf；主会话已将宿主限制同步给两边。当前0.2.0是网页地图交互加隐藏AIR绘图，没有原Flash窗口嵌入通道。原有同窗口三页要求继续作为约束，独立地图窗口尚未获用户重新选择，不能默认恢复旧规划。
-需要先验证原UI接入与完整地图保存/未保存状态协议，再明确改动分工；后续需涵盖切页、焦点、DPI、输入、关闭与portable资源路径。现有ToolsSnapshot只覆盖当前房间。此次仅只读核对与协调，未修改宿主、地图代码、发行包或运行中的游戏。当前交付提交56eee49仍是可用基线。
-
-地图方补充：真实UI为根Editor.swf内的MainEd/visualEditor，PreviewPanel是同Flash视图内的Sprite覆盖层；EditorTools.init(editor)可接入，MainEd.ed为internal。原encodeAll重建all且只拼land/rooms，可能丢未知根字段；saveClick/FileReference.save缺少完成/取消回执，原工具也没有整图dirty/持久恢复桥。固定1800×950坐标、相对URL、File.applicationDirectory与SharedObject EditorConf都需适配并实测，以上是地图方只读源码结论，尚非嵌入成功证明。
-主会话独立核对当前原工具指纹：Editor.swf=e99e231f83128ea24cd13b2ae36b0dd294e5180a16f54ba3c7b3cb8fa24d99fd；Editor/Enhancements/EditorTools.swf=d7ad493f19867c96b600599151275877349a7dbf2155794be42483656ae0f002；NativeScene.swf=fcb620b9f4dc25eb3b4b54d420dfdf2549894472e8d0a331f06cdc321fc7cba7。EditorTools源码第68行已加载mods/RandomRooms/release/RandomRoomsEditor.swf，文件存在且hash=fb1537f54b2c32af02aca771cb09366441fb74ca01ee3a6099e35c4d3a35dfd8。这是原工具的新基线，后续必须保留“随机房审查”扩展并协调其维护方，不能从旧EditorTools组件覆盖重打，也不能据此改写RModifier 0.2.0的历史冻结清单。
+- README.md、CHANGELOG.md；design/2026-09-28-rmodifier-native-ui-result.md；knowledge/evidence-native-ui-2026-09-28/。带first-candidate/pre-fix前缀证据为历史拒收/修复前结果。
+- 0.2.0历史交付 design/2026-09-28-rmodifier-integration-result.md；knowledge/rmodifier-build-and-coordination.md记录承载、DPI、控件事件、打包核对经验。
+- 原地图协议 map-editor/native-ui/README.md、delivery-manifest.json；台词 design/2026-09-28-barks-integration-api.md。
+- npm run build:ui / check / test；map-editor/tools/build-native-ui.ps1，tools/build-native-surface.ps1；冻结后运行tools/package.mjs，RMODIFIER_PACKAGE_OUT可选项目内候选目录；tools/verify-native-package.cjs核对实际包。
+- tests/native-host.cjs、tests/ui.cjs、tests/barks-host-regression.cjs用RMODIFIER_EXE指向解包程序；tests/portable.cjs用RMODIFIER_PORTABLE_EXE指定单文件，--hold提供实屏验收停点。测试必须有明确游戏根和独立testRoot，只结束自己的PID。
+- 窗口为owned popup而非WS_CHILD，BaseWindow+常驻WebContentsView；surface只绑定/布局，地图模块独占AIR进程生死。不要按窗口元数据误判实际像素成功。
+- 安装载荷只消费验证过的build/out/pfe-loot-safe.swf，不安装pfe-loot.swf编译供体。本轮桌面0.3.0与运行模块0.2.0分别记版本。

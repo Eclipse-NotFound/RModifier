@@ -1,0 +1,33 @@
+{
+  "version": "0.3.0",
+  "status": "installed",
+  "createdAt": "2026-09-28T10:51:08.0936845Z",
+  "entry": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\RModifier.exe",
+  "candidate": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\dist\\native-candidate-0.3.0-r2\\RModifier.exe",
+  "oldHash": "4fa9a002eadc23d0f8fb05a628b2aced0757ffa2252d9c4914730e01a2cd3533",
+  "newHash": "738dcec6e14aaad8dd3bcd32078d4ffa6a13ba1efe64c333e943caa1024dc9c7",
+  "backup": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\backups\\editor\\20260928T105106Z-before-0.3.0\\RModifier-0.2.0.exe",
+  "staged": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\.RModifier-0.3.0-staged-20260928T105106Z.exe",
+  "protectedBefore": {
+    "pfe.swf": "c631cbf3511b6ee303f533d08d51511fe0eb702f43e5db17f5241d8576c64867",
+    "text_zh.xml": "66da212793683b19e65e3973b726a94a2885d5032395af8a2e5a0fd20a17f895",
+    "Editor.swf": "e99e231f83128ea24cd13b2ae36b0dd294e5180a16f54ba3c7b3cb8fa24d99fd",
+    "Editor/Enhancements/EditorTools.swf": "d7ad493f19867c96b600599151275877349a7dbf2155794be42483656ae0f002",
+    "mods/RModifier/release/LootEditorMod.swf": "fe1049393541f2ffc88cc88d4a61f4a83e550d8f30e91bc3c44fc8761cbc0a31",
+    "mods/RandomRooms/release/RandomRoomsEditor.swf": "fb1537f54b2c32af02aca771cb09366441fb74ca01ee3a6099e35c4d3a35dfd8"
+  },
+  "userProcessesStopped": true,
+  "error": null,
+  "method": "atomic-file-replace-after-user-authorized-normal-close",
+  "completedAt": "2026-09-28T10:59:30.4277989Z",
+  "replacementBackup": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\backups\\editor\\20260928T105106Z-before-0.3.0\\RModifier-0.2.0-replaced.exe",
+  "userEditorClose": "User confirmed saved; original editor closed with Alt+F4; no force termination; formal game untouched",
+  "protectedAfter": {
+    "pfe.swf": "c631cbf3511b6ee303f533d08d51511fe0eb702f43e5db17f5241d8576c64867",
+    "text_zh.xml": "66da212793683b19e65e3973b726a94a2885d5032395af8a2e5a0fd20a17f895",
+    "Editor.swf": "e99e231f83128ea24cd13b2ae36b0dd294e5180a16f54ba3c7b3cb8fa24d99fd",
+    "Editor/Enhancements/EditorTools.swf": "d7ad493f19867c96b600599151275877349a7dbf2155794be42483656ae0f002",
+    "mods/RModifier/release/LootEditorMod.swf": "fe1049393541f2ffc88cc88d4a61f4a83e550d8f30e91bc3c44fc8761cbc0a31",
+    "mods/RandomRooms/release/RandomRoomsEditor.swf": "fb1537f54b2c32af02aca771cb09366441fb74ca01ee3a6099e35c4d3a35dfd8"
+  }
+}
