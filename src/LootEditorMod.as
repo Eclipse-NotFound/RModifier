@@ -11,7 +11,7 @@ package {
     import loot.RuleEngine;
 
     public class LootEditorMod {
-        public static const VERSION:String="0.2.0";
+        public static const VERSION:String="0.2.1";
         [Embed(source="../desktop/data/catalog.json",mimeType="application/octet-stream")]
         private static var CatalogBytes:Class;
         private static var timer:Timer;

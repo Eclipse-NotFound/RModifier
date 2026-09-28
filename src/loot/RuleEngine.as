@@ -31,9 +31,12 @@ package loot {
                     if(!(v.pick is Array)||v.pick.length<1||v.pick.length>60)return "invalid choices";
                     var choices:Object={};var weapon:Boolean=false;
                     for each(var c:Object in v.pick){
-                        if(c==null||!items.hasOwnProperty(c.key)||choices.hasOwnProperty(c.key)||!number(c.weight,1,1000))return "invalid item/weight";
-                        choices[c.key]=true;i=items[c.key];weapon=weapon||i.kind=="weapon"||i.kind=="armor";
-                        if(v.variant && !(i.kind=="weapon"&&i.pool&&Number(i.pool.uniq)>0))return "item has no special variant";
+                        if(c==null||!items.hasOwnProperty(c.key)||!number(c.weight,1,1000))return "invalid item/weight";
+                        i=items[c.key];var baseKey:String=i.baseKey||i.key;
+                        var identity:String=baseKey+"^"+int(i.variant||v.variant);
+                        if(choices.hasOwnProperty(identity))return "duplicate item variant";
+                        choices[identity]=true;weapon=weapon||i.kind=="weapon"||i.kind=="armor";
+                        if(v.variant && !(i.kind=="weapon"&&items.hasOwnProperty(baseKey+"^1")))return "item has no special variant";
                     }
                     stackBudget+=v.repeat*(weapon?v.max:1);
                 }
@@ -60,7 +63,7 @@ package loot {
                     if(r.pick.length>1){var total:Number=0;for each(c in r.pick)total+=c.weight;var p:Number=rng()*total;for each(c in r.pick){p-=c.weight;if(p<0){chosen=c;break;}}}
                     var item:Object=items[chosen.key];var count:int=quantity(r.min,r.max,rng);
                     if(item.kind=="weapon"||item.kind=="armor"){
-                        for(var j:int=0;j<count;j++)drops.push({key:chosen.key,count:1,durability:quantity(r.durabilityMin,r.durabilityMax,rng)/100,variant:r.variant});
+                        for(var j:int=0;j<count;j++)drops.push({key:item.baseKey||chosen.key,count:1,durability:quantity(r.durabilityMin,r.durabilityMax,rng)/100,variant:item.variant||r.variant});
                     }else drops.push({key:chosen.key,count:count,durability:1,variant:0});
                 }
             }

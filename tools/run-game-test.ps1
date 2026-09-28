@@ -1,4 +1,4 @@
-param([string]$AppId=('pfe-loot-test-'+(Get-Date -Format 'yyyyMMdd-HHmmss')), [switch]$StopOnly, [switch]$Fallback, [switch]$AllMods)
+param([string]$AppId=('pfe-loot-test-'+(Get-Date -Format 'yyyyMMdd-HHmmss')), [switch]$StopOnly, [switch]$Fallback, [switch]$AllMods, [ValidateSet('','en','zh')][string]$Language='')
 $ErrorActionPreference='Stop'
 $project=Split-Path $PSScriptRoot -Parent
 $game=Split-Path (Split-Path $project -Parent) -Parent
@@ -15,7 +15,7 @@ if(Test-Path -LiteralPath $record){
 }
 if($StopOnly){return}
 if($AppId -notmatch '^pfe-loot-test-[-\w]+$'){throw 'Use an isolated test application ID'}
-& (Join-Path $PSScriptRoot 'prepare-test.ps1') -AppId $AppId -Fallback:$Fallback -AllMods:$AllMods
+& (Join-Path $PSScriptRoot 'prepare-test.ps1') -AppId $AppId -Fallback:$Fallback -AllMods:$AllMods -Language $Language
 $process=Start-Process -FilePath (Join-Path $game 'adl64.exe') -ArgumentList @('-runtime',('"'+(Join-Path $game 'runtimes/air/win64')+'"'),('"'+$descriptor+'"')) -WorkingDirectory (Join-Path $project 'build/out/game') -WindowStyle Hidden -PassThru
 @{pid=$process.Id;descriptor=$descriptor;appId=$AppId} | ConvertTo-Json | Set-Content -LiteralPath $record -Encoding utf8
 Write-Output "Launched isolated $AppId PID $($process.Id)"

@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "passed": 6,
+  "checks": [
+    "Single EXE starts from a Chinese/space path without adjacent resources",
+    "Packaged original Flash UI loads in the owned surface and responds to viewport controls",
+    "A second launch activates the existing window and requested editor",
+    "Portable writes recovery outside its temporary extraction directory",
+    "Bundled loot editor saves a real profile",
+    "Portable renderer has no JavaScript/CSP errors"
+  ],
+  "errors": [],
+  "failure": null,
+  "entry": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\portable-1790597034355\\单文件 空格目录\\RModifier.exe",
+  "root": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\portable-1790597034355"
+}

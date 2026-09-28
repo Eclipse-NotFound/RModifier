@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "packaged": true,
+  "checks": [
+    "search real name or base name, filter and select advanced weapon",
+    "ordinary and advanced chance controls are independent and preview uses actual names",
+    "save and apply persist distinct versions and probabilities",
+    "same base weapon can have ordinary and advanced weighted candidates",
+    "legacy profiles display correctly and retain meaning through edit, undo, redo, save and reload",
+    "original zero-weight advanced weapon can be selected",
+    "no narrow horizontal overflow",
+    "no renderer errors"
+  ],
+  "errors": []
+}

@@ -65,7 +65,7 @@ function status(){
   try{receipt=readJSON(testRoot?path.join(testRoot,'receipt.json'):path.join(app.getPath('appData'),'pfe','Local Store','LootEditor.receipt.json'));}catch{}
   const receiptHere=!!receipt?.gameRoot&&path.resolve(receipt.gameRoot).toLowerCase()===gameRoot.toLowerCase();
   let migration=0;try{migration=Number(readJSON(path.join(store.root,'config/migration.json')).at)||0;}catch{}
-  const receiptRecent=receiptHere&&receipt.version==='0.2.0'&&receipt.configRoot==='mods/RModifier'&&receipt.readAt>=Math.max(Number(state.appliedAt||0),migration);
+  const receiptRecent=receiptHere&&receipt.version===core.VERSION&&receipt.configRoot==='mods/RModifier'&&receipt.readAt>=Math.max(Number(state.appliedAt||0),migration);
   const receiptFresh=receiptRecent&&receipt.profileHash===activeHash&&receipt.status==='ready';
   let manifest='';try{manifest=fs.readFileSync(path.join(gameRoot,'mods','loader-manifest.txt'),'utf8');}catch{}
   const listed=/^RModifier\|LootEditorMod\|1\|/m.test(manifest);
@@ -98,8 +98,10 @@ app.whenReady().then(async()=>{
   handle('install',async()=>{
     if(testRoot)throw new Error('界面自动测试禁止安装到真实游戏');
     const s=installer.inspect(gameRoot,payload);
-    if(s.connected)return status();
-    const answer=await dialog.showMessageBox(window,{type:'question',buttons:['暂不连接','备份并连接'],defaultId:0,cancelId:0,message:'将掉落工坊连接到这份游戏？',detail:'请先保存并退出游戏。将备份并更新根目录 pfe.swf，安装掉落模块，通过现有 ModLoader 扫描器登记为仅 1.02 启用。其他模组和存档保留。以后应用方案只更新配置。\n\n游戏位置：'+gameRoot});
+    if(s.connected&&!s.updateAvailable)return status();
+    const answer=await dialog.showMessageBox(window,s.updateAvailable?
+      {type:'question',buttons:['取消','更新游戏模块'],defaultId:0,cancelId:0,message:'更新掉落模块以支持进阶武器？',detail:'将备份并更新掉落模块。保存游戏后重新启动，即可读取新版本及已应用的方案。\n\n游戏位置：'+gameRoot}:
+      {type:'question',buttons:['暂不连接','备份并连接'],defaultId:0,cancelId:0,message:'将掉落工坊连接到这份游戏？',detail:'请先保存并退出游戏。将备份并更新根目录 pfe.swf，安装掉落模块，通过现有 ModLoader 扫描器登记为仅 1.02 启用。其他模组和存档保留。以后应用方案只更新配置。\n\n游戏位置：'+gameRoot});
     if(answer.response!==1)return null;installer.install(gameRoot,payload);return status();
   });
   handle('restoreGame',async()=>{

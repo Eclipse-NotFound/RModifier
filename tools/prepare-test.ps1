@@ -1,4 +1,4 @@
-param([string]$AppId='pfe-loot-test-20260927', [switch]$Fallback, [switch]$AllMods)
+param([string]$AppId='pfe-loot-test-20260927', [switch]$Fallback, [switch]$AllMods, [ValidateSet('','en','zh')][string]$Language='')
 $ErrorActionPreference='Stop'
 $project=Split-Path $PSScriptRoot -Parent
 $game=Split-Path (Split-Path $project -Parent) -Parent
@@ -6,6 +6,12 @@ $test=Join-Path $project 'build/out/game'
 New-Item -ItemType Directory -Force -Path $test,(Join-Path $test 'fixtures'),(Join-Path $test 'mods/RModifier/release'),(Join-Path $test 'mods/RModifier/config'),(Join-Path $test 'mods/LootProbe/release'),(Join-Path $test 'mods/ModLoader/release') | Out-Null
 foreach($name in @('sprite.swf','sprite1.swf','texture.swf','texture1.swf','sound.swf','sound_unit.swf','sound_weapon.swf','rooms.xml','lang.xml')) {Copy-Item -LiteralPath (Join-Path $game $name) -Destination $test}
 Get-ChildItem -LiteralPath $game -Filter 'text_*.xml' | Copy-Item -Destination $test
+if($Language){
+ $testLanguageFile=Join-Path $test 'lang.xml'
+ $testLanguageXml=[xml][IO.File]::ReadAllText($testLanguageFile)
+ $testLanguageXml.all.SetAttribute('default',$Language)
+ $testLanguageXml.Save($testLanguageFile)
+}
 if(!(Test-Path -LiteralPath (Join-Path $test 'Rooms'))){Copy-Item -LiteralPath (Join-Path $game 'Rooms') -Destination $test -Recurse}
 Copy-Item -LiteralPath (Join-Path $project 'build/out/pfe-loot-safe.swf') -Destination (Join-Path $test 'pfe.swf')
 Copy-Item -LiteralPath (Join-Path $project 'build/out/LootEditorMod.swf') -Destination (Join-Path $test 'mods/RModifier/release/LootEditorMod.swf')

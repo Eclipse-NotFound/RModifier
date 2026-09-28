@@ -1,6 +1,6 @@
 import {vanillaTable} from './data/vanilla.mjs';
 
-export const VERSION = '0.2.0';
+export const VERSION = '0.2.1';
 export const clone = x => JSON.parse(JSON.stringify(x));
 export function fingerprint(text) {
   let h=2166136261;
@@ -12,6 +12,10 @@ export function newProfile(name='我的掉落方案') {
   return {schemaVersion:1,gameVersion:'1.02',id:crypto.randomUUID(),name,rules:[],ammo:{enabled:false,chance:100,mode:'pack',packPercent:50,min:6,max:12,useBase:false,includeExplosive:false,explosiveChance:25,explosiveMin:1,explosiveMax:1,models:[],weaponOverrides:[]}};
 }
 export function newReward(key='item:p10') {return {chance:100,min:1,max:1,repeat:1,pick:[{key,weight:1}],durabilityMin:60,durabilityMax:85,variant:0,elite:'any',minStage:0,maxStage:99};}
+export function rewardItem(itemIndex,key,variant=0) {
+  const item=itemIndex.get(key);
+  return variant&&item&&!item.variant?itemIndex.get(key+'^1')||item:item;
+}
 const allowed=(v,values,path,errors)=>{if(!values.includes(v))errors.push(path+'：不支持的选项');};
 const numeric=(v,min,max,path,errors,integer=true)=>{if(typeof v!=='number'||!Number.isFinite(v)||v<min||v>max||(integer&&!Number.isInteger(v)))errors.push(`${path}：请输入 ${min}～${max} ${integer?'之间的整数':'之间的数字'}`);};
 export function validate(p, catalog) {
@@ -44,9 +48,11 @@ export function validate(p, catalog) {
       if(!Array.isArray(v.pick)||!v.pick.length||v.pick.length>60){errors.push(q+'：请选择 1～60 种物品');continue;}
       const seen=new Set();
       for(const c of v.pick){
-        if(!c||!index.has(c.key)||seen.has(c.key)){errors.push(q+'：物品不存在或重复');continue;}
-        seen.add(c.key);numeric(c.weight,1,1000,q+'的偏好倍数',errors);
-        if(v.variant && !(index.get(c.key).kind==='weapon' && Number(index.get(c.key).pool?.uniq)>0))errors.push(q+'：所选物品没有可用的特殊武器版本');
+        if(!c||!index.has(c.key)){errors.push(q+'：物品不存在或重复');continue;}
+        const item=index.get(c.key),baseKey=item.baseKey||item.key,identity=baseKey+'^'+(item.variant||v.variant);
+        if(seen.has(identity))errors.push(q+'：物品不存在或重复');
+        seen.add(identity);numeric(c.weight,1,1000,q+'的偏好倍数',errors);
+        if(v.variant && !(item.kind==='weapon' && index.has(baseKey+'^1')))errors.push(q+'：所选物品没有可用的进阶武器版本');
       }
       stackBudget+=v.repeat*(v.pick.some(c=>['weapon','armor'].includes(index.get(c?.key)?.kind))?v.max:1);
     }
@@ -77,7 +83,7 @@ export function evaluateRewards(rewards, ctx, random, itemIndex) {
       if(r.pick.length>1){let v=random()*r.pick.reduce((s,x)=>s+x.weight,0);for(const c of r.pick){v-=c.weight;if(v<0){chosen=c;break;}}}
       const item=itemIndex.get(chosen.key);let count=qty(r.min,r.max,random);
       if(item.kind==='weapon'||item.kind==='armor'){
-        for(let i=0;i<count;i++)drops.push({key:chosen.key,count:1,durability:qty(r.durabilityMin,r.durabilityMax,random)/100,variant:r.variant});
+        for(let i=0;i<count;i++)drops.push({key:item.baseKey||chosen.key,count:1,durability:qty(r.durabilityMin,r.durabilityMax,random)/100,variant:item.variant||r.variant});
       }else drops.push({key:chosen.key,count,variant:0,durability:1});
     }
   }

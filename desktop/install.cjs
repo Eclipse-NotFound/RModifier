@@ -17,7 +17,8 @@ function inspect(root,payload){
   const current=fs.existsSync(p.game)?hash(p.game):'';
   const loader=fs.existsSync(p.scanner)&&fs.existsSync(p.registry)&&fs.existsSync(path.join(root,'mods/ModLoader/release/ModLoaderMod.swf'));
   const connected=!!record&&record.installedHash===current&&fs.existsSync(p.runtime)&&hash(p.runtime)===record.runtimeHash;
-  return {available:!!metadata,compatible:!!metadata&&metadata.sourceHash===current,connected,loader,canRestore:!!record&&record.installedHash===current&&fs.existsSync(record.backup),backup:record?.backup||'',version:metadata?.version||''};
+  const updateAvailable=connected&&!!metadata&&current===metadata.bridgeHash&&record.runtimeHash!==metadata.runtimeHash;
+  return {available:!!metadata,compatible:!!metadata&&metadata.sourceHash===current,connected,updateAvailable,loader,canRestore:!!record&&record.installedHash===current&&fs.existsSync(record.backup),backup:record?.backup||'',version:metadata?.version||''};
 }
 function scan(root,p){
   execFileSync(p.scanner,['--root',root,'--no-ui'],{windowsHide:true,timeout:30000,stdio:'pipe'});
@@ -25,7 +26,23 @@ function scan(root,p){
 }
 function install(root,payload){
   root=path.resolve(root);const p=paths(root),state=inspect(root,payload);
-  if(state.connected)return state;
+  if(state.connected){
+    if(!state.updateAvailable)return state;
+    const metadata=readJSON(path.join(payload,'manifest.json')),runtime=path.join(payload,'LootEditorMod.swf');
+    if(hash(runtime)!==metadata.runtimeHash)throw new Error('安装包校验失败，请重新构建或取回完整安装包');
+    const recordBytes=fs.readFileSync(p.record),record=readJSON(p.record),previous=fs.readFileSync(p.runtime);
+    const backup=path.join(root,'mods/RModifier/backups','runtime-'+Date.now()+'-'+crypto.randomUUID().slice(0,8));
+    fs.mkdirSync(backup,{recursive:true});fs.writeFileSync(path.join(backup,'LootEditorMod.swf'),previous,{flag:'wx'});fs.writeFileSync(path.join(backup,'installation.json'),recordBytes,{flag:'wx'});
+    if(hash(p.game)!==metadata.bridgeHash||hash(p.runtime)!==record.runtimeHash)throw new Error('游戏模块刚被其他程序修改，更新已中止');
+    try{
+      replace(p.runtime,fs.readFileSync(runtime));
+      atomicJSON(p.record,{...record,version:metadata.version,runtimeHash:metadata.runtimeHash,runtimeUpdatedAt:Date.now(),runtimeBackup:backup});
+    }catch(error){
+      if(fs.existsSync(p.runtime)&&hash(p.runtime)===metadata.runtimeHash)replace(p.runtime,previous);
+      replace(p.record,recordBytes);throw new Error('模块更新失败，已回退本次更新：'+error.message);
+    }
+    return inspect(root,payload);
+  }
   if(!state.available)throw new Error('安装文件尚未准备好，请使用完整的掉落工坊安装包');
   if(!state.loader)throw new Error('没有找到现有 ModLoader 及其扫描器，请先恢复原有模组加载器');
   if(!state.compatible)throw new Error('游戏文件与本次验证的版本不同。已停止安装，避免覆盖其他模组或游戏更新');

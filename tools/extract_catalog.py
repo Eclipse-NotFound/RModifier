@@ -52,6 +52,15 @@ for x in data:
         a['recharg']=any(n.get('recharg','0')!='0' for n in x)
         if x.find('com') is not None: a['pool'] = dict(x.find('com').attrib)
     items.append(a)
+    # uniq=0 means an existing upgrade excluded from the random pool, not an
+    # absent upgrade. Keep explicit choices separate from the vanilla pools.
+    if x.tag == 'weapon' and x.find('com') is not None and 'uniq' in x.find('com').attrib:
+        variant_id = id+'^1'
+        variant_name = name('weapon',variant_id)
+        if variant_name == variant_id: variant_name = nm+' - II'
+        advanced = dict(a, key='weapon:'+variant_id, variant=1, baseKey=a['key'], baseName=nm, name=variant_name)
+        advanced.pop('pool',None)
+        items.append(advanced)
 
 cont_labels = dict(zip('ammo metal bomb expl bigexpl wbattle case wbig robocell instr instr2 trash fridge food med med2 table filecab cup bloat book term info cryo chest safe specweap specalc speclp'.split(),
  '弹药盒|金属残骸|炸弹拆解|爆炸物箱|大型爆炸物箱|战场武器箱|手提箱|大型武器箱|机器人电池|工具箱|高级工具箱|垃圾容器|冰箱|食物容器|医疗箱|高级医疗箱|桌子|文件柜|橱柜|血翼虫容器|书架|终端|资料容器|冷冻容器|宝箱|保险箱|特殊武器奖励|特殊药剂奖励|特殊任务奖励'.split('|')))
@@ -102,8 +111,8 @@ for idx,m in enumerate(('lootCont','lootDrop')):
     generated.append(b)
     if idx==0: generated.append('} else {')
 generated.extend(['}','}'])
-(OUT/'vanilla.mjs').write_text('\n'.join(line.rstrip() for line in '\n'.join(generated).splitlines()).rstrip()+'\n',encoding='utf-8')
+(OUT/'vanilla.mjs').write_text('\n'.join(line.rstrip() for line in '\n'.join(generated).splitlines()).rstrip()+'\n',encoding='utf-8',newline='\n')
 payload=dict(version='1.02',sourceHash=hashlib.sha256(source.encode()).hexdigest(),items=items,sources=sources,
              containerKeys=list(cont_labels),enemyKeys=keys)
-(OUT/'catalog.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding='utf-8')
+(OUT/'catalog.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding='utf-8',newline='\n')
 print(json.dumps(dict(items=len(items),sources=len(sources),containerKeys=len(cont_labels),enemyKeys=len(keys))))

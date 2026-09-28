@@ -1,0 +1,35 @@
+✔ catalogue has all 29 container and 47 enemy keys; unique item identities (0.6933ms)
+✔ default original is inert; unknown schema and malformed inputs are rejected (2.098ms)
+✔ zero chance emits nothing and consumes no random number; 100% always emits (0.3744ms)
+✔ independent rewards do not have to add to 100 percent (0.4577ms)
+✔ weighted choice, stage and elite restrictions (6.1531ms)
+✔ equipment count means separate weapons; durability is explicit (0.6209ms)
+✔ actual ammo, base conversion, special explosive gate, enemy filtering (0.5433ms)
+✔ melee, throws, recharge, not, and unknown robot ammo never create fictional ammo (0.2306ms)
+✔ 40mm variants and wildfire nukes use the rare-ammo control; magic charge is never collectible (0.2901ms)
+✔ model overrides take precedence over shared tables (0.3191ms)
+✔ all vanilla tables simulate across stages, elite, broken, perks and limits (23.9737ms)
+✔ replacing an ammo table emits only requested items; extra weapon ammo is additive (1.1335ms)
+✔ storage atomically writes and keeps previous versions; traversal rejected (75.1846ms)
+✔ installation uses real ModLoader scanner, backs up exact game, is idempotent, and restores without deleting profiles (367.7405ms)
+✔ unknown game/payload fingerprints are refused before mutation; later game patches prevent automatic rollback (166.4621ms)
+✔ scanner failure rolls registry/runtime back and retains the original game (39.8061ms)
+✔ an existing connection updates only the runtime, preserving profiles and the original restore path (279.7115ms)
+✔ runtime update rejects corrupt bytes and preserves the installed connection (152.7305ms)
+✔ named and zero-weight upgrades are distinct selectable items; absent upgrades stay absent (1.229ms)
+✔ every offered upgrade validates and resolves to its real base weapon and variant (10.2191ms)
+✔ ordinary and advanced versions use independent zero and hundred percent chances (0.4048ms)
+✔ a three-to-one pool can choose between two versions of the same weapon (8.2865ms)
+✔ upgrade chance combines with pool weights and respects stage and elite conditions (8.1538ms)
+✔ old reward-wide variant profiles remain valid, including defined zero-weight upgrades (0.6134ms)
+✔ missing upgrades and duplicate effective variants cannot be applied (0.3805ms)
+✔ simulator combines legacy and explicit upgrade quantities under one named result (3.6863ms)
+✔ adding selectable upgrades does not change any original random table (62.9567ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1151.8279

@@ -90,7 +90,29 @@ package tests {
             var quota:Number=w.land.lootLimit;w.land.lootLimit=0;before=sum("repair");bridge.emit({loc:w.loc,x:w.gg.X+300,y:w.gg.Y,broken:false,hero:0},{target:"test",mode:"append",rewards:[reward("item:repair",1)]});check(sum("repair")==before,"custom skill book respects exhausted native quota");w.land.lootLimit=quota;
             var caps:Number=w.pers.capsMult,dif:Number=w.pers.difCapsMult;w.pers.capsMult=2;w.pers.difCapsMult=1;before=sum("money");bridge.emit({loc:w.loc,x:w.gg.X+300,y:w.gg.Y,broken:true,hero:0},{target:"test",mode:"append",rewards:[reward("item:money",10)]});check(sum("money")-before==10,"custom caps retain perk multiplier and broken-container loss");w.pers.capsMult=caps;w.pers.difCapsMult=dif;
             var api:*=w.main.getChildByName("ModSettingsCarrier");check(api!=null,"existing ModLoader settings host present");if(api){var registered:Boolean=false;for each(var page:Object in api.modAPI.getPages())if(page.modId=="loot-editor")registered=true;check(registered,"LootEditor status page registered with ModLoader");}
+            testWeaponVariants(lg,bridge);
             exportIcons();log("gameplay complete");
+        }
+        private static function variantCount(id:String,variant:int):int{var count:int=0;for each(var o:* in ground())if(o.item.id==id&&o.item.variant==variant)count++;return count;}
+        private static function testWeaponVariants(lg:Class,bridge:Object):void{
+            var normal:int=variantCount("rail",0),advanced:int=variantCount("rail",1),zero:int=variantCount("mont",1);
+            lg["lootCont"](w.loc,w.gg.X+300,w.gg.Y,"wbig",false,50);
+            check(variantCount("rail",0)==normal+1,"container ordinary rail at 100 percent");
+            check(variantCount("rail",1)==advanced+1,"container Paladin at 100 percent is real variant 1");
+            check(variantCount("mont",1)==zero,"advanced weapon at zero percent does not drop");
+            advanced=variantCount("rail",1);var u:*=enemy("ranger","1");u.die();
+            check(variantCount("rail",1)==advanced+1,"enemy model rule drops actual Paladin");
+            var ctx:Object={loc:w.loc,x:w.gg.X+300,y:w.gg.Y,broken:false,hero:0};
+            var legacy:Object=reward("weapon:rail",1);legacy.variant=1;advanced=variantCount("rail",1);
+            bridge.emit(ctx,{target:"test",mode:"append",rewards:[legacy,reward("weapon:mont^1",1)]});
+            check(variantCount("rail",1)==advanced+1,"legacy variant profile still creates Paladin");
+            check(variantCount("mont",1)==zero+1,"defined zero-pool-weight upgrade can explicitly drop");
+            var paladin:*;for each(var loot:* in ground())if(loot.item.id=="rail"&&loot.item.variant==1)paladin=loot;
+            var res:Class=ApplicationDomain.currentDomain.getDefinition("fe.Res") as Class;
+            var expectedName:String=String(res["txt"]("w","rail^1"));
+            log("advanced weapon name="+(paladin?paladin.item.nazv:"missing")+" expected="+expectedName);
+            check(paladin!=null&&String(paladin.item.nazv)==expectedName&&expectedName!=String(res["txt"]("w","rail")),"ground item displays actual localized advanced name");
+            if(paladin){paladin.take(true);check(w.invent.weapons["rail"]!=null&&w.invent.weapons["rail"].variant==1,"picking Paladin adds upgraded weapon to inventory");}
         }
         private static function reward(key:String,count:int):Object{return {chance:100,min:count,max:count,repeat:1,pick:[{key:key,weight:1}],durabilityMin:100,durabilityMax:100,variant:0,elite:"any",minStage:0,maxStage:99};}
         private static function exportIcons():void{

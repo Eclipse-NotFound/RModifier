@@ -1,6 +1,6 @@
 {
   "name": "remains-rmodifier",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "private": true,
   "description": "Remains 掉落、角色台词与地图编辑工坊",
   "main": "desktop/main.cjs",

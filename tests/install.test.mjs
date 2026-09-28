@@ -31,3 +31,32 @@ test('scanner failure rolls registry/runtime back and retains the original game'
  const {root,payload,metadata}=fixture();const registry=fs.readFileSync(path.join(root,'mods/ModLoader/supported-mods.txt'),'utf8');fs.writeFileSync(path.join(root,'mods/ModLoader/RemainsModScanner.exe'),'invalid exe');
  assert.throws(()=>installer.install(root,payload),/已回退/);assert.equal(installer.hash(path.join(root,'pfe.swf')),metadata.sourceHash);assert.equal(fs.readFileSync(path.join(root,'mods/ModLoader/supported-mods.txt'),'utf8'),registry);assert.equal(fs.existsSync(path.join(root,'mods/RModifier/release/LootEditorMod.swf')),false);
 });
+
+test('an existing connection updates only the runtime, preserving profiles and the original restore path',()=>{
+ const {root,payload,metadata}=fixture();installer.install(root,payload);
+ const recordFile=path.join(root,'mods/RModifier/config/installation.json'),runtime=path.join(root,'mods/RModifier/release/LootEditorMod.swf');
+ const originalRecord=JSON.parse(fs.readFileSync(recordFile));
+ const before={};for(const file of ['pfe.swf','mods/loader-manifest.txt','mods/ModLoader/supported-mods.txt'])before[file]=installer.hash(path.join(root,file));
+ fs.writeFileSync(path.join(root,'mods/RModifier/config/active.json'),'user configuration');
+ // Updating an installed runtime must not re-run the scanner or re-patch pfe.
+ const scanner=path.join(root,'mods/ModLoader/RemainsModScanner.exe'),scannerBytes=fs.readFileSync(scanner);fs.writeFileSync(scanner,'not executable');
+ fs.writeFileSync(path.join(payload,'LootEditorMod.swf'),'FWSadvanced weapon runtime');
+ metadata.version='0.2.1';metadata.runtimeHash=installer.hash(path.join(payload,'LootEditorMod.swf'));fs.writeFileSync(path.join(payload,'manifest.json'),JSON.stringify(metadata));
+ assert.equal(installer.inspect(root,payload).updateAvailable,true);
+ const state=installer.install(root,payload);assert.equal(state.connected,true);assert.equal(state.updateAvailable,false);
+ assert.equal(installer.hash(runtime),metadata.runtimeHash);
+ const record=JSON.parse(fs.readFileSync(recordFile));assert.equal(record.version,'0.2.1');assert.equal(record.backup,originalRecord.backup);assert.equal(record.backupDir,originalRecord.backupDir);
+ assert.equal(installer.hash(path.join(record.runtimeBackup,'LootEditorMod.swf')),originalRecord.runtimeHash);
+ for(const file of Object.keys(before))assert.equal(installer.hash(path.join(root,file)),before[file]);
+ assert.equal(fs.readFileSync(path.join(root,'mods/RModifier/config/active.json'),'utf8'),'user configuration');
+ const stable=fs.readFileSync(recordFile,'utf8');installer.install(root,payload);assert.equal(fs.readFileSync(recordFile,'utf8'),stable);
+ fs.writeFileSync(scanner,scannerBytes);installer.restore(root,payload);assert.equal(installer.hash(path.join(root,'pfe.swf')),metadata.sourceHash);
+});
+
+test('runtime update rejects corrupt bytes and preserves the installed connection',()=>{
+ const {root,payload,metadata}=fixture();installer.install(root,payload);
+ const runtime=path.join(root,'mods/RModifier/release/LootEditorMod.swf'),before=installer.hash(runtime);
+ metadata.runtimeHash='invalid-runtime-hash';fs.writeFileSync(path.join(payload,'manifest.json'),JSON.stringify(metadata));
+ assert.throws(()=>installer.install(root,payload),/校验失败/);assert.equal(installer.hash(runtime),before);
+ assert.equal(installer.inspect(root,payload).connected,true);
+});

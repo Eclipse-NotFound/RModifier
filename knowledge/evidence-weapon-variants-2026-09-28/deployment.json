@@ -1,0 +1,42 @@
+{
+  "updatedAt": "2026-09-28T12:05:39.098Z",
+  "runtimeVersion": "0.2.1",
+  "runtimeHash": "502730145a8750011f41722b6f568aa102059a200598beeee5d2b60a8109e764",
+  "runtimeBackup": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\backups\\runtime-1790597138967-05302da2",
+  "before": {
+    "pfe.swf": "c631cbf3511b6ee303f533d08d51511fe0eb702f43e5db17f5241d8576c64867",
+    "text_zh.xml": "66da212793683b19e65e3973b726a94a2885d5032395af8a2e5a0fd20a17f895",
+    "Editor.swf": "e99e231f83128ea24cd13b2ae36b0dd294e5180a16f54ba3c7b3cb8fa24d99fd",
+    "Editor/Enhancements/EditorTools.swf": "d7ad493f19867c96b600599151275877349a7dbf2155794be42483656ae0f002",
+    "mods/ModLoader/supported-mods.txt": "88678d52df036c1bf75fbb06b72bd2ede8c6b576655efcd308c5ead142dfa814",
+    "mods/loader-manifest.txt": "2d4a64a608a6482168fbfe9e8cd7bb53f006ab1f8993fcc737cf9d32f2293592",
+    "mods/RModifier/RModifier.exe": "b0325614eda55f28c1549f8e9b7bb5cec0c37cb6dc9b4ee9091e96660752bec9",
+    "mods/RModifier/config/active.json": null,
+    "mods/RModifier/config/active.previous.json": null,
+    "mods/RModifier/config/application-state.json": null
+  },
+  "after": {
+    "pfe.swf": "c631cbf3511b6ee303f533d08d51511fe0eb702f43e5db17f5241d8576c64867",
+    "text_zh.xml": "66da212793683b19e65e3973b726a94a2885d5032395af8a2e5a0fd20a17f895",
+    "Editor.swf": "e99e231f83128ea24cd13b2ae36b0dd294e5180a16f54ba3c7b3cb8fa24d99fd",
+    "Editor/Enhancements/EditorTools.swf": "d7ad493f19867c96b600599151275877349a7dbf2155794be42483656ae0f002",
+    "mods/ModLoader/supported-mods.txt": "88678d52df036c1bf75fbb06b72bd2ede8c6b576655efcd308c5ead142dfa814",
+    "mods/loader-manifest.txt": "2d4a64a608a6482168fbfe9e8cd7bb53f006ab1f8993fcc737cf9d32f2293592",
+    "mods/RModifier/RModifier.exe": "b0325614eda55f28c1549f8e9b7bb5cec0c37cb6dc9b4ee9091e96660752bec9",
+    "mods/RModifier/config/active.json": null,
+    "mods/RModifier/config/active.previous.json": null,
+    "mods/RModifier/config/application-state.json": null
+  },
+  "editorCandidate": "dist/weapon-variants-0.3.2/RModifier.exe",
+  "editorReplaced": true,
+  "formalGameRestarted": false,
+  "editorUpdate": {
+    "version": "0.3.2",
+    "updatedAt": "2026-09-28T12:10:39.9982512Z",
+    "path": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\RModifier.exe",
+    "hash": "c8082af502594e347eb4db4272605cb441731049ba315faa9fe623cefb370fdb",
+    "backup": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\backups\\editor\\20260928T201039-before-0.3.2\\RModifier-0.3.1.exe",
+    "previousHash": "b0325614eda55f28c1549f8e9b7bb5cec0c37cb6dc9b4ee9091e96660752bec9",
+    "newWindowStarted": false
+  }
+}
