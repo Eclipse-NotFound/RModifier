@@ -19,7 +19,7 @@ const delay=ms=>new Promise(r=>setTimeout(r,ms));
  await mod.mount({gameRoot,dataRoot,componentRoot,sessionRoot:path.join(root,'sessions'),testRoot:root,epoch:crypto.randomUUID(),surface});
  assert.equal(mod.doc.raw,raw);assert.equal((await mod.flush('inspect')).state.dirty,false);ok('actual original Flash UI loads full map without normalization');
  const uiCapture=await mod.session.request('capture');assert.ok(fs.statSync(path.join(mod.session.root,uiCapture.png)).size>1000);
- const viewport=await mod.setViewport({zoom:1.25,panX:-500,panY:-300});assert.equal(viewport.zoom,1.25);assert.equal(viewport.deviceScale,2);assert.equal(viewport.effectiveScale,1.25);const measured=await mod.setViewport({deviceScale:2,clientWidth:viewport.width*2});assert.equal(measured.uiScale,1);assert.ok(viewport.panX<0);await mod.setViewport({fit:true});ok('native viewport zoom/pan clamp, DPI scale and stage capture');
+ const viewport=await mod.setViewport({zoom:1.25,panX:-500,panY:-300,fit:false});assert.equal(viewport.fit,true);assert.equal(viewport.panX,0);assert.equal(viewport.panY,0);assert.equal(viewport.deviceScale,2);assert.equal(viewport.effectiveScale,Math.min(viewport.width/1800,viewport.height/950));const measured=await mod.setViewport({deviceScale:2,clientWidth:viewport.width*2});assert.equal(measured.uiScale,1);assert.equal(measured.effectiveScale,viewport.effectiveScale);ok('original stage always fits the full viewport, including legacy pan/zoom recovery and 200% DPI');
  const room=mod.doc.projection().rooms.find(r=>r.nodes.some(n=>n.kind==='obj'));
  const obj=room.nodes.find(n=>n.kind==='obj');
  await mod.session.request('test',{action:{kind:'select',room:room.name,key:obj.key}});

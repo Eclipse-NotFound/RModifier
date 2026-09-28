@@ -1,0 +1,81 @@
+{
+  "passed": false,
+  "checks": [],
+  "errors": [],
+  "observations": [
+    {
+      "receipt": {
+        "status": "ready",
+        "state": {
+          "sessionId": "2c492ee4-cd60-4114-8a0f-c3b7ae261c30",
+          "epoch": "d10d8a26-7c3b-4311-b7dc-409147bb8839",
+          "loaded": true,
+          "documentId": "cad9f40a-2c22-4dff-94ee-db3847a6ffbc",
+          "revision": 0,
+          "contentHash": "a56dd75fc24520d2837f50f7ca16f0343a8566a29b2b2cae802e0d33f3d2415d",
+          "savedContentHash": "a56dd75fc24520d2837f50f7ca16f0343a8566a29b2b2cae802e0d33f3d2415d",
+          "pendingInputHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "dirty": false,
+          "canSave": true,
+          "invalidInputs": [],
+          "requiresReview": false,
+          "composing": false,
+          "recovered": false,
+          "persistedRevision": -1
+        }
+      },
+      "cell": "_",
+      "inspect": {
+        "sessionId": "2c492ee4-cd60-4114-8a0f-c3b7ae261c30",
+        "input": {
+          "busy": false,
+          "documentId": "cad9f40a-2c22-4dff-94ee-db3847a6ffbc",
+          "view": {
+            "viewport": {
+              "minPanY": -359,
+              "panX": 0,
+              "minZoom": 0.25,
+              "panY": 0,
+              "maxZoom": 3,
+              "fit": false,
+              "minPanX": -612,
+              "width": 1188,
+              "deviceScale": 1,
+              "zoom": 1,
+              "height": 591,
+              "uiScale": 1,
+              "clientWidth": 0,
+              "effectiveScale": 1
+            },
+            "selectedKey": null,
+            "roomKey": "5f64b133-ee29-44df-b182-9d59412511c4",
+            "roomName": "墙体绘制回归",
+            "preview": {
+              "objects": true,
+              "mirror": false,
+              "examples": true,
+              "region": "",
+              "x": 0,
+              "busy": false,
+              "difficulty": -1,
+              "ready": false,
+              "zoom": 1,
+              "y": 0,
+              "entities": true,
+              "open": false
+            }
+          },
+          "revision": 0,
+          "composing": false,
+          "inputs": []
+        },
+        "requestId": "5e9ad1bb-a219-40e2-8ba6-12ea93daf1b0",
+        "epoch": "d10d8a26-7c3b-4311-b7dc-409147bb8839",
+        "ok": true
+      }
+    }
+  ],
+  "failure": "AssertionError [ERR_ASSERTION]: Dark wall should survive the original drawing and host synchronization\n\n'_' !== '_P'\n\n    at D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\map-editor\\tests\\native-ui-wall-paint.cjs:23:9\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at listOnTimeout (node:internal/timers:644:9)\n    at process.processTimers (node:internal/timers:618:7)",
+  "session": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\map-native-wall-paint\\6ff4ce9f-2a3c-4d45-ab95-19908575872a\\sessions\\2c492ee4-cd60-4114-8a0f-c3b7ae261c30",
+  "root": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\map-native-wall-paint\\6ff4ce9f-2a3c-4d45-ab95-19908575872a"
+}

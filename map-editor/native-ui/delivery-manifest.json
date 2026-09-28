@@ -1,43 +1,43 @@
 {
   "format": "rmodifier-native-map-delivery",
   "version": 1,
-  "frozenAt": "2026-09-28T10:26:54.067Z",
+  "frozenAt": "2026-09-28T11:50:20.143Z",
   "files": {
     "desktop/map/native-document.cjs": {
       "sha256": "6c6275d2144e31c864439a19ad2193e07f18668d621c322eca3f1b9000114aa5",
       "bytes": 11706
     },
     "desktop/map/native-ui-module.cjs": {
-      "sha256": "ba9a863827758c89154f2becb8f95091246d180ae9fcdc96ffddeeb4b3e182d6",
-      "bytes": 13081
+      "sha256": "a4dc3d190de14577d6b81cd2f299940a6d992e646ea4a32bded5c77f4635ffa3",
+      "bytes": 14299
     },
     "desktop/map/native-ui-session.cjs": {
       "sha256": "63fefe0e054637d40821069702db06f432b7ce60a62a98f71e2d160d544fee82",
       "bytes": 7888
     },
     "map-editor/native-ui/EditorAdapter.as.inc": {
-      "sha256": "4839a2c3babbcb64ae5a768697abf6d6ca4e7551d26f883cc41336749a389bb0",
-      "bytes": 12711
+      "sha256": "a08d5add7a97d023e9056a9a3777cca86dbe83a7ac0be05a89c1cee2b40afd91",
+      "bytes": 14173
     },
     "map-editor/native-ui/NativeUIBootstrap.as": {
-      "sha256": "42a168d35cdd6579e4b21e03bad0253dbe083ef483f4a6c010806221454d6a50",
-      "bytes": 13409
+      "sha256": "fa0a80766d419e4d1edd7d850b822343c89396111d798da03531394284cae125",
+      "bytes": 10056
     },
     "map-editor/native-ui/component/Editor.swf": {
-      "sha256": "cff66815a82ade71d214632f81ebe1caa2ec4883897eeac3f341975341d281c1",
-      "bytes": 505435
+      "sha256": "c0186beb5690dde70b5c12bd9f88d9c72a837ce689a29ed49f163c5ba1c24b4a",
+      "bytes": 506070
     },
     "map-editor/native-ui/component/EditorTools.swf": {
-      "sha256": "3faef81708a1873e0f00b6224e17086d30aade580b9c46624c2ef6f5a0a9eea4",
-      "bytes": 18638
+      "sha256": "6b2a5f3621cd091e49f5ccd0d0bbce4338a0b153e667793f351b6423747641fa",
+      "bytes": 19861
     },
     "map-editor/native-ui/component/NativeScene.swf": {
       "sha256": "fcb620b9f4dc25eb3b4b54d420dfdf2549894472e8d0a331f06cdc321fc7cba7",
       "bytes": 9619837
     },
     "map-editor/native-ui/component/NativeUIBootstrap.swf": {
-      "sha256": "a42527e9ab664157c33afc44785b1db1e5842ead46070de58527de9f6ad53541",
-      "bytes": 5936
+      "sha256": "e5ebd8516c436352d9381c980fbeb654225e0a4bdd3682698862808407cccfe6",
+      "bytes": 4628
     },
     "map-editor/native-ui/component/editor-en.xml": {
       "sha256": "4ed4516f7fe33c15df5292ae31186b5dd247dcd3fe07d0028bbcfda5fc4afb2e",
@@ -52,8 +52,8 @@
       "bytes": 26890
     },
     "map-editor/native-ui/component/manifest.json": {
-      "sha256": "537704c3e74f3f6f279ad72a87a2d846fa1b8bc6ed831e361e410826f339523b",
-      "bytes": 993
+      "sha256": "06bf354b5dd13f617f21b4c00e5235955e3b8c91deac57b59cb646388b0da0cc",
+      "bytes": 1079
     },
     "map-editor/tests/native-document.test.cjs": {
       "sha256": "506d9cc19fc508e2e038f621228101b60118821427f2f8753a8b25614c1173d4",
@@ -64,20 +64,28 @@
       "bytes": 5481
     },
     "map-editor/tests/native-ui.cjs": {
-      "sha256": "b224decb58997976e4ee2b56af28fc9d33cd5da5c56377f4552a7b2cb74b0675",
-      "bytes": 11658
+      "sha256": "d68cfb15eda1fb83a44305c6e80c8669632f0a639f856eda364c61e996178f77",
+      "bytes": 11806
     },
     "map-editor/tools/build-native-ui.ps1": {
-      "sha256": "ee866c0e41427b77f6e3f5380a3eff5102fb8c23ea91ee3a0c47effeb9c18af0",
-      "bytes": 3356
+      "sha256": "8a0c22c5935d0c84055bac4abf8cf4c40dd5c0c9a5d4a29f5983794054b9bded",
+      "bytes": 3432
     },
     "map-editor/tools/prepare-native-ui.py": {
-      "sha256": "bd4ef0bb398a11a688afe84e0e48f9763277a3f5944c94271329c0ce224412b7",
-      "bytes": 12398
+      "sha256": "a5f9a9f4d07bb06f7fefbcbe37e1da95fce4c13700f142a4087bb077b9358182",
+      "bytes": 13103
     },
     "map-editor/tests/native-ui-controls.cjs": {
       "sha256": "8f343ff1c246927206fd654cabd19019dfb3f62bede6a44acda6e4bd10e2360d",
       "bytes": 5689
+    },
+    "map-editor/native-ui/NativeDocumentControls.as": {
+      "sha256": "340b6ddb3376abb5e9cf40a1e2c98ba59684e4355c4598b0337eaf6790e8a719",
+      "bytes": 3978
+    },
+    "map-editor/tests/native-ui-wall-paint.cjs": {
+      "sha256": "b8b5b5fffa297c7d45d62fcfa49807e59734108dd797c1ed3953cd9cd9f032c1",
+      "bytes": 6896
     }
   },
   "readOnlyDependencies": {
@@ -120,9 +128,17 @@
     "Native-document model sources unchanged; existing 10-group model pass remains applicable.",
     "Original game/editor files, RandomRooms module and 0.2.0 EXE verified unchanged."
   ],
-  "revision": 2,
+  "revision": 3,
   "supersedes": {
     "sha256": "456054a30277eebe48b96d5226f35e25bf5593b0a00c0749f0c3fe6048826e14",
     "reason": "Prior candidate rejected: original floor button entered fixed-map logic for random room collections and caused AIR #1009."
+  },
+  "editorVersion": "0.3.1",
+  "note": "0.3.1 自动完整适配、Flash内文档操作、原材质编号修复。31图/4扩展和5旧控件结果是0.3.0历史证据，本轮没有重跑。",
+  "currentEvidence": {
+    "nativeUI": "build/out/map-native-ui/c0d97934-bd6b-41d6-9d31-79debf00fd63/report.json",
+    "nativeHost": "build/out/native-host/1790595856595-d3d1327a/report.json",
+    "wallPaint": "knowledge/evidence-native-wall-2026-09-28/final-green-report.json",
+    "componentManifestSHA256": "06bf354b5dd13f617f21b4c00e5235955e3b8c91deac57b59cb646388b0da0cc"
   }
 }

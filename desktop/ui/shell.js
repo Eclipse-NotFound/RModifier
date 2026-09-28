@@ -1,10 +1,9 @@
 'use strict';
 (() => {
   const labels={loot:'掉落编辑',barks:'角色台词',map:'地图编辑'};
-  const hints={loot:'保存方案留作草稿；应用方案后，下次启动游戏读取。',barks:'先编辑并保存草稿，确认预览后再写入游戏台词。',map:'打开原图后另存工作副本。预览和保存地图不会替换游戏原图。'};
   const pages=new Map(),states=new Map();
   let active='loot',busy=false,ready=false,nativeMap=false,navigation=0;
-  const status=message=>{const el=document.getElementById('shell-status');if(el)el.textContent=message;if(nativeMap&&active==='map'){const hint=document.getElementById('workspace-hint');if(hint)hint.textContent=message;}};
+  const status=message=>{const el=document.getElementById('shell-status');if(el)el.textContent=message;if(nativeMap&&active==='map')workshop.nativeMapNotice(message).catch(console.error);};
   function state(id,value){
     if(!labels[id])throw Error('未知编辑页');
     states.set(id,{...states.get(id),...value});
@@ -20,11 +19,9 @@
     active=id;
     document.querySelectorAll('[data-workspace]').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.workspace===id)));
     for(const name of Object.keys(labels))document.getElementById(name+'-frame').hidden=name!==id;
-    document.getElementById('workspace-hint').textContent=hints[id];
     document.title='RModifier · '+labels[id];
     document.body.classList.toggle('native-map-active',nativeMap&&id==='map');
-    document.getElementById('native-map-strip').hidden=!(nativeMap&&id==='map');
-    const top=nativeMap&&id==='map'?document.getElementById('native-map-strip').getBoundingClientRect().bottom:104;
+    const top=document.querySelector('header').getBoundingClientRect().bottom;
     await workshop.workspace(id,sequence,top);
     if(sequence!==navigation)return false;
     await pages.get(id)?.activate?.();return sequence===navigation;

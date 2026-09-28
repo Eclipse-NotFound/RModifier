@@ -145,7 +145,8 @@
       private function RMPaint(tile:edTile,before:Array,shape:int):void {
          if(this.rmHydrating) return;
          var layers:Object={};var changed:Boolean=false;
-         for(var i:int=1;i<6;i++) if(before[i]!=tile.ids[i]) {layers[String(i)]=tile.ids[i];changed=true;}
+         // Original palette IDs are E4X XMLList values; JSON would send "XMLList".
+         for(var i:int=1;i<6;i++) if(before[i]!=tile.ids[i]) {layers[String(i)]=String(tile.ids[i]);changed=true;}
          if(!changed && shape==tile.zForm) return;
          var cell:Object={x:int(tile.x/this.raz),y:int(tile.y/this.raz),layers:layers};
          if(shape!=tile.zForm) cell.shape=tile.zForm;
@@ -166,9 +167,28 @@
          }
          else if(action.kind=="input") this.RMInput(action.raw);
          else if(action.kind=="check") this.checkXML(new MouseEvent(MouseEvent.CLICK));
-         else if(action.kind=="paint") {
-            this.brushPip.ids=["","","","","",""];this.brushPip.frames=[0,0,0,0,0,0];this.brushPip.ids[action.layer]=action.id;this.brush=this.brushPip;
-            this.dey="mat";this.begx=action.x;this.endx=action.x2===undefined ? action.x : action.x2;this.begy=action.y;this.endy=action.y2===undefined ? action.y : action.y2;this.isDraw=true;this.mup(false,false);
+         else if(action.kind=="assertTile") {
+            var inspectedTile:edTile=this.space[int(action.x)][int(action.y)];
+            if(inspectedTile.enc()!=String(action.encoded)) throw new Error("测试格子显示编码不符："+inspectedTile.enc());
+            if(action.layer && inspectedTile.frames[int(action.layer)]<=0) throw new Error("测试格子没有材质画面");
+         }
+         else if(action.kind=="paint" || action.kind=="palettePaint" || action.kind=="stroke") {
+            if(action.kind=="palettePaint") {
+               var palette:MovieClip=action.layer==1 ? this.ed.panelFront : action.layer==2 ? this.ed.panelBack : this.ed.panelDet;
+               var material:edTile=null;
+               for(var pi:int=0;pi<palette.numChildren;pi++) {
+                  var candidate:edTile=palette.getChildAt(pi) as edTile;
+                  if(candidate && candidate.tip==int(action.layer) && String(candidate.ids[int(action.layer)])==String(action.id)) {material=candidate;break;}
+               }
+               if(!material) throw new Error("测试材质不存在："+action.id);
+               material.dispatchEvent(new MouseEvent(MouseEvent.CLICK,true));
+            } else if(action.kind=="paint") {
+               this.brushPip.ids=["","","","","",""];this.brushPip.frames=[0,0,0,0,0,0];this.brushPip.ids[action.layer]=action.id;this.brush=this.brushPip;
+            }
+            this.dey="mat";
+            this.mdown(this.ed.setka.x+(Number(action.x)+0.5)*this.raz,this.ed.setka.y+(Number(action.y)+0.5)*this.raz);
+            this.mmove(this.ed.setka.x+(Number(action.x2===undefined ? action.x : action.x2)+0.5)*this.raz,this.ed.setka.y+(Number(action.y2===undefined ? action.y : action.y2)+0.5)*this.raz);
+            this.mup(false,false);
          } else if(action.kind=="copyRoom") {this.ed.RoomName.text=action.name;this.tolistClick(new MouseEvent(MouseEvent.CLICK));}
          else if(action.kind=="fileName") this.ed.FileName.text=action.raw;
          else if(action.kind=="language") this.rmPort.preference(action.language);

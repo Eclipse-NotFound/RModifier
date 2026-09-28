@@ -1,0 +1,18 @@
+{
+  "outputs": {
+    "editor-zh.xml": "8c2a66f273762fe17954c2fde5d39bca36f4a4df563d57cd8d42567501d3789c",
+    "NativeUIBootstrap.swf": "8b7fe9c5c19c216c683a8c02822fdb819ffa1219c1c0b8b6af689e9ed98d2651",
+    "EditorTools.swf": "eb00987346676f1412b08f44fe55398f257bdd2088d4a6272f0f67872c54620a",
+    "NativeScene.swf": "fcb620b9f4dc25eb3b4b54d420dfdf2549894472e8d0a331f06cdc321fc7cba7",
+    "editor-ru.xml": "16bd57f5d3904664c841e415198b1cc750b84900bf677c9ad8fe46c2d2630ccf",
+    "Editor.swf": "c0186beb5690dde70b5c12bd9f88d9c72a837ce689a29ed49f163c5ba1c24b4a",
+    "editor-en.xml": "4ed4516f7fe33c15df5292ae31186b5dd247dcd3fe07d0028bbcfda5fc4afb2e"
+  },
+  "protocol": 1,
+  "sources": {
+    "EditorAdapter.as.inc": "a08d5add7a97d023e9056a9a3777cca86dbe83a7ac0be05a89c1cee2b40afd91",
+    "NativeUIBootstrap.as": "fa0a80766d419e4d1edd7d850b822343c89396111d798da03531394284cae125",
+    "prepare-native-ui.py": "a5f9a9f4d07bb06f7fefbcbe37e1da95fce4c13700f142a4087bb077b9358182",
+    "NativeDocumentControls.as": "d3a5b0e67b24ec73167ce04922ba9038038b7a0c4282696b26a85c7161efe1a9"
+  }
+}

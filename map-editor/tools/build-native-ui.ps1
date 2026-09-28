@@ -29,5 +29,5 @@ Copy-Item -LiteralPath (Join-Path $project 'map-editor/localization/editor-zh.xm
 foreach($language in @('en','ru')){Copy-Item -LiteralPath (Join-Path $game ('Editor/Resources/text_'+$language+'.xml')) -Destination (Join-Path $target ('editor-'+$language+'.xml'))}
 $manifest=@{protocol=1;outputs=@{};sources=@{}}
 Get-ChildItem -LiteralPath $target | Where-Object {$_.Extension -in '.swf','.xml'} | ForEach-Object {$manifest.outputs[$_.Name]=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash.ToLower()}
-foreach($file in @((Join-Path $source 'NativeUIBootstrap.as'),(Join-Path $source 'EditorAdapter.as.inc'),(Join-Path $PSScriptRoot 'prepare-native-ui.py'))){$manifest.sources[(Split-Path $file -Leaf)]=(Get-FileHash -LiteralPath $file -Algorithm SHA256).Hash.ToLower()}
-[IO.File]::WriteAllText((Join-Path $target 'manifest.json'),($manifest|ConvertTo-Json -Depth 5))
+foreach($file in @((Join-Path $source 'NativeUIBootstrap.as'),(Join-Path $source 'EditorAdapter.as.inc'),(Join-Path $source 'NativeDocumentControls.as'),(Join-Path $PSScriptRoot 'prepare-native-ui.py'))){$manifest.sources[(Split-Path $file -Leaf)]=(Get-FileHash -LiteralPath $file -Algorithm SHA256).Hash.ToLower()}
+[IO.File]::WriteAllText((Join-Path $target 'manifest.json'),(($manifest|ConvertTo-Json -Depth 5).Replace("`r`n","`n")+"`n"))

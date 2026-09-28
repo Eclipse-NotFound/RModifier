@@ -5,7 +5,7 @@ const {inside}=require('./platform/files.cjs');
 const installer=require('./install.cjs');
 let window,webView,core,catalog,store,gameRoot,documents,contextId;let allowClose=false;const states=new Map();
 const nativeMapEnabled=process.env.RMODIFIER_NATIVE_MAP!=='0';
-let nativeMap,nativeMount,surface,nativeReceipt,activeWorkspace='loot',navigation=0,activation=0,dialogDepth=0,nativeTop=104,nativeDpi=0,dpiTimer;
+let nativeMap,nativeMount,surface,nativeReceipt,activeWorkspace='loot',navigation=0,activation=0,dialogDepth=0,nativeTop=70,nativeDpi=0,dpiTimer;
 const {NativeSurfacePort}=require('./platform/native-surface.cjs');
 const {Documents}=require('./platform/documents.cjs');
 const moduleRoot=app.getAppPath();
@@ -132,6 +132,16 @@ app.whenReady().then(async()=>{
   rm('nativeMapAction',async name=>{if(!['open','undo','redo'].includes(name))throw Error('未知地图操作');const current=await ensureNativeMap();await current.action(name);return current.state;});
   rm('nativeMapViewport',async value=>(await ensureNativeMap()).setViewport(value));
   rm('nativeMapInspect',async()=>({state:nativeMap?.state||{loaded:false,dirty:false},surface:surface?.identity?await surface.inspect():null}));
+  rm('nativeMapNotice',async message=>{
+    const text=String(message||'').slice(0,2000);if(!text)return;
+    if(nativeMap?.mounted)try{await nativeMap.notice(text,true);return;}catch{}
+    // A failed AIR process cannot display its own error. Keep that case visible
+    // through the normal OS dialog without trying to flush the failed process.
+    const identity=surface?.identity;
+    if(identity)await surface.setVisible({...identity,visible:false}).catch(()=>{});
+    try{await nativeDialog.showMessageBox(window,{type:'error',message:text,buttons:['确定']});}
+    finally{if(identity&&surface?.identity===identity&&activeWorkspace==='map'&&!dialogDepth)await surface.setVisible({...identity,visible:true}).catch(()=>{});}
+  });
   rm('closeChoice',async(prefix,names)=>{const r=await dialog.showMessageBox(window,{type:'question',buttons:['继续编辑','逐项保存','保留恢复草稿'],defaultId:0,cancelId:0,message:String(prefix)+'，这些内容尚未保存',detail:names.join('、')+'。保留恢复草稿会在下次打开时恢复，不会应用到游戏。'});return ['continue','save','recover'][r.response];});
   rm('close',async()=>{await disposeDocuments();allowClose=true;window.close();});
   rm('pickGame',async()=>{const d=await dialog.showOpenDialog(window,{title:'选择 Remains 游戏文件夹',properties:['openDirectory']});if(d.canceled)return false;checkGame(d.filePaths[0]);await disposeDocuments();useGame(d.filePaths[0]);states.clear();navigation=0;atomicJSON(preferences,{gameRoot});return true;});

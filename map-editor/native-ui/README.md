@@ -1,6 +1,6 @@
 # 原 Flash 地图界面候选模块
 
-2026-09-28：已实现候选，总整合方已将原界面接为候选默认地图页；最终发布以宿主验收为准。原 Editor.swf 和原增强组件不替换。历史 `map-editor/delivery-manifest.json` 不包含本候选，也不作为本候选的验证依据。
+2026-09-28：原界面已在 RModifier 0.3.0 接入，0.3.1 改为自动完整适配窗口，文档操作集中在 Flash 内，并修复原材质按钮的 XMLList 编号传输。原 Editor.swf 和原增强组件不替换。历史 `map-editor/delivery-manifest.json` 不包含本组件；本次以本目录 delivery-manifest.json、component/manifest.json 和最终 package-report 为准。
 
 ## 入口与职责
 
@@ -24,20 +24,22 @@ await map.mount({
 
 | 接口 | 回执与约束 |
 |---|---|
-| `state` / `onState(state)` | documentId、revision、contentHash、pendingInputHash、dirty、canSave、invalidInputs、composing、loaded、persistedRevision |
+| `state` / `onState(state)` | documentId、revision、contentHash、pendingInputHash、dirty、canSave、canUndo、canRedo、invalidInputs、composing、loaded、persistedRevision |
 | `flush(reason)` | `ready / invalid / composing / offline` + state。包含属性框、房间名和文件名待输入，不用旧 mActive 判断 |
 | `activate(visible)` | 隐藏前同步；composing/offline 不隐藏。AIR NativeWindow.visible 与宿主表面一起更新；切页不重启实例、不关闭原 PreviewPanel |
 | `saveDraft({as?})` | `saved`（含 documentId/revision/contentHash/filename/receipt）、`cancelled`、`invalid/composing/offline/conflict`。等待文件框期间的新编辑保持 dirty；旧保存结果不产生当前状态的关闭凭据 |
 | `recover()` | `recovered` + 精确状态 receipt，或 `composing/offline/failed`。允许保留非法 XML 原文与选择、预览位置及撤销历史 |
 | `suspend(reason)` | 原生同步并锁输入，返回 FlushResult；只有 `locked:true` 才需要配对 resume。invalid 可锁并恢复草稿，composing/offline 不取得锁 |
 | `resume()` | 锁计数归零才释放输入。宿主文件框/关闭提示与地图内部换文档共享计数 |
-| `action('open'/'undo'/'redo')` | 操作串行；打开文件框期间的新输入在最终切换前再次同步并归档；旧 documentId 的异步操作拒绝 |
-| `setViewport({zoom,panX,panY,fit,deviceScale,clientWidth})` | 返回实际缩放/平移、范围、uiScale 和舞台尺寸。zoom 25%–300%；deviceScale=dpi/96，clientWidth 是 Win32 客户区物理宽 |
+| `action('open'/'save'/'saveAs'/'undo'/'redo')` | 操作串行；打开文件框期间的新输入在最终切换前再次同步并归档；旧 documentId 的异步操作拒绝。Flash 内显示成功、取消和错误回执 |
+| `setViewport({deviceScale,clientWidth})` | 返回自动适配的缩放、范围、uiScale 和舞台尺寸。旧 zoom/pan/fit 请求不恢复裁切视口；deviceScale=dpi/96，clientWidth 是 Win32 客户区物理宽 |
 | `dispose(receipt?)` | 未保存文档需要匹配当前 documentId/revision/两个 hash 的保存或恢复凭据；干净文档及未加载分支不需要不存在的凭据。只结束本模块创建的 AIR |
 
 `surface` 提供 `attach({sessionId,epoch,pid,startedAt,titleToken})`、`setVisible({sessionId,epoch,visible})`、`focus({sessionId,epoch})`、`detach({sessionId,epoch})`。attach 返回完成布局后的 `{dpi,client:{width,height},...}`；不启动或杀 AIR。过期会话不得复用旧窗口。
 
-本机实测 AIR 舞台使用逻辑坐标：Win32 客户区 2534 像素对应 stageWidth 1267、DPI 192。界面换算是 `uiScale=(dpi/96)/(clientWidth/stageWidth)`，因此本机 uiScale=1，100% 为原 13 点字体；不能仅因 DPI=192 再放大两倍。缺少物理尺寸时保守取 uiScale=1。跨屏/窗口变化应更新实测尺寸。底栏提供适应、100%、加减、四向平移、原点；也支持空格拖动和 Ctrl+滚轮。画布指针通过 globalToLocal 转为原界面坐标。
+本机实测 AIR 舞台使用逻辑坐标：Win32 客户区 2534 像素对应 stageWidth 1267、DPI 192；不能仅因 DPI=192 再放大两倍。整个 1800×950 原舞台始终按 `min(stageWidth/1800,stageHeight/950)` 适配，没有额外 34 px 底栏，平移归零。窗口调整、恢复和旧草稿恢复都会重新适配。原预渲染自己的场景缩放与滚轮保留。画布指针通过 globalToLocal 转为原界面坐标。
+
+原保存、载入按钮下方新增“另存 / 撤销 / 重做”；Ctrl+S、Ctrl+Z、Ctrl+Y 和 Ctrl+Shift+S 分别执行保存、撤销、重做、另存。成功消息短暂显示，错误保留到用户关闭。
 
 ## 原文保护与已实现操作
 
@@ -54,6 +56,8 @@ await map.mount({
 - `map-editor/tests/native-ui.cjs`：19 组真实候选 AIR 交互，包括输入、保存、等待对话框时的新编辑、恢复、矩形绘制、房间复制、DPI、原预览/PNG、重启恢复。
 - `map-editor/tests/native-ui-preservation.cjs`：31份原图经真实界面开存逐字节核对；扩展夹具含BOM、CRLF、CDATA、同位置同内容重复物体、缺code、未知对象/根节点、固定doors和rrPlan；另验固定新房间首次绘制。
 - `map-editor/tests/native-ui-controls.cjs`：5组原控件事件回归；无选择时点击切换层、后续保存、固定上下层切换、固定转随机后的旧坐标入口、原预渲染按钮打开后另存取消/成功。修复前最小点击已复现同一 #1009；合成鼠标事件覆盖原监听器，真实指针跨窗口与系统文件框另由宿主实屏验收。
+- `map-editor/tests/native-ui-wall-paint.cjs`：9组，走真实素材按钮的监听器和原绘制流程，检查全部67种材质、前后层、矩形、撤销重做、保存重开和原预渲染；避免直接注入字符串绕过 XMLList 故障。
+- `tests/native-host.cjs`：0.3.1 的11组宿主回归，检查无外层条、自动适配、切页、Flash文档按钮、错误回执与重启恢复。31图完整保存和5组旧控件报告属于0.3.0历史验证，本轮未重复执行。
 - 宿主实际窗口、真实中文输入、Alt+F4、三页焦点和最终便携包由总整合方验证。独立测试 surface 不能替代这部分。
 
 ## 当前限制

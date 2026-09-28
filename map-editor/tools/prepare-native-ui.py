@@ -119,12 +119,17 @@ for p in (game/'Editor/Enhancements/src').rglob('*.as'):
     text=p.read_text(encoding='utf-8-sig')
     if p.name=='EditorTools.as':
         text=text.replace('public class EditorTools extends Sprite {','public class EditorTools extends Sprite {\n        public static var roots:Object;')
+        text=text.replace('private var host:Object;', 'private var host:Object;\n        private var documentControls:NativeDocumentControls;')
         text=text.replace('button=new ToolButton("预渲染",116,30);','button=new ToolButton("预渲染",116,30);\n            button.name="RModifier_PreviewEntry";')
         text=text.replace('host=editor;','host=editor;roots=host.RMRoots();')
+        text=text.replace('            tick();','            documentControls=new NativeDocumentControls(host);\n            tick();')
+        text=text.replace('            var context:Object=host.ToolsContext();','            documentControls.tick();\n            var context:Object=host.ToolsContext();')
         text=text.replace('if(preview.isOpen) preview.close();','host.RMBeforeTools(function():void {openReviewReady();});\n        }\n        private function openReviewReady():void {\n            if(preview.isOpen) preview.close();')
         text=text.replace('            preview.open();','            host.RMBeforeTools(function():void {preview.open();});')
         text=text.replace('new File(File.applicationDirectory.resolvePath("Editor/logs/"+name+".json").nativePath)','new File(roots.sessionRoot).resolvePath("logs/"+name+".json")')
         text=text.replace('        public function get diagnostics()', '''        public function RMPreview():void {openPreview(null);}
+        public function RMStatus(value:Object):void {documentControls.update(value);}
+        public function RMControlsState():Object {return documentControls.state;}
         public function RMView():Object {return preview.state;}
         public function RMRestoreView(value:Object):void {preview.restore(value);}
         public function RMExportPreview():void {preview.exportCurrent();}
@@ -141,5 +146,6 @@ for p in (game/'Editor/Enhancements/src').rglob('*.as'):
         public function exportCurrent():void {exportImage(null);}
         public function dispose():void''')
     target.write_text(text,encoding='utf-8')
+shutil.copyfile(owned/'NativeDocumentControls.as',tools/'NativeDocumentControls.as')
 (build/'source-inputs.json').write_text(json.dumps({'installed':expected,'generated':{str(p.relative_to(build)):sha(p) for p in [*scripts.rglob('*.as'),*tools.rglob('*.as')]}},indent=2),encoding='utf-8')
 print(build)
