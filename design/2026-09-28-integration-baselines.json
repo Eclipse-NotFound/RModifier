@@ -1,0 +1,692 @@
+{
+  "schemaVersion": 1,
+  "purpose": "RModifier 三编辑器整合准备基线；只读核对，不是整合验收",
+  "capturedAt": "2026-09-28T01:59:03.255Z",
+  "gameRoot": "D:\\Program Files\\Steam\\steamapps\\common\\Remains",
+  "userTarget": {
+    "folder": "mods/RModifier",
+    "entry": "RModifier.exe",
+    "workspaces": [
+      "掉落编辑",
+      "角色台词",
+      "地图编辑"
+    ],
+    "sameVisibleWindow": true,
+    "singleFileDistribution": true
+  },
+  "current": {
+    "lootHead": "3235b83f5df3ac6dfafcb60ad6023339e93dccf4",
+    "barksHead": "dea6a9ad289fa51e75217a830b504dbf17c42c0a",
+    "barksCodeBaseline": "67cd0bc1fb47d87f5696be3488dc266d9e9fd71a",
+    "barksChangesSinceBaseline": "README/design/state only; no src/test changes",
+    "targetDirectoryExists": false,
+    "productionReceiptPresent": false
+  },
+  "mapHandoff": {
+    "path": "Editor/Integration/handoff-manifest-20260928.json",
+    "sha256": "565dcadf0dc2df9ae9c20c6f443183bd1e4623b02606e9fa734967fd64ff67f0",
+    "createdAt": "2026-09-28T01:47:44.253855+00:00",
+    "count": 67,
+    "matched": 67,
+    "files": [
+      {
+        "path": "Editor.swf",
+        "role": "map-runtime",
+        "bytes": 496700,
+        "sha256": "e99e231f83128ea24cd13b2ae36b0dd294e5180a16f54ba3c7b3cb8fa24d99fd",
+        "currentSha256": "e99e231f83128ea24cd13b2ae36b0dd294e5180a16f54ba3c7b3cb8fa24d99fd",
+        "matches": true
+      },
+      {
+        "path": "Editor/Enhancements/EditorTools.swf",
+        "role": "map-runtime",
+        "bytes": 13255,
+        "sha256": "e2c6741d99802ae7043b72eae2296fffad441c6676c10d4d306e0624aa7fae53",
+        "currentSha256": "e2c6741d99802ae7043b72eae2296fffad441c6676c10d4d306e0624aa7fae53",
+        "matches": true
+      },
+      {
+        "path": "Editor/Enhancements/NativeScene.swf",
+        "role": "map-runtime",
+        "bytes": 9619837,
+        "sha256": "fcb620b9f4dc25eb3b4b54d420dfdf2549894472e8d0a331f06cdc321fc7cba7",
+        "currentSha256": "fcb620b9f4dc25eb3b4b54d420dfdf2549894472e8d0a331f06cdc321fc7cba7",
+        "matches": true
+      },
+      {
+        "path": "Editor/Enhancements/README.md",
+        "role": "map-documentation",
+        "bytes": 7161,
+        "sha256": "90d620f18ec53e8ae4e6ed2dedf24e131a527fcb079656f955e4d58808b2121a",
+        "currentSha256": "90d620f18ec53e8ae4e6ed2dedf24e131a527fcb079656f955e4d58808b2121a",
+        "matches": true
+      },
+      {
+        "path": "Editor/Enhancements/build-config.xml",
+        "role": "map-build-input-or-tool",
+        "bytes": 678,
+        "sha256": "c252cf675de0f948b408024a6595476007a3af8bc31185aedb39d1c0898f48ac",
+        "currentSha256": "c252cf675de0f948b408024a6595476007a3af8bc31185aedb39d1c0898f48ac",
+        "matches": true
+      },
+      {
+        "path": "Editor/Enhancements/build/installed.json",
+        "role": "existing-evidence-not-new-integration-test",
+        "bytes": 652,
+        "sha256": "72e0b5dc6829a29bcae10e3e4762bf615d8c85d85423717f59c67fdd4fd67d13",
+        "currentSha256": "72e0b5dc6829a29bcae10e3e4762bf615d8c85d85423717f59c67fdd4fd67d13",
+        "matches": true
+      },
+      {
+        "path": "Editor/Enhancements/build/label-kpp-installed.json",
+        "role": "existing-evidence-not-new-integration-test",
+        "bytes": 20857,
+        "sha256": "badb283c91461543c5db5c6bcdfdd3b36bb265348d2a367878df6626a378f085",
+        "currentSha256": "badb283c91461543c5db5c6bcdfdd3b36bb265348d2a367878df6626a378f085",
+        "matches": true
+      },
+      {
+        "path": "Editor/Enhancements/build/verification.json",
+        "role": "existing-evidence-not-new-integration-test",
+        "bytes": 3617,
+        "sha256": "4d117e36b29d859efd4f85570cc192b325b4595382ad41c7563d7c221d041ae6",
+        "currentSha256": "4d117e36b29d859efd4f85570cc192b325b4595382ad41c7563d7c221d041ae6",
+        "matches": true
+      },
+      {
+        "path": "Editor/Enhancements/prepare_native.py",
+        "role": "map-build-input-or-tool",
+        "bytes": 4236,
+        "sha256": "5c93fed77d4aa2625f73ad6a12c5d8de0751b21008ebcdde9d03d660ec5ca8a7",
+        "currentSha256": "5c93fed77d4aa2625f73ad6a12c5d8de0751b21008ebcdde9d03d660ec5ca8a7",
+        "matches": true
+      },
+      {
+        "path": "Editor/Enhancements/preserve_native_assets.py",
+        "role": "map-build-input-or-tool",
+        "bytes": 1696,
+        "sha256": "1cf606c60604a1a8c823f71fd080886d5a454e5b42556999ea19c0fa1749a383",
+        "currentSha256": "1cf606c60604a1a8c823f71fd080886d5a454e5b42556999ea19c0fa1749a383",
+        "matches": true
+      },
+      {
+        "path": "Editor/Enhancements/src/EditorBridge.as.inc",
+        "role": "map-source",
+        "bytes": 2115,
+        "sha256": "c884a0e7af48b43e04f0990abbea22f737a75c892ba9211f88d2c6b1de682d71",
+        "currentSha256": "c884a0e7af48b43e04f0990abbea22f737a75c892ba9211f88d2c6b1de682d71",
+        "matches": true
+      },
+      {
+        "path": "Editor/Enhancements/src/EditorTools.as",
+        "role": "map-source",
+        "bytes": 2719,
+        "sha256": "704b83d6a7fa1886df627abc5901c0e520b586accb59f9a7e174872babedddd7",
+        "currentSha256": "704b83d6a7fa1886df627abc5901c0e520b586accb59f9a7e174872babedddd7",
+        "matches": true
+      },
+      {
+        "path": "Editor/Enhancements/src/MapLabels.as",
+        "role": "map-source",
+        "bytes": 8864,
+        "sha256": "c07da98b31052eb9ef86f1f0e0f226672611b5ff131eef982e1b36669f38e1b6",
+        "currentSha256": "c07da98b31052eb9ef86f1f0e0f226672611b5ff131eef982e1b36669f38e1b6",
+        "matches": true
+      },
+      {
+        "path": "Editor/Enhancements/src/NativeRenderer.as",
+        "role": "map-source",
+        "bytes": 11888,
+        "sha256": "11764e57473329ca6d35628440832b3fd3e04094dd4b11be75075177e6cea0b6",
+        "currentSha256": "11764e57473329ca6d35628440832b3fd3e04094dd4b11be75075177e6cea0b6",
+        "matches": true
+      },
+      {
+        "path": "Editor/Enhancements/src/PngWriter.as",
+        "role": "map-source",
+        "bytes": 2360,
+        "sha256": "3a926b0e22597af8762fbdb777ccbed97a1fd584875a92311b17e975cb90d087",
+        "currentSha256": "3a926b0e22597af8762fbdb777ccbed97a1fd584875a92311b17e975cb90d087",
+        "matches": true
+      },
+      {
+        "path": "Editor/Enhancements/src/PreviewHarness.as",
+        "role": "map-source",
+        "bytes": 4791,
+        "sha256": "b87bfcd4cc6dc032f458882ba95419ae2b0fc8af5a5655d86cee3b60cddfff11",
+        "currentSha256": "b87bfcd4cc6dc032f458882ba95419ae2b0fc8af5a5655d86cee3b60cddfff11",
+        "matches": true
+      },
+      {
+        "path": "Editor/Enhancements/src/PreviewPanel.as",
+        "role": "map-source",
+        "bytes": 10991,
+        "sha256": "45e7f98a4eda8a5b30a85ad236372afad30339e110ab3f06b55654dc3f349a93",
+        "currentSha256": "45e7f98a4eda8a5b30a85ad236372afad30339e110ab3f06b55654dc3f349a93",
+        "matches": true
+      },
+      {
+        "path": "Editor/Enhancements/src/ToolButton.as",
+        "role": "map-source",
+        "bytes": 1246,
+        "sha256": "8bb10662921c572fee75a0d19d59380e43d62f42d17183a47d6c34a5607402f6",
+        "currentSha256": "8bb10662921c572fee75a0d19d59380e43d62f42d17183a47d6c34a5607402f6",
+        "matches": true
+      },
+      {
+        "path": "Editor/Enhancements/verify.py",
+        "role": "map-build-input-or-tool",
+        "bytes": 6085,
+        "sha256": "e8f40e5feddc1e0b2ef8d51aff59cebbea144de493eb93f21d8556bdaaaae141",
+        "currentSha256": "e8f40e5feddc1e0b2ef8d51aff59cebbea144de493eb93f21d8556bdaaaae141",
+        "matches": true
+      },
+      {
+        "path": "Editor/INSTALLATION.md",
+        "role": "map-documentation",
+        "bytes": 6462,
+        "sha256": "f094e6b07160e4f002c3d4bbadd5851e7bd18799f104bdff2fdab9daf6dcfc38",
+        "currentSha256": "f094e6b07160e4f002c3d4bbadd5851e7bd18799f104bdff2fdab9daf6dcfc38",
+        "matches": true
+      },
+      {
+        "path": "Editor/Localization/README.md",
+        "role": "map-documentation",
+        "bytes": 9555,
+        "sha256": "e7aa48f93a49e2ff9169bc1d630ca7af12ea15e95c69d58dc1516fad5786580f",
+        "currentSha256": "e7aa48f93a49e2ff9169bc1d630ca7af12ea15e95c69d58dc1516fad5786580f",
+        "matches": true
+      },
+      {
+        "path": "Editor/Localization/backup-20260928-display/Editor.swf",
+        "role": "map-build-input-or-tool",
+        "bytes": 489566,
+        "sha256": "64588f41e30db4c865ec34c5e3f0208210100992a9bddf75447f6899962877fa",
+        "currentSha256": "64588f41e30db4c865ec34c5e3f0208210100992a9bddf75447f6899962877fa",
+        "matches": true
+      },
+      {
+        "path": "Editor/Localization/display-patch/README.md",
+        "role": "map-documentation",
+        "bytes": 5967,
+        "sha256": "086c4a48e47441f6ffd1aa9b36809e0a47a263953fe51a4afbffb3e24d6fff78",
+        "currentSha256": "086c4a48e47441f6ffd1aa9b36809e0a47a263953fe51a4afbffb3e24d6fff78",
+        "matches": true
+      },
+      {
+        "path": "Editor/Localization/display-patch/original/scripts/Editor.as",
+        "role": "map-build-input-or-tool",
+        "bytes": 66207,
+        "sha256": "1ba21c6cfdf0065521e0b5fe9a10a29445ce40df53216662081319110d15e457",
+        "currentSha256": "1ba21c6cfdf0065521e0b5fe9a10a29445ce40df53216662081319110d15e457",
+        "matches": true
+      },
+      {
+        "path": "Editor/Localization/display-patch/original/scripts/fl/controls/LabelButton.as",
+        "role": "map-build-input-or-tool",
+        "bytes": 9798,
+        "sha256": "106b387178c4b4fa73884d202e6f578eee0c4b23e7bf09240bd516b569c0c92e",
+        "currentSha256": "106b387178c4b4fa73884d202e6f578eee0c4b23e7bf09240bd516b569c0c92e",
+        "matches": true
+      },
+      {
+        "path": "Editor/Localization/display-patch/prepare_patch.py",
+        "role": "map-build-input-or-tool",
+        "bytes": 8461,
+        "sha256": "14cbd0fe456d29fdedb306361ff6767a2ce28cdb167458f365d31edb93462c60",
+        "currentSha256": "14cbd0fe456d29fdedb306361ff6767a2ce28cdb167458f365d31edb93462c60",
+        "matches": true
+      },
+      {
+        "path": "Editor/Localization/display-patch/verify_patch.py",
+        "role": "map-build-input-or-tool",
+        "bytes": 6090,
+        "sha256": "655e6af7e453138dbba4ebe2fb59d747610f784dea9c5c1fd14e4017fec24f6c",
+        "currentSha256": "655e6af7e453138dbba4ebe2fb59d747610f784dea9c5c1fd14e4017fec24f6c",
+        "matches": true
+      },
+      {
+        "path": "Editor/Resources/langs.xml",
+        "role": "editor-localization",
+        "bytes": 803,
+        "sha256": "1742932af549887aa8711b8f6633525094ddd45446da44d488e25ac9aeebf9cb",
+        "currentSha256": "1742932af549887aa8711b8f6633525094ddd45446da44d488e25ac9aeebf9cb",
+        "matches": true
+      },
+      {
+        "path": "Editor/Resources/text_en.xml",
+        "role": "editor-localization",
+        "bytes": 21437,
+        "sha256": "4ed4516f7fe33c15df5292ae31186b5dd247dcd3fe07d0028bbcfda5fc4afb2e",
+        "currentSha256": "4ed4516f7fe33c15df5292ae31186b5dd247dcd3fe07d0028bbcfda5fc4afb2e",
+        "matches": true
+      },
+      {
+        "path": "Editor/Resources/text_ru.xml",
+        "role": "editor-localization",
+        "bytes": 26768,
+        "sha256": "16bd57f5d3904664c841e415198b1cc750b84900bf677c9ad8fe46c2d2630ccf",
+        "currentSha256": "16bd57f5d3904664c841e415198b1cc750b84900bf677c9ad8fe46c2d2630ccf",
+        "matches": true
+      },
+      {
+        "path": "Editor/Resources/text_zh.xml",
+        "role": "editor-localization",
+        "bytes": 26890,
+        "sha256": "8c2a66f273762fe17954c2fde5d39bca36f4a4df563d57cd8d42567501d3789c",
+        "currentSha256": "8c2a66f273762fe17954c2fde5d39bca36f4a4df563d57cd8d42567501d3789c",
+        "matches": true
+      },
+      {
+        "path": "Editor/Source/localization-code/scripts/Editor/EditorButton.as",
+        "role": "localization-reference-source",
+        "bytes": 1177,
+        "sha256": "559e9e97e4595ec7b863483d18995451e5510eeb6dbc58a55335c34db6506f3c",
+        "currentSha256": "559e9e97e4595ec7b863483d18995451e5510eeb6dbc58a55335c34db6506f3c",
+        "matches": true
+      },
+      {
+        "path": "Editor/Source/localization-code/scripts/Editor/Lang.as",
+        "role": "localization-reference-source",
+        "bytes": 884,
+        "sha256": "15b84ba99e9306d66ab1f60284127096adef96d848356781c2e06420408ce1c5",
+        "currentSha256": "15b84ba99e9306d66ab1f60284127096adef96d848356781c2e06420408ce1c5",
+        "matches": true
+      },
+      {
+        "path": "Editor/Source/localization-code/scripts/Editor/LangsList.as",
+        "role": "localization-reference-source",
+        "bytes": 2389,
+        "sha256": "61784bee3f6b24169b2bf4aa1d11722aca3a4f5ea2e446e8c2374cbf520d1ce8",
+        "currentSha256": "61784bee3f6b24169b2bf4aa1d11722aca3a4f5ea2e446e8c2374cbf520d1ce8",
+        "matches": true
+      },
+      {
+        "path": "Editor/Source/localization-code/scripts/Editor/Localization.as",
+        "role": "localization-reference-source",
+        "bytes": 3661,
+        "sha256": "61310448587e365e48d2d4bc44576b09ed9b9bd40eb55ef048112d74f8c1069e",
+        "currentSha256": "61310448587e365e48d2d4bc44576b09ed9b9bd40eb55ef048112d74f8c1069e",
+        "matches": true
+      },
+      {
+        "path": "Editor/Source/localization-code/scripts/Editor/LocalizedObject.as",
+        "role": "localization-reference-source",
+        "bytes": 732,
+        "sha256": "8bc0df695c8fc1b05a0dd34b058181135abcaeb7525235650e4f81056aba6bd7",
+        "currentSha256": "8bc0df695c8fc1b05a0dd34b058181135abcaeb7525235650e4f81056aba6bd7",
+        "matches": true
+      },
+      {
+        "path": "Editor/Source/localization-code/scripts/Editor/TextFieldLocalizationProxy.as",
+        "role": "localization-reference-source",
+        "bytes": 543,
+        "sha256": "820488f0c9e695ba84ca23854baa96b6e158d9b3a09807142b53c5519c420a6b",
+        "currentSha256": "820488f0c9e695ba84ca23854baa96b6e158d9b3a09807142b53c5519c420a6b",
+        "matches": true
+      },
+      {
+        "path": "Editor/Work/before-labels-preview-20260928.xml",
+        "role": "existing-evidence-not-new-integration-test",
+        "bytes": 383525,
+        "sha256": "dbf27a02740c103d149946bcec77347b223df03d69c7a604e63f7c84a161287c",
+        "currentSha256": "dbf27a02740c103d149946bcec77347b223df03d69c7a604e63f7c84a161287c",
+        "matches": true
+      },
+      {
+        "path": "Editor/Work/labels-preview-savecheck-20260928.xml",
+        "role": "existing-evidence-not-new-integration-test",
+        "bytes": 383525,
+        "sha256": "3251334d7ec5d47b86dbed8a32c7ecc8814e7b30c8e545e359395cb981053df6",
+        "currentSha256": "3251334d7ec5d47b86dbed8a32c7ecc8814e7b30c8e545e359395cb981053df6",
+        "matches": true
+      },
+      {
+        "path": "Editor/Work/preview-ui-check-20260928.png",
+        "role": "existing-evidence-not-new-integration-test",
+        "bytes": 1474055,
+        "sha256": "ebc2387e9af7d91fbb2b61ff3e2fb2a9de8318f4be20d3369f1b6afdd47b4121",
+        "currentSha256": "ebc2387e9af7d91fbb2b61ff3e2fb2a9de8318f4be20d3369f1b6afdd47b4121",
+        "matches": true
+      },
+      {
+        "path": "Editor/logs/preview-harness.json",
+        "role": "existing-evidence-not-new-integration-test",
+        "bytes": 28958,
+        "sha256": "dfa8ee91337fb676a318625a84149f93f8337dedcf4fe6823e2f6adab2dbac51",
+        "currentSha256": "dfa8ee91337fb676a318625a84149f93f8337dedcf4fe6823e2f6adab2dbac51",
+        "matches": true
+      },
+      {
+        "path": "Editor/使用说明.md",
+        "role": "map-documentation",
+        "bytes": 12841,
+        "sha256": "6a5434772e6cba5d1cb0e94d194c153208aa90435d9b837613040e5ba03b7a78",
+        "currentSha256": "6a5434772e6cba5d1cb0e94d194c153208aa90435d9b837613040e5ba03b7a78",
+        "matches": true
+      },
+      {
+        "path": "MapEditor.bat",
+        "role": "map-runtime",
+        "bytes": 146,
+        "sha256": "1662378b1a54dfb3bb44a21b65ca02e9c9bb60d27c5a770f034d85f70fabd831",
+        "currentSha256": "1662378b1a54dfb3bb44a21b65ca02e9c9bb60d27c5a770f034d85f70fabd831",
+        "matches": true
+      },
+      {
+        "path": "adl64.exe",
+        "role": "shared-game-resource-read-only",
+        "bytes": 405464,
+        "sha256": "d851eb9e68d38abd335916dd91e08de3f1660945b49f382691a188adc7c8c295",
+        "currentSha256": "d851eb9e68d38abd335916dd91e08de3f1660945b49f382691a188adc7c8c295",
+        "matches": true
+      },
+      {
+        "path": "application.xml",
+        "role": "shared-game-resource-read-only",
+        "bytes": 1145,
+        "sha256": "70dd3b085e5f6c66c03693cf68ce5e93a4e4136dd745d40d1a5b2a49863ba236",
+        "currentSha256": "70dd3b085e5f6c66c03693cf68ce5e93a4e4136dd745d40d1a5b2a49863ba236",
+        "matches": true
+      },
+      {
+        "path": "editor-application.xml",
+        "role": "map-runtime",
+        "bytes": 893,
+        "sha256": "804730695369bc3990bb8bbf6040e09a4d8f52ee421a302691ead550031d869d",
+        "currentSha256": "804730695369bc3990bb8bbf6040e09a4d8f52ee421a302691ead550031d869d",
+        "matches": true
+      },
+      {
+        "path": "mods/LootEditor/AGENT_SCOPE.md",
+        "role": "loot-reference-read-only",
+        "bytes": 702,
+        "sha256": "1fe0d2a953fbf71b9c80901f7a060825ef5d9132bbd650840de657ab6fe4aef1",
+        "currentSha256": "1fe0d2a953fbf71b9c80901f7a060825ef5d9132bbd650840de657ab6fe4aef1",
+        "matches": true
+      },
+      {
+        "path": "mods/LootEditor/config/installation.json",
+        "role": "loot-reference-read-only",
+        "bytes": 629,
+        "sha256": "954510922f9cccedcdff3f963ed0dce449d66222011c25c8c34b182d8fed8b46",
+        "currentSha256": "954510922f9cccedcdff3f963ed0dce449d66222011c25c8c34b182d8fed8b46",
+        "matches": true
+      },
+      {
+        "path": "mods/LootEditor/desktop/core.mjs",
+        "role": "loot-reference-read-only",
+        "bytes": 12843,
+        "sha256": "627b5384635a35b5db9599b56a92cc415ca9dcc2d9d642f8e34b155af8f05bf9",
+        "currentSha256": "627b5384635a35b5db9599b56a92cc415ca9dcc2d9d642f8e34b155af8f05bf9",
+        "matches": true
+      },
+      {
+        "path": "mods/LootEditor/desktop/main.cjs",
+        "role": "loot-reference-read-only",
+        "bytes": 8095,
+        "sha256": "27815751d17a329f0a47c34fde393296559e07278a0e5a699c68d9267c90282f",
+        "currentSha256": "27815751d17a329f0a47c34fde393296559e07278a0e5a699c68d9267c90282f",
+        "matches": true
+      },
+      {
+        "path": "mods/LootEditor/desktop/preload.cjs",
+        "role": "loot-reference-read-only",
+        "bytes": 349,
+        "sha256": "a0fa5205aca7fd3ea8bb1b857e68e3e24e9f828e3b49f53197ce6ad8a3d5df88",
+        "currentSha256": "a0fa5205aca7fd3ea8bb1b857e68e3e24e9f828e3b49f53197ce6ad8a3d5df88",
+        "matches": true
+      },
+      {
+        "path": "mods/LootEditor/desktop/store.cjs",
+        "role": "loot-reference-read-only",
+        "bytes": 1971,
+        "sha256": "1950c3261bf40e653e7a5d04f8f2da4a18d3062d938bfa2addb10d0959d20628",
+        "currentSha256": "1950c3261bf40e653e7a5d04f8f2da4a18d3062d938bfa2addb10d0959d20628",
+        "matches": true
+      },
+      {
+        "path": "mods/LootEditor/desktop/ui/app.ts",
+        "role": "loot-reference-read-only",
+        "bytes": 33690,
+        "sha256": "68f0565aa2782c3652059aa7407030ddf81536129c44a8bb4a865d32eeca6f17",
+        "currentSha256": "68f0565aa2782c3652059aa7407030ddf81536129c44a8bb4a865d32eeca6f17",
+        "matches": true
+      },
+      {
+        "path": "mods/LootEditor/desktop/ui/index.html",
+        "role": "loot-reference-read-only",
+        "bytes": 3217,
+        "sha256": "d43ff71d0b4480b79046147afc4b17f4edce5394ccb9400f5a6e21b7bba3c2e9",
+        "currentSha256": "d43ff71d0b4480b79046147afc4b17f4edce5394ccb9400f5a6e21b7bba3c2e9",
+        "matches": true
+      },
+      {
+        "path": "mods/LootEditor/package.json",
+        "role": "loot-reference-read-only",
+        "bytes": 528,
+        "sha256": "e7b097a6d6c92d565031d5ecbede9fc3d72e2ee9a9a340320d15f5fd05d29881",
+        "currentSha256": "e7b097a6d6c92d565031d5ecbede9fc3d72e2ee9a9a340320d15f5fd05d29881",
+        "matches": true
+      },
+      {
+        "path": "mods/LootEditor/src/LootEditorMod.as",
+        "role": "loot-reference-read-only",
+        "bytes": 10719,
+        "sha256": "a4c9e667053e8726774d59bbaaf1addb18c0add7ae4fe4bc8dff84ba1cc6561a",
+        "currentSha256": "a4c9e667053e8726774d59bbaaf1addb18c0add7ae4fe4bc8dff84ba1cc6561a",
+        "matches": true
+      },
+      {
+        "path": "mods/LootEditor/src/loot/RuleEngine.as",
+        "role": "loot-reference-read-only",
+        "bytes": 6814,
+        "sha256": "a47571df39d4bf80456dfe76f984efce8370461f60ff5fd50c7f53271f5c9f7f",
+        "currentSha256": "a47571df39d4bf80456dfe76f984efce8370461f60ff5fd50c7f53271f5c9f7f",
+        "matches": true
+      },
+      {
+        "path": "mods/LootEditor/state/MEMORY.md",
+        "role": "loot-reference-read-only",
+        "bytes": 3817,
+        "sha256": "678dc6cbf7a7a5967228a287e96a4aaa611e8dd51e92875d04d28c80f2cac390",
+        "currentSha256": "678dc6cbf7a7a5967228a287e96a4aaa611e8dd51e92875d04d28c80f2cac390",
+        "matches": true
+      },
+      {
+        "path": "mods/LootEditor/tools/package.mjs",
+        "role": "loot-reference-read-only",
+        "bytes": 2564,
+        "sha256": "24917b7133dc48b48c26115434e47f99ba5e3b34e9cf40ea6be324a97efe3845",
+        "currentSha256": "24917b7133dc48b48c26115434e47f99ba5e3b34e9cf40ea6be324a97efe3845",
+        "matches": true
+      },
+      {
+        "path": "pfe.swf",
+        "role": "shared-game-resource-read-only",
+        "bytes": 15085172,
+        "sha256": "c631cbf3511b6ee303f533d08d51511fe0eb702f43e5db17f5241d8576c64867",
+        "currentSha256": "c631cbf3511b6ee303f533d08d51511fe0eb702f43e5db17f5241d8576c64867",
+        "matches": true
+      },
+      {
+        "path": "pfe_before_LootEditor_2026-09-28T00-13-05-389Z-2a4d4198.swf",
+        "role": "verified-loot-bridge-baseline-read-only",
+        "bytes": 15082429,
+        "sha256": "b78244657ed407d03808c90e97325509db35f802122835f58933fff8003305ac",
+        "currentSha256": "b78244657ed407d03808c90e97325509db35f802122835f58933fff8003305ac",
+        "matches": true
+      },
+      {
+        "path": "sprite.swf",
+        "role": "shared-game-resource-read-only",
+        "bytes": 13220252,
+        "sha256": "49b459d129a16daa065d471cee5ebf9d59914d682a9f07e5a28caf2e52050246",
+        "currentSha256": "49b459d129a16daa065d471cee5ebf9d59914d682a9f07e5a28caf2e52050246",
+        "matches": true
+      },
+      {
+        "path": "sprite1.swf",
+        "role": "shared-game-resource-read-only",
+        "bytes": 8378700,
+        "sha256": "de792cbda95f06e55a91e0ca7604770f1ced6387a42026951a4bf0a70ec11e4a",
+        "currentSha256": "de792cbda95f06e55a91e0ca7604770f1ced6387a42026951a4bf0a70ec11e4a",
+        "matches": true
+      },
+      {
+        "path": "text_zh.xml",
+        "role": "shared-game-resource-read-only",
+        "bytes": 689243,
+        "sha256": "66da212793683b19e65e3973b726a94a2885d5032395af8a2e5a0fd20a17f895",
+        "currentSha256": "66da212793683b19e65e3973b726a94a2885d5032395af8a2e5a0fd20a17f895",
+        "matches": true
+      },
+      {
+        "path": "texture.swf",
+        "role": "shared-game-resource-read-only",
+        "bytes": 15166051,
+        "sha256": "ef4842a1e78f8f8661e84590c82701c3ea54efb71245116bb7a712fed8985ed8",
+        "currentSha256": "ef4842a1e78f8f8661e84590c82701c3ea54efb71245116bb7a712fed8985ed8",
+        "matches": true
+      },
+      {
+        "path": "texture1.swf",
+        "role": "shared-game-resource-read-only",
+        "bytes": 8367667,
+        "sha256": "6646ccf91f912a7384875a5ed40a33c907041645f558a79277fc5f2dc8164678",
+        "currentSha256": "6646ccf91f912a7384875a5ed40a33c907041645f558a79277fc5f2dc8164678",
+        "matches": true
+      },
+      {
+        "path": "地图编辑器.vbs",
+        "role": "map-runtime",
+        "bytes": 437,
+        "sha256": "cfd0f987c06994aad73dd2c2f33a30b712e785694ab01cadddf69a3a84f09881",
+        "currentSha256": "cfd0f987c06994aad73dd2c2f33a30b712e785694ab01cadddf69a3a84f09881",
+        "matches": true
+      }
+    ]
+  },
+  "barksReadonlyCheck": {
+    "speakers": 17,
+    "pools": 102,
+    "lines": 976,
+    "unchangedExportByteIdentical": true
+  },
+  "extraFiles": [
+    {
+      "path": "tools/character-barks-editor/src/core.js",
+      "sha256": "3a46de6c80865941d5ea5ad542bcf9cfbc230f64871cc6fdd36af99f11ec6b17",
+      "bytes": 19989
+    },
+    {
+      "path": "tools/character-barks-editor/src/catalog.js",
+      "sha256": "9e8939f2b11fae12e349d7dd0eb882a6eb4dc672771ed1963248f48a645fc5fb",
+      "bytes": 4465
+    },
+    {
+      "path": "tools/character-barks-editor/src/app.js",
+      "sha256": "fb52700b8137620307986e1562f3b89f497473d3d069046772d642252e4e85a7",
+      "bytes": 38656
+    },
+    {
+      "path": "tools/character-barks-editor/src/index.html",
+      "sha256": "75c7efeea6262e05d466be36bf85f82126a4b1110c995a11a7553d205a7b9833",
+      "bytes": 7463
+    },
+    {
+      "path": "tools/character-barks-editor/src/style.css",
+      "sha256": "50a4b6482f6e001fa4a687e7981f3a5d69b333b1b1c9208658a8c747d15542c9",
+      "bytes": 21261
+    },
+    {
+      "path": "tools/character-barks-editor/test/core.test.cjs",
+      "sha256": "958a0ca113bb0b6fdb883f24971edb4db1bdee29748170ddb56b5fa3ab8b32c8",
+      "bytes": 10676
+    },
+    {
+      "path": "tools/character-barks-editor/test/browser-smoke.js",
+      "sha256": "4c0ecab82fe7bdec959fe387aa06e19036d982d0e59ae7c1f24a345644d53d2f",
+      "bytes": 10121
+    },
+    {
+      "path": "tools/character-barks-editor/validation/core-results.json",
+      "sha256": "bc8b0acad52410ed5f89201dc2bfeaf70374c3e8628f9ee63d38ab5a53a1aeae",
+      "bytes": 3372
+    },
+    {
+      "path": "tools/character-barks-editor/validation/browser-results.json",
+      "sha256": "19e1424b22ec5f413732a3a4fc5dbd90fd38e7509d89a75f76476e4e3a5cfe02",
+      "bytes": 4974
+    },
+    {
+      "path": "tools/character-barks-editor/design/2026-09-28-looteditor-developer-notice.md",
+      "sha256": "bdf9167e11f63012c3b3a11050ac473739e66b92d256f9996d1aad4e70f7c066",
+      "bytes": 5710
+    },
+    {
+      "path": "tools/character-barks-editor/design/2026-09-28-looteditor-integration-plan.md",
+      "sha256": "cc3880a04d191f55452f2405d50e88a4a6c2296009b4f64f0518a54f78364e9a",
+      "bytes": 18201
+    },
+    {
+      "path": "Editor/Integration/loot-editor-developer-notice-20260928.md",
+      "sha256": "79cf564e22f27ea1bfeeb8d89300519bb5439cd1161f99d89fb752d46ba48a58",
+      "bytes": 4772
+    },
+    {
+      "path": "Editor/Integration/loot-editor-integration-plan-20260928.md",
+      "sha256": "121f1e4b1531e835505129cf7f62ac35305e96e40eb2b745a560179b5bce3183",
+      "bytes": 22200
+    }
+  ],
+  "implementationPerformed": false,
+  "processesStartedOrStopped": false,
+  "knownCoverageGap": "共享经验检索为 partial，有不可读来源；已回读 KB-000068，未将检索缺失解释为不存在经验",
+  "closeoutRecheck": {
+    "at": "2026-09-28T02:07:00.905Z",
+    "expectedOwnDocumentationChange": [
+      "mods/LootEditor/state/MEMORY.md"
+    ],
+    "externalChangesSinceInitialSnapshot": [
+      {
+        "path": "Editor/Enhancements/src/NativeRenderer.as",
+        "initialSha256": "11764e57473329ca6d35628440832b3fd3e04094dd4b11be75075177e6cea0b6",
+        "currentSha256": "ec197e2ed6876fd63669892c12cfa51bab1e10d902f39de73162daf4097d5d63",
+        "modifiedAt": "2026-09-28T02:02:30.535Z"
+      },
+      {
+        "path": "Editor/Enhancements/src/PreviewPanel.as",
+        "initialSha256": "45e7f98a4eda8a5b30a85ad236372afad30339e110ab3f06b55654dc3f349a93",
+        "currentSha256": "8c0aa5482470f1e3c4a50ac69f632756796167157c5a29709e245ce8581e37eb",
+        "modifiedAt": "2026-09-28T02:02:31.749Z"
+      }
+    ],
+    "additionalMapSource": [
+      {
+        "path": "Editor/Enhancements/src/NativeEntities.as",
+        "sha256": "34288033bc5ca0b46917313b3d30109e492ecbd64ed28e8fb550e53b3131f969",
+        "bytes": 6713
+      }
+    ],
+    "runtimeFiles": [
+      {
+        "path": "pfe.swf",
+        "sha256": "c631cbf3511b6ee303f533d08d51511fe0eb702f43e5db17f5241d8576c64867"
+      },
+      {
+        "path": "Editor.swf",
+        "sha256": "e99e231f83128ea24cd13b2ae36b0dd294e5180a16f54ba3c7b3cb8fa24d99fd"
+      },
+      {
+        "path": "Editor/Enhancements/EditorTools.swf",
+        "sha256": "e2c6741d99802ae7043b72eae2296fffad441c6676c10d4d306e0624aa7fae53"
+      },
+      {
+        "path": "Editor/Enhancements/NativeScene.swf",
+        "sha256": "fcb620b9f4dc25eb3b4b54d420dfdf2549894472e8d0a331f06cdc321fc7cba7"
+      }
+    ],
+    "note": "地图源码在本轮只读准备期间发生后续更新，未覆盖或纳入已验证基线；实施迁入前重新冻结版本。"
+  }
+}
