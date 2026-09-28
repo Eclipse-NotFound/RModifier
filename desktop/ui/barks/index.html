@@ -14,69 +14,54 @@
   <header class="topbar">
     <a class="brand" href="#" id="brand" aria-label="角色台词工坊，回到玩家场景">
       <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 5h22v16H15l-7 6v-6H5z"/><path d="M10 11h12M10 15h8"/></svg></span>
-      <span><strong>角色台词工坊</strong><small>REMAINS · 让角色说出你的话</small></span>
+      <strong>角色台词</strong>
     </a>
     <div class="top-actions">
       <button class="button quiet" id="open-button"><span aria-hidden="true">↗</span> 打开文件</button>
       <button class="button" id="save-project">保存草稿</button>
       <button class="button primary" id="export-button">导出给游戏 <span aria-hidden="true">→</span></button>
-      <button class="icon-button" id="help-button" aria-label="查看使用说明">?</button>
     </div>
   </header>
-  <section class="welcome" id="welcome" aria-label="三步开始">
-    <div><span class="eyebrow">不需要写代码</span><strong>给熟悉的场景，换一句新台词。</strong></div>
-    <ol><li><b>1</b> 选角色和场景</li><li><b>2</b> 直接写下想说的话</li><li><b>3</b> 保存或导出</li></ol>
-    <button class="icon-button" id="dismiss-welcome" aria-label="收起三步提示">×</button>
-  </section>
   <div class="workspace">
     <aside class="sidebar" aria-label="角色与场景导航">
-      <div class="sidebar-heading"><span class="eyebrow">我的语料</span><span class="language-pill" id="language-label">简体中文</span></div>
-      <label class="field-label" for="speaker-select">谁来说？</label>
+      <div class="sidebar-heading"><label class="field-label" for="speaker-select">角色</label><span class="language-pill" id="language-label">简体中文</span></div>
       <select id="speaker-select" aria-label="选择说话的角色"></select>
-      <p class="speaker-note" id="speaker-note"></p>
-      <div class="section-label">在什么情况下？</div>
+      <div class="section-label">场景</div>
       <nav id="scene-list" aria-label="选择发话场景"></nav>
       <div class="sidebar-footer">
-        <div class="offline-label"><i></i> 离线使用 · 文件留在你的电脑</div>
         <p id="source-label"></p>
-        <button class="text-button" id="source-info">查看文件与保存状态</button>
+        <button class="text-button" id="source-info">文件状态</button>
       </div>
     </aside>
     <main id="main" class="main-panel">
-      <div class="main-topline">
-        <span class="breadcrumb" id="breadcrumb"></span>
+      <div class="scene-heading">
+        <h1 id="scene-title">正在读取…</h1>
         <div class="history-buttons"><button id="undo" class="icon-button" aria-label="撤销上一次修改" title="撤销" disabled>↶</button><button id="redo" class="icon-button" aria-label="重做上一次修改" title="重做" disabled>↷</button></div>
       </div>
-      <div class="scene-heading"><div><h1 id="scene-title">正在整理台词…</h1><p id="scene-description" class="scene-description"></p></div><span class="scene-symbol" aria-hidden="true">“</span></div>
-      <div id="related-hint"></div>
-      <div class="search-row"><label class="search-box"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="m12 12 5 5"/></svg><input id="search" type="search" placeholder="搜索所有台词，例如：密码" aria-label="搜索所有角色的台词"></label><button class="button" id="add-line">＋ 添加一句</button></div>
+      <div class="search-row"><label class="search-box"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="m12 12 5 5"/></svg><input id="search" type="search" placeholder="搜索台词" aria-label="搜索所有角色的台词"></label><button class="button" id="add-line">＋ 添加一句</button></div>
       <div class="list-heading"><span id="list-count"></span><label class="compact-select"><span class="sr-only">筛选句子</span><select id="list-filter"><option value="all">全部句子</option><option value="changed">只看修改过的</option><option value="disabled">只看暂时不用的</option><option value="marked">只看含粗口的</option></select></label></div>
       <div id="line-list" class="line-list"></div>
       <div class="main-bottom"><span id="save-status" role="status">正在读取…</span><button class="text-button" id="review-changes">查看修改</button></div>
     </main>
     <aside class="preview-panel" aria-label="台词预览">
-      <div class="preview-heading"><div><span class="eyebrow">边写边看</span><h2>这句话的样子</h2></div><span class="live-dot" aria-label="实时预览"></span></div>
+      <div class="preview-heading"><h2>台词预览</h2><span class="live-dot" aria-label="实时预览"></span></div>
       <div class="preview-stage">
         <div class="stage-stars" aria-hidden="true">✧<span>·</span>✦</div>
-        <span class="stage-label">文字效果示意</span>
         <div id="speech-bubble" class="speech-bubble"></div>
         <div class="stage-character"><span class="avatar" id="preview-avatar">你</span><span id="preview-speaker">玩家</span></div>
         <div class="stage-ground" aria-hidden="true"></div>
       </div>
       <p id="preview-reason" class="preview-reason"></p>
       <div class="preview-controls">
-        <label class="field-label" for="preview-name">预览中的玩家名字</label><input id="preview-name" type="text" value="Littlepip" maxlength="80">
-        <div id="sex-control"><label class="field-label" for="preview-sex">说话角色的用词</label><select id="preview-sex"><option value="female">女性角色的说法</option><option value="male">男性角色的说法</option></select></div>
-        <label class="check-row"><input type="checkbox" id="preview-filter" checked><span>模拟开启粗口过滤</span></label>
-        <p class="small-muted">这里的设置只影响预览。</p>
-        <button class="button full-width" id="sample-button">随机试着说一句 <span aria-hidden="true">↻</span></button>
-        <p class="small-muted">只试选台词；实际发话时机由游戏决定。</p>
+        <label class="field-label" for="preview-name">玩家名字</label><input id="preview-name" type="text" value="Littlepip" maxlength="80">
+        <div id="sex-control"><label class="field-label" for="preview-sex">角色用词</label><select id="preview-sex"><option value="female">女性说法</option><option value="male">男性说法</option></select></div>
+        <label class="check-row"><input type="checkbox" id="preview-filter" checked><span>粗口过滤</span></label>
+        <button class="button full-width" id="sample-button">随机一句 <span aria-hidden="true">↻</span></button>
       </div>
-      <div class="tip-card"><span class="tip-icon" aria-hidden="true">✦</span><div><strong>写短一点，更容易读完</strong><p>角色说话的停留时间有限。读出声试试，看看是否自然。</p></div></div>
-      <details class="notes-box"><summary>给自己留个备注</summary><label class="sr-only" for="line-note">所选句子的备注</label><textarea id="line-note" placeholder="例如：这句还想再改得幽默一点…" rows="3"></textarea><p class="small-muted">备注只存在草稿里，不会出现在游戏中。</p></details>
+      <details class="notes-box"><summary>草稿备注</summary><label class="sr-only" for="line-note">所选句子的备注</label><textarea id="line-note" rows="3"></textarea></details>
     </aside>
   </div>
-  <footer class="page-footer"><span id="total-count"></span><span>编辑器里的保存不会自动改动游戏。</span><button class="text-button" id="check-button">检查我的台词</button></footer>
+  <footer class="page-footer"><span id="total-count"></span><button class="text-button" id="check-button">检查台词</button></footer>
 </div>
 <input id="file-input" type="file" accept=".xml,.json" class="sr-only" aria-label="打开游戏文本或台词草稿">
 <dialog id="modal" aria-labelledby="modal-title"><div class="modal-header"><h2 id="modal-title"></h2><button class="icon-button" id="modal-close" aria-label="关闭对话框">×</button></div><div id="modal-body"></div><div id="modal-actions"></div></dialog>

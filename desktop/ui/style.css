@@ -3,3 +3,29 @@
 
 /* Keep save and page controls visible inside the shared editor window. */
 .topbar{position:sticky;top:0;z-index:10}.tabs{position:sticky;top:86px;z-index:9}@media(max-width:1220px){.tabs{position:static}}
+
+/* Compact workspace: keep labels and state beside the controls they describe. */
+.topbar{min-height:64px;padding:10px 22px;gap:18px}
+.brand{font-size:20px;gap:9px}.brand-mark{font-size:28px}
+.tabs{height:48px;top:64px;padding:0 18px}.tabs button{padding:10px 16px}
+#notice{padding:8px 22px}
+#workspace{min-height:calc(100vh - 158px)}
+.sources{padding:18px 14px}.aside-title{margin-bottom:12px}
+.source-list{max-height:calc(100vh - 275px);min-height:190px;margin-top:10px;gap:3px}
+.source-row{padding:9px 8px}.source-row .glyph{width:30px;height:30px;font-size:20px}
+.editor{padding:22px 26px 30px}h1{font-size:25px;margin-bottom:14px}h2{font-size:18px}
+.object-head{align-items:center;margin-bottom:14px;gap:12px}.object-head h1{margin:0}
+.object-head .glyph{width:44px;height:44px;font-size:28px}
+.read-only{padding:0;margin:0 0 14px;border:0;background:transparent}
+.scope-note{padding:8px 11px;margin:12px 0;font-size:12px}
+.mode-row{margin:12px 0}.mode-row button{padding:9px 8px}
+.section-head{margin:18px 0 12px}.reward-card{padding:14px 16px;margin-bottom:12px}
+.reward-title{margin-bottom:12px}.fields{gap:12px}.reward-card details{margin:10px 0 0}
+.pool-heading{display:flex;justify-content:space-between;padding-right:36px;margin-top:14px;font-size:12px;color:var(--muted)}
+.pool-choice small{color:var(--muted)}
+.panel{padding:18px;margin-bottom:14px}.toggle-row{padding:14px 16px;margin:16px 0}
+.profile-actions{margin-top:14px}.profile-card{padding:12px 0}
+.preview{padding:20px}.preview>.section-head{margin-top:0}.preview-actions{margin:14px 0}
+.stat{padding:12px}.stat b{font-size:23px}.empty{padding:22px 8px}
+footer{min-height:46px;padding:8px 18px}
+@media(max-width:850px){.topbar{padding:10px 14px}.tabs{padding:0 10px}.tabs button{padding:10px 8px}.editor{padding:18px}.sources{padding:18px 10px}.fields{gap:8px}.reward-card{padding:13px}.preview{padding:18px}}

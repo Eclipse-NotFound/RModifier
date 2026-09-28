@@ -9,8 +9,8 @@ const capture=async filename=>{const png=await application.evaluate(async({BaseW
 try{
  await page.getByRole('heading',{name:'弹药盒',exact:true}).waitFor();checks.push('boot Chinese catalogue');
  await shellPage.screenshot({path:path.join(root,'01-original.png'),fullPage:false});
- await page.getByRole('button',{name:'复制原版，开始编辑'}).click();
- await page.getByRole('button',{name:'原版之外再增加',exact:true}).click();
+ await page.getByRole('button',{name:'复制并编辑'}).click();
+ await page.getByRole('button',{name:'追加奖励',exact:true}).click();
  await page.getByRole('button',{name:'＋ 添加一条奖励',exact:true}).click();
  await page.getByRole('button',{name:'更换物品',exact:true}).click();
  await page.getByRole('searchbox',{name:'搜索物品'}).fill('10mm');
@@ -23,8 +23,8 @@ try{
  await page.locator('#undo').click();assert.equal(await page.locator('[data-field="max"]').inputValue(),'12');
  await page.locator('#redo').click();assert.equal(await page.locator('[data-field="max"]').inputValue(),'10');checks.push('undo and redo');
  await page.locator('[data-field="min"]').fill('0');await page.locator('[data-field="min"]').press('Tab');await page.locator('#apply').click();assert.match(await page.locator('#notice').innerText(),/1|数量/);assert.equal(fs.existsSync(path.join(root,'data/config/active.json')),false);await page.locator('#undo').click();checks.push('invalid quantity cannot be applied and remains undoable');
- await page.locator('#save').click();await page.getByText('方案已保存。点击“应用方案”后，游戏下次启动读取。',{exact:true}).waitFor();
- await page.locator('#apply').click();await page.getByText(/方案已应用。/).waitFor();assert.match(await page.locator('#gameStatus').innerText(),/等待游戏重启读取|读取模块尚未安装/);checks.push('save/apply distinguishes applied config from a matching game receipt');
+ await page.locator('#save').click();await page.getByText('方案已保存',{exact:true}).waitFor();
+ await page.locator('#apply').click();await page.locator('#notice').filter({hasText:'方案已应用'}).waitFor();assert.match(await page.locator('#gameStatus').innerText(),/等待游戏重启读取|读取模块尚未安装/);checks.push('save/apply distinguishes applied config from a matching game receipt');
  const active=JSON.parse(fs.readFileSync(path.join(root,'data/config/active.json'),'utf8'));assert.equal(active.rules[0].rewards[0].chance,75);assert.equal(active.rules[0].rewards[0].min,6);assert.equal(active.rules[0].rewards[0].max,10);
  await shellPage.screenshot({path:path.join(root,'02-edited.png'),fullPage:false});
  await page.locator('[data-tab="enemy"]').click();assert.equal(await page.locator('.source-row').count(),47);checks.push('47 enemy tables');
@@ -32,16 +32,16 @@ try{
  await page.locator('[data-ammo="packPercent"]').fill('50');await page.locator('[data-ammo="packPercent"]').press('Tab');
  await page.locator('#previewWeapon').selectOption('p10mm');assert.match(await page.locator('#results').innerText(),/6.00/);checks.push('ammo preview half-pack');
  await shellPage.screenshot({path:path.join(root,'03-ammo.png'),fullPage:false});
- await page.locator('#apply').click();await page.getByText(/方案已应用。/).waitFor();
+ await page.locator('#apply').click();await page.locator('#notice').filter({hasText:'方案已应用'}).waitFor();
  await page.locator('[data-ammo="min"]').count();
  await page.locator('[data-tab="profiles"]').click();await page.locator('#profileName').fill('中文方案 · 测试');await page.locator('#profileName').press('Tab');
  await page.locator('#save').click();checks.push('rename and save profile');
  const exportFile=path.join(root,'exported-profile.json');
  await application.evaluate(({dialog},file)=>{dialog.showSaveDialog=async()=>({canceled:false,filePath:file});},exportFile);
- await page.getByRole('button',{name:'导出当前方案',exact:true}).click();await page.getByText('方案已导出。',{exact:true}).waitFor();assert.equal(JSON.parse(fs.readFileSync(exportFile)).name,'中文方案 · 测试');
+ await page.getByRole('button',{name:'导出当前方案',exact:true}).click();await page.getByText('方案已导出',{exact:true}).waitFor();assert.equal(JSON.parse(fs.readFileSync(exportFile)).name,'中文方案 · 测试');
  await application.evaluate(({dialog},file)=>{dialog.showOpenDialog=async()=>({canceled:false,filePaths:[file]});},exportFile);
- await page.getByRole('button',{name:'导入方案',exact:true}).click();await page.getByText('方案已导入。应用后下次启动游戏生效。',{exact:true}).waitFor();checks.push('export/import through real storage with automated file chooser');
- const importedId=await page.locator('#profileSelect').inputValue();await page.getByRole('button',{name:'打开上次应用方案',exact:true}).click();await page.getByText('已打开上次应用的方案副本。检查后点击“应用方案”才会替换当前配置。',{exact:true}).waitFor();assert.match(await page.locator('#profileSelect option:checked').innerText(),/^上次应用/);assert.equal(JSON.parse(fs.readFileSync(path.join(root,'data/config/active.json'))).ammo.enabled,true);await page.locator('#profileSelect').selectOption(importedId);checks.push('previous applied profile opens for review without overwriting current configuration');
+ await page.getByRole('button',{name:'导入方案',exact:true}).click();await page.getByText('方案已导入',{exact:true}).waitFor();checks.push('export/import through real storage with automated file chooser');
+ const importedId=await page.locator('#profileSelect').inputValue();await page.getByRole('button',{name:'打开上次应用方案',exact:true}).click();await page.getByText('已打开上次应用的方案副本',{exact:true}).waitFor();assert.match(await page.locator('#profileSelect option:checked').innerText(),/^上次应用/);assert.equal(JSON.parse(fs.readFileSync(path.join(root,'data/config/active.json'))).ammo.enabled,true);await page.locator('#profileSelect').selectOption(importedId);checks.push('previous applied profile opens for review without overwriting current configuration');
  await page.locator('[data-tab="container"]').click();await page.locator('#scopeFilter').selectOption('table');await page.locator('[data-source="container:table:ammo"]').click();
  for(const [width,height,zoom] of [[1440,950,1.25],[1440,950,1.5],[1440,1100,2],[900,800,1]]){
    await application.evaluate(({BaseWindow},{width,height,zoom})=>{const w=BaseWindow.getAllWindows()[0];w.setSize(width,height);w.webContents.setZoomFactor(zoom);},{width,height,zoom});

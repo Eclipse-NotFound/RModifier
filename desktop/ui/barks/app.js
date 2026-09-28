@@ -4,7 +4,7 @@
   const memory=new Map(),localStorage={getItem:k=>memory.get(k)||null,setItem:(k,v)=>memory.set(k,v)};
   let bootData,documentId=crypto.randomUUID(),saving=false;
   const C = window.BarkCore, K = window.BarkCatalog, $ = id => document.getElementById(id);
-  const STORE = 'remains-barks-draft-v1', PREVIOUS = STORE + '-previous', GUIDE = 'remains-barks-guide-v1';
+  const STORE = 'remains-barks-draft-v1', PREVIOUS = STORE + '-previous';
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
   let source, history, sourceHash, selectedKey, selectedUid, title = '我的角色台词';
   let autosaveTimer, toastTimer, storageOkay = true, lastSaved = '', previewOverride = null, previousSample;
@@ -38,7 +38,7 @@
   function closeModal() { $('modal').close(); }
   function confirmLeave(run) {
     if (!history || revision === downloadedRevision) { run(); return; }
-    showModal('先留住刚才的修改', '<p>打开另一份文件后，会切换到那份内容。要先把现在的编辑存成一份草稿吗？</p><p class="small-muted">草稿可以随时重新打开继续修改。</p>', [
+    showModal('当前草稿未保存', '<p>保存后再打开另一份文件？</p>', [
       { label: '返回继续编辑', run: closeModal },
       { label: '直接切换', run: () => { closeModal(); run(); } },
       { label: '保存草稿，再切换', style: 'primary', run: async () => { if(await saveProject()){closeModal();run();} } }
@@ -60,16 +60,16 @@
     localStorage.setItem(PREVIOUS,JSON.stringify(project()));recoveryBlocked=false;
   }
   function scheduleSave() {
-    $('save-status').textContent = '正在留住这次修改…'; clearTimeout(autosaveTimer); autosaveTimer = setTimeout(()=>persist().catch(e=>toast('自动留存失败：'+e.message)), 450);
+    $('save-status').textContent = '自动留存中…'; clearTimeout(autosaveTimer); autosaveTimer = setTimeout(()=>persist().catch(e=>toast('自动留存失败：'+e.message)), 450);
   }
   function updateSaveStatus(){
     $('save-status').classList.toggle('error',!storageOkay);
-    $('save-status').textContent=!storageOkay?'自动留存失败，请保存一份草稿':autosaveTimer?'正在留住修改…':lastSaved?'已自动留存 · 尚未写入游戏':'选择一句台词，直接改写';
+    $('save-status').textContent=!storageOkay?'自动留存失败，请保存草稿':saving?'保存中…':autosaveTimer?'自动留存中…':revision!==downloadedRevision?'未保存草稿 · 已自动留存':revision?'草稿已保存':'未修改';
     parent.RMHost.state('barks',pageState());
   }
   async function saveProject(){
     if(!source||saving)return false;const r=revision,p=project(),thisDocument=documentId;saving=true;updateSaveStatus();
-    try{const saved=await api.barksSave(p,r);if(!saved||documentId!==thisDocument)return false;downloadedRevision=saved.revision;updateSaveStatus();await persist();toast(revision===downloadedRevision?'台词草稿已保存，可随时重新打开。':'刚才的版本已保存；之后的新修改仍需保存。');return revision===downloadedRevision;}
+    try{const saved=await api.barksSave(p,r);if(!saved||documentId!==thisDocument)return false;downloadedRevision=saved.revision;updateSaveStatus();await persist();toast(revision===downloadedRevision?'草稿已保存':'草稿已保存 · 新修改未保存');return revision===downloadedRevision;}
     catch(e){toast('保存失败：'+e.message);throw e;}
     finally{saving=false;updateSaveStatus();}
   }
@@ -80,13 +80,13 @@
     const changes = C.changeSummary(source, entries());
     $('review-changes').textContent = changes.length ? '查看 ' + changes.length + ' 处修改' : '查看修改';
     const rows = entries()[selectedKey];
-    if (!$('search').value.trim()) $('list-count').textContent = rows.filter(r => r.enabled).length + ' 句可选 · 角色会随机说出其中一句';
+    if (!$('search').value.trim()) $('list-count').textContent = rows.filter(r => r.enabled).length + ' 句已启用';
     const row = selected();
     if (row) {
       const badge = document.querySelector('.line-card.selected .edit-badge');
       if (badge) { badge.hidden = !changed(group(), row); badge.textContent = row.origin === null ? '新写的' : '已修改'; }
       const length = document.querySelector('.line-card.selected .char-count');
-      if (length) length.textContent = Array.from(C.displayText(row.text, $('preview-name').value, false)).length + ' 字左右';
+      if (length) length.textContent = Array.from(C.displayText(row.text, $('preview-name').value, false)).length + ' 字';
       const warning = document.querySelector('.line-card.selected .inline-issues');
       if (warning) {
         const issues = row.enabled ? C.lineIssues(row.text) : [];
@@ -118,12 +118,12 @@
     const ids = [...new Set(source.groups.map(g => g.id))];
     $('speaker-select').innerHTML = ids.map(id => '<option value="' + esc(id) + '">' + esc(K.speaker(id)[0]) + '</option>').join('');
     $('speaker-select').value = group().id;
-    $('speaker-note').textContent = K.speaker(group().id)[1];
+    $('speaker-select').title = K.speaker(group().id)[1];
     $('scene-list').innerHTML = source.groups.filter(g => g.id === group().id).map(g =>
       '<button class="scene-button ' + (g.key === selectedKey ? 'active' : '') + '" data-key="' + esc(g.key) + '" aria-current="' + (g.key === selectedKey ? 'true' : 'false') + '"><span>' +
       esc(K.scene(g.act, g.id)[0]) + '</span><span class="count">' + entries()[g.key].filter(r => r.enabled).length + '</span></button>').join('');
     $('language-label').textContent = language();
-    $('source-label').textContent = '当前：' + source.filename;
+    $('source-label').textContent = source.filename;
   }
   function matchesFilter(g, row) {
     const filter = $('list-filter').value;
@@ -136,13 +136,13 @@
     if (row.marked) badges += '<span class="badge warning">含粗口</span>';
     const header = '<div class="line-heading"><span class="line-number">' + String(index + 1).padStart(2, '0') + '</span><span class="line-badges">' + badges + '</span></div>';
     let body;
-    if (isSelected) body = '<div class="line-editor"><label class="sr-only" for="text-' + esc(row.uid) + '">编辑第 ' + (index + 1) + ' 句台词</label><textarea id="text-' + esc(row.uid) + '" data-edit="' + esc(row.uid) + '" rows="2" spellcheck="false" placeholder="角色在这个时候，会说什么呢？">' +
+    if (isSelected) body = '<div class="line-editor"><label class="sr-only" for="text-' + esc(row.uid) + '">编辑第 ' + (index + 1) + ' 句台词</label><textarea id="text-' + esc(row.uid) + '" data-edit="' + esc(row.uid) + '" rows="2" spellcheck="false" placeholder="输入台词">' +
       esc(C.toFriendly(row.text)) + '</textarea><div class="editor-tools"><button class="text-button" data-action="name" data-uid="' + esc(row.uid) + '">＋ 插入玩家名字</button>' +
       '<button class="text-button" data-action="variants" data-uid="' + esc(row.uid) + '">＋ 插入两种说法</button></div>' +
       '<div class="line-options"><label class="check-row"><input type="checkbox" data-mark="' + esc(row.uid) + '"' + (row.marked ? ' checked' : '') + '> 含粗口</label>' +
       '<label class="check-row"><input type="checkbox" data-disable="' + esc(row.uid) + '"' + (!row.enabled ? ' checked' : '') + '> 暂时不用</label>' +
       '<div class="row-buttons"><button class="text-button" data-action="copy" data-uid="' + esc(row.uid) + '">复制</button><button class="text-button delete-line" data-action="delete" data-uid="' + esc(row.uid) + '">删除</button></div></div>' +
-      '<div class="line-status"><span>写完会自动留存</span><span class="char-count">' + Array.from(row.text).length + ' 字左右</span></div><div class="inline-issues"></div></div>';
+      '<div class="line-status"><span class="char-count">' + Array.from(row.text).length + ' 字</span></div><div class="inline-issues"></div></div>';
     else body = '<button class="line-select" data-action="select" data-uid="' + esc(row.uid) + '" aria-label="编辑第 ' + (index + 1) + ' 句：' + esc(C.toFriendly(row.text) || '还没有内容') + '">' + esc(C.toFriendly(row.text) || '（还没有写内容）') + '</button>';
     return '<article class="line-card ' + (isSelected ? 'selected ' : '') + (!row.enabled ? 'disabled' : '') + '" data-row="' + esc(row.uid) + '">' + header + body + '</article>';
   }
@@ -158,36 +158,32 @@
       $('line-list').innerHTML = results.slice(0, searchLimit).map(({ g, row }) =>
         '<article class="search-result"><div class="result-path"><span>' + esc(K.speaker(g.id)[0] + ' / ' + K.scene(g.act, g.id)[0]) +
         '</span><button class="text-button" data-action="go" data-key="' + esc(g.key) + '" data-uid="' + esc(row.uid) + '">去修改 →</button></div><p>' + esc(C.toFriendly(row.text)) + '</p></article>').join('') ||
-        '<div class="empty-state"><strong>没有找到这句话</strong><p>换一个短一点的词试试，或清除筛选。</p><button class="button" data-action="clear">清除搜索与筛选</button></div>';
+        '<div class="empty-state"><strong>没有匹配的台词</strong><button class="button" data-action="clear">清除搜索与筛选</button></div>';
       if (results.length > searchLimit) $('line-list').insertAdjacentHTML('beforeend', '<button class="button" data-action="more">再显示一些（还有 ' + (results.length - searchLimit) + ' 句）</button>');
       return;
     }
     const g = group(), rows = entries()[selectedKey];
     $('line-list').innerHTML = rows.map((row, index) => matchesFilter(g, row) ? rowHtml(g, row, index) : '').join('') ||
-      '<div class="empty-state"><strong>' + (rows.length ? '这个筛选下没有句子' : '这个场景还没有台词') + '</strong><p>' + (rows.length ? '试试查看全部句子。' : '点击“添加一句”，写下角色想说的话。') +
-      '</p><button class="button" data-action="' + (rows.length ? 'clear' : 'add') + '">' + (rows.length ? '查看全部句子' : '＋ 添加第一句') + '</button></div>';
+      '<div class="empty-state"><strong>' + (rows.length ? '没有匹配的台词' : '暂无台词') + '</strong><button class="button" data-action="' + (rows.length ? 'clear' : 'add') + '">' + (rows.length ? '查看全部句子' : '＋ 添加第一句') + '</button></div>';
   }
   function drawPreview() {
     if (!source) return;
     const g = group(), row = selected(), player = g.id === 'pip';
     $('preview-speaker').textContent = K.speaker(g.id)[0]; $('preview-avatar').textContent = K.speaker(g.id)[2]; $('sex-control').hidden = player;
-    let text = '', reason = '这里只预览文字。游戏里的字体、位置和换行可能略有不同。';
-    if (previewOverride) { text = previewOverride.text; reason = previewOverride.reason || '刚刚随机选中了这句。实际游戏还会检查发话时机和冷却。'; }
-    else if (!row) reason = '先选择或添加一句台词，就能在这里看到效果。';
-    else if (!row.enabled) reason = '这句已设为“暂时不用”，导出时不会进入游戏。';
-    else if ($('preview-filter').checked && row.marked) reason = '这句标记了“含粗口”。游戏开启过滤时，会略过它。';
+    let text = '', reason = '';
+    if (previewOverride) { text = previewOverride.text; reason = previewOverride.reason || ''; }
+    else if (!row) reason = '未选择台词';
+    else if (!row.enabled) reason = '已停用';
+    else if ($('preview-filter').checked && row.marked) reason = '已被粗口过滤';
     else text = C.displayText(row.text, $('preview-name').value, player ? false : $('preview-sex').value === 'male');
-    $('speech-bubble').textContent = text || (row ? '这一次，角色保持安静。' : '角色想说的话，会出现在这里。');
+    $('speech-bubble').textContent = text || (row ? '保持安静' : '暂无台词');
     $('speech-bubble').classList.toggle('silent', !text); $('preview-reason').textContent = reason;
     if (document.activeElement !== $('line-note')) $('line-note').value = row ? row.note : '';
     $('line-note').disabled = !row;
   }
   function render() {
     const g = group(), info = K.scene(g.act, g.id);
-    renderSidebar(); $('breadcrumb').textContent = K.speaker(g.id)[0] + ' / 场景台词';
-    $('scene-title').textContent = info[0]; $('scene-description').textContent = info[1];
-    $('related-hint').innerHTML = g.id === 'pip' && ['unlock', 'hack'].includes(g.act) && source.groups.some(x => x.key === 'pip/success') ?
-      '想一起改掉常见的成功感叹？也看看 <button class="text-button" id="go-success">“操作成功时” →</button>' : '';
+    renderSidebar(); $('scene-title').textContent = info[0]; $('scene-title').title = info[1];
     renderList(); refreshStatus(); drawPreview();
   }
   function addLine(copy) {
@@ -206,12 +202,10 @@
   function showVariants() {
     history.boundary();
     const area = document.querySelector('.line-card.selected textarea'), range = [area.selectionStart, area.selectionEnd];
-    showModal('为同一句话写两种说法',
-      '<p>角色的用词有区别时，可以分别填写。它们合起来仍算一句台词。</p>' +
-      (group().id === 'pip' ? '<div class="modal-note">当前玩家角色在游戏中固定使用“女性角色时”的说法。</div>' : '') +
+    showModal('插入两种说法',
+      (group().id === 'pip' ? '<div class="modal-note">玩家使用女性说法</div>' : '') +
       '<label class="field-label" for="male-words">男性角色时</label><input id="male-words" type="text" placeholder="例如：我是最棒的！">' +
-      '<label class="field-label" for="female-words">女性角色时</label><input id="female-words" type="text" placeholder="例如：我是最棒的！">' +
-      '<p class="small-muted">会插入到当前句子的光标处。一句中只能使用一组两种说法。</p>', [
+      '<label class="field-label" for="female-words">女性角色时</label><input id="female-words" type="text" placeholder="例如：我是最棒的！">', [
         { label: '取消', run: closeModal }, { label: '插入这两种说法', style: 'primary', run: () => {
           const a = $('male-words').value, b = $('female-words').value;
           if ((!a && !b) || /[#|【】]/.test(a + b)) { toast('请写下说法，并避免使用 #、| 或方括号。'); return; }
@@ -222,16 +216,16 @@
   }
   function showDelete(uid) {
     const row = entries()[selectedKey].find(r => r.uid === uid);
-    showModal('删除这句台词？', '<div class="modal-note">' + esc(C.toFriendly(row.text) || '（还没写内容）') + '</div><p>删除后仍可以用“撤销”找回来。只是想暂时不用，也可以把它停用。</p>', [
+    showModal('删除这句台词？', '<div class="modal-note">' + esc(C.toFriendly(row.text) || '（还没写内容）') + '</div>', [
       { label: '保留这句', run: closeModal }, { label: '暂时不用', run: () => { closeModal(); updateLine(uid, { enabled: false }); render(); } },
       { label: '删除这句', style: 'danger', run: () => {
         closeModal(); const next = entries()[selectedKey].filter(r => r.uid !== uid);
-        selectedUid = next[0] && next[0].uid; mutate(selectedKey, next); render(); toast('已删除，可以点击左上方的撤销找回。');
+        selectedUid = next[0] && next[0].uid; mutate(selectedKey, next); render(); toast('已删除');
       } }
     ]);
   }
   function changesHtml(changes) {
-    if (!changes.length) return '<p>还没有会改变游戏文本的修改。备注会保存在草稿里。</p>';
+    if (!changes.length) return '<p>台词未修改</p>';
     return changes.map(c => {
       const g = source.groups.find(x => x.key === c.key);
       return '<div class="change-row"><div class="change-path"><span>' + esc(K.speaker(g.id)[0] + ' / ' + K.scene(g.act, g.id)[0]) +
@@ -243,7 +237,7 @@
   }
   function showChanges() {
     history.boundary();
-    showModal('这次改了哪些地方', changesHtml(C.changeSummary(source, entries())), [
+    showModal('修改记录', changesHtml(C.changeSummary(source, entries())), [
       { label: '返回编辑', run: closeModal }, { label: '保存草稿', style: 'primary', run: saveProject }
     ]);
   }
@@ -256,40 +250,26 @@
   }
   function checkContent() {
     const issues = C.validate(source, entries());
-    showModal(issues.length ? '这些地方值得看一眼' : '台词检查完成', issues.length ?
-      '<p>红色项目需要先处理；黄色提醒可以根据你的写作意图保留。</p>' + issuesHtml(issues) :
-      '<div class="modal-note">文字和格式都可以导出。</div><p>你还可以逐句读出声，检查是否自然、是否来得及读完。</p>', [
+    showModal(issues.length ? '检查结果' : '台词检查完成', issues.length ? issuesHtml(issues) :
+      '<div class="modal-note">检查通过，可以导出。</div>', [
         { label: '继续编辑', style: 'primary', run: closeModal }
       ]);
   }
-  function installHtml(){return '<ol class="help-steps"><li><strong>保存草稿</strong><p>保留停用句子、备注和原始文本，方便下次接着写。</p></li><li><strong>导出给游戏</strong><p>可以另存完整语言文件，或点击“备份并写入游戏”。写入前自动核对原文件，防止覆盖其他修改。</p></li><li><strong>重新启动游戏</strong><p>游戏下次启动读取台词。随机短句不一定每次触发。</p></li></ol><p>“恢复上次写入”只恢复语言文件，不影响掉落方案和地图。</p>';}
   function showExport(){
     history.boundary();const errors=C.validate(source,entries()).filter(x=>x.level==='error');
     if(errors.length){showModal('还有几句话需要补全',issuesHtml(errors),[{label:'返回修改',run:closeModal}]);return;}
     const changes=C.changeSummary(source,entries());
     const run=async apply=>{try{const result=await api.barksExport(project(),apply);if(result){closeModal();toast(result.applied?'已写入游戏文件，重启后使用。':'完整语言文件已导出。');}}catch(e){showError('暂时没有写入',e);}};
-    showModal('把新台词带进游戏','<p>本次有 <strong>'+changes.length+'</strong> 处修改。草稿备注和停用句子不会进入游戏。</p>'+changesHtml(changes)+'<p>写入游戏前会备份原文件；如果原文件已被其他程序改动，会停止覆盖。</p>',[
+    showModal('导出台词','<p>本次有 <strong>'+changes.length+'</strong> 处修改</p>'+changesHtml(changes),[
       {label:'返回编辑',run:closeModal},{label:'另存游戏文本',run:()=>run(false)},
       {label:'恢复上次写入',run:async()=>{try{if(await api.barksRestore()){closeModal();toast('已恢复上次语言文件；当前草稿保留。');}}catch(e){showError('暂时无法恢复',e);}}},
       {label:'备份并写入游戏',style:'primary',run:()=>run(true)}]);
   }
 
   function showError(titleText, error) {
-    showModal(titleText, '<div class="modal-note error">' + esc(error.message || error) + '</div><p>当前编辑内容已保留，你可以返回继续编辑，或保存一份草稿。</p>', [
+    showModal(titleText, '<div class="modal-note error">' + esc(error.message || error) + '</div>', [
       { label: '返回编辑', style: 'primary', run: closeModal }, { label: '保存草稿', run: saveProject }
     ]);
-  }
-  function showHelp(tab) {
-    const opening = '<div class="help-tabs"><button class="button" data-help="edit">怎么编辑</button><button class="button" data-help="install">怎么放进游戏</button></div>';
-    const body = tab === 'install' ? installHtml() :
-      '<ol class="help-steps"><li><strong>选一个角色和场景</strong><p>左侧先选“谁来说”，再选“在什么情况下”。打开后已有现成中文台词，可以直接改。</p></li>' +
-      '<li><strong>点一句话，直接写</strong><p>点击句子就能修改。“添加一句”会增加一个随机候选；删除可撤销，“暂时不用”会保留在草稿里。</p></li>' +
-      '<li><strong>看看效果，留住草稿</strong><p>右边会显示文字效果。点击“保存草稿”，保存一份能重新打开继续改的文件。编辑器也会自动留存最近一份。</p></li>' +
-      '<li><strong>完成后，导出给游戏</strong><p>“导出给游戏”会检查文字并生成游戏能读取的文件。按随后出现的步骤放入游戏。</p></li></ol>' +
-      '<div class="modal-note"><strong>两个保存按钮的区别</strong><br>保存草稿：下次接着写，也保留停用句子和备注。<br>导出给游戏：把写好的话交给游戏使用。</div>' +
-      '<p><strong>为什么有时不说话？</strong><br>游戏会随机决定是否开口，还会避免玩家连续说同一句。开启粗口过滤时，抽中有标记的句子也可能保持安静。</p>' +
-      '<p><strong>这是哪个版本的台词？</strong><br>首次打开读取当前所选游戏的简体中文。以后优先恢复你的工作草稿。游戏更新后，请先保存草稿，再打开新版语言文件核对。</p>';
-    showModal('第一次使用也很简单', opening + body, [{ label: '开始编辑', style: 'primary', run: closeModal }]);
   }
   function showFileInfo() {
     let previous = null;
@@ -308,9 +288,8 @@
     actions.push({ label: '保存一份草稿', style: 'primary', run: saveProject });
     showModal('当前文件与保存状态',
       '<dl class="file-info"><dt>正在编辑</dt><dd>' + esc(source.filename) + '</dd><dt>语言</dt><dd>' + esc(language()) + '</dd><dt>自动留存</dt><dd>' +
-      (storageOkay ? (lastSaved ? esc(new Date(lastSaved).toLocaleString('zh-CN')) : '第一次修改后自动留存') : '不可用，请保存草稿') +
-      '</dd><dt>源文件核对</dt><dd>已保留原文件，可以核对哪些内容被修改。</dd></dl><div class="modal-note">自动留存位于游戏目录的 RModifier 配置文件夹。保存的草稿也可以单独复制到其他电脑。</div>' +
-      '<p>要编辑另一份游戏文本，或继续以前的草稿，请使用“打开文件”。切换前的最近一份内容也会尽量留作备份，可从这里恢复。</p>', actions);
+      (storageOkay ? (lastSaved ? esc(new Date(lastSaved).toLocaleString('zh-CN')) : '尚无记录') : '不可用，请保存草稿') +
+      '</dd><dt>源文件核对</dt><dd>原文件已保留</dd></dl>', actions);
   }
   async function installDocument(s, hash, rows, key, newTitle) {
     clearTimeout(autosaveTimer); autosaveTimer = null; documentId=crypto.randomUUID(); source = s; sourceHash = hash; history = new C.History(rows || C.initialEntries(s));
@@ -344,16 +323,13 @@
   $('modal-body').addEventListener('click', e => {
     const issue = e.target.closest('[data-issue-key]');
     if (issue) { closeModal(); selectGroup(issue.dataset.issueKey, issue.dataset.issueUid, true); }
-    const help = e.target.closest('[data-help]'); if (help) showHelp(help.dataset.help);
   });
   $('brand').onclick = e => { e.preventDefault(); if (source) selectGroup(entries()['pip/hack'] ? 'pip/hack' : source.groups[0].key); };
-  $('dismiss-welcome').onclick = () => { $('welcome').hidden = true; try { localStorage.setItem(GUIDE, 'hidden'); } catch (_) {} };
   $('speaker-select').onchange = e => {
     const groups = source.groups.filter(g => g.id === e.target.value), target = groups.find(g => g.act === 'neutral') || groups[0];
     selectGroup(target.key);
   };
   $('scene-list').onclick = e => { const b = e.target.closest('[data-key]'); if (b) selectGroup(b.dataset.key); };
-  $('related-hint').onclick = e => { if (e.target.closest('#go-success')) selectGroup('pip/success'); };
   $('add-line').onclick = () => addLine();
   $('search').oninput = () => { history.boundary(); searchLimit = 60; renderList(); };
   $('list-filter').onchange = () => { history.boundary(); renderList(); refreshStatus(); };
@@ -396,7 +372,7 @@
   $('undo').onclick = () => travelHistory('undo'); $('redo').onclick = () => travelHistory('redo');
   $('save-project').onclick = ()=>saveProject().catch(e=>showError('保存未完成',e)); $('export-button').onclick = showExport;
   $('review-changes').onclick = showChanges; $('check-button').onclick = checkContent;
-  $('help-button').onclick = () => showHelp('edit'); $('source-info').onclick = showFileInfo;
+  $('source-info').onclick = showFileInfo;
   $('open-button').onclick = () => confirmLeave(async()=>{try{const result=await api.barksOpen();if(result)await loadFile({size:new TextEncoder().encode(result.raw).length,name:result.filename,arrayBuffer:async()=>new TextEncoder().encode(result.raw).buffer});}catch(e){showError('这份文件暂时打不开',e);}});
   $('file-input').onchange = async e => {
     const file = e.target.files[0]; if (!file) return;
@@ -416,7 +392,7 @@
     try {
       bootData=await api.barksBoot();window.REMAINS_SOURCE={raw:bootData.raw,filename:bootData.filename,sha256:await C.digest(bootData.raw)};if(bootData.recovery)localStorage.setItem(STORE,JSON.stringify(bootData.recovery));if(bootData.previous)localStorage.setItem(PREVIOUS,JSON.stringify(bootData.previous));
       let saved = null;
-      try { saved = localStorage.getItem(STORE); $('welcome').hidden = localStorage.getItem(GUIDE) === 'hidden'; } catch (_) { storageOkay = false; }
+      try { saved = localStorage.getItem(STORE); } catch (_) { storageOkay = false; }
       let recoveryError;
       if (saved) {
         try {

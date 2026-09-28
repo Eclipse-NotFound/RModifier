@@ -18,3 +18,28 @@ dialog{width:min(690px,calc(100vw - 34px));border:1px solid #d8e2d3;border-radiu
 @media(max-width:430px){.export-stats{display:grid;grid-template-columns:1fr 1fr}.export-stats div:last-child{grid-column:1/-1;display:flex;gap:14px;align-items:center}.export-stats div:last-child b{font-size:18px}.export-step{gap:7px;font-size:11px}}
 @media(max-width:360px){.top-actions{gap:4px}.top-actions>.button{padding-left:7px;padding-right:7px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;scroll-behavior:auto!important}}
+
+/* Compact editing layout, without persistent tutorials or duplicate captions. */
+.topbar{min-height:64px;padding:10px 24px;position:sticky;top:0;z-index:10}
+.brand{gap:10px}.brand strong{font-size:20px}.brand-mark{width:34px;height:36px;border-radius:9px 9px 9px 3px}
+.brand-mark svg{width:23px;height:23px}
+.workspace{min-height:calc(100vh - 105px)}
+.sidebar{padding:20px 18px 16px}.sidebar-heading{margin-bottom:10px}.sidebar-heading .field-label{margin:0}
+.section-label{font-size:12px;margin:20px 0 8px}
+.scene-button{min-height:36px;padding:8px 10px}
+.sidebar-footer{padding-top:24px}.sidebar-footer .text-button,.sidebar-footer p{font-size:11px}
+.main-panel{padding:20px 24px 0}.scene-heading{align-items:center;margin-bottom:18px}
+h1{font-size:24px}.history-buttons{flex-shrink:0}
+.list-heading{margin:14px 0 10px}.line-list{gap:10px;padding-bottom:20px}
+.line-heading{padding:9px 13px 0}.line-select{padding:8px 14px 12px}
+.line-editor{padding:8px 13px 12px}.line-editor textarea{min-height:80px;padding:10px}
+.editor-tools{margin:6px 0 10px}.line-status{justify-content:flex-end;margin-top:6px}
+.preview-panel{padding:22px 20px}.preview-heading{margin-bottom:12px}.preview-heading h2{margin:0}
+.preview-stage{min-height:180px;padding:28px 15px 18px}.stage-character{margin-top:20px}
+.preview-reason{min-height:0;margin:10px 0}.preview-reason:empty{display:none}
+.preview-controls{margin-top:16px}.preview-controls .full-width{margin-top:10px}
+.notes-box{margin-top:18px;padding-top:12px;font-size:12px}
+.empty-state{padding:26px 16px}.empty-state strong{margin-bottom:14px}
+@media(min-width:921px){.sidebar,.preview-panel{top:64px;max-height:calc(100vh - 64px)}.sidebar{min-height:calc(100vh - 105px)}}
+@media(max-width:920px){.sidebar{padding:18px 14px}.main-panel{padding:20px 20px 0}.preview-panel{padding:20px;gap:10px 20px}.preview-controls{margin-top:0}.notes-box{grid-column:1/-1;grid-row:5}.main-panel{min-height:460px}}
+@media(max-width:640px){.topbar{padding:10px 16px;gap:10px}.sidebar{padding:16px 18px}.sidebar-heading{margin-bottom:8px}.sidebar-footer{padding-top:10px}.main-panel{padding:18px 18px 0;min-height:350px}.preview-panel{padding:20px 18px}.preview-controls{margin-top:16px}.scene-heading{margin-bottom:14px}.brand strong{font-size:19px}}

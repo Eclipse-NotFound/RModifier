@@ -37,7 +37,7 @@ async function main(){
   start(['--barks']);await page.locator('[data-workspace="barks"][aria-selected="true"]').waitFor({timeout:90000});assert.equal(browser.contexts()[0].pages().length,1);checks.push('A second launch activates the existing window and requested editor');
   await ui('barks').locator('[data-edit]').first().fill('单文件程序的持久恢复测试');await page.waitForTimeout(700);
   assert.ok(fs.existsSync(path.join(root,'session/data/config/barks/recovery.json')));checks.push('Portable writes recovery outside its temporary extraction directory');
-  await page.locator('[data-workspace="loot"]').click();await ui('loot').getByRole('heading',{name:'弹药盒',exact:true}).waitFor();await ui('loot').getByRole('button',{name:'复制原版，开始编辑'}).click();await ui('loot').locator('#save').click();await ui('loot').locator('#dirtyLabel').filter({hasText:'已保存'}).waitFor();checks.push('Bundled loot editor saves a real profile');
+  await page.locator('[data-workspace="loot"]').click();await ui('loot').getByRole('heading',{name:'弹药盒',exact:true}).waitFor();await ui('loot').getByRole('button',{name:'复制并编辑'}).click();await ui('loot').locator('#save').click();await ui('loot').locator('#dirtyLabel').filter({hasText:'已保存'}).waitFor();checks.push('Bundled loot editor saves a real profile');
   assert.deepEqual(errors,[]);checks.push('Portable renderer has no JavaScript/CSP errors');
  }catch(error){failure=String(error.stack||error);throw error;}finally{
   fs.writeFileSync(path.join(root,'results.json'),JSON.stringify({success:!failure&&checks.length===6,passed:checks.length,checks,errors,failure,entry,root},null,2));
