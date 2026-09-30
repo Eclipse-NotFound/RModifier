@@ -1,3 +1,9 @@
+## 2026-09-30 GitHub 公开发布已完成版本
+- 用户明确选择 RModifier 公开仓库、只上传已完成版本。源码以 87a155c 发布，v0.4.0 提供最终 r2 EXE 与 SHA256 校验文件，README 新增直接下载入口。
+- 同步 ModLoader 2.3.0-r1、MoreSkillsAndWeapons 1.15.3、RandomRooms 13.2、RConnect 0.2.10-dev（M38，预发布）、RealisticVision 0.30.1、Sandevistan 1.145；TDFC 已一致。ModLoader 只提交 RModifier 兼容性登记并通过扫描器隔离测试。
+- 校验：远端分支与版本标签对应冻结提交，全部下载资产大小和 GitHub SHA256 与本地一致。成品沿用已有同字节验证，未冒称本轮重跑游戏。回执 state/github-publication-2026-09-30.json；原始发布脚本/包在忽略目录 build/out/github-publish-20260930。
+- 未纳入：RConnect M39、story-studio/NPC 调查未提交文件、退休 ModSettings、本地音乐、个人存档/配置和备份。Sandevistan 从 D:/RemainsMod 真源推送。正式游戏及用户窗口不变。
+
 # RModifier 开发日志
 
 ## 2026-09-30 — 独立 DLC 编辑器调查与概念设计

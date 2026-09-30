@@ -11,6 +11,7 @@
 用户新要求：制作新场景、生物与分支剧情的图形DLC编辑器；从一开始支持全新身体结构、动画和AI，与RModifier已有地图窗口分开，按可单独启动的独立窗口、自有项目/场景/草稿规划。具体生物尚未想好，六足生物/试验站只是概念示例。本轮只授权调查探索，不据此修改正式游戏或宣布完整编辑器已实现。
 
 ## 3. 当前状态
+2026-09-30 按用户要求公开发布到 https://github.com/Eclipse-NotFound/RModifier ，v0.4.0 标签对应 87a155c；EXE 为下述最终 r2 原字节。其余已完成模组同步发布，分支、标签及 GitHub 资产 SHA256 已核对，见 state/github-publication-2026-09-30.json。用户明确排除未完成的 RConnect M39 与独立 DLC 工坊；其本地改动保留。本次没有修改或重启正式游戏。
 正式入口与固定 dist/rmodifier-0.4.0-r2/RModifier.exe 相同：131628757字节，SHA256 186deab0edef93d6b9abc2db70eeac6dbcb7a59e571aeb94f3e9aa1d21e5b7af。原子替换成功，498个受保护游戏/原图/模块/配置/作品文件哈希不变，没有自动打开新版窗口。
 地图：31份已安装场景、662个房间，搜索/缩略图、新建/复制/改名、跨场景草稿恢复；原图“保存”自动建立房间池副本。“保存并加入游戏混抽”保存待改内容并安装 MapPoolMod 0.1.0，原版仍参与生成；停用不改已生成地图，下次生成恢复原版。
 副本在 projects/maps/library，发布副本在 projects/maps/published，选择配置为 config/map-pools.json。首次发布安装 release/MapPoolMod.swf，并备份后向 supported-mods 与 loader-manifest 持久登记 RModifier|MapPoolMod|1|0|0，无需新改主SWF。此次桌面交付未替用户安装/启用MapPool。

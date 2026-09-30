@@ -1,0 +1,132 @@
+{
+  "status": "passed",
+  "releases": [
+    {
+      "repo": "MoreSkillsAndWeapons",
+      "branch": "master",
+      "commit": "95085f733da2186f3d418f5fe9d783ccaedff68e",
+      "tag": "v1.15.3",
+      "url": "https://github.com/Eclipse-NotFound/MoreSkillsAndWeapons/releases/tag/v1.15.3",
+      "prerelease": false,
+      "assets": [
+        {
+          "name": "MoreSkillsAndWeapons_v1.15.3.zip",
+          "bytes": 68128,
+          "sha256": "62bcaf58645e90af2b36126f68b6bd05b00c7a84c18f5191677cc544977ca217",
+          "url": "https://github.com/Eclipse-NotFound/MoreSkillsAndWeapons/releases/download/v1.15.3/MoreSkillsAndWeapons_v1.15.3.zip"
+        }
+      ]
+    },
+    {
+      "repo": "RandomRooms",
+      "branch": "main",
+      "commit": "22996c69f0a4505040922699dd9f3e4d64435b3b",
+      "tag": "v13.2",
+      "url": "https://github.com/Eclipse-NotFound/RandomRooms/releases/tag/v13.2",
+      "prerelease": false,
+      "assets": [
+        {
+          "name": "RandomRooms_v13.2.zip",
+          "bytes": 180344,
+          "sha256": "d66060fea7e4fe95f155ced077c11d1783e2e585e5ec46aa4a3bc5d800a4ac04",
+          "url": "https://github.com/Eclipse-NotFound/RandomRooms/releases/download/v13.2/RandomRooms_v13.2.zip"
+        }
+      ]
+    },
+    {
+      "repo": "RConnect",
+      "branch": "master",
+      "commit": "ddf55e75fa0eb572fee24ae72153c3c026b713c8",
+      "tag": "v0.2.10-dev",
+      "url": "https://github.com/Eclipse-NotFound/RConnect/releases/tag/v0.2.10-dev",
+      "prerelease": true,
+      "assets": [
+        {
+          "name": "RConnect_v0.2.10-dev.zip",
+          "bytes": 89999,
+          "sha256": "486bc6eebe928237842602b01e828bc83c47917faaf764918b0760f6f94ed85b",
+          "url": "https://github.com/Eclipse-NotFound/RConnect/releases/download/v0.2.10-dev/RConnect_v0.2.10-dev.zip"
+        }
+      ]
+    },
+    {
+      "repo": "RealisticVision",
+      "branch": "main",
+      "commit": "ad7d858c71227bfa7259e79c3f00bb3785188041",
+      "tag": "v0.30.1",
+      "url": "https://github.com/Eclipse-NotFound/RealisticVision/releases/tag/v0.30.1",
+      "prerelease": false,
+      "assets": [
+        {
+          "name": "RealisticVision_v0.30.1.zip",
+          "bytes": 27366,
+          "sha256": "445f7a02a322b3968c945c3641a4e842d17b230bde8580faa89ecd25d1bae0d5",
+          "url": "https://github.com/Eclipse-NotFound/RealisticVision/releases/download/v0.30.1/RealisticVision_v0.30.1.zip"
+        }
+      ]
+    },
+    {
+      "repo": "Sandevistan",
+      "branch": "master",
+      "commit": "863e4e3b853341452fce1fa4574f649d36f30307",
+      "tag": "v1.145",
+      "url": "https://github.com/Eclipse-NotFound/Sandevistan/releases/tag/v1.145",
+      "prerelease": false,
+      "assets": [
+        {
+          "name": "Sandevistan_v1.145.zip",
+          "bytes": 55804,
+          "sha256": "065d36846bf57393663b80812ef9ad62208e67c99beefbb589e45fcc99ca1bec",
+          "url": "https://github.com/Eclipse-NotFound/Sandevistan/releases/download/v1.145/Sandevistan_v1.145.zip"
+        }
+      ]
+    },
+    {
+      "repo": "RModifier",
+      "branch": "master",
+      "commit": "87a155c513ccdf99663e3d151fe36c6297b27b7d",
+      "tag": "v0.4.0",
+      "url": "https://github.com/Eclipse-NotFound/RModifier/releases/tag/v0.4.0",
+      "prerelease": false,
+      "assets": [
+        {
+          "name": "RModifier.exe",
+          "bytes": 131628757,
+          "sha256": "186deab0edef93d6b9abc2db70eeac6dbcb7a59e571aeb94f3e9aa1d21e5b7af",
+          "url": "https://github.com/Eclipse-NotFound/RModifier/releases/download/v0.4.0/RModifier.exe"
+        },
+        {
+          "name": "RModifier-0.4.0-SHA256.txt",
+          "bytes": 81,
+          "sha256": "1613e9bb722475a47a5885a5ce7872a7050576c7af7c022e9e4a89695a729eaa",
+          "url": "https://github.com/Eclipse-NotFound/RModifier/releases/download/v0.4.0/RModifier-0.4.0-SHA256.txt"
+        }
+      ]
+    },
+    {
+      "repo": "ModLoader",
+      "branch": "master",
+      "commit": "5b8ee7e03187317569fe2023fba96400f658290a",
+      "tag": "v2.3.0-r1",
+      "url": "https://github.com/Eclipse-NotFound/ModLoader/releases/tag/v2.3.0-r1",
+      "prerelease": false,
+      "assets": [
+        {
+          "name": "ModLoader_v2.3.0-r1.zip",
+          "bytes": 35298,
+          "sha256": "03e58317c718982d95557adc5352629f21c9153c1bd6fdf5a627090d3b8c373a",
+          "url": "https://github.com/Eclipse-NotFound/ModLoader/releases/download/v2.3.0-r1/ModLoader_v2.3.0-r1.zip"
+        }
+      ]
+    }
+  ],
+  "unchanged": {
+    "TDFC": "907d603ad5aea0d10cda0a3cd5751e761d69fb1b"
+  },
+  "excluded": [
+    "Uncommitted RConnect M39",
+    "Uncommitted RModifier story-studio and NPC audit",
+    "Retired ModSettings",
+    "Local music, saves, personal configuration, backup files"
+  ]
+}
