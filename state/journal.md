@@ -1,3 +1,7 @@
+## 2026-09-30 英文 README
+- 按用户要求编写英文首页，覆盖下载、掉落/台词/地图使用、备份恢复、限制及开发验证；保留真实中文按钮并说明界面尚未英文化。
+- 原中文全文保留在 README.zh-CN.md，两页互链。核对中文正文无损、相对链接存在、代码围栏闭合。仅文档变更，不重打安装包；未包含并行 DLC 开发文件。
+
 ## 2026-09-30 GitHub 公开发布已完成版本
 - 用户明确选择 RModifier 公开仓库、只上传已完成版本。源码以 87a155c 发布，v0.4.0 提供最终 r2 EXE 与 SHA256 校验文件，README 新增直接下载入口。
 - 同步 ModLoader 2.3.0-r1、MoreSkillsAndWeapons 1.15.3、RandomRooms 13.2、RConnect 0.2.10-dev（M38，预发布）、RealisticVision 0.30.1、Sandevistan 1.145；TDFC 已一致。ModLoader 只提交 RModifier 兼容性登记并通过扫描器隔离测试。
