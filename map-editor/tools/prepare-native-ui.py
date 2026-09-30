@@ -130,6 +130,8 @@ for p in (game/'Editor/Enhancements/src').rglob('*.as'):
         text=text.replace('        public function get diagnostics()', '''        public function RMPreview():void {openPreview(null);}
         public function RMStatus(value:Object):void {documentControls.update(value);}
         public function RMControlsState():Object {return documentControls.state;}
+        public function RMShowLibrary(model:Object):void {documentControls.showLibrary(model);}
+        public function RMTestLibrary(action:Object):void {documentControls.testLibrary(action);}
         public function RMView():Object {return preview.state;}
         public function RMRestoreView(value:Object):void {preview.restore(value);}
         public function RMExportPreview():void {preview.exportCurrent();}
@@ -147,5 +149,6 @@ for p in (game/'Editor/Enhancements/src').rglob('*.as'):
         public function dispose():void''')
     target.write_text(text,encoding='utf-8')
 shutil.copyfile(owned/'NativeDocumentControls.as',tools/'NativeDocumentControls.as')
+shutil.copyfile(owned/'NativeSceneLibrary.as',tools/'NativeSceneLibrary.as')
 (build/'source-inputs.json').write_text(json.dumps({'installed':expected,'generated':{str(p.relative_to(build)):sha(p) for p in [*scripts.rglob('*.as'),*tools.rglob('*.as')]}},indent=2),encoding='utf-8')
 print(build)

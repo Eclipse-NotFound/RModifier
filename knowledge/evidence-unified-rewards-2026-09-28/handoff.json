@@ -1,0 +1,17 @@
+{
+  "bridge": {
+    "path": "build/out/pfe-loot-safe.swf",
+    "sha256": "d6dda36c32ecf55fb82f798621fb1e30f093478f4bda9e1df7d6d1acef89e68c",
+    "bytes": 15092466
+  },
+  "runtime": {
+    "path": "build/out/LootEditorMod.swf",
+    "sha256": "8dc689ee8dbe8b0ca1f5903372d8a6d452198961004a2bf99d0a0df3bb8762ec",
+    "bytes": 41773
+  },
+  "formalGame": {
+    "path": "../../pfe.swf",
+    "sha256": "c631cbf3511b6ee303f533d08d51511fe0eb702f43e5db17f5241d8576c64867",
+    "bytes": 15085172
+  }
+}

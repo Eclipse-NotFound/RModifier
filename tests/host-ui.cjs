@@ -15,7 +15,7 @@ async function main(){let app=await launch(),page=await app.firstWindow();
  try{
   await ui('loot').getByRole('heading',{name:'弹药盒',exact:true}).waitFor();checks.push('Three-page host starts on loot page');
   await ui('loot').getByRole('button',{name:'复制并编辑'}).click();await mark('loot',true);
-  await ui('loot').getByRole('button',{name:'追加奖励',exact:true}).click();await ui('loot').getByRole('button',{name:'＋ 添加一条奖励',exact:true}).click();
+  await ui('loot').getByRole('button',{name:'＋ 添加一条奖励',exact:true}).click();
   await capture('01-loot.png');
   await tab('barks');await ui('barks').locator('[data-edit]').first().fill('宿主整合：三页保持各自草稿');await mark('barks',true);await capture('02-barks.png');
   await tab('map');await ui('map').locator('[data-property="name"]').fill('宿主整合房间');await ui('map').locator('[data-property="name"]').blur();await mark('map',true);await capture('03-map.png');

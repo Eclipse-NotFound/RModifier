@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-09-30T07:51:43.832Z",
+  "version": "0.4.0",
+  "unchangedInputs": 407,
+  "unchangedProtectedFiles": 498,
+  "entryHash": "186deab0edef93d6b9abc2db70eeac6dbcb7a59e571aeb94f3e9aa1d21e5b7af",
+  "bytes": 131628757,
+  "backupHash": "c8082af502594e347eb4db4272605cb441731049ba315faa9fe623cefb370fdb",
+  "mapDeliveryHash": "6c806adf2fd3ae59313779b886a5bc7696dc9872e17f947efa92b6f3383b8c87",
+  "mapComponentHash": "604e34007136336c158c5cd43b513e13d893812c70984bed95597a3555a9c96b",
+  "finalNativeHostChecks": 13,
+  "finalPortableChecks": 6,
+  "baselineRegressionScope": "Five unchanged web/loot/barks features retain their first-candidate evidence; see package-comparison.json. No new formal-game runtime validation claimed."
+}

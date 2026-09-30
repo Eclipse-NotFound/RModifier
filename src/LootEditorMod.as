@@ -11,7 +11,7 @@ package {
     import loot.RuleEngine;
 
     public class LootEditorMod {
-        public static const VERSION:String="0.2.1";
+        public static const VERSION:String="0.3.0";
         [Embed(source="../desktop/data/catalog.json",mimeType="application/octet-stream")]
         private static var CatalogBytes:Class;
         private static var timer:Timer;
@@ -57,6 +57,7 @@ package {
                 try {
                     var raw:String=read(candidate);var parsed:Object=JSON.parse(raw);var error:String=RuleEngine.validate(parsed,catalog);
                     if(error!="")throw new Error(error);
+                    if(parsed.schemaVersion===2&&(!("lootEditorBridgeVersion" in lootClass)||lootClass["lootEditorBridgeVersion"]<2))throw new Error("native reward edits require bridge v2; update game connection");
                     profile=parsed;profileHash=RuleEngine.fingerprint(raw);
                     for each(var r:Object in profile.rules)rules[r.target]=r;
                     log("config accepted name="+profile.name+" hash="+profileHash+" fallback="+(candidate!=file));return;
@@ -75,7 +76,7 @@ package {
                     if(!("lootEditorBridge" in lootClass)){log("bridge missing; original game unchanged");configError="bridge missing";receipt("bridge-missing");timer.stop();return;}
                     itemClass=domain.getDefinition("fe.serv.Item") as Class;groundClass=domain.getDefinition("fe.loc.Loot") as Class;
                     loadProfile();
-                    lootClass["lootEditorBridge"]={select:selectRule,emit:emitRule,capture:capture,death:death};
+                    lootClass["lootEditorBridge"]={select:selectRule,emit:emitRule,capture:capture,death:death,nativeParams:nativeParams};
                     ready=true;receipt("ready");log("bridge ready");
                 }
                 if(!menuReady)registerMenu();
@@ -113,6 +114,9 @@ package {
                 ok=emitPlan(ctx,plan);if(diag++<60)log("ordinary "+rule.target+" mode="+rule.mode+" stacks="+plan.length+" generated="+ok);
             }catch(e:*){log("emission stopped; native table will not be replayed: "+e);}
             return ok;
+        }
+        public static function nativeParams(patch:Object,type:String,id:String,count:int):Object {
+            return RuleEngine.nativeParams(patch,type,id,count,Math.random,items);
         }
         private static function emitPlan(ctx:Object,plan:Array):Boolean {
             // Construct every item before committing any drops or quota counters.

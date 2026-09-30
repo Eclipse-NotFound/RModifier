@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "checks": [
+    "actual original Flash UI loads full map without normalization",
+    "original stage always fits the full viewport, including legacy pan/zoom recovery and 200% DPI",
+    "real object attribute field commits only selected original XML",
+    "save external work copy with revision/content receipt",
+    "reopen saved work copy in original Flash UI",
+    "invalid XML blocks save and survives durable recovery with selection",
+    "restored original input field retains invalid raw text",
+    "real rectangular paint and native canvas undo/redo",
+    "original update-list control copies full room",
+    "save captures its revision while newer edit survives and next action waits",
+    "open dialog late input archived, stale document event rejected",
+    "pending filename is saved through host transaction",
+    "language preference lives in data root without dirtying map",
+    "original PreviewPanel renders and persists across page visibility changes",
+    "original preview export uses host dialog and verified PNG file",
+    "nested host dialogs resume only after last lock",
+    "source maps unchanged",
+    "only owned candidate process closes after matching recovery receipt",
+    "new process restores canonical document, selection and original preview state"
+  ],
+  "root": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\map-native-ui\\7aff330e-e3cd-488c-a3e9-75e4456d1598",
+  "session": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\map-native-ui\\7aff330e-e3cd-488c-a3e9-75e4456d1598\\sessions\\1a671d60-5cae-449c-b3b6-bfc3b931e858",
+  "restartedSession": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\map-native-ui\\7aff330e-e3cd-488c-a3e9-75e4456d1598\\sessions\\9db7045a-db8d-4f02-8eac-f34fed0851cc",
+  "preview": {
+    "ready": true,
+    "objects": true,
+    "x": 212.15,
+    "entities": true,
+    "difficulty": -1,
+    "y": 0,
+    "busy": false,
+    "zoom": 1,
+    "mirror": false,
+    "region": "random_plant",
+    "examples": true,
+    "open": true
+  },
+  "captures": [
+    "capture-4.png",
+    "capture-67.png"
+  ]
+}

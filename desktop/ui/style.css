@@ -29,3 +29,14 @@
 .stat{padding:12px}.stat b{font-size:23px}.empty{padding:22px 8px}
 footer{min-height:46px;padding:8px 18px}
 @media(max-width:850px){.topbar{padding:10px 14px}.tabs{padding:0 10px}.tabs button{padding:10px 8px}.editor{padding:18px}.sources{padding:18px 10px}.fields{gap:8px}.reward-card{padding:13px}.preview{padding:18px}}
+
+/* Enemy affiliations share the existing quiet sidebar treatment. */
+#factionFilter{width:100%;font-size:13px;margin-bottom:8px}
+.enemy-sources .source-list{max-height:calc(100vh - 320px)}
+.source-group{flex-shrink:0}.source-group+.source-group{margin-top:10px}
+.source-group-title{position:sticky;top:0;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 4px;padding:7px 8px;background:#eef1e8;color:#466146;border-radius:5px;font-size:13px;font-weight:650}
+.source-group-title>span:last-child{font-size:12px;font-weight:400;font-variant-numeric:tabular-nums;color:#64715e}
+.source-group .source-row{width:100%;margin:2px 0}.source-row{flex-shrink:0}.source-name{min-width:0;overflow-wrap:anywhere}
+#clearSourceFilter{display:block;margin:12px auto 0;font-size:13px}
+.reward-conditions{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;font-size:12px;color:var(--muted)}
+.reward-conditions span{background:var(--pale);padding:3px 7px;border-radius:5px}.native-candidates{max-height:240px;overflow:auto}

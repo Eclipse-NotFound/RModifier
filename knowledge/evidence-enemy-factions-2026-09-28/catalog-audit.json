@@ -1,0 +1,508 @@
+{
+  "itemsUnchanged": 692,
+  "sourceKeysAndOriginalFieldsUnchanged": 193,
+  "groups": [
+    {
+      "id": "raider",
+      "name": "掠夺者",
+      "models": [
+        {
+          "id": "raider",
+          "name": "掠夺者",
+          "table": "raider"
+        },
+        {
+          "id": "raider1",
+          "name": "虐待狂掠夺者",
+          "table": "raider"
+        },
+        {
+          "id": "raider2",
+          "name": "流氓掠夺者",
+          "table": "raider"
+        },
+        {
+          "id": "raider3",
+          "name": "铁盔掠夺者",
+          "table": "raider"
+        },
+        {
+          "id": "raider4",
+          "name": "堕落掠夺者",
+          "table": "raider"
+        },
+        {
+          "id": "raider5",
+          "name": "叛徒掠夺者",
+          "table": "raider"
+        },
+        {
+          "id": "raider6",
+          "name": "刽子手掠夺者",
+          "table": "raider"
+        },
+        {
+          "id": "raider7",
+          "name": "大师掠夺者",
+          "table": "raider"
+        },
+        {
+          "id": "raider8",
+          "name": "纵火狂掠夺者",
+          "table": "raider"
+        },
+        {
+          "id": "raider9",
+          "name": "炸弹狂掠夺者",
+          "table": "raider"
+        }
+      ]
+    },
+    {
+      "id": "slaver",
+      "name": "奴隶贩子",
+      "models": [
+        {
+          "id": "slaver1",
+          "name": "运输者",
+          "table": "raider"
+        },
+        {
+          "id": "slaver2",
+          "name": "猎捕者",
+          "table": "raider"
+        },
+        {
+          "id": "slaver3",
+          "name": "看守者",
+          "table": "raider"
+        },
+        {
+          "id": "slaver4",
+          "name": "守卫",
+          "table": "raider"
+        },
+        {
+          "id": "slaver5",
+          "name": "精英守卫",
+          "table": "raider"
+        },
+        {
+          "id": "slaver6",
+          "name": "头领",
+          "table": "raider"
+        }
+      ]
+    },
+    {
+      "id": "merc",
+      "name": "鹰爪雇佣兵",
+      "models": [
+        {
+          "id": "merc1",
+          "name": "狮鹫侦察兵",
+          "table": "raider"
+        },
+        {
+          "id": "merc2",
+          "name": "狮鹫突击兵",
+          "table": "raider"
+        },
+        {
+          "id": "merc3",
+          "name": "狮鹫炮手",
+          "table": "raider"
+        },
+        {
+          "id": "merc4",
+          "name": "狮鹫狙击手",
+          "table": "raider"
+        },
+        {
+          "id": "merc5",
+          "name": "鹰爪精英",
+          "table": "raider"
+        }
+      ]
+    },
+    {
+      "id": "zebra",
+      "name": "斑马军团",
+      "models": [
+        {
+          "id": "zebra1",
+          "name": "斑马间谍",
+          "table": "raider"
+        },
+        {
+          "id": "zebra2",
+          "name": "斑马破坏者",
+          "table": "raider"
+        },
+        {
+          "id": "zebra3",
+          "name": "斑马刺客",
+          "table": "raider"
+        },
+        {
+          "id": "zebra4",
+          "name": "斑马战士",
+          "table": "raider"
+        },
+        {
+          "id": "zebra5",
+          "name": "军团长官",
+          "table": "raider"
+        }
+      ]
+    },
+    {
+      "id": "ranger",
+      "name": "铁骑卫",
+      "models": [
+        {
+          "id": "ranger1",
+          "name": "骑士",
+          "table": "ranger1"
+        },
+        {
+          "id": "ranger2",
+          "name": "十字军",
+          "table": "ranger2"
+        },
+        {
+          "id": "ranger3",
+          "name": "圣骑士",
+          "table": "ranger3"
+        }
+      ]
+    },
+    {
+      "id": "encl",
+      "name": "天马英克雷",
+      "models": [
+        {
+          "id": "encl2",
+          "name": "英克雷侦察兵",
+          "table": "encl2"
+        },
+        {
+          "id": "encl3",
+          "name": "英克雷突击兵",
+          "table": "encl3"
+        },
+        {
+          "id": "encl4",
+          "name": "英克雷精英突击兵",
+          "table": "encl4"
+        },
+        {
+          "id": "hellhound1",
+          "name": "英克雷军犬",
+          "table": "hellhound1"
+        }
+      ]
+    },
+    {
+      "id": "alicorn",
+      "name": "天角兽",
+      "models": [
+        {
+          "id": "alicorn1",
+          "name": "蓝色天角兽",
+          "table": "alicorn1"
+        },
+        {
+          "id": "alicorn2",
+          "name": "紫色天角兽",
+          "table": "alicorn2"
+        },
+        {
+          "id": "alicorn3",
+          "name": "绿色天角兽",
+          "table": "alicorn3"
+        }
+      ]
+    },
+    {
+      "id": "zombie",
+      "name": "尸鬼",
+      "models": [
+        {
+          "id": "zombie",
+          "name": "尸鬼",
+          "table": "zombie"
+        },
+        {
+          "id": "zombie0",
+          "name": "狂尸鬼",
+          "table": "zombie"
+        },
+        {
+          "id": "zombie1",
+          "name": "迅捷狂尸鬼",
+          "table": "zombie"
+        },
+        {
+          "id": "zombie2",
+          "name": "饥饿狂尸鬼",
+          "table": "zombie"
+        },
+        {
+          "id": "zombie3",
+          "name": "狂暴狂尸鬼",
+          "table": "zombie"
+        },
+        {
+          "id": "zombie4",
+          "name": "发光狂尸鬼",
+          "table": "zombie4"
+        },
+        {
+          "id": "zombie5",
+          "name": "士兵狂尸鬼",
+          "table": "zombie5"
+        },
+        {
+          "id": "zombie6",
+          "name": "凶残狂尸鬼",
+          "table": "zombie6"
+        },
+        {
+          "id": "zombie7",
+          "name": "中心城狂尸鬼",
+          "table": "zombie7"
+        },
+        {
+          "id": "zombie8",
+          "name": "肿胀狂尸鬼",
+          "table": "zombie8"
+        },
+        {
+          "id": "zombie9",
+          "name": "中心城巫师",
+          "table": "zombie9"
+        }
+      ]
+    },
+    {
+      "id": "monster",
+      "name": "怪物",
+      "models": [
+        {
+          "id": "bloat0",
+          "name": "肉食灵幼体",
+          "table": "bloat0"
+        },
+        {
+          "id": "bloat1",
+          "name": "酸性肉食灵",
+          "table": "bloat1"
+        },
+        {
+          "id": "bloat2",
+          "name": "毒性肉食灵",
+          "table": "bloat2"
+        },
+        {
+          "id": "bloat3",
+          "name": "巨型肉食灵",
+          "table": "bloat3"
+        },
+        {
+          "id": "bloat4",
+          "name": "迅捷肉食灵",
+          "table": "bloat4"
+        },
+        {
+          "id": "ebloat",
+          "name": "肉食灵巢穴",
+          "table": "ebloat"
+        },
+        {
+          "id": "bloodwing",
+          "name": "血翼",
+          "table": "bloodwing"
+        },
+        {
+          "id": "bloodwing2",
+          "name": "中心城血翼",
+          "table": "bloodwing2"
+        },
+        {
+          "id": "fish1",
+          "name": "食马鱼",
+          "table": "fish1"
+        },
+        {
+          "id": "fish2",
+          "name": "狼鱼",
+          "table": "fish2"
+        },
+        {
+          "id": "rat",
+          "name": "老鼠",
+          "table": "rat"
+        },
+        {
+          "id": "molerat",
+          "name": "鼹鼠",
+          "table": "molerat"
+        },
+        {
+          "id": "scorp1",
+          "name": "辐射蝎",
+          "table": "scorp"
+        },
+        {
+          "id": "scorp2",
+          "name": "嗜血辐射蝎",
+          "table": "scorp"
+        },
+        {
+          "id": "scorp3",
+          "name": "恐惧毒蝎",
+          "table": "scorp"
+        },
+        {
+          "id": "ant1",
+          "name": "工蚁",
+          "table": "ant1"
+        },
+        {
+          "id": "ant2",
+          "name": "兵蚁",
+          "table": "ant2"
+        },
+        {
+          "id": "ant3",
+          "name": "火蚁",
+          "table": "ant3"
+        },
+        {
+          "id": "slime",
+          "name": "酸性史莱姆",
+          "table": "slime"
+        },
+        {
+          "id": "pinkslime",
+          "name": "粉色史莱姆",
+          "table": "pinkslime"
+        },
+        {
+          "id": "necros",
+          "name": "死灵云团",
+          "table": "necros"
+        }
+      ]
+    },
+    {
+      "id": "robot",
+      "name": "机械单位",
+      "models": [
+        {
+          "id": "robobrain",
+          "name": "生化脑机器马",
+          "table": "robobrain"
+        },
+        {
+          "id": "protect",
+          "name": "机械护卫",
+          "table": "protect"
+        },
+        {
+          "id": "gutsy",
+          "name": "狂风先生",
+          "table": "gutsy"
+        },
+        {
+          "id": "eqd",
+          "name": "机器小马",
+          "table": "eqd"
+        },
+        {
+          "id": "protect1",
+          "name": "AJ-17",
+          "table": "protect"
+        },
+        {
+          "id": "gutsy1",
+          "name": "飓风先生",
+          "table": "gutsy"
+        },
+        {
+          "id": "sentinel",
+          "name": "铁卫马",
+          "table": "sentinel"
+        },
+        {
+          "id": "spritebot",
+          "name": "机械精灵",
+          "table": "spritebot"
+        },
+        {
+          "id": "vortex",
+          "name": "旋翼机",
+          "table": "vortex"
+        },
+        {
+          "id": "roller",
+          "name": "电击球",
+          "table": "roller"
+        },
+        {
+          "id": "turret",
+          "name": "炮塔",
+          "table": "turret"
+        },
+        {
+          "id": "turret0",
+          "name": "天花板炮塔",
+          "table": "turret"
+        },
+        {
+          "id": "turret1",
+          "name": "陆地炮塔",
+          "table": "turret1"
+        },
+        {
+          "id": "turret2",
+          "name": "墙壁炮塔",
+          "table": "turret"
+        },
+        {
+          "id": "turret3",
+          "name": "装甲炮塔",
+          "table": "turret1"
+        },
+        {
+          "id": "turret4",
+          "name": "战斗炮塔",
+          "table": "turret"
+        },
+        {
+          "id": "turret5",
+          "name": "魔法炮塔",
+          "table": "turret"
+        }
+      ]
+    }
+  ],
+  "shared": [
+    {
+      "key": "enemy:table:raider",
+      "kind": "enemy",
+      "scope": "table",
+      "id": "raider",
+      "table": "raider",
+      "name": "掠夺者",
+      "factionIds": [
+        "raider",
+        "slaver",
+        "merc",
+        "zebra"
+      ]
+    }
+  ],
+  "factionGeneratorHash": "c2b4bdf9f375a215ef5c050b66291f51b70a3a9c1191771202b863da7fb32f1e"
+}

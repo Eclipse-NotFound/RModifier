@@ -1,0 +1,30 @@
+{
+  "success": false,
+  "checks": [
+    "Default original Flash UI starts directly below navigation with automatic full-stage fit and no extra bars",
+    "Rapid three-page switches preserve the same AIR window and web editor state",
+    "Native surface refits on small-window resize and restore, without manual zoom or pan",
+    "Unfinished native property input remains dirty across page switches",
+    "Canceling unified close resumes the native surface and releases its dialog lock",
+    "Visible Flash undo and redo buttons restore the complete paint transaction"
+  ],
+  "errors": [],
+  "failure": "Error: ENOENT: no such file or directory, open 'D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\native-host\\1790604848743-c8a1171d\\地图工作副本.xml'\n    at Object.readFileSync (node:fs:484:20)\n    at D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\tests\\native-host.cjs:88:110",
+  "root": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\native-host\\1790604848743-c8a1171d",
+  "executable": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\dist\\rmodifier-0.4.0\\win-unpacked\\RModifier.exe",
+  "airPid": 87448,
+  "protectedBefore": {
+    "pfe.swf": "c631cbf3511b6ee303f533d08d51511fe0eb702f43e5db17f5241d8576c64867",
+    "text_zh.xml": "66da212793683b19e65e3973b726a94a2885d5032395af8a2e5a0fd20a17f895",
+    "Editor.swf": "e99e231f83128ea24cd13b2ae36b0dd294e5180a16f54ba3c7b3cb8fa24d99fd",
+    "Editor/Enhancements/EditorTools.swf": "d7ad493f19867c96b600599151275877349a7dbf2155794be42483656ae0f002",
+    "Rooms/rooms_plant.xml": "7466ded79a7438ee3de776bb1b7e00c97f1c6a8776a7f0b2ed28bf0b1e69fb68"
+  },
+  "protectedAfter": {
+    "pfe.swf": "c631cbf3511b6ee303f533d08d51511fe0eb702f43e5db17f5241d8576c64867",
+    "text_zh.xml": "66da212793683b19e65e3973b726a94a2885d5032395af8a2e5a0fd20a17f895",
+    "Editor.swf": "e99e231f83128ea24cd13b2ae36b0dd294e5180a16f54ba3c7b3cb8fa24d99fd",
+    "Editor/Enhancements/EditorTools.swf": "d7ad493f19867c96b600599151275877349a7dbf2155794be42483656ae0f002",
+    "Rooms/rooms_plant.xml": "7466ded79a7438ee3de776bb1b7e00c97f1c6a8776a7f0b2ed28bf0b1e69fb68"
+  }
+}

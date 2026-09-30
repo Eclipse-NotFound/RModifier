@@ -1,6 +1,6 @@
 import {vanillaTable} from './data/vanilla.mjs';
 
-export const VERSION = '0.2.1';
+export const VERSION = '0.3.0';
 export const clone = x => JSON.parse(JSON.stringify(x));
 export function fingerprint(text) {
   let h=2166136261;
@@ -21,7 +21,7 @@ const numeric=(v,min,max,path,errors,integer=true)=>{if(typeof v!=='number'||!Nu
 export function validate(p, catalog) {
   const errors=[]; const index=new Map(catalog.items.map(i=>[i.key,i]));
   if(!p||typeof p!=='object'||Array.isArray(p))return ['方案内容不是有效对象'];
-  if(p.schemaVersion!==1)return ['此方案格式暂不支持，请保留原文件'];
+  if(![1,2].includes(p.schemaVersion))return ['此方案格式暂不支持，请保留原文件'];
   if(p.gameVersion!=='1.02')errors.push('此版本只支持 Remains 1.02');
   if(typeof p.name!=='string'||!p.name.trim()||p.name.length>60)errors.push('方案名需要 1～60 个字符');
   if(typeof p.id!=='string'||!/^[-\w]{1,80}$/.test(p.id))errors.push('方案标识无效');
@@ -33,6 +33,22 @@ export function validate(p, catalog) {
     targets.add(r.target); allowed(r.mode,['append','replace'],path,errors);
     if(!Array.isArray(r.rewards)||r.rewards.length>40){errors.push(path+'：最多添加 40 条奖励');continue;}
     let stackBudget=0;
+    if(r.native!==undefined){
+      const s=catalog.sources.find(s=>s.key===r.target),rows=catalog.nativeTables?.[s.kind+':'+s.table]||[];
+      if(p.schemaVersion!==2||r.mode!=='replace'||!r.native||typeof r.native!=='object'||Array.isArray(r.native)){errors.push(path+'：原版词条设置无效');continue;}
+      for(const [slot,v] of Object.entries(r.native)){
+        const row=rows.find(e=>e.slot===slot),q=path+'，原版奖励';
+        if(!row||!v||typeof v!=='object'||Array.isArray(v)||Object.keys(v).some(k=>!['disabled','chance','min','max','pick','durabilityMin','durabilityMax'].includes(k))){errors.push(q+'无效');continue;}
+        if(v.disabled!==undefined&&typeof v.disabled!=='boolean')errors.push(q+'开关无效');
+        if(v.chance!==undefined)numeric(v.chance,0,100,q+'的出现机会',errors,false);
+        for(const [a,b,lo,hi] of [['min','max',1,9999],['durabilityMin','durabilityMax',1,100]])if(v[a]!==undefined||v[b]!==undefined){numeric(v[a],lo,hi,q,errors);numeric(v[b],lo,hi,q,errors);if(v[a]>v[b])errors.push(q+'范围颠倒');}
+        if(v.pick!==undefined){
+          if(!Array.isArray(v.pick)||!v.pick.length||v.pick.length>60){errors.push(q+'：请选择 1～60 种物品');continue;}
+          const seen=new Set();for(const c of v.pick){if(!c||!index.has(c.key)||seen.has(c.key)){errors.push(q+'物品不存在或重复');continue;}seen.add(c.key);numeric(c.weight,1,1000,q+'的偏好倍数',errors);}
+        }
+        if(!v.disabled&&(v.pick?v.pick.some(c=>['weapon','armor'].includes(index.get(c?.key)?.kind)):row.equipment))stackBudget+=6*(v.max||1);
+      }
+    }
     for(const [j,v] of r.rewards.entries()) {
       const q=`${path}，奖励 ${j+1}`;
       if(!v||typeof v!=='object'){errors.push(q+'无效');continue;}
@@ -72,7 +88,14 @@ export function validate(p, catalog) {
   return errors;
 }
 export const ruleFor=(p,s)=>p.rules.find(r=>r.target===s.key)||p.rules.find(r=>r.target===`${s.kind}:table:${s.table}`);
+export function nativeRows(catalog,profile,source){const r=ruleFor(profile,source);return r?.mode==='replace'&&!r.native?[]:(catalog.nativeTables[source.kind+':'+source.table]||[]).filter(row=>!r?.native?.[row.slot]?.disabled);}
 const qty=(lo,hi,rng)=>lo+Math.floor(rng()*(hi-lo+1));
+export function nativeParams(patch,type,id,count,random,itemIndex){
+  let equipment=['weapon','uniq','armor'].includes(type);
+  if(patch.pick){let chosen=patch.pick[0];if(patch.pick.length>1){let v=random()*patch.pick.reduce((s,c)=>s+c.weight,0);for(const c of patch.pick){v-=c.weight;if(v<0){chosen=c;break;}}}const i=itemIndex.get(chosen.key);type=i.kind==='item'?'':i.kind;id=i.id+(i.variant?'^1':'');equipment=['weapon','armor'].includes(i.kind);count=equipment?1:-1;}
+  let copies=1;if(patch.min!==undefined){const n=qty(patch.min,patch.max,random);if(equipment)copies=n;else count=n;}
+  return {type,id,count,copies};
+}
 export function evaluateRewards(rewards, ctx, random, itemIndex) {
   const drops=[];
   for(const r of rewards) {
@@ -134,10 +157,13 @@ export class Simulator {
   once(profile,source,options={},random=seeded(),limits={}){
     const ctx={stage:1,difficulty:4,weaponLevel:2,hero:0,bonus:50,broken:false,lootLimit:6,capsMult:1,bitsMult:1,difCapsMult:1,freel:false,barahlo:false,biom:0,randomLand:false,challenge:false,ownedWeapons:{},...options};
     if(source.kind==='enemy')ctx.broken=false;
-    const drops=[],spawned=[];const rule=ruleFor(profile,source);const suppressed=rule?.mode==='replace';
-    const emit=(chance,type,id=null,count=-1)=>{
+    const drops=[],spawned=[];const rule=ruleFor(profile,source);const suppressed=rule?.mode==='replace'&&!rule.native;
+    const emit=(chance,type,id=null,count=-1,slot)=>{
       if(suppressed)return false;
+      const patch=rule?.native?.[slot];if(patch?.disabled||patch?.chance===0)return false;
+      if(patch?.chance!==undefined)chance=patch.chance/100;
       if(chance<1&&random()>chance)return false;
+      let copies=1;if(patch)({type,id,count,copies}=nativeParams(patch,type,id,count,random,this.items));
       let chosen, mult=1;
       if(type==='weapon'){
         if(Number(id)>0){chosen=this.draw(type,Math.max(1,ctx.weaponLevel+random()*2-1),Number(id),ctx,random);if(!chosen)mult*=0.5;id=chosen?.item.id;}
@@ -152,16 +178,16 @@ export class Simulator {
       const variant=id.endsWith('^1')?1:(chosen?.variant||0);id=id.replace(/\^1$/,'');
       const kind=['weapon','uniq'].includes(type)?'weapon':type==='armor'?'armor':'item';
       const item=this.items.get(kind+':'+id);if(!item)return false;
-      let durability=1;count=Math.trunc(count);
+      let conditionCode=-1;count=Math.trunc(count);
       if(kind==='weapon'||kind==='armor'){
         if(type==='uniq'&&count===-1)count=1;
-        if(count===0)durability=0.05+random()*0.15;else if(count===1)durability=0.6+random()*0.25;
+        conditionCode=count;
         count=1;
       }else if(count<0)count=item.count;
-      return this.accept({key:item.key,count,durability:durability*mult,variant},ctx,random,limits,drops);
+      let ok=false;for(let n=0;n<copies;n++){let condition=conditionCode===0?0.05+random()*0.15:conditionCode===1?0.6+random()*0.25:1;if(patch?.durabilityMin!==undefined&&(kind==='weapon'||kind==='armor'))condition=qty(patch.durabilityMin,patch.durabilityMax,random)/100;ok=this.accept({key:item.key,count,durability:condition*mult,variant},ctx,random,limits,drops)||ok;}return ok;
     };
-    const land={gameStage:ctx.stage,rnd:ctx.randomLand,act:{biom:ctx.biom},lootLimit:ctx.lootLimit};
-    const loc={locDifLevel:ctx.difficulty,weaponLevel:ctx.weaponLevel,land,prob:ctx.challenge?{}:null,createUnit:id=>spawned.push(id)};
+    const land={gameStage:ctx.stage,rnd:ctx.randomLand,act:{biom:ctx.biom,id:ctx.locationId},lootLimit:ctx.lootLimit};
+    const loc={locDifLevel:ctx.difficulty,weaponLevel:ctx.weaponLevel,itemsTip:ctx.itemsTip,land,prob:ctx.challenge?{}:null,createUnit:id=>spawned.push(id)};
     const env={loc,broken:ctx.broken,bonus:ctx.bonus,hero:ctx.hero,world:{land,pers:{freel:ctx.freel,barahlo:ctx.barahlo},invent:{weapons:ctx.ownedWeapons}}};
     vanillaTable(source.kind,source.table,env,emit,random);
     if(rule&&!(source.table==='safe'&&spawned.length))for(const d of evaluateRewards(rule.rewards,ctx,random,this.items))this.accept(d,ctx,random,limits,drops);

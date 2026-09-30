@@ -1,5 +1,7 @@
 # 原 Flash 地图界面候选模块
 
+2026-09-28 0.4.0：Flash 内新增“场景与房间 · 我的房间池”，动态浏览 31 份已安装地图/662 间房间；管理独立副本、房间新建/复制/改名、按文档恢复草稿。用户点击发布时安装 MapPoolMod 0.1.0，在正常游戏随机地区混抽变化房间。详见 `../../design/2026-09-28-scene-library-and-room-pools.md`；最终包由总整合会话验收。
+
 2026-09-28：原界面已在 RModifier 0.3.0 接入，0.3.1 改为自动完整适配窗口，文档操作集中在 Flash 内，并修复原材质按钮的 XMLList 编号传输。原 Editor.swf 和原增强组件不替换。历史 `map-editor/delivery-manifest.json` 不包含本组件；本次以本目录 delivery-manifest.json、component/manifest.json 和最终 package-report 为准。
 
 ## 入口与职责
@@ -14,7 +16,7 @@ await map.mount({
 });
 ```
 
-- `componentRoot` 指向本目录的 `component/`，包含 `manifest.json`、4 个 SWF 和中/英/俄编辑器词典。
+- `componentRoot` 指向本目录的 `component/`，包含 `manifest.json`、5 个 SWF（含 MapPoolMod）和中/英/俄编辑器词典。
 - `dataRoot` 位于 `gameRoot` 内，本项目使用 `gameRoot/mods/RModifier`。会话互相隔离；缓存按组件指纹分目录，启动核对全部组件。
 - AIR 应用根是 `gameRoot`，候选 UI/Tools/NativeScene 以明确的 `app:/` 地址装入。普通 `file:` 地址会导致原面板访问舞台时报 #2070，不能将两者互换。
 - 地图自动恢复在 `dataRoot/config/native-maps/recovery.json`，语言偏好在同目录 `preferences.json`；不访问旧 `EditorConf`。自动草稿约 600ms 合并一次；正常恢复/关闭会等待原生同步并核对落盘。

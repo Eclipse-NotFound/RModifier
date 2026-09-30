@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "packaged": true,
+  "checks": [
+    "original immediately exposes all four ammo entries with no mode buttons",
+    "edit decimal chance, delete, undo/redo, and replace native pool with two advanced weapons",
+    "save and reload retain current effective entries",
+    "editing a model snapshots the entire effective list without altering its shared table",
+    "restore deleted and restore individual entry are undoable",
+    "legacy append and replace profiles open without changing their data or meaning",
+    "dynamic values and fallback conditions remain explicit instead of fabricated numbers",
+    "narrow layout and clean renderer"
+  ],
+  "errors": []
+}

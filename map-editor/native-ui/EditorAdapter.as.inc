@@ -14,6 +14,7 @@
       public function RMRoots():Object { return this.rmConfig; }
       private function RMXML(raw:String):XML {if(raw.charCodeAt(0)==65279)raw=raw.substr(1);return new XML(raw);}
       public function RMTools():Object { return this.toolsLoader ? this.toolsLoader.content : null; }
+      public function RMLibrary(payload:Object):void { this.rmPort.library(payload); }
       public function RMError(message:String):void { this.ed.objInfo.text=message; this.ed.objInfo.visible=true; }
       public function RMKey():String { this.rmCounter++; return this.rmConfig.sessionId+"-"+this.rmCounter; }
       private function RMNode(kind:String,index:int):Object {
@@ -165,6 +166,7 @@
             if(!control) throw new Error("测试控件不存在："+action.control);
             for each(var mouseType:String in [MouseEvent.MOUSE_OVER,MouseEvent.MOUSE_MOVE,MouseEvent.MOUSE_DOWN,MouseEvent.MOUSE_UP,MouseEvent.CLICK,MouseEvent.MOUSE_OUT]) control.dispatchEvent(new MouseEvent(mouseType,true));
          }
+         else if(action.kind=="library") this.RMTools().RMTestLibrary(action);
          else if(action.kind=="input") this.RMInput(action.raw);
          else if(action.kind=="check") this.checkXML(new MouseEvent(MouseEvent.CLICK));
          else if(action.kind=="assertTile") {

@@ -25,9 +25,12 @@ foreach($entry in @(@{Name='NativeUIBootstrap'; Source=$source},@{Name='EditorTo
  if($LASTEXITCODE -ne 0){throw ($entry.Name+' compilation failed')}
 }
 Copy-Item -LiteralPath (Join-Path $project 'map-editor/component/NativeScene.swf') -Destination (Join-Path $target 'NativeScene.swf')
+& (Join-Path $project 'build/build.ps1') -Java $Java -Sdk $Sdk -Source 'src/MapPoolDoc.as' -Output 'build/out/MapPoolMod.swf'
+if($LASTEXITCODE -ne 0){throw 'Map pool runtime compilation failed'}
+Copy-Item -LiteralPath (Join-Path $project 'build/out/MapPoolMod.swf') -Destination (Join-Path $target 'MapPoolMod.swf')
 Copy-Item -LiteralPath (Join-Path $project 'map-editor/localization/editor-zh.xml') -Destination (Join-Path $target 'editor-zh.xml')
 foreach($language in @('en','ru')){Copy-Item -LiteralPath (Join-Path $game ('Editor/Resources/text_'+$language+'.xml')) -Destination (Join-Path $target ('editor-'+$language+'.xml'))}
 $manifest=@{protocol=1;outputs=@{};sources=@{}}
 Get-ChildItem -LiteralPath $target | Where-Object {$_.Extension -in '.swf','.xml'} | ForEach-Object {$manifest.outputs[$_.Name]=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash.ToLower()}
-foreach($file in @((Join-Path $source 'NativeUIBootstrap.as'),(Join-Path $source 'EditorAdapter.as.inc'),(Join-Path $source 'NativeDocumentControls.as'),(Join-Path $PSScriptRoot 'prepare-native-ui.py'))){$manifest.sources[(Split-Path $file -Leaf)]=(Get-FileHash -LiteralPath $file -Algorithm SHA256).Hash.ToLower()}
+foreach($file in @((Join-Path $source 'NativeUIBootstrap.as'),(Join-Path $source 'EditorAdapter.as.inc'),(Join-Path $source 'NativeDocumentControls.as'),(Join-Path $source 'NativeSceneLibrary.as'),(Join-Path $project 'src/MapPoolMod.as'),(Join-Path $project 'src/map/PoolHash.as'),(Join-Path $PSScriptRoot 'prepare-native-ui.py'))){$manifest.sources[(Split-Path $file -Leaf)]=(Get-FileHash -LiteralPath $file -Algorithm SHA256).Hash.ToLower()}
 [IO.File]::WriteAllText((Join-Path $target 'manifest.json'),(($manifest|ConvertTo-Json -Depth 5).Replace("`r`n","`n")+"`n"))

@@ -27,7 +27,7 @@ const delay=ms=>new Promise(r=>setTimeout(r,ms));
  await mod.session.request('test',{action:{kind:'input',raw:changed}});
  await mod.session.request('test',{action:{kind:'check'}});
  await mod.flush('inspect');assert.equal(mod.doc.raw,raw.replace(obj.raw,changed));assert.equal(mod.state.dirty,true);ok('real object attribute field commits only selected original XML');
- const save=await mod.saveDraft();assert.equal(save.status,'saved',JSON.stringify(save));assert.equal(fs.readFileSync(savedPath,'utf8'),mod.doc.raw);assert.ok(save.receipt);ok('save work copy with revision/content receipt');
+ const save=await mod.saveDraft({as:true});assert.equal(save.status,'saved',JSON.stringify(save));assert.equal(fs.readFileSync(savedPath,'utf8'),mod.doc.raw);assert.ok(save.receipt);ok('save external work copy with revision/content receipt');
  const edited=mod.doc.raw;await mod.action('open');assert.equal(mod.doc.raw,edited);assert.equal((await mod.flush('inspect')).state.dirty,false);ok('reopen saved work copy in original Flash UI');
  const second=mod.doc.projection().rooms.find(r=>r.name===room.name),obj2=second.nodes.find(n=>n.kind==='obj');
  await mod.session.request('test',{action:{kind:'select',room:second.name,key:obj2.key}});

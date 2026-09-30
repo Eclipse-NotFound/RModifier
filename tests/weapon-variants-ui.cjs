@@ -13,9 +13,9 @@ fs.writeFileSync(path.join(root,'data/profiles/legacy-rail.json'),JSON.stringify
   await shellPage.locator('#loot-frame').waitFor();let page=shellPage.frame({url:/loot\.html$/});
   await page.getByRole('heading',{name:'弹药盒',exact:true}).waitFor();
   await page.getByRole('button',{name:'复制并编辑',exact:true}).click();
-  await page.getByRole('button',{name:'替换普通奖励',exact:true}).click();
+
   await page.getByRole('button',{name:'＋ 添加一条奖励',exact:true}).click();
-  const openPicker=async()=>{await page.getByRole('button',{name:'更换物品',exact:true}).first().click();};
+  const openPicker=async()=>{await page.locator('[data-reward]').getByRole('button',{name:'更换物品',exact:true}).first().click();};
   const search=()=>page.getByRole('searchbox',{name:'搜索物品'});
   await openPicker();await search().fill('圣骑士');
   await page.locator('[data-item="weapon:rail^1"]').waitFor();
@@ -24,13 +24,13 @@ fs.writeFileSync(path.join(root,'data/profiles/legacy-rail.json'),JSON.stringify
   await page.locator('#itemCategory').selectOption('advanced');assert.equal(await page.locator('.item-option').count(),1);
   await shellPage.screenshot({path:path.join(root,'advanced-picker.png')});
   await page.locator('[data-item="weapon:rail^1"]').click();
-  assert.match(await page.locator('.reward-title').first().innerText(),/圣骑士/);
+  assert.match(await page.locator('[data-reward] .reward-title').first().innerText(),/圣骑士/);
   assert.match(await page.locator('#results').innerText(),/圣骑士/);checks.push('search real name or base name, filter and select advanced weapon');
   const setChance=async(index,value)=>{const input=page.locator('[data-field="chance"]').nth(index);await input.fill(String(value));await input.press('Tab');};
   await setChance(0,0);assert.doesNotMatch(await page.locator('#results').innerText(),/圣骑士/);
   await setChance(0,100);assert.match(await page.locator('#results').innerText(),/圣骑士/);
   await page.getByRole('button',{name:'＋ 添加一条奖励',exact:true}).click();
-  await page.getByRole('button',{name:'更换物品',exact:true}).nth(1).click();await search().fill('磁轨枪');await page.locator('[data-item="weapon:rail"]').click();
+  await page.locator('[data-reward]').getByRole('button',{name:'更换物品',exact:true}).nth(1).click();await search().fill('磁轨枪');await page.locator('[data-item="weapon:rail"]').click();
   await setChance(1,0);assert.match(await page.locator('#results').innerText(),/圣骑士/);assert.doesNotMatch(await page.locator('#results').innerText(),/磁轨枪/);
   await setChance(0,35);await setChance(1,65);await page.getByRole('button',{name:'试 1000 次',exact:true}).click();
   assert.match(await page.locator('#results').innerText(),/圣骑士/);assert.match(await page.locator('#results').innerText(),/磁轨枪/);
@@ -45,14 +45,14 @@ fs.writeFileSync(path.join(root,'data/profiles/legacy-rail.json'),JSON.stringify
   const weight=page.locator('[data-reward="0"] [data-weight="1"]');await weight.fill('3');await weight.press('Tab');
   assert.doesNotMatch(await page.locator('#results').innerText(),/请先修正/);
   await page.locator('#save').click();await page.getByText('方案已保存',{exact:true}).waitFor();checks.push('same base weapon can have ordinary and advanced weighted candidates');
-  await page.locator('#profileSelect').selectOption('legacy-rail');assert.match(await page.locator('.reward-title').innerText(),/圣骑士/);
+  await page.locator('#profileSelect').selectOption('legacy-rail');assert.match(await page.locator('[data-reward] .reward-title').innerText(),/圣骑士/);
   assert.equal(await page.locator('#dirtyLabel').innerText(),'已保存');
   await setChance(0,45);await page.locator('#undo').click();assert.equal(await page.locator('#dirtyLabel').innerText(),'已保存');
   await page.locator('#redo').click();await page.locator('#save').click();await page.getByText('方案已保存',{exact:true}).waitFor();
   const upgraded=JSON.parse(fs.readFileSync(path.join(root,'data/profiles/legacy-rail.json')));
   assert.equal(upgraded.rules[0].rewards[0].variant,0);assert.equal(upgraded.rules[0].rewards[0].pick[0].key,'weapon:rail^1');
   await shellPage.reload();await shellPage.locator('#loot-frame').waitFor();page=shellPage.frame({url:/loot\.html$/});await page.locator('[data-field="chance"]').waitFor();
-  assert.equal(await page.locator('[data-field="chance"]').inputValue(),'45');assert.match(await page.locator('.reward-title').innerText(),/圣骑士/);
+  assert.equal(await page.locator('[data-field="chance"]').inputValue(),'45');assert.match(await page.locator('[data-reward] .reward-title').innerText(),/圣骑士/);
   checks.push('legacy profiles display correctly and retain meaning through edit, undo, redo, save and reload');
   await openPicker();await search().fill('掠夺者之友');await page.locator('[data-item="weapon:mont^1"]').click();
   assert.doesNotMatch(await page.locator('#results').innerText(),/请先修正/);checks.push('original zero-weight advanced weapon can be selected');

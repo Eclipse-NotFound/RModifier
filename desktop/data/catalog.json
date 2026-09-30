@@ -12895,7 +12895,10 @@
       "scope": "table",
       "id": "scorp",
       "table": "scorp",
-      "name": "巨蝎"
+      "name": "巨蝎",
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:table:slime",
@@ -12903,7 +12906,10 @@
       "scope": "table",
       "id": "slime",
       "table": "slime",
-      "name": "酸性史莱姆"
+      "name": "酸性史莱姆",
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:table:pinkslime",
@@ -12911,7 +12917,10 @@
       "scope": "table",
       "id": "pinkslime",
       "table": "pinkslime",
-      "name": "粉色史莱姆"
+      "name": "粉色史莱姆",
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:table:raider",
@@ -12919,7 +12928,13 @@
       "scope": "table",
       "id": "raider",
       "table": "raider",
-      "name": "掠夺者"
+      "name": "掠夺者",
+      "factionIds": [
+        "raider",
+        "slaver",
+        "merc",
+        "zebra"
+      ]
     },
     {
       "key": "enemy:table:alicorn1",
@@ -12927,7 +12942,10 @@
       "scope": "table",
       "id": "alicorn1",
       "table": "alicorn1",
-      "name": "蓝色天角兽"
+      "name": "蓝色天角兽",
+      "factionIds": [
+        "alicorn"
+      ]
     },
     {
       "key": "enemy:table:alicorn2",
@@ -12935,7 +12953,10 @@
       "scope": "table",
       "id": "alicorn2",
       "table": "alicorn2",
-      "name": "紫色天角兽"
+      "name": "紫色天角兽",
+      "factionIds": [
+        "alicorn"
+      ]
     },
     {
       "key": "enemy:table:alicorn3",
@@ -12943,7 +12964,10 @@
       "scope": "table",
       "id": "alicorn3",
       "table": "alicorn3",
-      "name": "绿色天角兽"
+      "name": "绿色天角兽",
+      "factionIds": [
+        "alicorn"
+      ]
     },
     {
       "key": "enemy:table:ranger1",
@@ -12951,7 +12975,10 @@
       "scope": "table",
       "id": "ranger1",
       "table": "ranger1",
-      "name": "骑士"
+      "name": "骑士",
+      "factionIds": [
+        "ranger"
+      ]
     },
     {
       "key": "enemy:table:ranger2",
@@ -12959,7 +12986,10 @@
       "scope": "table",
       "id": "ranger2",
       "table": "ranger2",
-      "name": "十字军"
+      "name": "十字军",
+      "factionIds": [
+        "ranger"
+      ]
     },
     {
       "key": "enemy:table:ranger3",
@@ -12967,7 +12997,10 @@
       "scope": "table",
       "id": "ranger3",
       "table": "ranger3",
-      "name": "圣骑士"
+      "name": "圣骑士",
+      "factionIds": [
+        "ranger"
+      ]
     },
     {
       "key": "enemy:table:encl2",
@@ -12975,7 +13008,10 @@
       "scope": "table",
       "id": "encl2",
       "table": "encl2",
-      "name": "英克雷侦察兵"
+      "name": "英克雷侦察兵",
+      "factionIds": [
+        "encl"
+      ]
     },
     {
       "key": "enemy:table:encl3",
@@ -12983,7 +13019,10 @@
       "scope": "table",
       "id": "encl3",
       "table": "encl3",
-      "name": "英克雷突击兵"
+      "name": "英克雷突击兵",
+      "factionIds": [
+        "encl"
+      ]
     },
     {
       "key": "enemy:table:encl4",
@@ -12991,7 +13030,10 @@
       "scope": "table",
       "id": "encl4",
       "table": "encl4",
-      "name": "英克雷精英突击兵"
+      "name": "英克雷精英突击兵",
+      "factionIds": [
+        "encl"
+      ]
     },
     {
       "key": "enemy:table:hellhound1",
@@ -12999,7 +13041,10 @@
       "scope": "table",
       "id": "hellhound1",
       "table": "hellhound1",
-      "name": "英克雷军犬"
+      "name": "英克雷军犬",
+      "factionIds": [
+        "encl"
+      ]
     },
     {
       "key": "enemy:table:zombie",
@@ -13007,7 +13052,10 @@
       "scope": "table",
       "id": "zombie",
       "table": "zombie",
-      "name": "尸鬼"
+      "name": "尸鬼",
+      "factionIds": [
+        "zombie"
+      ]
     },
     {
       "key": "enemy:table:zombie4",
@@ -13015,7 +13063,10 @@
       "scope": "table",
       "id": "zombie4",
       "table": "zombie4",
-      "name": "发光狂尸鬼"
+      "name": "发光狂尸鬼",
+      "factionIds": [
+        "zombie"
+      ]
     },
     {
       "key": "enemy:table:zombie5",
@@ -13023,7 +13074,10 @@
       "scope": "table",
       "id": "zombie5",
       "table": "zombie5",
-      "name": "士兵狂尸鬼"
+      "name": "士兵狂尸鬼",
+      "factionIds": [
+        "zombie"
+      ]
     },
     {
       "key": "enemy:table:zombie6",
@@ -13031,7 +13085,10 @@
       "scope": "table",
       "id": "zombie6",
       "table": "zombie6",
-      "name": "凶残狂尸鬼"
+      "name": "凶残狂尸鬼",
+      "factionIds": [
+        "zombie"
+      ]
     },
     {
       "key": "enemy:table:zombie7",
@@ -13039,7 +13096,10 @@
       "scope": "table",
       "id": "zombie7",
       "table": "zombie7",
-      "name": "中心城狂尸鬼"
+      "name": "中心城狂尸鬼",
+      "factionIds": [
+        "zombie"
+      ]
     },
     {
       "key": "enemy:table:zombie8",
@@ -13047,7 +13107,10 @@
       "scope": "table",
       "id": "zombie8",
       "table": "zombie8",
-      "name": "肿胀狂尸鬼"
+      "name": "肿胀狂尸鬼",
+      "factionIds": [
+        "zombie"
+      ]
     },
     {
       "key": "enemy:table:zombie9",
@@ -13055,7 +13118,10 @@
       "scope": "table",
       "id": "zombie9",
       "table": "zombie9",
-      "name": "中心城巫师"
+      "name": "中心城巫师",
+      "factionIds": [
+        "zombie"
+      ]
     },
     {
       "key": "enemy:table:bloodwing",
@@ -13063,7 +13129,10 @@
       "scope": "table",
       "id": "bloodwing",
       "table": "bloodwing",
-      "name": "血翼"
+      "name": "血翼",
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:table:bloodwing2",
@@ -13071,7 +13140,10 @@
       "scope": "table",
       "id": "bloodwing2",
       "table": "bloodwing2",
-      "name": "中心城血翼"
+      "name": "中心城血翼",
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:table:bloat0",
@@ -13079,7 +13151,10 @@
       "scope": "table",
       "id": "bloat0",
       "table": "bloat0",
-      "name": "肉食灵幼体"
+      "name": "肉食灵幼体",
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:table:bloat1",
@@ -13087,7 +13162,10 @@
       "scope": "table",
       "id": "bloat1",
       "table": "bloat1",
-      "name": "酸性肉食灵"
+      "name": "酸性肉食灵",
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:table:bloat2",
@@ -13095,7 +13173,10 @@
       "scope": "table",
       "id": "bloat2",
       "table": "bloat2",
-      "name": "毒性肉食灵"
+      "name": "毒性肉食灵",
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:table:bloat3",
@@ -13103,7 +13184,10 @@
       "scope": "table",
       "id": "bloat3",
       "table": "bloat3",
-      "name": "巨型肉食灵"
+      "name": "巨型肉食灵",
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:table:bloat4",
@@ -13111,7 +13195,10 @@
       "scope": "table",
       "id": "bloat4",
       "table": "bloat4",
-      "name": "迅捷肉食灵"
+      "name": "迅捷肉食灵",
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:table:rat",
@@ -13119,7 +13206,10 @@
       "scope": "table",
       "id": "rat",
       "table": "rat",
-      "name": "老鼠"
+      "name": "老鼠",
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:table:molerat",
@@ -13127,7 +13217,10 @@
       "scope": "table",
       "id": "molerat",
       "table": "molerat",
-      "name": "鼹鼠"
+      "name": "鼹鼠",
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:table:fish1",
@@ -13135,7 +13228,10 @@
       "scope": "table",
       "id": "fish1",
       "table": "fish1",
-      "name": "食马鱼"
+      "name": "食马鱼",
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:table:fish2",
@@ -13143,7 +13239,10 @@
       "scope": "table",
       "id": "fish2",
       "table": "fish2",
-      "name": "狼鱼"
+      "name": "狼鱼",
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:table:ant1",
@@ -13151,7 +13250,10 @@
       "scope": "table",
       "id": "ant1",
       "table": "ant1",
-      "name": "工蚁"
+      "name": "工蚁",
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:table:ant2",
@@ -13159,7 +13261,10 @@
       "scope": "table",
       "id": "ant2",
       "table": "ant2",
-      "name": "兵蚁"
+      "name": "兵蚁",
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:table:ant3",
@@ -13167,7 +13272,10 @@
       "scope": "table",
       "id": "ant3",
       "table": "ant3",
-      "name": "火蚁"
+      "name": "火蚁",
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:table:necros",
@@ -13175,7 +13283,10 @@
       "scope": "table",
       "id": "necros",
       "table": "necros",
-      "name": "死灵云团"
+      "name": "死灵云团",
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:table:ebloat",
@@ -13183,7 +13294,10 @@
       "scope": "table",
       "id": "ebloat",
       "table": "ebloat",
-      "name": "肉食灵巢穴"
+      "name": "肉食灵巢穴",
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:table:turret",
@@ -13191,7 +13305,10 @@
       "scope": "table",
       "id": "turret",
       "table": "turret",
-      "name": "炮塔"
+      "name": "炮塔",
+      "factionIds": [
+        "robot"
+      ]
     },
     {
       "key": "enemy:table:turret1",
@@ -13199,7 +13316,10 @@
       "scope": "table",
       "id": "turret1",
       "table": "turret1",
-      "name": "陆地炮塔"
+      "name": "陆地炮塔",
+      "factionIds": [
+        "robot"
+      ]
     },
     {
       "key": "enemy:table:robobrain",
@@ -13207,7 +13327,10 @@
       "scope": "table",
       "id": "robobrain",
       "table": "robobrain",
-      "name": "生化脑机器马"
+      "name": "生化脑机器马",
+      "factionIds": [
+        "robot"
+      ]
     },
     {
       "key": "enemy:table:protect",
@@ -13215,7 +13338,10 @@
       "scope": "table",
       "id": "protect",
       "table": "protect",
-      "name": "机械护卫"
+      "name": "机械护卫",
+      "factionIds": [
+        "robot"
+      ]
     },
     {
       "key": "enemy:table:gutsy",
@@ -13223,7 +13349,10 @@
       "scope": "table",
       "id": "gutsy",
       "table": "gutsy",
-      "name": "狂风先生"
+      "name": "狂风先生",
+      "factionIds": [
+        "robot"
+      ]
     },
     {
       "key": "enemy:table:eqd",
@@ -13231,7 +13360,10 @@
       "scope": "table",
       "id": "eqd",
       "table": "eqd",
-      "name": "机器小马"
+      "name": "机器小马",
+      "factionIds": [
+        "robot"
+      ]
     },
     {
       "key": "enemy:table:sentinel",
@@ -13239,7 +13371,10 @@
       "scope": "table",
       "id": "sentinel",
       "table": "sentinel",
-      "name": "铁卫马"
+      "name": "铁卫马",
+      "factionIds": [
+        "robot"
+      ]
     },
     {
       "key": "enemy:table:vortex",
@@ -13247,7 +13382,10 @@
       "scope": "table",
       "id": "vortex",
       "table": "vortex",
-      "name": "旋翼机"
+      "name": "旋翼机",
+      "factionIds": [
+        "robot"
+      ]
     },
     {
       "key": "enemy:table:spritebot",
@@ -13255,7 +13393,10 @@
       "scope": "table",
       "id": "spritebot",
       "table": "spritebot",
-      "name": "机械精灵"
+      "name": "机械精灵",
+      "factionIds": [
+        "robot"
+      ]
     },
     {
       "key": "enemy:table:roller",
@@ -13263,7 +13404,10 @@
       "scope": "table",
       "id": "roller",
       "table": "roller",
-      "name": "电击球"
+      "name": "电击球",
+      "factionIds": [
+        "robot"
+      ]
     },
     {
       "key": "enemy:model:raider",
@@ -13272,7 +13416,10 @@
       "id": "raider",
       "table": "raider",
       "name": "掠夺者",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "raider"
+      ]
     },
     {
       "key": "enemy:model:raider1",
@@ -13306,6 +13453,9 @@
         {
           "id": "knife"
         }
+      ],
+      "factionIds": [
+        "raider"
       ]
     },
     {
@@ -13336,6 +13486,9 @@
         {
           "id": "spear"
         }
+      ],
+      "factionIds": [
+        "raider"
       ]
     },
     {
@@ -13355,6 +13508,9 @@
           "id": "bat",
           "ch": "0.3"
         }
+      ],
+      "factionIds": [
+        "raider"
       ]
     },
     {
@@ -13382,6 +13538,9 @@
         {
           "id": "shovel"
         }
+      ],
+      "factionIds": [
+        "raider"
       ]
     },
     {
@@ -13413,6 +13572,9 @@
         {
           "id": "r32"
         }
+      ],
+      "factionIds": [
+        "raider"
       ]
     },
     {
@@ -13435,6 +13597,9 @@
         {
           "id": "oldshot"
         }
+      ],
+      "factionIds": [
+        "raider"
       ]
     },
     {
@@ -13461,6 +13626,9 @@
         {
           "id": "hunt"
         }
+      ],
+      "factionIds": [
+        "raider"
       ]
     },
     {
@@ -13484,6 +13652,9 @@
         {
           "id": "flaregun"
         }
+      ],
+      "factionIds": [
+        "raider"
       ]
     },
     {
@@ -13501,6 +13672,9 @@
         {
           "id": "grenade"
         }
+      ],
+      "factionIds": [
+        "raider"
       ]
     },
     {
@@ -13534,6 +13708,9 @@
         {
           "id": "pipe"
         }
+      ],
+      "factionIds": [
+        "slaver"
       ]
     },
     {
@@ -13574,6 +13751,9 @@
         {
           "id": "spear"
         }
+      ],
+      "factionIds": [
+        "slaver"
       ]
     },
     {
@@ -13610,6 +13790,9 @@
         {
           "id": "flamer"
         }
+      ],
+      "factionIds": [
+        "slaver"
       ]
     },
     {
@@ -13641,6 +13824,9 @@
         {
           "id": "prism"
         }
+      ],
+      "factionIds": [
+        "slaver"
       ]
     },
     {
@@ -13678,6 +13864,9 @@
         {
           "id": "winchester"
         }
+      ],
+      "factionIds": [
+        "slaver"
       ]
     },
     {
@@ -13715,6 +13904,9 @@
         {
           "id": "sparkl"
         }
+      ],
+      "factionIds": [
+        "slaver"
       ]
     },
     {
@@ -13752,6 +13944,9 @@
         {
           "id": "p10s"
         }
+      ],
+      "factionIds": [
+        "zebra"
       ]
     },
     {
@@ -13789,6 +13984,9 @@
         {
           "id": "plap"
         }
+      ],
+      "factionIds": [
+        "zebra"
       ]
     },
     {
@@ -13822,6 +14020,9 @@
         {
           "id": "sniper"
         }
+      ],
+      "factionIds": [
+        "zebra"
       ]
     },
     {
@@ -13845,6 +14046,9 @@
         {
           "id": "zebr"
         }
+      ],
+      "factionIds": [
+        "zebra"
       ]
     },
     {
@@ -13874,6 +14078,9 @@
         {
           "id": "zebr"
         }
+      ],
+      "factionIds": [
+        "zebra"
       ]
     },
     {
@@ -13905,6 +14112,9 @@
         {
           "id": "revo"
         }
+      ],
+      "factionIds": [
+        "merc"
       ]
     },
     {
@@ -13955,6 +14165,9 @@
         {
           "id": "prism"
         }
+      ],
+      "factionIds": [
+        "merc"
       ]
     },
     {
@@ -14005,6 +14218,9 @@
         {
           "id": "minigun"
         }
+      ],
+      "factionIds": [
+        "merc"
       ]
     },
     {
@@ -14041,6 +14257,9 @@
         {
           "id": "sniper"
         }
+      ],
+      "factionIds": [
+        "merc"
       ]
     },
     {
@@ -14079,6 +14298,9 @@
         {
           "id": "pshot"
         }
+      ],
+      "factionIds": [
+        "merc"
       ]
     },
     {
@@ -14108,6 +14330,9 @@
         {
           "id": "minigun"
         }
+      ],
+      "factionIds": [
+        "ranger"
       ]
     },
     {
@@ -14137,6 +14362,9 @@
         {
           "id": "gatp"
         }
+      ],
+      "factionIds": [
+        "ranger"
       ]
     },
     {
@@ -14166,6 +14394,9 @@
         {
           "id": "antidrak"
         }
+      ],
+      "factionIds": [
+        "ranger"
       ]
     },
     {
@@ -14195,6 +14426,9 @@
         {
           "id": "plamg"
         }
+      ],
+      "factionIds": [
+        "encl"
       ]
     },
     {
@@ -14224,6 +14458,9 @@
         {
           "id": "nova"
         }
+      ],
+      "factionIds": [
+        "encl"
       ]
     },
     {
@@ -14253,6 +14490,9 @@
         {
           "id": "quick"
         }
+      ],
+      "factionIds": [
+        "encl"
       ]
     },
     {
@@ -14262,7 +14502,10 @@
       "id": "alicorn1",
       "table": "alicorn1",
       "name": "蓝色天角兽",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "alicorn"
+      ]
     },
     {
       "key": "enemy:model:alicorn2",
@@ -14271,7 +14514,10 @@
       "id": "alicorn2",
       "table": "alicorn2",
       "name": "紫色天角兽",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "alicorn"
+      ]
     },
     {
       "key": "enemy:model:alicorn3",
@@ -14280,7 +14526,10 @@
       "id": "alicorn3",
       "table": "alicorn3",
       "name": "绿色天角兽",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "alicorn"
+      ]
     },
     {
       "key": "enemy:model:hellhound1",
@@ -14289,7 +14538,10 @@
       "id": "hellhound1",
       "table": "hellhound1",
       "name": "英克雷军犬",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "encl"
+      ]
     },
     {
       "key": "enemy:model:zombie",
@@ -14298,7 +14550,10 @@
       "id": "zombie",
       "table": "zombie",
       "name": "尸鬼",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "zombie"
+      ]
     },
     {
       "key": "enemy:model:zombie0",
@@ -14307,7 +14562,10 @@
       "id": "zombie0",
       "table": "zombie",
       "name": "狂尸鬼",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "zombie"
+      ]
     },
     {
       "key": "enemy:model:zombie1",
@@ -14316,7 +14574,10 @@
       "id": "zombie1",
       "table": "zombie",
       "name": "迅捷狂尸鬼",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "zombie"
+      ]
     },
     {
       "key": "enemy:model:zombie2",
@@ -14325,7 +14586,10 @@
       "id": "zombie2",
       "table": "zombie",
       "name": "饥饿狂尸鬼",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "zombie"
+      ]
     },
     {
       "key": "enemy:model:zombie3",
@@ -14334,7 +14598,10 @@
       "id": "zombie3",
       "table": "zombie",
       "name": "狂暴狂尸鬼",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "zombie"
+      ]
     },
     {
       "key": "enemy:model:zombie4",
@@ -14343,7 +14610,10 @@
       "id": "zombie4",
       "table": "zombie4",
       "name": "发光狂尸鬼",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "zombie"
+      ]
     },
     {
       "key": "enemy:model:zombie5",
@@ -14352,7 +14622,10 @@
       "id": "zombie5",
       "table": "zombie5",
       "name": "士兵狂尸鬼",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "zombie"
+      ]
     },
     {
       "key": "enemy:model:zombie6",
@@ -14361,7 +14634,10 @@
       "id": "zombie6",
       "table": "zombie6",
       "name": "凶残狂尸鬼",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "zombie"
+      ]
     },
     {
       "key": "enemy:model:zombie7",
@@ -14370,7 +14646,10 @@
       "id": "zombie7",
       "table": "zombie7",
       "name": "中心城狂尸鬼",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "zombie"
+      ]
     },
     {
       "key": "enemy:model:zombie8",
@@ -14379,7 +14658,10 @@
       "id": "zombie8",
       "table": "zombie8",
       "name": "肿胀狂尸鬼",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "zombie"
+      ]
     },
     {
       "key": "enemy:model:zombie9",
@@ -14388,7 +14670,10 @@
       "id": "zombie9",
       "table": "zombie9",
       "name": "中心城巫师",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "zombie"
+      ]
     },
     {
       "key": "enemy:model:bloat0",
@@ -14397,7 +14682,10 @@
       "id": "bloat0",
       "table": "bloat0",
       "name": "肉食灵幼体",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:model:bloat1",
@@ -14411,6 +14699,9 @@
           "id": "bloat",
           "no": "1"
         }
+      ],
+      "factionIds": [
+        "monster"
       ]
     },
     {
@@ -14425,6 +14716,9 @@
           "id": "ship",
           "no": "1"
         }
+      ],
+      "factionIds": [
+        "monster"
       ]
     },
     {
@@ -14434,7 +14728,10 @@
       "id": "bloat3",
       "table": "bloat3",
       "name": "巨型肉食灵",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:model:bloat4",
@@ -14443,7 +14740,10 @@
       "id": "bloat4",
       "table": "bloat4",
       "name": "迅捷肉食灵",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:model:ebloat",
@@ -14452,7 +14752,10 @@
       "id": "ebloat",
       "table": "ebloat",
       "name": "肉食灵巢穴",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:model:bloodwing",
@@ -14461,7 +14764,10 @@
       "id": "bloodwing",
       "table": "bloodwing",
       "name": "血翼",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:model:bloodwing2",
@@ -14470,7 +14776,10 @@
       "id": "bloodwing2",
       "table": "bloodwing2",
       "name": "中心城血翼",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:model:fish1",
@@ -14479,7 +14788,10 @@
       "id": "fish1",
       "table": "fish1",
       "name": "食马鱼",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:model:fish2",
@@ -14488,7 +14800,10 @@
       "id": "fish2",
       "table": "fish2",
       "name": "狼鱼",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:model:rat",
@@ -14497,7 +14812,10 @@
       "id": "rat",
       "table": "rat",
       "name": "老鼠",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:model:molerat",
@@ -14506,7 +14824,10 @@
       "id": "molerat",
       "table": "molerat",
       "name": "鼹鼠",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:model:scorp1",
@@ -14515,7 +14836,10 @@
       "id": "scorp1",
       "table": "scorp",
       "name": "辐射蝎",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:model:scorp2",
@@ -14524,7 +14848,10 @@
       "id": "scorp2",
       "table": "scorp",
       "name": "嗜血辐射蝎",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:model:scorp3",
@@ -14533,7 +14860,10 @@
       "id": "scorp3",
       "table": "scorp",
       "name": "恐惧毒蝎",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:model:ant1",
@@ -14542,7 +14872,10 @@
       "id": "ant1",
       "table": "ant1",
       "name": "工蚁",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:model:ant2",
@@ -14551,7 +14884,10 @@
       "id": "ant2",
       "table": "ant2",
       "name": "兵蚁",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:model:ant3",
@@ -14560,7 +14896,10 @@
       "id": "ant3",
       "table": "ant3",
       "name": "火蚁",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:model:slime",
@@ -14574,6 +14913,9 @@
           "id": "slime",
           "no": "1"
         }
+      ],
+      "factionIds": [
+        "monster"
       ]
     },
     {
@@ -14588,6 +14930,9 @@
           "id": "pinkslime",
           "no": "1"
         }
+      ],
+      "factionIds": [
+        "monster"
       ]
     },
     {
@@ -14597,7 +14942,10 @@
       "id": "necros",
       "table": "necros",
       "name": "死灵云团",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "monster"
+      ]
     },
     {
       "key": "enemy:model:robobrain",
@@ -14614,6 +14962,9 @@
         {
           "id": "robospark"
         }
+      ],
+      "factionIds": [
+        "robot"
       ]
     },
     {
@@ -14636,6 +14987,9 @@
         {
           "id": "robospark2"
         }
+      ],
+      "factionIds": [
+        "robot"
       ]
     },
     {
@@ -14658,6 +15012,9 @@
         {
           "id": "roboplasma"
         }
+      ],
+      "factionIds": [
+        "robot"
       ]
     },
     {
@@ -14680,6 +15037,9 @@
         {
           "id": "roboplam"
         }
+      ],
+      "factionIds": [
+        "robot"
       ]
     },
     {
@@ -14701,6 +15061,9 @@
         {
           "id": "roboplam"
         }
+      ],
+      "factionIds": [
+        "robot"
       ]
     },
     {
@@ -14714,6 +15077,9 @@
         {
           "id": "roboplasma2"
         }
+      ],
+      "factionIds": [
+        "robot"
       ]
     },
     {
@@ -14735,6 +15101,9 @@
         {
           "id": "robominigun"
         }
+      ],
+      "factionIds": [
+        "robot"
       ]
     },
     {
@@ -14744,7 +15113,10 @@
       "id": "spritebot",
       "table": "spritebot",
       "name": "机械精灵",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "robot"
+      ]
     },
     {
       "key": "enemy:model:vortex",
@@ -14753,7 +15125,10 @@
       "id": "vortex",
       "table": "vortex",
       "name": "旋翼机",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "robot"
+      ]
     },
     {
       "key": "enemy:model:roller",
@@ -14762,7 +15137,10 @@
       "id": "roller",
       "table": "roller",
       "name": "电击球",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "robot"
+      ]
     },
     {
       "key": "enemy:model:turret",
@@ -14771,7 +15149,10 @@
       "id": "turret",
       "table": "turret",
       "name": "炮塔",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "robot"
+      ]
     },
     {
       "key": "enemy:model:turret0",
@@ -14802,6 +15183,9 @@
         {
           "id": "turret7"
         }
+      ],
+      "factionIds": [
+        "robot"
       ]
     },
     {
@@ -14833,6 +15217,9 @@
         {
           "id": "turret7"
         }
+      ],
+      "factionIds": [
+        "robot"
       ]
     },
     {
@@ -14864,6 +15251,9 @@
         {
           "id": "turret7"
         }
+      ],
+      "factionIds": [
+        "robot"
       ]
     },
     {
@@ -14895,6 +15285,9 @@
         {
           "id": "turret7"
         }
+      ],
+      "factionIds": [
+        "robot"
       ]
     },
     {
@@ -14926,6 +15319,9 @@
         {
           "id": "turret7"
         }
+      ],
+      "factionIds": [
+        "robot"
       ]
     },
     {
@@ -14935,7 +15331,10 @@
       "id": "turret5",
       "table": "turret",
       "name": "魔法炮塔",
-      "weapons": []
+      "weapons": [],
+      "factionIds": [
+        "robot"
+      ]
     },
     {
       "key": "container:model:safe",
@@ -15192,6 +15591,4242 @@
       "id": "robocell",
       "table": "robocell",
       "name": "机器马休眠仓"
+    }
+  ],
+  "nativeTables": {
+    "container:ammo": [
+      {
+        "slot": "container:ammo:1",
+        "name": "随机弹药",
+        "key": null,
+        "pool": "a",
+        "chance": 70.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:ammo:2",
+        "name": "随机弹药",
+        "key": null,
+        "pool": "a",
+        "chance": 25.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:ammo:3",
+        "name": "随机弹药",
+        "key": null,
+        "pool": "a",
+        "chance": 15.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:ammo:4",
+        "name": "随机弹药",
+        "key": null,
+        "pool": "a",
+        "chance": 70.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "有额外弹药能力时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:metal": [
+      {
+        "slot": "container:metal:1",
+        "name": "瓶盖",
+        "key": "item:money",
+        "pool": "item",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "随地区难度和随机结果变化",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:metal:2",
+        "name": "随机弹药",
+        "key": null,
+        "pool": "a",
+        "chance": 100.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "未获得「瓶盖」时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:bomb": [
+      {
+        "slot": "container:bomb:1",
+        "name": "炸药",
+        "key": "item:dinamit",
+        "pool": "e",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "每次尝试 3 次"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:expl": [
+      {
+        "slot": "container:expl:1",
+        "name": "随机爆炸物",
+        "key": null,
+        "pool": "e",
+        "chance": 100.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "每次随机尝试 0～3 次"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:expl:2",
+        "name": "随机爆炸物材料",
+        "key": null,
+        "pool": "compe",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:expl:3",
+        "name": "随机爆炸物",
+        "key": null,
+        "pool": "e",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "有额外弹药能力时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:bigexpl": [
+      {
+        "slot": "container:bigexpl:1",
+        "name": "随机爆炸物",
+        "key": null,
+        "pool": "e",
+        "chance": 100.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "每次随机尝试 3～6 次"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:bigexpl:2",
+        "name": "随机爆炸物",
+        "key": null,
+        "pool": "e",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "有额外弹药能力时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:bigexpl:3",
+        "name": "随机爆炸物材料",
+        "key": null,
+        "pool": "compe",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:wbattle": [
+      {
+        "slot": "container:wbattle:1",
+        "name": "随机进阶武器",
+        "key": null,
+        "pool": "uniq",
+        "chance": 4.0,
+        "quantity": 1,
+        "quantityText": "1 件",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": true,
+        "worth": null
+      },
+      {
+        "slot": "container:wbattle:2",
+        "name": "随机普通武器（档次 4）",
+        "key": null,
+        "pool": "weapon",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "1 件",
+        "conditions": [
+          "未获得「随机进阶武器」时",
+          "随机分支（随地区难度变化，最高 70%）"
+        ],
+        "chanceText": "",
+        "equipment": true,
+        "worth": 4
+      },
+      {
+        "slot": "container:wbattle:3",
+        "name": "随机普通武器（档次 3）",
+        "key": null,
+        "pool": "weapon",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "1 件",
+        "conditions": [
+          "未获得「随机进阶武器」时",
+          "其他情况下"
+        ],
+        "chanceText": "",
+        "equipment": true,
+        "worth": 3
+      },
+      {
+        "slot": "container:wbattle:4",
+        "name": "随机弹药",
+        "key": null,
+        "pool": "a",
+        "chance": 80.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:wbattle:5",
+        "name": "随机弹药",
+        "key": null,
+        "pool": "a",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "有额外弹药能力时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:wbattle:6",
+        "name": "隐形小马",
+        "key": "item:stealth",
+        "pool": "item",
+        "chance": 10.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:wbattle:7",
+        "name": "伪装板",
+        "key": "item:intel_comp",
+        "pool": "compa",
+        "chance": 10.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "有额外材料能力时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:case": [
+      {
+        "slot": "container:case:1",
+        "name": "瓶盖",
+        "key": "item:money",
+        "pool": "item",
+        "chance": 90.0,
+        "quantity": null,
+        "quantityText": "随地区难度和随机结果变化",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:wbig": [
+      {
+        "slot": "container:wbig:1",
+        "name": "随机进阶武器",
+        "key": null,
+        "pool": "uniq",
+        "chance": 8.0,
+        "quantity": 1,
+        "quantityText": "1 件",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": true,
+        "worth": null
+      },
+      {
+        "slot": "container:wbig:2",
+        "name": "随机普通武器（档次 5）",
+        "key": null,
+        "pool": "weapon",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "1 件",
+        "conditions": [
+          "未获得「随机进阶武器」时",
+          "随机分支（50%）"
+        ],
+        "chanceText": "",
+        "equipment": true,
+        "worth": 5
+      },
+      {
+        "slot": "container:wbig:3",
+        "name": "随机普通武器（档次 4）",
+        "key": null,
+        "pool": "weapon",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "1 件",
+        "conditions": [
+          "未获得「随机进阶武器」时",
+          "其他情况下"
+        ],
+        "chanceText": "",
+        "equipment": true,
+        "worth": 4
+      },
+      {
+        "slot": "container:wbig:4",
+        "name": "随机爆炸物",
+        "key": null,
+        "pool": "e",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "随机数量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:wbig:5",
+        "name": "随机弹药",
+        "key": null,
+        "pool": "a",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "随机数量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:wbig:6",
+        "name": "随机弹药",
+        "key": null,
+        "pool": "a",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "有额外弹药能力时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:wbig:7",
+        "name": "伪装板",
+        "key": "item:intel_comp",
+        "pool": "compa",
+        "chance": 50.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "有额外材料能力时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:robocell": [
+      {
+        "slot": "container:robocell:1",
+        "name": "随机机械材料",
+        "key": null,
+        "pool": "compm",
+        "chance": 100.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:instr": [
+      {
+        "slot": "container:instr:1",
+        "name": "发夹",
+        "key": "item:pin",
+        "pool": "item",
+        "chance": 10.0,
+        "quantity": null,
+        "quantityText": "随机数量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:instr:2",
+        "name": "随机普通武器（档次 2）",
+        "key": null,
+        "pool": "weapon",
+        "chance": 35.0,
+        "quantity": 1,
+        "quantityText": "1 件",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": true,
+        "worth": 2
+      },
+      {
+        "slot": "container:instr:3",
+        "name": "武器修理包",
+        "key": "item:rep",
+        "pool": "item",
+        "chance": 50.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "未获得「随机普通武器（档次 2）」时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:instr:4",
+        "name": "随机通用材料",
+        "key": null,
+        "pool": "compa",
+        "chance": 85.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:instr:5",
+        "name": "随机武器材料",
+        "key": null,
+        "pool": "compw",
+        "chance": 70.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:instr:6",
+        "name": "随机爆炸物材料",
+        "key": null,
+        "pool": "compe",
+        "chance": 10.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:instr:7",
+        "name": "随机机械材料",
+        "key": null,
+        "pool": "compm",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:instr:8",
+        "name": "随机涂装",
+        "key": null,
+        "pool": "paint",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:instr:9",
+        "name": "随机通用材料",
+        "key": null,
+        "pool": "compa",
+        "chance": 85.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "有额外材料能力时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:instr:10",
+        "name": "随机武器材料",
+        "key": null,
+        "pool": "compw",
+        "chance": 70.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "有额外材料能力时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:instr:11",
+        "name": "随机爆炸物材料",
+        "key": null,
+        "pool": "compe",
+        "chance": 10.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "有额外材料能力时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:instr:12",
+        "name": "随机爆炸物材料",
+        "key": null,
+        "pool": "compe",
+        "chance": 10.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "有额外材料能力时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:instr:13",
+        "name": "随机通用材料",
+        "key": null,
+        "pool": "compa",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "有额外材料能力时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:instr2": [
+      {
+        "slot": "container:instr2:1",
+        "name": "发夹",
+        "key": "item:pin",
+        "pool": "item",
+        "chance": 10.0,
+        "quantity": null,
+        "quantityText": "随机数量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:instr2:2",
+        "name": "随机普通武器（档次 2）",
+        "key": null,
+        "pool": "weapon",
+        "chance": 35.0,
+        "quantity": 1,
+        "quantityText": "1 件",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": true,
+        "worth": 2
+      },
+      {
+        "slot": "container:instr2:3",
+        "name": "武器修理包",
+        "key": "item:rep",
+        "pool": "item",
+        "chance": 50.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "未获得「随机普通武器（档次 2）」时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:instr2:4",
+        "name": "随机通用材料",
+        "key": null,
+        "pool": "compa",
+        "chance": 75.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:instr2:5",
+        "name": "随机武器材料",
+        "key": null,
+        "pool": "compw",
+        "chance": 40.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:instr2:6",
+        "name": "随机机械材料",
+        "key": null,
+        "pool": "compm",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:instr2:7",
+        "name": "随机涂装",
+        "key": null,
+        "pool": "paint",
+        "chance": 20.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:instr2:8",
+        "name": "随机通用材料",
+        "key": null,
+        "pool": "compa",
+        "chance": 75.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "有额外材料能力时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:instr2:9",
+        "name": "随机武器材料",
+        "key": null,
+        "pool": "compw",
+        "chance": 40.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "有额外材料能力时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:instr2:10",
+        "name": "随机爆炸物材料",
+        "key": null,
+        "pool": "compe",
+        "chance": 10.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "有额外材料能力时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:instr2:11",
+        "name": "随机通用材料",
+        "key": null,
+        "pool": "compa",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "有额外材料能力时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:trash": [
+      {
+        "slot": "container:trash:1",
+        "name": "辐射饼干",
+        "key": "item:radcookie",
+        "pool": "food",
+        "chance": 25.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "原版普通地区环境"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:trash:2",
+        "name": "随机杂物",
+        "key": null,
+        "pool": "stuff",
+        "chance": 100.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "没有搜出小动物时",
+          "每次随机尝试 1～2 次；额外材料能力再增加 2 次"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:trash:3",
+        "name": "瓶盖",
+        "key": "item:money",
+        "pool": "item",
+        "chance": 40.0,
+        "quantity": null,
+        "quantityText": "随地区难度和随机结果变化",
+        "conditions": [
+          "没有搜出小动物时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:fridge": [
+      {
+        "slot": "container:fridge:1",
+        "name": "闪闪可乐",
+        "key": "item:sparklecola",
+        "pool": "food",
+        "chance": 50.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:fridge:2",
+        "name": "黎明沙士",
+        "key": "item:sars",
+        "pool": "food",
+        "chance": 50.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:fridge:3",
+        "name": "闪闪可乐量子版",
+        "key": "item:radcola",
+        "pool": "food",
+        "chance": 10.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:fridge:4",
+        "name": "随机食物",
+        "key": null,
+        "pool": "food",
+        "chance": 100.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "没有搜出小动物时",
+          "每次随机尝试 1～2 次"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:fridge:5",
+        "name": "魔法草药",
+        "key": "item:herbs",
+        "pool": "compp",
+        "chance": 30.0,
+        "quantity": null,
+        "quantityText": "随机数量",
+        "conditions": [
+          "没有搜出小动物时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:food": [
+      {
+        "slot": "container:food:1",
+        "name": "辐射饼干",
+        "key": "item:radcookie",
+        "pool": "food",
+        "chance": 25.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "原版普通地区环境"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:food:2",
+        "name": "随机食物",
+        "key": null,
+        "pool": "food",
+        "chance": 80.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "没有搜出小动物时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:food:3",
+        "name": "随机杂物",
+        "key": null,
+        "pool": "stuff",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "没有搜出小动物时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:food:4",
+        "name": "魔法草药",
+        "key": "item:herbs",
+        "pool": "compp",
+        "chance": 20.0,
+        "quantity": null,
+        "quantityText": "随机数量",
+        "conditions": [
+          "没有搜出小动物时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:food:5",
+        "name": "随机配方",
+        "key": null,
+        "pool": "co",
+        "chance": 5.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "没有搜出小动物时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:med": [
+      {
+        "slot": "container:med:1",
+        "name": "发夹",
+        "key": "item:pin",
+        "pool": "item",
+        "chance": 5.0,
+        "quantity": null,
+        "quantityText": "随机数量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:med:2",
+        "name": "随机医疗物品",
+        "key": null,
+        "pool": "med",
+        "chance": 100.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "每次随机尝试 0～2 次"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:med:3",
+        "name": "随机药物",
+        "key": null,
+        "pool": "him",
+        "chance": 25.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:med:4",
+        "name": "急救包",
+        "key": "item:firstaid",
+        "pool": "med",
+        "chance": 3.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:med:5",
+        "name": "生命药剂",
+        "key": "item:potHP",
+        "pool": "pot",
+        "chance": 5.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:med:6",
+        "name": "生物凝胶",
+        "key": "item:gel",
+        "pool": "item",
+        "chance": 25.0,
+        "quantity": 100,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:med2": [
+      {
+        "slot": "container:med2:1",
+        "name": "生命药剂",
+        "key": "item:potHP",
+        "pool": "pot",
+        "chance": 75.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:med2:2",
+        "name": "随机医疗物品",
+        "key": null,
+        "pool": "med",
+        "chance": 100.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "每次随机尝试 1～3 次"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:med2:3",
+        "name": "随机药物",
+        "key": null,
+        "pool": "him",
+        "chance": 100.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:med2:4",
+        "name": "急救包",
+        "key": "item:firstaid",
+        "pool": "med",
+        "chance": 50.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:med2:5",
+        "name": "高级医疗包",
+        "key": "item:doctor",
+        "pool": "med",
+        "chance": 50.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:med2:6",
+        "name": "军用医疗包",
+        "key": "item:surgeon",
+        "pool": "med",
+        "chance": 50.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:med2:7",
+        "name": "生物凝胶",
+        "key": "item:gel",
+        "pool": "item",
+        "chance": 80.0,
+        "quantity": 100,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:table": [
+      {
+        "slot": "container:table:1",
+        "name": "发夹",
+        "key": "item:pin",
+        "pool": "item",
+        "chance": 10.0,
+        "quantity": null,
+        "quantityText": "随机数量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:table:2",
+        "name": "随机技能书",
+        "key": null,
+        "pool": "book",
+        "chance": 8.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:table:3",
+        "name": "瓶盖",
+        "key": "item:money",
+        "pool": "item",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "随地区难度和随机结果变化",
+        "conditions": [
+          "未获得「随机技能书」时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:table:4",
+        "name": "随机食物",
+        "key": null,
+        "pool": "food",
+        "chance": 10.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:table:5",
+        "name": "随机普通武器（档次 3）",
+        "key": null,
+        "pool": "weapon",
+        "chance": 13.0,
+        "quantity": 1,
+        "quantityText": "1 件",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": true,
+        "worth": 3
+      },
+      {
+        "slot": "container:table:6",
+        "name": "随机弹药",
+        "key": null,
+        "pool": "a",
+        "chance": 30.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:table:7",
+        "name": "飞镖",
+        "key": "item:dart",
+        "pool": "item",
+        "chance": 10.0,
+        "quantity": 8,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:table:8",
+        "name": "粉色粉末",
+        "key": "item:app",
+        "pool": "item",
+        "chance": 10.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:table:9",
+        "name": "随机设计图",
+        "key": null,
+        "pool": "scheme",
+        "chance": 4.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:table:10",
+        "name": "随机食物",
+        "key": null,
+        "pool": "food",
+        "chance": 25.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:table:11",
+        "name": "随机配方",
+        "key": null,
+        "pool": "co",
+        "chance": 8.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:table:12",
+        "name": "魔法药水",
+        "key": "item:potm1",
+        "pool": "med",
+        "chance": 10.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:filecab": [
+      {
+        "slot": "container:filecab:1",
+        "name": "发夹",
+        "key": "item:pin",
+        "pool": "item",
+        "chance": 10.0,
+        "quantity": null,
+        "quantityText": "随机数量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:filecab:2",
+        "name": "瓶盖",
+        "key": "item:money",
+        "pool": "item",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "随机数量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:filecab:3",
+        "name": "粉色粉末",
+        "key": "item:app",
+        "pool": "item",
+        "chance": 10.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:filecab:4",
+        "name": "随机设计图",
+        "key": null,
+        "pool": "scheme",
+        "chance": 2.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:filecab:5",
+        "name": "随机配方",
+        "key": null,
+        "pool": "co",
+        "chance": 8.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:cup": [
+      {
+        "slot": "container:cup:1",
+        "name": "发夹",
+        "key": "item:pin",
+        "pool": "item",
+        "chance": 6.0,
+        "quantity": null,
+        "quantityText": "随机数量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:cup:2",
+        "name": "瓶盖",
+        "key": "item:money",
+        "pool": "item",
+        "chance": 30.0,
+        "quantity": null,
+        "quantityText": "随机数量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:cup:3",
+        "name": "随机通用材料",
+        "key": null,
+        "pool": "compa",
+        "chance": 25.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:cup:4",
+        "name": "随机杂物",
+        "key": null,
+        "pool": "stuff",
+        "chance": 75.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:cup:5",
+        "name": "结实制品",
+        "key": "item:kombu_comp",
+        "pool": "compa",
+        "chance": 20.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:cup:6",
+        "name": "防辐射制品",
+        "key": "item:antirad_comp",
+        "pool": "compa",
+        "chance": 20.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:cup:7",
+        "name": "橡胶制品",
+        "key": "item:antihim_comp",
+        "pool": "compa",
+        "chance": 20.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:bloat": [],
+    "container:book": [
+      {
+        "slot": "container:book:1",
+        "name": "随机技能书",
+        "key": null,
+        "pool": "book",
+        "chance": 30.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:book:2",
+        "name": "战前书籍",
+        "key": "item:lbook",
+        "pool": "item",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "未获得「随机技能书」时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:book:3",
+        "name": "随机宝石",
+        "key": null,
+        "pool": "gems",
+        "chance": 10.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:book:4",
+        "name": "随机设计图",
+        "key": null,
+        "pool": "scheme",
+        "chance": 25.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:book:5",
+        "name": "随机配方",
+        "key": null,
+        "pool": "co",
+        "chance": 30.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:book:6",
+        "name": "《天体力学》",
+        "key": "item:book_cm",
+        "pool": "item",
+        "chance": 50.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "在图书馆时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:term": [
+      {
+        "slot": "container:term:1",
+        "name": "印象部信息碟",
+        "key": "item:datast",
+        "pool": "item",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "在印象部场景时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:term:2",
+        "name": "高价值信息碟",
+        "key": "item:disc",
+        "pool": "item",
+        "chance": 25.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "在印象部以外的场景"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:term:3",
+        "name": "信息碟",
+        "key": "item:data",
+        "pool": "item",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "在印象部以外的场景",
+          "未获得「高价值信息碟」时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:term:4",
+        "name": "随机机械材料",
+        "key": null,
+        "pool": "compm",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:info": [
+      {
+        "slot": "container:term:1",
+        "name": "印象部信息碟",
+        "key": "item:datast",
+        "pool": "item",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "在印象部场景时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:term:2",
+        "name": "高价值信息碟",
+        "key": "item:disc",
+        "pool": "item",
+        "chance": 25.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "在印象部以外的场景"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:term:3",
+        "name": "信息碟",
+        "key": "item:data",
+        "pool": "item",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "在印象部以外的场景",
+          "未获得「高价值信息碟」时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:term:4",
+        "name": "随机机械材料",
+        "key": null,
+        "pool": "compm",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:cryo": [
+      {
+        "slot": "container:cryo:1",
+        "name": "冷冻细胞",
+        "key": "item:pcryo",
+        "pool": "item",
+        "chance": 100.0,
+        "quantity": 10,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "每次随机尝试 1～3 次"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:cryo:2",
+        "name": "生物凝胶",
+        "key": "item:gel",
+        "pool": "item",
+        "chance": 50.0,
+        "quantity": 100,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:chest": [
+      {
+        "slot": "container:chest:1",
+        "name": "发夹",
+        "key": "item:pin",
+        "pool": "item",
+        "chance": 10.0,
+        "quantity": null,
+        "quantityText": "随机数量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:chest:2",
+        "name": "随机普通武器（档次 3）",
+        "key": null,
+        "pool": "weapon",
+        "chance": 20.0,
+        "quantity": 1,
+        "quantityText": "1 件",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": true,
+        "worth": 3
+      },
+      {
+        "slot": "container:chest:3",
+        "name": "战前货币",
+        "key": "item:bit",
+        "pool": "item",
+        "chance": 20.0,
+        "quantity": null,
+        "quantityText": "随地区难度和随机结果变化",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:chest:4",
+        "name": "随机宝石",
+        "key": null,
+        "pool": "gems",
+        "chance": 30.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:chest:5",
+        "name": "随机通用材料",
+        "key": null,
+        "pool": "compa",
+        "chance": 25.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:chest:6",
+        "name": "随机技能书",
+        "key": null,
+        "pool": "book",
+        "chance": 3.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:chest:7",
+        "name": "随机弹药",
+        "key": null,
+        "pool": "a",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:chest:8",
+        "name": "随机设计图",
+        "key": null,
+        "pool": "scheme",
+        "chance": 3.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:safe": [
+      {
+        "slot": "container:safe:1",
+        "name": "随机进阶武器",
+        "key": null,
+        "pool": "uniq",
+        "chance": null,
+        "quantity": 1,
+        "quantityText": "1 件",
+        "conditions": [
+          "没有触发生怪时"
+        ],
+        "chanceText": "随开锁奖励变化",
+        "equipment": true,
+        "worth": null
+      },
+      {
+        "slot": "container:safe:2",
+        "name": "记忆球",
+        "key": "item:sphera",
+        "pool": "item",
+        "chance": null,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "没有触发生怪时"
+        ],
+        "chanceText": "随开锁奖励变化",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:safe:3",
+        "name": "隐形小马",
+        "key": "item:stealth",
+        "pool": "item",
+        "chance": null,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "没有触发生怪时"
+        ],
+        "chanceText": "随开锁奖励变化",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:safe:4",
+        "name": "随机宝石",
+        "key": null,
+        "pool": "gems",
+        "chance": null,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "没有触发生怪时"
+        ],
+        "chanceText": "随开锁奖励变化",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:safe:5",
+        "name": "随机医疗物品",
+        "key": null,
+        "pool": "med",
+        "chance": 20.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "没有触发生怪时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:safe:6",
+        "name": "回城符文",
+        "key": "item:retr",
+        "pool": "item",
+        "chance": 25.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "没有触发生怪时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:safe:7",
+        "name": "窃取之符",
+        "key": "item:runa",
+        "pool": "item",
+        "chance": 10.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "没有触发生怪时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:safe:8",
+        "name": "电子开锁器",
+        "key": "item:reboot",
+        "pool": "item",
+        "chance": 10.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "没有触发生怪时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:safe:9",
+        "name": "随机技能书",
+        "key": null,
+        "pool": "book",
+        "chance": null,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "没有触发生怪时"
+        ],
+        "chanceText": "随开锁奖励变化",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:safe:10",
+        "name": "随机魔法材料",
+        "key": null,
+        "pool": "compp",
+        "chance": null,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "没有触发生怪时"
+        ],
+        "chanceText": "随开锁奖励变化",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:safe:11",
+        "name": "战前货币",
+        "key": "item:bit",
+        "pool": "item",
+        "chance": 100.0,
+        "quantity": null,
+        "quantityText": "随地区难度和随机结果变化",
+        "conditions": [
+          "没有触发生怪时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:safe:12",
+        "name": "随机设计图",
+        "key": null,
+        "pool": "scheme",
+        "chance": null,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "没有触发生怪时"
+        ],
+        "chanceText": "随开锁奖励变化",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:safe:13",
+        "name": "心灵药剂",
+        "key": "item:potMP",
+        "pool": "pot",
+        "chance": 25.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "没有触发生怪时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:safe:14",
+        "name": "生命药剂",
+        "key": "item:potHP",
+        "pool": "pot",
+        "chance": 10.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "没有触发生怪时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:safe:15",
+        "name": "大号魔法药水",
+        "key": "item:potm2",
+        "pool": "med",
+        "chance": 40.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "没有触发生怪时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:safe:16",
+        "name": "超大号魔法药水",
+        "key": "item:potm3",
+        "pool": "med",
+        "chance": 30.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "没有触发生怪时",
+          "未获得「大号魔法药水」时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:safe:17",
+        "name": "随机宝石",
+        "key": null,
+        "pool": "gems",
+        "chance": 100.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "没有触发生怪时",
+          "前面所有奖励都未获得时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:specweap": [
+      {
+        "slot": "container:specweap:1",
+        "name": "尚未拥有的进阶武器",
+        "key": null,
+        "pool": "unowned",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "1 件",
+        "conditions": [
+          "还有未拥有的进阶武器时"
+        ],
+        "chanceText": "",
+        "equipment": true,
+        "worth": null
+      },
+      {
+        "slot": "container:specweap:2",
+        "name": "随机进阶武器",
+        "key": null,
+        "pool": "uniq",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "1 件",
+        "conditions": [
+          "已拥有全部指定进阶武器时"
+        ],
+        "chanceText": "",
+        "equipment": true,
+        "worth": null
+      }
+    ],
+    "container:specalc": [
+      {
+        "slot": "container:specalc:1",
+        "name": "“自然恩赐”苹果药酒",
+        "key": "item:alc7",
+        "pool": "spec",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:specalc:2",
+        "name": "随机宝石",
+        "key": null,
+        "pool": "gems",
+        "chance": 100.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "container:speclp": [
+      {
+        "slot": "container:speclp:1",
+        "name": "脏话大全",
+        "key": "item:lp_item",
+        "pool": "spec",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "container:speclp:2",
+        "name": "随机宝石",
+        "key": null,
+        "pool": "gems",
+        "chance": 100.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:scorp": [
+      {
+        "slot": "enemy:scorp:1",
+        "name": "甲壳片",
+        "key": "item:chitin_comp",
+        "pool": "compa",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:scorp:2",
+        "name": "毒素腺体",
+        "key": "item:gland",
+        "pool": "compp",
+        "chance": 25.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:scorp:3",
+        "name": "肉",
+        "key": "item:meat",
+        "pool": "food",
+        "chance": 10.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:slime": [
+      {
+        "slot": "enemy:slime:1",
+        "name": "酸性粘液球",
+        "key": "item:acidslime",
+        "pool": "item",
+        "chance": 75.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:pinkslime": [
+      {
+        "slot": "enemy:pinkslime:1",
+        "name": "粉色粘液",
+        "key": "item:pinkslime",
+        "pool": "item",
+        "chance": 75.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:raider": [
+      {
+        "slot": "enemy:raider:1",
+        "name": "随机食物",
+        "key": null,
+        "pool": "eda",
+        "chance": 25.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:raider:2",
+        "name": "随机弹药",
+        "key": null,
+        "pool": "a",
+        "chance": 25.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:raider:3",
+        "name": "随机爆炸物",
+        "key": null,
+        "pool": "e",
+        "chance": 12.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:alicorn1": [
+      {
+        "slot": "enemy:alicorn1:1",
+        "name": "魔法粉剂",
+        "key": "item:mdust",
+        "pool": "compp",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:alicorn1:2",
+        "name": "心灵药剂",
+        "key": "item:potMP",
+        "pool": "pot",
+        "chance": 10.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:alicorn1:3",
+        "name": "魔法药水",
+        "key": "item:potm1",
+        "pool": "med",
+        "chance": 30.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:alicorn1:4",
+        "name": "大号魔法药水",
+        "key": "item:potm2",
+        "pool": "med",
+        "chance": 20.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "未获得「魔法药水」时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:alicorn2": [
+      {
+        "slot": "enemy:alicorn1:1",
+        "name": "魔法粉剂",
+        "key": "item:mdust",
+        "pool": "compp",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:alicorn1:2",
+        "name": "心灵药剂",
+        "key": "item:potMP",
+        "pool": "pot",
+        "chance": 10.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:alicorn1:3",
+        "name": "魔法药水",
+        "key": "item:potm1",
+        "pool": "med",
+        "chance": 30.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:alicorn1:4",
+        "name": "大号魔法药水",
+        "key": "item:potm2",
+        "pool": "med",
+        "chance": 20.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "未获得「魔法药水」时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:alicorn3": [
+      {
+        "slot": "enemy:alicorn1:1",
+        "name": "魔法粉剂",
+        "key": "item:mdust",
+        "pool": "compp",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:alicorn1:2",
+        "name": "心灵药剂",
+        "key": "item:potMP",
+        "pool": "pot",
+        "chance": 10.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:alicorn1:3",
+        "name": "魔法药水",
+        "key": "item:potm1",
+        "pool": "med",
+        "chance": 30.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:alicorn1:4",
+        "name": "大号魔法药水",
+        "key": "item:potm2",
+        "pool": "med",
+        "chance": 20.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "未获得「魔法药水」时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:ranger1": [
+      {
+        "slot": "enemy:ranger1:1",
+        "name": "武器零件",
+        "key": "item:frag",
+        "pool": "item",
+        "chance": 100.0,
+        "quantity": null,
+        "quantityText": "随机数量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:ranger1:2",
+        "name": "废金属",
+        "key": "item:scrap",
+        "pool": "item",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "随机数量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:ranger1:3",
+        "name": "动力装甲零件",
+        "key": "item:power_comp",
+        "pool": "compa",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:ranger1:4",
+        "name": "随机弹药",
+        "key": null,
+        "pool": "a",
+        "chance": 25.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:ranger2": [
+      {
+        "slot": "enemy:ranger1:1",
+        "name": "武器零件",
+        "key": "item:frag",
+        "pool": "item",
+        "chance": 100.0,
+        "quantity": null,
+        "quantityText": "随机数量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:ranger1:2",
+        "name": "废金属",
+        "key": "item:scrap",
+        "pool": "item",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "随机数量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:ranger1:3",
+        "name": "动力装甲零件",
+        "key": "item:power_comp",
+        "pool": "compa",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:ranger1:4",
+        "name": "随机弹药",
+        "key": null,
+        "pool": "a",
+        "chance": 25.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:ranger3": [
+      {
+        "slot": "enemy:ranger1:1",
+        "name": "武器零件",
+        "key": "item:frag",
+        "pool": "item",
+        "chance": 100.0,
+        "quantity": null,
+        "quantityText": "随机数量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:ranger1:2",
+        "name": "废金属",
+        "key": "item:scrap",
+        "pool": "item",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "随机数量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:ranger1:3",
+        "name": "动力装甲零件",
+        "key": "item:power_comp",
+        "pool": "compa",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:ranger1:4",
+        "name": "随机弹药",
+        "key": null,
+        "pool": "a",
+        "chance": 25.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:encl2": [
+      {
+        "slot": "enemy:encl2:1",
+        "name": "武器零件",
+        "key": "item:frag",
+        "pool": "item",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "随机数量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:encl2:2",
+        "name": "电池",
+        "key": "item:batt",
+        "pool": "a",
+        "chance": 30.0,
+        "quantity": 20,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:encl2:3",
+        "name": "水晶电池",
+        "key": "item:crystal",
+        "pool": "a",
+        "chance": 50.0,
+        "quantity": 100,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "未获得「电池」时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:encl2:4",
+        "name": "动力装甲零件",
+        "key": "item:power_comp",
+        "pool": "compa",
+        "chance": 30.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:encl3": [
+      {
+        "slot": "enemy:encl2:1",
+        "name": "武器零件",
+        "key": "item:frag",
+        "pool": "item",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "随机数量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:encl2:2",
+        "name": "电池",
+        "key": "item:batt",
+        "pool": "a",
+        "chance": 30.0,
+        "quantity": 20,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:encl2:3",
+        "name": "水晶电池",
+        "key": "item:crystal",
+        "pool": "a",
+        "chance": 50.0,
+        "quantity": 100,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "未获得「电池」时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:encl2:4",
+        "name": "动力装甲零件",
+        "key": "item:power_comp",
+        "pool": "compa",
+        "chance": 30.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:encl4": [
+      {
+        "slot": "enemy:encl2:1",
+        "name": "武器零件",
+        "key": "item:frag",
+        "pool": "item",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "随机数量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:encl2:2",
+        "name": "电池",
+        "key": "item:batt",
+        "pool": "a",
+        "chance": 30.0,
+        "quantity": 20,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:encl2:3",
+        "name": "水晶电池",
+        "key": "item:crystal",
+        "pool": "a",
+        "chance": 50.0,
+        "quantity": 100,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "未获得「电池」时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:encl2:4",
+        "name": "动力装甲零件",
+        "key": "item:power_comp",
+        "pool": "compa",
+        "chance": 30.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:hellhound1": [
+      {
+        "slot": "enemy:hellhound1:1",
+        "name": "地狱犬尖爪",
+        "key": "item:kogt",
+        "pool": "compw",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "仅精英敌人"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:zombie": [
+      {
+        "slot": "enemy:zombie:1",
+        "name": "狂尸鬼血液",
+        "key": "item:ghoulblood",
+        "pool": "compp",
+        "chance": 35.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:zombie:2",
+        "name": "放射性黏糊",
+        "key": "item:radslime",
+        "pool": "compp",
+        "chance": 15.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:zombie:3",
+        "name": "鞣制皮革",
+        "key": "item:skin_comp",
+        "pool": "compa",
+        "chance": 50.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:zombie4": [
+      {
+        "slot": "enemy:zombie4:1",
+        "name": "狂尸鬼血液",
+        "key": "item:ghoulblood",
+        "pool": "compp",
+        "chance": 80.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:zombie4:2",
+        "name": "放射性黏糊",
+        "key": "item:radslime",
+        "pool": "compp",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:zombie5": [
+      {
+        "slot": "enemy:zombie5:1",
+        "name": "狂尸鬼血液",
+        "key": "item:ghoulblood",
+        "pool": "compp",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:zombie5:2",
+        "name": "金属板",
+        "key": "item:metal_comp",
+        "pool": "compp",
+        "chance": 30.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:zombie6": [
+      {
+        "slot": "enemy:zombie6:1",
+        "name": "狂尸鬼血液",
+        "key": "item:ghoulblood",
+        "pool": "compp",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:zombie6:2",
+        "name": "装甲板",
+        "key": "item:battle_comp",
+        "pool": "compa",
+        "chance": 30.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:zombie6:3",
+        "name": "酸性粘液球",
+        "key": "item:acidslime",
+        "pool": "compp",
+        "chance": 80.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:zombie7": [
+      {
+        "slot": "enemy:zombie7:1",
+        "name": "狂尸鬼血液",
+        "key": "item:ghoulblood",
+        "pool": "compp",
+        "chance": 60.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:zombie7:2",
+        "name": "粉色粘液",
+        "key": "item:pinkslime",
+        "pool": "compp",
+        "chance": 20.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:zombie7:3",
+        "name": "黑色碎片",
+        "key": "item:darkfrag",
+        "pool": "compm",
+        "chance": 60.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "仅精英敌人"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:zombie8": [
+      {
+        "slot": "enemy:zombie8:1",
+        "name": "狂尸鬼血液",
+        "key": "item:ghoulblood",
+        "pool": "compp",
+        "chance": 60.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:zombie8:2",
+        "name": "粉色粘液",
+        "key": "item:pinkslime",
+        "pool": "compp",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:zombie8:3",
+        "name": "黑色碎片",
+        "key": "item:darkfrag",
+        "pool": "compm",
+        "chance": 80.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "仅精英敌人"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:zombie9": [
+      {
+        "slot": "enemy:zombie9:1",
+        "name": "狂尸鬼血液",
+        "key": "item:ghoulblood",
+        "pool": "compp",
+        "chance": 60.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:zombie9:2",
+        "name": "巫师之角",
+        "key": "item:whorn",
+        "pool": "compp",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:zombie9:3",
+        "name": "黑色碎片",
+        "key": "item:darkfrag",
+        "pool": "compm",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "仅精英敌人"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:bloodwing": [
+      {
+        "slot": "enemy:bloodwing:1",
+        "name": "血翼翅膀",
+        "key": "item:wingmembrane",
+        "pool": "compp",
+        "chance": 20.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:bloodwing:2",
+        "name": "血翼尖牙",
+        "key": "item:vampfang",
+        "pool": "compp",
+        "chance": 16.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:bloodwing:3",
+        "name": "肉",
+        "key": "item:meat",
+        "pool": "food",
+        "chance": 25.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:bloodwing2": [
+      {
+        "slot": "enemy:bloodwing2:1",
+        "name": "血翼翅膀",
+        "key": "item:wingmembrane",
+        "pool": "compp",
+        "chance": 30.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:bloodwing2:2",
+        "name": "血翼尖牙",
+        "key": "item:vampfang",
+        "pool": "compp",
+        "chance": 20.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:bloodwing2:3",
+        "name": "粉色粘液",
+        "key": "item:pinkslime",
+        "pool": "compp",
+        "chance": 40.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:bloat0": [
+      {
+        "slot": "enemy:bloat0:1",
+        "name": "肉食灵翅膀",
+        "key": "item:bloatwing",
+        "pool": "compp",
+        "chance": 20.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:bloat0:2",
+        "name": "肉食灵之眼",
+        "key": "item:bloateye",
+        "pool": "compp",
+        "chance": 10.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:bloat1": [
+      {
+        "slot": "enemy:bloat1:1",
+        "name": "肉食灵翅膀",
+        "key": "item:bloatwing",
+        "pool": "compp",
+        "chance": 20.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:bloat1:2",
+        "name": "肉食灵之眼",
+        "key": "item:bloateye",
+        "pool": "compp",
+        "chance": 10.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:bloat1:3",
+        "name": "酸性粘液球",
+        "key": "item:acidslime",
+        "pool": "compp",
+        "chance": 20.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:bloat2": [
+      {
+        "slot": "enemy:bloat2:1",
+        "name": "肉食灵翅膀",
+        "key": "item:bloatwing",
+        "pool": "compp",
+        "chance": 20.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:bloat2:2",
+        "name": "肉食灵之眼",
+        "key": "item:bloateye",
+        "pool": "compp",
+        "chance": 10.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:bloat2:3",
+        "name": "毒素腺体",
+        "key": "item:gland",
+        "pool": "compp",
+        "chance": 10.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:bloat3": [
+      {
+        "slot": "enemy:bloat3:1",
+        "name": "肉食灵翅膀",
+        "key": "item:bloatwing",
+        "pool": "compp",
+        "chance": 30.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:bloat3:2",
+        "name": "肉食灵之眼",
+        "key": "item:bloateye",
+        "pool": "compp",
+        "chance": 20.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:bloat3:3",
+        "name": "怪物脂肪",
+        "key": "item:molefat",
+        "pool": "compp",
+        "chance": 10.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:bloat4": [
+      {
+        "slot": "enemy:bloat4:1",
+        "name": "肉食灵翅膀",
+        "key": "item:bloatwing",
+        "pool": "compp",
+        "chance": 40.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:bloat4:2",
+        "name": "肉食灵之眼",
+        "key": "item:bloateye",
+        "pool": "compp",
+        "chance": 30.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:rat": [
+      {
+        "slot": "enemy:rat:1",
+        "name": "老鼠肝脏",
+        "key": "item:ratliver",
+        "pool": "compp",
+        "chance": 35.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:rat:2",
+        "name": "老鼠尾巴",
+        "key": "item:rattail",
+        "pool": "compp",
+        "chance": 25.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:rat:3",
+        "name": "肉",
+        "key": "item:meat",
+        "pool": "food",
+        "chance": 10.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:molerat": [
+      {
+        "slot": "enemy:molerat:1",
+        "name": "老鼠肝脏",
+        "key": "item:ratliver",
+        "pool": "compp",
+        "chance": 50.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:molerat:2",
+        "name": "怪物脂肪",
+        "key": "item:molefat",
+        "pool": "compp",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:molerat:3",
+        "name": "肉",
+        "key": "item:meat",
+        "pool": "food",
+        "chance": 25.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:fish1": [
+      {
+        "slot": "enemy:fish1:1",
+        "name": "鱼油",
+        "key": "item:fishfat",
+        "pool": "compp",
+        "chance": 50.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:fish2": [
+      {
+        "slot": "enemy:fish2:1",
+        "name": "鱼油",
+        "key": "item:fishfat",
+        "pool": "compp",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:ant1": [
+      {
+        "slot": "enemy:ant1:1",
+        "name": "甲壳片",
+        "key": "item:chitin_comp",
+        "pool": "compa",
+        "chance": 15.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:ant1:2",
+        "name": "肉",
+        "key": "item:meat",
+        "pool": "food",
+        "chance": 10.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:ant2": [
+      {
+        "slot": "enemy:ant2:1",
+        "name": "甲壳片",
+        "key": "item:chitin_comp",
+        "pool": "compa",
+        "chance": 30.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:ant2:2",
+        "name": "肉",
+        "key": "item:meat",
+        "pool": "food",
+        "chance": 10.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:ant3": [
+      {
+        "slot": "enemy:ant3:1",
+        "name": "甲壳片",
+        "key": "item:chitin_comp",
+        "pool": "compa",
+        "chance": 20.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:ant3:2",
+        "name": "火焰腺体",
+        "key": "item:firegland",
+        "pool": "compp",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:ant3:3",
+        "name": "肉",
+        "key": "item:meat",
+        "pool": "food",
+        "chance": 10.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:necros": [
+      {
+        "slot": "enemy:necros:1",
+        "name": "黑暗之魂",
+        "key": "item:dsoul",
+        "pool": "item",
+        "chance": 50.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:ebloat": [
+      {
+        "slot": "enemy:ebloat:1",
+        "name": "神秘的精华",
+        "key": "item:essence",
+        "pool": "compp",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:turret": [
+      {
+        "slot": "enemy:turret:1",
+        "name": "废金属",
+        "key": "item:scrap",
+        "pool": "item",
+        "chance": 50.0,
+        "quantity": 3,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:turret:2",
+        "name": "武器零件",
+        "key": "item:frag",
+        "pool": "compw",
+        "chance": 35.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:turret:3",
+        "name": "电池",
+        "key": "item:batt",
+        "pool": "a",
+        "chance": 20.0,
+        "quantity": 20,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:turret:4",
+        "name": "火花电池",
+        "key": "item:energ",
+        "pool": "a",
+        "chance": 20.0,
+        "quantity": 50,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "未获得「电池」时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:turret1": [
+      {
+        "slot": "enemy:turret1:1",
+        "name": "废金属",
+        "key": "item:scrap",
+        "pool": "item",
+        "chance": 50.0,
+        "quantity": 3,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:turret1:2",
+        "name": "废金属",
+        "key": "item:scrap",
+        "pool": "item",
+        "chance": 50.0,
+        "quantity": 3,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:turret1:3",
+        "name": "武器零件",
+        "key": "item:frag",
+        "pool": "compw",
+        "chance": 85.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:turret1:4",
+        "name": "附魔材料",
+        "key": "item:magus_comp",
+        "pool": "compa",
+        "chance": 52.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:turret1:5",
+        "name": "电池",
+        "key": "item:batt",
+        "pool": "a",
+        "chance": 40.0,
+        "quantity": 20,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:turret1:6",
+        "name": "火花电池",
+        "key": "item:energ",
+        "pool": "a",
+        "chance": 80.0,
+        "quantity": 50,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "未获得「电池」时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:robobrain": [
+      {
+        "slot": "enemy:robobrain:1",
+        "name": "废金属",
+        "key": "item:scrap",
+        "pool": "item",
+        "chance": 25.0,
+        "quantity": 3,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:robobrain:2",
+        "name": "武器零件",
+        "key": "item:frag",
+        "pool": "compw",
+        "chance": 15.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:robobrain:3",
+        "name": "随机机械材料",
+        "key": null,
+        "pool": "compm",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:robobrain:4",
+        "name": "电池",
+        "key": "item:batt",
+        "pool": "a",
+        "chance": 50.0,
+        "quantity": 20,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:robobrain:5",
+        "name": "金属板",
+        "key": "item:metal_comp",
+        "pool": "compa",
+        "chance": 40.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:robobrain:6",
+        "name": "脉冲发生器",
+        "key": "item:impgen",
+        "pool": "compm",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "仅精英敌人"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:protect": [
+      {
+        "slot": "enemy:protect:1",
+        "name": "废金属",
+        "key": "item:scrap",
+        "pool": "item",
+        "chance": 30.0,
+        "quantity": 3,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:protect:2",
+        "name": "武器零件",
+        "key": "item:frag",
+        "pool": "compw",
+        "chance": 25.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:protect:3",
+        "name": "随机机械材料",
+        "key": null,
+        "pool": "compm",
+        "chance": 60.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:protect:4",
+        "name": "电池",
+        "key": "item:batt",
+        "pool": "a",
+        "chance": 90.0,
+        "quantity": 20,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:protect:5",
+        "name": "金属板",
+        "key": "item:metal_comp",
+        "pool": "compa",
+        "chance": 40.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:protect:6",
+        "name": "超声波扫描仪",
+        "key": "item:uscan",
+        "pool": "compm",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "仅精英敌人"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:gutsy": [
+      {
+        "slot": "enemy:gutsy:1",
+        "name": "废金属",
+        "key": "item:scrap",
+        "pool": "item",
+        "chance": 45.0,
+        "quantity": 3,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:gutsy:2",
+        "name": "武器零件",
+        "key": "item:frag",
+        "pool": "compw",
+        "chance": 50.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:gutsy:3",
+        "name": "随机机械材料",
+        "key": null,
+        "pool": "compm",
+        "chance": 70.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:gutsy:4",
+        "name": "装甲板",
+        "key": "item:battle_comp",
+        "pool": "compa",
+        "chance": 85.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:gutsy:5",
+        "name": "燃料",
+        "key": "item:fuel",
+        "pool": "a",
+        "chance": 40.0,
+        "quantity": 100,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:gutsy:6",
+        "name": "火花电池",
+        "key": "item:energ",
+        "pool": "a",
+        "chance": 75.0,
+        "quantity": 50,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "未获得「燃料」时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:gutsy:7",
+        "name": "激光指针",
+        "key": "item:tlaser",
+        "pool": "compm",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "仅精英敌人"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:eqd": [
+      {
+        "slot": "enemy:eqd:1",
+        "name": "废金属",
+        "key": "item:scrap",
+        "pool": "item",
+        "chance": 45.0,
+        "quantity": 3,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:eqd:2",
+        "name": "武器零件",
+        "key": "item:frag",
+        "pool": "compw",
+        "chance": 50.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:eqd:3",
+        "name": "随机机械材料",
+        "key": null,
+        "pool": "compm",
+        "chance": 80.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:eqd:4",
+        "name": "附魔材料",
+        "key": "item:magus_comp",
+        "pool": "compa",
+        "chance": 85.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:eqd:5",
+        "name": "火花电池",
+        "key": "item:energ",
+        "pool": "a",
+        "chance": 100.0,
+        "quantity": 50,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:eqd:6",
+        "name": "信息碟",
+        "key": "item:data",
+        "pool": "item",
+        "chance": 50.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:eqd:7",
+        "name": "光色晶体",
+        "key": "item:pcrystal",
+        "pool": "compm",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "仅精英敌人"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:sentinel": [
+      {
+        "slot": "enemy:sentinel:1",
+        "name": "废金属",
+        "key": "item:scrap",
+        "pool": "item",
+        "chance": 85.0,
+        "quantity": 3,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:sentinel:2",
+        "name": "武器零件",
+        "key": "item:frag",
+        "pool": "compw",
+        "chance": 50.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:sentinel:3",
+        "name": "随机机械材料",
+        "key": null,
+        "pool": "compm",
+        "chance": 100.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:sentinel:4",
+        "name": "5mm圆弹",
+        "key": "item:p5",
+        "pool": "a",
+        "chance": 40.0,
+        "quantity": 100,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:sentinel:5",
+        "name": "水晶电池",
+        "key": "item:crystal",
+        "pool": "a",
+        "chance": 100.0,
+        "quantity": 100,
+        "quantityText": "按物品常规份量",
+        "conditions": [
+          "未获得「5mm圆弹」时"
+        ],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:sentinel:6",
+        "name": "火箭弹",
+        "key": "item:rocket",
+        "pool": "a",
+        "chance": 85.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:sentinel:7",
+        "name": "随机武器材料",
+        "key": null,
+        "pool": "compw",
+        "chance": 50.0,
+        "quantity": null,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      },
+      {
+        "slot": "enemy:sentinel:8",
+        "name": "RX-47运动模组",
+        "key": "item:motiv",
+        "pool": "compm",
+        "chance": 100.0,
+        "quantity": 1,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:vortex": [
+      {
+        "slot": "enemy:vortex:1",
+        "name": "废金属",
+        "key": "item:scrap",
+        "pool": "item",
+        "chance": 20.0,
+        "quantity": 3,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:spritebot": [
+      {
+        "slot": "enemy:vortex:1",
+        "name": "废金属",
+        "key": "item:scrap",
+        "pool": "item",
+        "chance": 20.0,
+        "quantity": 3,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ],
+    "enemy:roller": [
+      {
+        "slot": "enemy:vortex:1",
+        "name": "废金属",
+        "key": "item:scrap",
+        "pool": "item",
+        "chance": 20.0,
+        "quantity": 3,
+        "quantityText": "按物品常规份量",
+        "conditions": [],
+        "chanceText": "",
+        "equipment": false,
+        "worth": null
+      }
+    ]
+  },
+  "enemyFactions": [
+    {
+      "id": "raider",
+      "name": "掠夺者"
+    },
+    {
+      "id": "slaver",
+      "name": "奴隶贩子"
+    },
+    {
+      "id": "merc",
+      "name": "鹰爪雇佣兵"
+    },
+    {
+      "id": "zebra",
+      "name": "斑马军团"
+    },
+    {
+      "id": "ranger",
+      "name": "铁骑卫"
+    },
+    {
+      "id": "encl",
+      "name": "天马英克雷"
+    },
+    {
+      "id": "alicorn",
+      "name": "天角兽"
+    },
+    {
+      "id": "zombie",
+      "name": "尸鬼"
+    },
+    {
+      "id": "monster",
+      "name": "怪物"
+    },
+    {
+      "id": "robot",
+      "name": "机械单位"
     }
   ],
   "containerKeys": [

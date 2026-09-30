@@ -4,6 +4,8 @@ No game files are changed. Generated source contains no user-supplied expression
 import re, json, hashlib, sys
 from pathlib import Path
 import xml.etree.ElementTree as ET
+from loot_entries import annotate
+from enemy_factions import annotate_factions
 
 ROOT = Path(__file__).resolve().parents[1]
 GAME = ROOT.parents[1]
@@ -91,6 +93,8 @@ for x in data.findall('obj'):
     k=x.get('cont')
     sources.append(dict(key='container:model:'+x.get('id'),kind='container',scope='model',id=x.get('id'),table=k,name=name('obj',x.get('id'))))
 
+enemy_factions=annotate_factions(sources,data)
+
 constants=dict(re.findall(r'public static const (\w+):\* = "([^"]+)";', (SRC/'fe/serv/Item.as').read_text(encoding='utf-8-sig')))
 generated=['// Generated from local Remains 1.02 LootGen. Never accepts user code.',
            'export function vanillaTable(kind, key, env, emit, random) {',
@@ -100,10 +104,12 @@ generated=['// Generated from local Remains 1.02 LootGen. Never accepts user cod
            'const param1=loc, param2=0, param3=0, param4=key, param5=env.hero||0, param6=env.bonus??50;',
            'let lootBroken=!!env.broken, is_loot=0;',
            'const replic=()=>{};',
-           'const newLoot=(...args)=>{ const ok=emit(...args); if(ok) is_loot++; return ok; };',
+           'const newLoot=(slot,chance,type,id=null,count=-1)=>{ const ok=emit(chance,type,id,count,slot); if(ok) is_loot++; return ok; };',
            'if(kind === "container") {']
+native_tables={}
 for idx,m in enumerate(('lootCont','lootDrop')):
-    b=body(m)
+    b, entries=annotate(body(m),'container' if idx==0 else 'enemy',constants,items)
+    native_tables.update(entries)
     b=re.sub(r'var (\w+):(?:Number|int|Array|Boolean|\*)', r'var \1',b)
     b=re.sub(r'^\s*(lootBroken|loc|nx|ny) = .*?;\s*$', '', b,flags=re.M)
     # Counters and integer coercion match the original expression semantics.
@@ -112,7 +118,7 @@ for idx,m in enumerate(('lootCont','lootDrop')):
     if idx==0: generated.append('} else {')
 generated.extend(['}','}'])
 (OUT/'vanilla.mjs').write_text('\n'.join(line.rstrip() for line in '\n'.join(generated).splitlines()).rstrip()+'\n',encoding='utf-8',newline='\n')
-payload=dict(version='1.02',sourceHash=hashlib.sha256(source.encode()).hexdigest(),items=items,sources=sources,
+payload=dict(version='1.02',sourceHash=hashlib.sha256(source.encode()).hexdigest(),items=items,sources=sources,nativeTables=native_tables,enemyFactions=enemy_factions,
              containerKeys=list(cont_labels),enemyKeys=keys)
 (OUT/'catalog.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding='utf-8',newline='\n')
 print(json.dumps(dict(items=len(items),sources=len(sources),containerKeys=len(cont_labels),enemyKeys=len(keys))))

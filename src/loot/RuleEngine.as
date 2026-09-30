@@ -15,15 +15,39 @@ package loot {
             return (v is Number) && isFinite(v) && v>=min && v<=max && (!integer||Math.floor(v)==v);
         }
         public static function validate(p:Object,catalog:Object):String {
-            if(p==null||p.schemaVersion!==1||p.gameVersion!=="1.02")return "unsupported schema/game version";
+            if(p==null||(p.schemaVersion!==1&&p.schemaVersion!==2)||p.gameVersion!=="1.02")return "unsupported schema/game version";
             if(!(p.name is String)||p.name.length<1||p.name.length>60||!(p.id is String)||!/^[-\w]{1,80}$/.test(p.id))return "invalid profile identity";
             if(!(p.rules is Array)||p.rules.length>300)return "invalid rules";
             var items:Object={};var targets:Object={};var seen:Object={};var i:Object;
             for each(i in catalog.items)items[i.key]=i;
-            for each(i in catalog.sources)targets[i.key]=true;
+            for each(i in catalog.sources)targets[i.key]=i;
             for each(var r:Object in p.rules){
                 if(r==null||!targets.hasOwnProperty(r.target)||seen.hasOwnProperty(r.target)||(r.mode!="append"&&r.mode!="replace")||!(r.rewards is Array)||r.rewards.length>40)return "invalid rule target/mode";
                 seen[r.target]=true;var stackBudget:Number=0;
+                if(r.hasOwnProperty("native")){
+                    if(p.schemaVersion!==2||r.mode!="replace"||r.native==null||typeof r.native!="object"||r.native is Array)return "invalid native edits";
+                    var entries:Array=catalog.nativeTables[targets[r.target].kind+":"+targets[r.target].table];
+                    for(var slot:String in r.native){
+                        var row:Object=null;for each(var entry:Object in entries)if(entry.slot==slot)row=entry;
+                        var patch:Object=r.native[slot];
+                        if(row==null||patch==null||typeof patch!="object"||patch is Array)return "unknown native entry";
+                        for(var field:String in patch)if(["disabled","chance","min","max","pick","durabilityMin","durabilityMax"].indexOf(field)<0)return "unknown native edit";
+                        if(patch.hasOwnProperty("disabled")&&!(patch.disabled is Boolean))return "invalid native disabled";
+                        if(patch.hasOwnProperty("chance")&&!number(patch.chance,0,100,false))return "invalid native chance";
+                        if((patch.hasOwnProperty("min")||patch.hasOwnProperty("max"))&&(!number(patch.min,1,9999)||!number(patch.max,patch.min,9999)))return "invalid native quantity";
+                        if((patch.hasOwnProperty("durabilityMin")||patch.hasOwnProperty("durabilityMax"))&&(!number(patch.durabilityMin,1,100)||!number(patch.durabilityMax,patch.durabilityMin,100)))return "invalid native durability";
+                        var equipment:Boolean=row.equipment;
+                        if(patch.hasOwnProperty("pick")){
+                            if(!(patch.pick is Array)||patch.pick.length<1||patch.pick.length>60)return "invalid native choices";
+                            var nc:Object={};equipment=false;
+                            for each(var choice:Object in patch.pick){
+                                if(choice==null||!items.hasOwnProperty(choice.key)||nc.hasOwnProperty(choice.key)||!number(choice.weight,1,1000))return "invalid native item/weight";
+                                nc[choice.key]=true;equipment=equipment||items[choice.key].kind=="weapon"||items[choice.key].kind=="armor";
+                            }
+                        }
+                        if(!patch.disabled&&equipment)stackBudget+=6*(patch.max||1);
+                    }
+                }
                 for each(var v:Object in r.rewards){
                     if(v==null||!number(v.chance,0,100,false)||!number(v.min,1,9999)||!number(v.max,v.min,9999)||!number(v.repeat,1,20))return "invalid reward quantity/probability";
                     if(!number(v.durabilityMin,1,100)||!number(v.durabilityMax,v.durabilityMin,100)||!number(v.variant,0,1))return "invalid weapon condition";
@@ -53,6 +77,16 @@ package loot {
             return "";
         }
         private static function quantity(a:Number,b:Number,rng:Function):int{return a+Math.floor(rng()*(b-a+1));}
+        public static function nativeParams(patch:Object,type:String,id:String,count:int,rng:Function,items:Object):Object {
+            var equipment:Boolean=["weapon","uniq","armor"].indexOf(type)>=0;
+            if(patch.pick){
+                var chosen:Object=patch.pick[0];var c:Object;
+                if(patch.pick.length>1){var total:Number=0;for each(c in patch.pick)total+=c.weight;var v:Number=rng()*total;for each(c in patch.pick){v-=c.weight;if(v<0){chosen=c;break;}}}
+                var item:Object=items[chosen.key];type=item.kind=="item"?"":item.kind;id=item.id+(item.variant?"^1":"");equipment=["weapon","armor"].indexOf(item.kind)>=0;count=equipment?1:-1;
+            }
+            var copies:int=1;if(patch.hasOwnProperty("min")){var n:int=quantity(patch.min,patch.max,rng);if(equipment)copies=n;else count=n;}
+            return {type:type,id:id,count:count,copies:copies};
+        }
         public static function rewards(rewards:Array,ctx:Object,rng:Function,items:Object):Array {
             var drops:Array=[];
             for each(var r:Object in rewards){

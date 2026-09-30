@@ -90,7 +90,7 @@ app.whenReady().then(async()=>{
   try{useGame(root||'');}catch(error){if(testRoot)throw error;const d=await dialog.showOpenDialog({title:'首次使用：选择 Remains 游戏文件夹',properties:['openDirectory']});if(d.canceled){app.quit();return;}useGame(d.filePaths[0]);}
   if(!testRoot)atomicJSON(preferences,{gameRoot});
   handle('bootstrap',()=>{let view={};try{view=readJSON(path.join(store.root,'config/view.json'));}catch{}return {catalog,icons:readJSON(path.join(__dirname,'data/icons.json')),view,...readRecovery(),profiles:store.list().map(entry=>entry.profile&&core.validate(entry.profile,catalog).length?{broken:entry.profile.name||'未知方案',error:'方案格式不兼容，原文件已保留'}:entry),status:status(),version:app.getVersion(),runtimeVersion:core.VERSION};});
-  handle('view',v=>{atomicJSON(path.join(store.root,'config/view.json'),{profile:String(v.profile||'').slice(0,80),tab:['container','enemy','ammo','profiles'].includes(v.tab)?v.tab:'container',source:String(v.source||'').slice(0,100)});});
+  handle('view',v=>{atomicJSON(path.join(store.root,'config/view.json'),{profile:String(v.profile||'').slice(0,80),tab:['container','enemy','ammo','profiles'].includes(v.tab)?v.tab:'container',source:String(v.source||'').slice(0,100),enemyFaction:catalog.enemyFactions?.some(f=>f.id===v.enemyFaction)?v.enemyFaction:'all'});});
   handle('save',p=>{valid(p);store.save(p);return status();});
   handle('apply',p=>{valid(p);checkGame(gameRoot);store.apply(p);return status();});
   handle('status',()=>status());
@@ -100,7 +100,7 @@ app.whenReady().then(async()=>{
     const s=installer.inspect(gameRoot,payload);
     if(s.connected&&!s.updateAvailable)return status();
     const answer=await dialog.showMessageBox(window,s.updateAvailable?
-      {type:'question',buttons:['取消','更新游戏模块'],defaultId:0,cancelId:0,message:'更新掉落模块以支持进阶武器？',detail:'将备份并更新掉落模块。保存游戏后重新启动，即可读取新版本及已应用的方案。\n\n游戏位置：'+gameRoot}:
+      {type:'question',buttons:['取消','更新游戏连接'],defaultId:0,cancelId:0,message:'更新游戏连接以支持奖励词条编辑？',detail:(s.bridgeUpdate?'将备份并更新游戏主文件和掉落模块。':'将备份并更新掉落模块。')+'保存游戏后重新启动，即可读取新版本及已应用的方案。\n\n游戏位置：'+gameRoot}:
       {type:'question',buttons:['暂不连接','备份并连接'],defaultId:0,cancelId:0,message:'将掉落工坊连接到这份游戏？',detail:'请先保存并退出游戏。将备份并更新根目录 pfe.swf，安装掉落模块，通过现有 ModLoader 扫描器登记为仅 1.02 启用。其他模组和存档保留。以后应用方案只更新配置。\n\n游戏位置：'+gameRoot});
     if(answer.response!==1)return null;installer.install(gameRoot,payload);return status();
   });

@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "checks": [
+    "Original Flash button opens all 31 scenes and both scene/room search lists",
+    "Opening another scene selects its room in the original painting grid",
+    "Switching scenes and returning restores the exact unsaved draft with its undo history",
+    "Save on an original map creates a named pool copy without a path prompt or original overwrite",
+    "Native buttons create, rename and duplicate rooms without XML input",
+    "Publish saves the pool, emits only 3 changed/new room variants and installs the isolated game module",
+    "Fixed-scene room copies get a free position instead of overlapping the original",
+    "One native button stops custom mixing and keeps the editable pool",
+    "Every original map remains byte-identical, with no Flash fatal error"
+  ],
+  "root": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\native-scene-library\\8d2ffbba-b37c-43d2-9d2d-f06b9d0bf4e9",
+  "session": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\native-scene-library\\8d2ffbba-b37c-43d2-9d2d-f06b9d0bf4e9\\sessions\\93fe5b30-98ca-4e52-a907-59004e980d02",
+  "components": {
+    "EditorTools.swf": "39cd01c93f248270f5ef26094f7e606d53d5adbe62755a8a57105dc3a8886e62",
+    "editor-ru.xml": "16bd57f5d3904664c841e415198b1cc750b84900bf677c9ad8fe46c2d2630ccf",
+    "Editor.swf": "d331d3429ffa44cdd6f6381b2b1038f70b10e9e66dc992fc5a42837744cd0aaf",
+    "NativeUIBootstrap.swf": "efa8b1eb99012ae2277f4b2870c09d22f13ef56460cacb8129aca99ece9688e1",
+    "NativeScene.swf": "fcb620b9f4dc25eb3b4b54d420dfdf2549894472e8d0a331f06cdc321fc7cba7",
+    "editor-zh.xml": "8c2a66f273762fe17954c2fde5d39bca36f4a4df563d57cd8d42567501d3789c",
+    "editor-en.xml": "4ed4516f7fe33c15df5292ae31186b5dd247dcd3fe07d0028bbcfda5fc4afb2e",
+    "MapPoolMod.swf": "23ae6b1e71e492ccda20a6f008cf4ea9714c01d011b673998d9781ed8eff3b49"
+  }
+}

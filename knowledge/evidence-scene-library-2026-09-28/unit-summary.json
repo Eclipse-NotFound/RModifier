@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "assertions": 19,
+  "command": "node --test map-editor/tests/native-document.test.cjs map-editor/tests/scene-library.test.cjs map-editor/tests/pool-runtime.test.cjs",
+  "groups": {
+    "document": 10,
+    "library": 6,
+    "installation": 3
+  },
+  "observedExitCode": 0,
+  "files": {
+    "desktop/map/native-document.cjs": "ce082cc8712a2bb0e9d3e3b2ba641fe9d254c081367e2f53292404c89c2e28a5",
+    "desktop/map/native-ui-module.cjs": "293938e2533483bdb68ccdfe9786c8ad252277f4cb3d23c171ac81b346a98852",
+    "desktop/map/native-ui-session.cjs": "63fefe0e054637d40821069702db06f432b7ce60a62a98f71e2d160d544fee82",
+    "desktop/map/workspace.cjs": "131c9782466295e2408b51ad7d4def03302fd01d78dd36066bd8754b42bffdf7",
+    "desktop/map/scene-library.cjs": "8a68b3fdb2891787b65be71fc20dbd6bfc3f7362b739bb574bfb32c88f3fd1e8",
+    "desktop/map/scenes.json": "0562bab5add4495eaa09157d63fd73d904ea7999c3c1edc831ed8f0663b4a570",
+    "desktop/map/pool-runtime.cjs": "7053c2be17e838e10cd3e0ff555a03ab9d5c05bdc35ac50c0722a64f25d495ed",
+    "desktop/map/document.js": "b2b4f02ee33d1b81c06c80172c8301d248b9e0bcff01d65641c9f1c250608246",
+    "desktop/map/xml.js": "d272ca5a23798f3ad8e7678e29334a159ea6e6ff7fe0d326968eaba3cf71797a",
+    "desktop/map/catalog.json": "756f21751480b3a760a746894c661ffbbcbfc7bcf3bb5fc5e4ad59285be310d8",
+    "map-editor/tests/native-document.test.cjs": "506d9cc19fc508e2e038f621228101b60118821427f2f8753a8b25614c1173d4",
+    "map-editor/tests/scene-library.test.cjs": "810de7e44b133bb3cda90bfb8f14b87fc0accd9fa46be7ee935ce97cdf9c23ed",
+    "map-editor/tests/pool-runtime.test.cjs": "3402bcce6e0ab35aff7c444e1519cde9a5e6eb382ae0cb5b4248216acd5f9eed"
+  }
+}

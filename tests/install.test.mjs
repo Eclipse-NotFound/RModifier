@@ -60,3 +60,39 @@ test('runtime update rejects corrupt bytes and preserves the installed connectio
  assert.throws(()=>installer.install(root,payload),/校验失败/);assert.equal(installer.hash(runtime),before);
  assert.equal(installer.inspect(root,payload).connected,true);
 });
+
+test('a known bridge upgrades with the runtime and preserves the first-install restore point',()=>{
+ const {root,payload,metadata}=fixture();installer.install(root,payload);
+ const recordFile=path.join(root,'mods/RModifier/config/installation.json'),first=JSON.parse(fs.readFileSync(recordFile));
+ const registry=fs.readFileSync(path.join(root,'mods/loader-manifest.txt'),'utf8');
+ metadata.upgradeFrom=[metadata.bridgeHash];fs.writeFileSync(path.join(payload,'pfe-loot-safe.swf'),'FWS bridge v2');fs.writeFileSync(path.join(payload,'LootEditorMod.swf'),'FWS runtime v3');metadata.bridgeHash=installer.hash(path.join(payload,'pfe-loot-safe.swf'));metadata.runtimeHash=installer.hash(path.join(payload,'LootEditorMod.swf'));fs.writeFileSync(path.join(payload,'manifest.json'),JSON.stringify(metadata));
+ assert.equal(installer.inspect(root,payload).bridgeUpdate,true);assert.equal(installer.install(root,payload).connected,true);
+ const after=JSON.parse(fs.readFileSync(recordFile));assert.equal(after.backup,first.backup);assert.equal(after.sourceHash,first.sourceHash);assert.equal(installer.hash(path.join(after.runtimeBackup,'pfe.swf')),first.installedHash);assert.equal(installer.hash(path.join(after.runtimeBackup,'LootEditorMod.swf')),first.runtimeHash);assert.equal(fs.readFileSync(path.join(root,'mods/loader-manifest.txt'),'utf8'),registry);
+ assert.equal(installer.inspect(root,payload).updateAvailable,false);installer.restore(root,payload);assert.equal(installer.hash(path.join(root,'pfe.swf')),metadata.sourceHash);
+});
+
+test('bridge update rollback restores both files when its receipt cannot be committed',()=>{
+ const {root,payload,metadata}=fixture();installer.install(root,payload);const game=path.join(root,'pfe.swf'),runtime=path.join(root,'mods/RModifier/release/LootEditorMod.swf'),record=path.join(root,'mods/RModifier/config/installation.json');const before=[game,runtime,record].map(installer.hash);
+ metadata.upgradeFrom=[metadata.bridgeHash];fs.writeFileSync(path.join(payload,'pfe-loot-safe.swf'),'FWS bridge v2');metadata.bridgeHash=installer.hash(path.join(payload,'pfe-loot-safe.swf'));fs.writeFileSync(path.join(payload,'LootEditorMod.swf'),'FWS runtime v3');metadata.runtimeHash=installer.hash(path.join(payload,'LootEditorMod.swf'));fs.writeFileSync(path.join(payload,'manifest.json'),JSON.stringify(metadata));
+ const rename=fs.renameSync;let failed=false;fs.renameSync=(from,to)=>{if(to===record&&!failed){failed=true;throw Error('simulated record failure');}return rename(from,to);};
+ try{assert.throws(()=>installer.install(root,payload),/已回退/);}finally{fs.renameSync=rename;}
+ assert.equal(failed,true);assert.deepEqual([game,runtime,record].map(installer.hash),before);assert.equal(installer.inspect(root,payload).connected,true);
+});
+
+test('loot connection install and restore preserve the independent map pool registration and version gates',()=>{
+ const {root,payload}=fixture(),registry=path.join(root,'mods/ModLoader/supported-mods.txt'),manifest=path.join(root,'mods/loader-manifest.txt');
+ const map=path.join(root,'mods/RModifier/release/MapPoolMod.swf');fs.mkdirSync(path.dirname(map),{recursive:true});fs.writeFileSync(map,'FWS map pool module');
+ fs.appendFileSync(registry,'\nRModifier|MapPoolMod|1|0|0\n');const originalMap=installer.hash(map);
+ installer.install(root,payload);
+ const check=()=>{
+  for(const file of [registry,manifest])assert.deepEqual(fs.readFileSync(file,'utf8').split(/\r?\n/).filter(l=>/^RModifier\|MapPoolMod\|/.test(l)),['RModifier|MapPoolMod|1|0|0']);
+  assert.equal(installer.hash(map),originalMap);
+ };
+ check();
+ // Older installation records could capture every sibling in this directory.
+ // Reverting loot must not reintroduce an obsolete sibling setting or duplicate it.
+ const recordPath=path.join(root,'mods/RModifier/config/installation.json'),record=JSON.parse(fs.readFileSync(recordPath));
+ record.previousRegistry.push('RModifier|MapPoolMod|0|0|0');fs.writeFileSync(recordPath,JSON.stringify(record));
+ installer.restore(root,payload);check();
+ assert.equal(fs.readFileSync(registry,'utf8').includes('RModifier|LootEditorMod|'),false);
+});

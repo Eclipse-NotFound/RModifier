@@ -1,0 +1,18 @@
+{
+  "version": "0.4.0",
+  "updatedAt": "2026-09-30T07:44:18.9172406Z",
+  "entry": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\RModifier.exe",
+  "entryHash": "186deab0edef93d6b9abc2db70eeac6dbcb7a59e571aeb94f3e9aa1d21e5b7af",
+  "bytes": 131628757,
+  "candidate": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\dist\\rmodifier-0.4.0-r2\\RModifier.exe",
+  "previousVersion": "0.3.2",
+  "previousHash": "c8082af502594e347eb4db4272605cb441731049ba315faa9fe623cefb370fdb",
+  "backup": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\backups\\editor\\20260930T074417Z-a163ebb6-before-0.4.0\\RModifier-0.3.2.exe",
+  "existingBackup": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\backups\\editor\\20260928T135838Z-before-0.4.0\\RModifier-0.3.2.exe",
+  "protectedFilesUnchanged": 498,
+  "gameUpdated": false,
+  "runtimeUpdated": false,
+  "profilesApplied": false,
+  "userProcessesClosed": false,
+  "userGameRestarted": false
+}

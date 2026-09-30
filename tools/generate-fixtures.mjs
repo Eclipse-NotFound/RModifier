@@ -1,4 +1,4 @@
-import fs from 'node:fs';import {newProfile,newReward,evaluateRewards,ammoDrop,seeded,validate,fingerprint,clone} from '../desktop/core.mjs';
+import fs from 'node:fs';import {newProfile,newReward,evaluateRewards,ammoDrop,seeded,validate,fingerprint,clone,nativeParams} from '../desktop/core.mjs';
 const c=JSON.parse(fs.readFileSync('desktop/data/catalog.json')),map=new Map(c.items.map(i=>[i.key,i]));
 const p=newProfile('隔离验证');p.id='test-profile';p.ammo.enabled=true;
 p.rules=[{target:'container:table:ammo',mode:'replace',rewards:[{...newReward(),min:13,max:13}]},{target:'container:model:ammobox',mode:'replace',rewards:[{...newReward(),min:17,max:17}]},{target:'enemy:table:raider',mode:'replace',rewards:[]},{target:'enemy:table:ranger1',mode:'replace',rewards:[]}];
@@ -19,5 +19,17 @@ for(const r of [newReward('weapon:bat^1'),{...newReward('weapon:bat'),variant:1}
 }
 p.rules.push({target:'container:table:wbig',mode:'replace',rewards:[newReward('weapon:rail'),newReward('weapon:rail^1'),{...newReward('weapon:mont^1'),chance:0}]});
 p.rules.push({target:'enemy:model:ranger1',mode:'replace',rewards:[newReward('weapon:rail^1')]});
+
+p.schemaVersion=2;
+const nativeRule=(kind,table,native)=>({target:`${kind}:table:${table}`,mode:'replace',native,rewards:[]});
+p.rules.push(nativeRule('container','metal',{'container:metal:1':{chance:0},'container:metal:2':{chance:100,pick:[{key:'item:p9',weight:1}],min:7,max:7}}));
+p.rules.push(nativeRule('container','robocell',{'container:robocell:1':{chance:100,pick:[{key:'weapon:rail^1',weight:1}],min:2,max:2,durabilityMin:40,durabilityMax:40}}));
+p.rules.push(nativeRule('enemy','hellhound1',{'enemy:hellhound1:1':{chance:100,pick:[{key:'item:p9',weight:1}],min:23,max:23}}));
+p.rules.push(nativeRule('container','case',{'container:case:1':{disabled:true}}));
+const safe=Object.fromEntries(c.nativeTables['container:safe'].map(row=>[row.slot,{disabled:true}]));safe['container:safe:17']={chance:100,pick:[{key:'item:p10',weight:1}],min:19,max:19};p.rules.push(nativeRule('container','safe',safe));
+validation.push({profile:clone(p),valid:true});
+for(const change of [p=>p.schemaVersion=1,p=>p.rules.at(-1).native['bad']={},p=>p.rules.at(-1).native['container:safe:17'].max=0,p=>p.rules.at(-1).native['container:safe:17'].script='x',p=>p.rules.at(-1).native['container:safe:17'].chance=101]){const copy=clone(p);change(copy);validation.push({profile:copy,valid:false});}
+for(const patch of [{},{min:3,max:19},{pick:[{key:'weapon:rail^1',weight:1}],min:2,max:2},{pick:[{key:'item:p9',weight:3},{key:'weapon:rail',weight:1}] }])for(const seed of [1,235,46326,915781])cases.push({kind:'native',patch,type:'a',id:null,count:-1,seed,expected:nativeParams(patch,'a',null,-1,seeded(seed),map)});
+
 fs.mkdirSync('build/out/fixtures',{recursive:true});fs.writeFileSync('build/out/fixtures/profile.json',JSON.stringify(p,null,2)+'\n');fs.writeFileSync('build/out/fixtures/golden.json',JSON.stringify({cases,validation,hashInput:'中文路径😀\nRemains',hashExpected:fingerprint('中文路径😀\nRemains')}));
 console.log(`${cases.length} cross-runtime cases + ${validation.length} validation cases`);

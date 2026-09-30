@@ -1,0 +1,13 @@
+{
+  "date": "2026-09-30",
+  "command": "node --test tests/*.test.mjs map-editor/tests/native-document.test.cjs map-editor/tests/scene-library.test.cjs map-editor/tests/pool-runtime.test.cjs",
+  "exitCode": 0,
+  "tests": 89,
+  "passed": 89,
+  "failed": 0,
+  "typescript": {
+    "command": "tsc --noEmit",
+    "exitCode": 0
+  },
+  "scope": "Observed output of this continuation; before the final library-opening notice correction. That correction is covered by the r2 native-host integration check."
+}

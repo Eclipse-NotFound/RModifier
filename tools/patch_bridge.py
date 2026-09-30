@@ -3,6 +3,8 @@ This script never writes the live game. FFDec imports the result into a copy.
 """
 import sys, json, hashlib
 from pathlib import Path
+from loot_entries import annotate, arguments
+import re
 ROOT=Path(__file__).resolve().parents[1]
 src=ROOT/'build/out/current/scripts'
 out=ROOT/'build/out/bridge-scripts'
@@ -14,15 +16,57 @@ def once(s,a,b):
 files={p:(src/p).read_text(encoding='utf-8-sig') for p in ['fe/serv/LootGen.as','fe/serv/Interact.as','fe/unit/Unit.as']}
 if any('lootEditorBridge' in s for s in files.values()): raise RuntimeError('Bridge already exists; use baseline or verify installed version')
 s=files['fe/serv/LootGen.as']
+catalog=json.loads((ROOT/'desktop/data/catalog.json').read_text(encoding='utf-8'))
+constants=dict(re.findall(r'public static const (\w+):\* = "([^"]+)";', (ROOT.parents[1]/'game-reference/decompiled/1.02/src102/scripts/fe/serv/Item.as').read_text(encoding='utf-8-sig')))
+for method,kind in [('lootCont','container'),('lootDrop','enemy')]:
+    start=s.index('{',s.index('public static function '+method)); end=start+1; depth=1
+    while depth:
+        depth+=(s[end]=='{')-(s[end]=='}'); end+=1
+    marked,rows=annotate(s[start+1:end-1],kind,constants,catalog['items'])
+    if any(catalog['nativeTables'][key]!=value for key,value in rows.items()): raise RuntimeError('Native entry IDs differ from catalogue')
+    lines=[]
+    for line in marked.splitlines():
+        if 'newLoot(' in line:
+            args,a,b=arguments(line); slot=args.pop(0)
+            while len(args)<4: args.append('null' if len(args)==2 else '-1')
+            line=line[:a]+','.join(args+['0','null',slot])+line[b:]
+        lines.append(line)
+    s=s[:start+1]+'\n'.join(lines)+s[end-1:]
 s=once(s,'      public function LootGen()', '''      // LootEditor bridge v1. Inert until registered by the manifest-loaded module.
+      public static const lootEditorBridgeVersion:int = 2;
       public static var lootEditorBridge:Object = null;
       public static var lootEditorContext:Object = null;
+      private static var lootEditorRule:Object = null;
       private static var lootEditorSuppress:Boolean = false;
       private static var lootEditorSpawn:Boolean = false;
 
       public function LootGen()''')
+s=once(s,'param6:Interact = null) : Boolean','param6:Interact = null, lootEditorSlot:String = null) : Boolean')
 s=once(s,'         var _loc9_:String = null;', '''         if(lootEditorSuppress) { return false; }
+         var edit:Object = lootEditorSlot != null && lootEditorRule != null && lootEditorRule.native != null ? lootEditorRule.native[lootEditorSlot] : null;
+         if(edit != null && (edit.disabled === true || edit.chance === 0)) { return false; }
+         if(edit != null && edit.hasOwnProperty("chance")) { param1 = edit.chance / 100; }
          var _loc9_:String = null;''')
+s=once(s,'         var _loc7_:Number = 1;', '''         var copies:int = 1;
+         if(edit != null)
+         {
+            var adjusted:Object = lootEditorBridge.nativeParams(edit,param2,param3,param4);
+            param2 = adjusted.type; param3 = adjusted.id; param4 = adjusted.count; copies = adjusted.copies;
+         }
+         var _loc7_:Number = 1;''')
+s=once(s,'         var _loc8_:Item = new Item(param2,param3,param4);', '''         var generated:int = 0;
+         for(var copy:int = 0; copy < copies; copy++)
+         {
+         var _loc8_:Item = new Item(param2,param3,param4);
+         if(edit != null && edit.hasOwnProperty("durabilityMin") && (_loc8_.tip == Item.L_WEAPON || _loc8_.tip == Item.L_ARMOR))
+         {
+            _loc8_.sost = (edit.durabilityMin + Math.floor(Math.random() * (edit.durabilityMax - edit.durabilityMin + 1))) / 100;
+         }''')
+# A partial equipment batch still counts as success for native fallback branches.
+a=s.index('         var generated:int = 0;'); b=s.index('      public static function lootId(',a)
+part=s[a:b].replace('return false;','return generated > 0;')
+part=once(part,'         return true;','         generated++;\n         }\n         return generated > 0;')
+s=s[:a]+part+s[b:]
 for name in ('lootCont','lootDrop'):
     s=once(s,'public static function '+name+'(', 'private static function '+name+'Native(')
 safe=s.index('else if(param4 == "safe")')
@@ -43,13 +87,15 @@ wrappers='''
          var result:Boolean = false;
          var prevSuppress:Boolean = lootEditorSuppress;
          var prevSpawn:Boolean = lootEditorSpawn;
+         var prevRule:Object = lootEditorRule;
          if(place == null) { return false; }
          ctx = {kind:kind,loc:place,x:x,y:y,key:key,broken:broken,bonus:bonus,hero:hero,inter:lootEditorContext};
          if(lootEditorBridge != null)
          {
             try { rule = lootEditorBridge.select(ctx); } catch(selectError:*) { rule = null; }
          }
-         lootEditorSuppress = rule != null && rule.mode == "replace";
+         lootEditorRule = rule;
+         lootEditorSuppress = rule != null && rule.mode == "replace" && rule.native == null;
          lootEditorSpawn = false;
          try
          {
@@ -66,6 +112,7 @@ wrappers='''
          {
             lootEditorSuppress = prevSuppress;
             lootEditorSpawn = prevSpawn;
+            lootEditorRule = prevRule;
          }
          return result;
       }

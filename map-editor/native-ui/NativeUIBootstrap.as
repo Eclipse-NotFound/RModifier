@@ -83,6 +83,7 @@ package {
   }
   public function commit(ops:Array,input:Object,done:Function):void {emit("commit",{operations:ops,input:input},done);}
   public function action(name:String):void {notice({busy:true});emit("action",{name:name});}
+  public function library(payload:Object):void {emit("library",payload);}
   public function preference(language:String):void {emit("preference",{language:language});}
   public function exportImage(bytes:ByteArray,filename:String):void {var name:String="export-"+(eventSeq+1)+".png";var stream:FileStream=new FileStream();stream.open(sessionDirectory.resolvePath(name),FileMode.WRITE);stream.writeBytes(bytes);stream.close();emit("exportPNG",{file:name,filename:filename});}
   public function beforeTools(done:Function):void {
@@ -114,6 +115,7 @@ package {
    else if(c.operation=="resume") {editor.RMLock(false);finish({ok:true,input:editor.RMInspect()});}
    else if(c.operation=="visible") {stage.nativeWindow.visible=Boolean(c.visible);if(c.visible)resize(null);else stage.focus=null;finish({ok:true,visible:stage.nativeWindow.visible});}
    else if(c.operation=="notice") {notice(c.value);finish({ok:true});}
+   else if(c.operation=="library") {editor.RMTools().RMShowLibrary(c.model);finish({ok:true});}
    else if(c.operation=="inspect") finish({ok:true,input:editor.RMInspect(),controls:editor.RMTools().RMControlsState()});
    else if(c.operation=="viewport") finish({ok:true,viewport:setViewport(c.options)});
    else if(c.operation=="capture") {if(!config.testRoot) throw new Error("测试入口未启用");var pixels:BitmapData=new BitmapData(stage.stageWidth,stage.stageHeight,false,0xFFFFFF);pixels.draw(this);var png:ByteArray=pixels.encode(pixels.rect,new PNGEncoderOptions());var stream:FileStream=new FileStream();stream.open(sessionDirectory.resolvePath("capture-"+c.sequence+".png"),FileMode.WRITE);stream.writeBytes(png);stream.close();pixels.dispose();finish({ok:true,png:"capture-"+c.sequence+".png"});}

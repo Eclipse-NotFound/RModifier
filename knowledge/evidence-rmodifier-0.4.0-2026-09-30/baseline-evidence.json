@@ -1,0 +1,15 @@
+{
+  "date": "2026-09-30",
+  "package": "dist/rmodifier-0.4.0/RModifier.exe",
+  "packageSHA256": "7917bb34c6c6df1ec179f906973583fa6924793dd9d5d0c5e4d68dcb26417227",
+  "reports": {
+    "baseline-factions-ui.json": "knowledge/evidence-enemy-factions-2026-09-28/packaged-factions-ui.json",
+    "baseline-native-rewards-ui.json": "knowledge/evidence-enemy-factions-2026-09-28/packaged-native-rewards-ui.json",
+    "baseline-loot-ui.json": "knowledge/evidence-enemy-factions-2026-09-28/packaged-loot-ui.json",
+    "baseline-advanced-ui.json": "build/out/weapon-variants-ui-1790604823781/report.json",
+    "baseline-barks-host.json": "build/out/barks-host-1790604829375-a9de3290/results.json",
+    "baseline-native-host.json": "build/out/native-host/1790753410963-12b725b9/report.json",
+    "baseline-portable.json": "build/out/portable-1790753540570/results.json"
+  },
+  "note": "Evidence from the first 0.4.0 candidate. This is not a declaration that the later r2 package was run through the same checks."
+}

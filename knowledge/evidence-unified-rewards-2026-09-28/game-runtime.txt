@@ -1,0 +1,41 @@
+[LootEditor] v0.3.0 loaded app=pfe-loot-test-native-20260928-final session=1790603260632
+[LootEditor] config rejected active.json Error: unsupported schema/game version
+[LootEditor] config accepted name=隔离验证 hash=fnv1a-558ee4b3 fallback=true
+[LootEditor] bridge ready
+[LootEditor] ModLoader settings registered
+[LootEditor] ordinary container:table:ammo mode=replace stacks=1 generated=true
+[LootEditor] ordinary container:model:ammobox mode=replace stacks=1 generated=true
+[LootEditor] ordinary enemy:table:raider mode=replace stacks=0 generated=false
+[LootEditor] ammo enemy=raider1 weapon=p10mm item=item:p10 count=6 generated=true
+[LootEditor] ordinary enemy:table:raider mode=replace stacks=0 generated=false
+[LootEditor] ammo enemy=raider1 weapon=p10mm item=item:p10 count=6 generated=true
+[LootEditor] ordinary enemy:table:raider mode=replace stacks=0 generated=false
+[LootEditor] ordinary enemy:table:raider mode=replace stacks=0 generated=false
+[LootEditor] ammo enemy=raider1 weapon=p10mm item=item:p10 count=6 generated=true
+[LootEditor] ordinary enemy:model:ranger1 mode=replace stacks=1 generated=true
+[LootEditor] ammo enemy=ranger1 weapon=p10mm item=item:p10 count=6 generated=true
+[LootEditor] ordinary enemy:table:raider mode=replace stacks=0 generated=false
+[LootEditor] ammo enemy=raider1 weapon=p10mm item=item:p10_1 count=6 generated=true
+[LootEditor] ordinary enemy:table:raider mode=replace stacks=0 generated=false
+[LootEditor] ordinary enemy:table:raider mode=replace stacks=0 generated=false
+[LootEditor] ordinary test mode=append stacks=1 generated=false
+[LootEditor] ordinary test mode=append stacks=1 generated=true
+[LootEditor] ordinary container:table:wbig mode=replace stacks=2 generated=true
+[LootEditor] ordinary enemy:model:ranger1 mode=replace stacks=1 generated=true
+[LootEditor] ammo enemy=ranger1 weapon=p10mm item=item:p10 count=6 generated=true
+[LootEditor] ordinary test mode=append stacks=2 generated=true
+[LootEditor] ordinary container:table:metal mode=replace stacks=0 generated=false
+[LootEditor] ordinary container:table:robocell mode=replace stacks=0 generated=false
+[LootEditor] ordinary enemy:table:hellhound1 mode=replace stacks=0 generated=false
+[LootEditor] ordinary enemy:table:hellhound1 mode=replace stacks=0 generated=false
+[LootEditor] ordinary container:table:case mode=replace stacks=0 generated=false
+[LootEditor] ordinary container:table:safe mode=replace stacks=0 generated=false
+[LootEditor] heartbeat 20 ready=true
+[LootEditor] heartbeat 40 ready=true
+[LootEditor] heartbeat 60 ready=true
+[LootEditor] heartbeat 80 ready=true
+[LootEditor] heartbeat 100 ready=true
+[LootEditor] heartbeat 120 ready=true
+[LootEditor] heartbeat 140 ready=true
+[LootEditor] heartbeat 160 ready=true
+[LootEditor] heartbeat 180 ready=true

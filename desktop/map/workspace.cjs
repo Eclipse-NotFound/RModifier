@@ -15,6 +15,7 @@ class MapWorkspace {
   }
   owner(){return this.getWindow?.();}
   checkWrite(file){if(this.testRoot&&(!inside(this.testRoot,file)||!inside(physical(this.testRoot),physical(file))))throw Error('地图测试禁止写出隔离目录');}
+  protectMapWrite(file){this.checkWrite(file);const actual=physical(file);if(inside(physical(path.join(this.gameRoot,'Rooms')),actual)||same(path.dirname(actual),physical(this.gameRoot))||inside(physical(this.componentRoot),actual))throw Error('保存副本不能覆盖游戏原图或程序组件');}
   value(raw,file,extra={}){
     Map.parse(raw);const id=crypto.randomUUID();this.activeId=id;
     this.handles.set(id,{file,diskHash:file&&fs.existsSync(file)?hash(fs.readFileSync(file)):null,currentHash:hash(raw),recoveredRevision:-1,newFile:!file});

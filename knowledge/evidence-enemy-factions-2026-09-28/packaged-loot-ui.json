@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "packaged": true,
+  "checks": [
+    "boot Chinese catalogue",
+    "edit/search/preview",
+    "undo and redo",
+    "invalid quantity cannot be applied and remains undoable",
+    "save/apply distinguishes applied config, a pending connection upgrade and a matching game receipt",
+    "47 enemy tables",
+    "ammo preview half-pack",
+    "rename and save profile",
+    "export/import through real storage with automated file chooser",
+    "previous applied profile opens for review without overwriting current configuration",
+    "125/150/200 percent and narrow layout without horizontal overflow",
+    "restart restores saved profile and editing position",
+    "native game icons and keyboard escape",
+    "no renderer errors"
+  ],
+  "errors": []
+}

@@ -1,0 +1,135 @@
+{
+  "passed": true,
+  "checks": [
+    "Dark wall P is retained by the real AIR drawing pipeline",
+    "One undo removes the wall and redo restores its visible native tile",
+    "Foreground and background paint/erase preserve the other layer and remain undoable",
+    "All 67 original palette materials paint, synchronize and display on their correct layers",
+    "A rectangle of dark wall tiles is one undoable drawing operation",
+    "Dark wall is present in the saved working copy",
+    "Reopening the saved map restores the wall in the original editor",
+    "Original native preview renders and exports the painted room",
+    "Every real palette edit sends a string ID; no rejected commits, fatal errors or source-map changes"
+  ],
+  "errors": [],
+  "observations": [
+    {
+      "receipt": {
+        "status": "ready",
+        "state": {
+          "sessionId": "2ce89d4d-bbec-4bee-a69e-dc3cc20507f0",
+          "epoch": "19044621-b2b6-4af3-b3ad-225e23b10416",
+          "loaded": true,
+          "documentId": "63d5f84e-84bd-4b3d-887f-401f50adc49d",
+          "revision": 1,
+          "contentHash": "1355e51d87aba85a546aacc6b6e2be53437956ec118a35286d644ac0dd63c0be",
+          "savedContentHash": "a56dd75fc24520d2837f50f7ca16f0343a8566a29b2b2cae802e0d33f3d2415d",
+          "pendingInputHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "dirty": true,
+          "canSave": true,
+          "invalidInputs": [],
+          "requiresReview": true,
+          "canUndo": true,
+          "canRedo": false,
+          "composing": false,
+          "recovered": false,
+          "persistedRevision": -1
+        }
+      },
+      "cell": "_P",
+      "inspect": {
+        "sessionId": "2ce89d4d-bbec-4bee-a69e-dc3cc20507f0",
+        "input": {
+          "revision": 1,
+          "view": {
+            "roomName": "墙体绘制回归",
+            "roomKey": "5c691015-9720-4dda-8c8e-e0f847252c0f",
+            "preview": {
+              "difficulty": -1,
+              "mirror": false,
+              "region": "",
+              "objects": true,
+              "x": 0,
+              "entities": true,
+              "y": 0,
+              "examples": true,
+              "zoom": 1,
+              "busy": false,
+              "ready": false,
+              "open": false
+            },
+            "viewport": {
+              "deviceScale": 1,
+              "effectiveScale": 0.6578947368421053,
+              "width": 1188,
+              "uiScale": 1,
+              "zoom": 0.6578947368421053,
+              "height": 625,
+              "clientWidth": 0,
+              "panY": 0,
+              "panX": 0,
+              "fit": true
+            },
+            "selectedKey": null
+          },
+          "documentId": "63d5f84e-84bd-4b3d-887f-401f50adc49d",
+          "busy": false,
+          "inputs": [],
+          "composing": false
+        },
+        "ok": true,
+        "epoch": "19044621-b2b6-4af3-b3ad-225e23b10416",
+        "controls": {
+          "library": {
+            "rooms": [],
+            "working": false,
+            "room": "",
+            "scenes": [],
+            "selected": "",
+            "roomCount": 0,
+            "sceneCount": 0,
+            "open": false
+          },
+          "roomName": {
+            "height": 22.950000000000045,
+            "y": 760.3,
+            "width": 125,
+            "x": 14,
+            "name": "RoomName"
+          },
+          "undoEnabled": true,
+          "message": "",
+          "busy": false,
+          "noticeVisible": false,
+          "buttons": [
+            {
+              "height": 23,
+              "y": 733.5,
+              "width": 40.349999999999994,
+              "x": 13.45,
+              "name": "RModifier_saveAs"
+            },
+            {
+              "height": 23,
+              "y": 733.5,
+              "width": 40.400000000000006,
+              "x": 56.75,
+              "name": "RModifier_undo"
+            },
+            {
+              "height": 23,
+              "y": 733.5,
+              "width": 40.349999999999994,
+              "x": 100.1,
+              "name": "RModifier_redo"
+            }
+          ],
+          "redoEnabled": false
+        },
+        "requestId": "b0873e93-b783-4c50-9518-a2a8c5bb1c81"
+      }
+    }
+  ],
+  "session": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\map-native-wall-paint\\0320829c-76fb-4c50-a3e4-eb0740f75e8e\\sessions\\2ce89d4d-bbec-4bee-a69e-dc3cc20507f0",
+  "root": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\build\\out\\map-native-wall-paint\\0320829c-76fb-4c50-a3e4-eb0740f75e8e"
+}

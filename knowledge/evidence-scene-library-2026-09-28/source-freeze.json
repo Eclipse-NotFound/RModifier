@@ -1,0 +1,159 @@
+{
+  "frozenAt": "2026-09-28T14:12:03.012Z",
+  "componentManifest": "604e34007136336c158c5cd43b513e13d893812c70984bed95597a3555a9c96b",
+  "deliveryManifest": "b8da8a531e6c2c36140f1798597885857b73a19543f7b77e89b79124ba4f4f5d",
+  "files": {
+    "desktop/map/native-document.cjs": {
+      "sha256": "ce082cc8712a2bb0e9d3e3b2ba641fe9d254c081367e2f53292404c89c2e28a5",
+      "bytes": 12319
+    },
+    "desktop/map/native-ui-module.cjs": {
+      "sha256": "293938e2533483bdb68ccdfe9786c8ad252277f4cb3d23c171ac81b346a98852",
+      "bytes": 22236
+    },
+    "desktop/map/native-ui-session.cjs": {
+      "sha256": "63fefe0e054637d40821069702db06f432b7ce60a62a98f71e2d160d544fee82",
+      "bytes": 7888
+    },
+    "desktop/map/workspace.cjs": {
+      "sha256": "131c9782466295e2408b51ad7d4def03302fd01d78dd36066bd8754b42bffdf7",
+      "bytes": 9429
+    },
+    "desktop/map/scene-library.cjs": {
+      "sha256": "8a68b3fdb2891787b65be71fc20dbd6bfc3f7362b739bb574bfb32c88f3fd1e8",
+      "bytes": 9181
+    },
+    "desktop/map/scenes.json": {
+      "sha256": "0562bab5add4495eaa09157d63fd73d904ea7999c3c1edc831ed8f0663b4a570",
+      "bytes": 7018
+    },
+    "desktop/map/pool-runtime.cjs": {
+      "sha256": "7053c2be17e838e10cd3e0ff555a03ab9d5c05bdc35ac50c0722a64f25d495ed",
+      "bytes": 3118
+    },
+    "desktop/map/document.js": {
+      "sha256": "b2b4f02ee33d1b81c06c80172c8301d248b9e0bcff01d65641c9f1c250608246",
+      "bytes": 6067
+    },
+    "desktop/map/xml.js": {
+      "sha256": "d272ca5a23798f3ad8e7678e29334a159ea6e6ff7fe0d326968eaba3cf71797a",
+      "bytes": 6164
+    },
+    "desktop/map/catalog.json": {
+      "sha256": "756f21751480b3a760a746894c661ffbbcbfc7bcf3bb5fc5e4ad59285be310d8",
+      "bytes": 124918
+    },
+    "map-editor/native-ui/EditorAdapter.as.inc": {
+      "sha256": "23a582ab86b307ae7759822fcc72539000ec2322fe416d7702ddd9e260d08abf",
+      "bytes": 14339
+    },
+    "map-editor/native-ui/NativeDocumentControls.as": {
+      "sha256": "63acabe8547ddc2b22696c5c0cfebaad2ca13ff7c3ba0d8ba923d4c6f403ebf2",
+      "bytes": 4702
+    },
+    "map-editor/native-ui/NativeUIBootstrap.as": {
+      "sha256": "7149ab76027bbc05bc6aa5eaf0a2d47f2996fd8d99bb118d4c036a33a520e170",
+      "bytes": 10226
+    },
+    "map-editor/native-ui/NativeSceneLibrary.as": {
+      "sha256": "fc217aa22728e4c360f86bf8c8fede125c04292b01c20fc016360fab30804d6e",
+      "bytes": 10712
+    },
+    "map-editor/tools/build-native-ui.ps1": {
+      "sha256": "6203a9eb7deaf493f6a816e321c38b4e39a1cce4f5c829edfe3b6bc09185648d",
+      "bytes": 3876
+    },
+    "map-editor/tools/prepare-native-ui.py": {
+      "sha256": "991497c8b7e3ccd0639af4102b9eebf5d1cc4cd9aba4799be99235344045764c",
+      "bytes": 13374
+    },
+    "tools/extract-map-scenes.cjs": {
+      "sha256": "a2d6e7b5f7fd986d364d47b5cb2ab9df23ad046710349248b9f858ef06b49949",
+      "bytes": 1335
+    },
+    "src/MapPoolDoc.as": {
+      "sha256": "feaa7a22e40cc911705005408b356b47b234fbaf63222c9887fee9777e587785",
+      "bytes": 150
+    },
+    "src/MapPoolMod.as": {
+      "sha256": "fc421cebc10764f0459fc03172d9ca579828f4bedd66bd86452ffa39e28f0ce5",
+      "bytes": 4837
+    },
+    "src/map/PoolHash.as": {
+      "sha256": "645b377527afd4491452d14c8ae60844ad39edf2b82a2d05972412e38544dbe5",
+      "bytes": 2242
+    },
+    "src/MapPoolProbeDoc.as": {
+      "sha256": "352dfcdd131d3381e25b5191da93a9297bd37f3c1faa084ff96490cc5808a409",
+      "bytes": 164
+    },
+    "src/MapPoolProbeMod.as": {
+      "sha256": "d7fe32a0b34a5108915b5b8aae901c20a603c9de1488bce02f1a42d2f0f79d20",
+      "bytes": 6319
+    },
+    "map-editor/tests/native-document.test.cjs": {
+      "sha256": "506d9cc19fc508e2e038f621228101b60118821427f2f8753a8b25614c1173d4",
+      "bytes": 5304
+    },
+    "map-editor/tests/native-ui.cjs": {
+      "sha256": "24c990d1dd141e6bbf0e05286cd9625114e17db65808589266cb7a8d38213957",
+      "bytes": 11823
+    },
+    "map-editor/tests/native-ui-wall-paint.cjs": {
+      "sha256": "b8b5b5fffa297c7d45d62fcfa49807e59734108dd797c1ed3953cd9cd9f032c1",
+      "bytes": 6896
+    },
+    "map-editor/tests/native-scene-library.cjs": {
+      "sha256": "2bad8c6e98c626262c8986efb30c37717677d722afcebce2333ecc13fb9941b7",
+      "bytes": 6677
+    },
+    "map-editor/tests/scene-library.test.cjs": {
+      "sha256": "810de7e44b133bb3cda90bfb8f14b87fc0accd9fa46be7ee935ce97cdf9c23ed",
+      "bytes": 4513
+    },
+    "map-editor/tests/pool-runtime.test.cjs": {
+      "sha256": "3402bcce6e0ab35aff7c444e1519cde9a5e6eb382ae0cb5b4248216acd5f9eed",
+      "bytes": 3098
+    },
+    "map-editor/tests/map-pool-game.cjs": {
+      "sha256": "fd6dd0682fc2848ee007b474eac1ad7f11a16558534ea54527b51b9031cea6c4",
+      "bytes": 5146
+    },
+    "map-editor/native-ui/component/editor-en.xml": {
+      "sha256": "4ed4516f7fe33c15df5292ae31186b5dd247dcd3fe07d0028bbcfda5fc4afb2e",
+      "bytes": 21437
+    },
+    "map-editor/native-ui/component/editor-ru.xml": {
+      "sha256": "16bd57f5d3904664c841e415198b1cc750b84900bf677c9ad8fe46c2d2630ccf",
+      "bytes": 26768
+    },
+    "map-editor/native-ui/component/editor-zh.xml": {
+      "sha256": "8c2a66f273762fe17954c2fde5d39bca36f4a4df563d57cd8d42567501d3789c",
+      "bytes": 26890
+    },
+    "map-editor/native-ui/component/Editor.swf": {
+      "sha256": "d331d3429ffa44cdd6f6381b2b1038f70b10e9e66dc992fc5a42837744cd0aaf",
+      "bytes": 506203
+    },
+    "map-editor/native-ui/component/EditorTools.swf": {
+      "sha256": "39cd01c93f248270f5ef26094f7e606d53d5adbe62755a8a57105dc3a8886e62",
+      "bytes": 24241
+    },
+    "map-editor/native-ui/component/manifest.json": {
+      "sha256": "604e34007136336c158c5cd43b513e13d893812c70984bed95597a3555a9c96b",
+      "bytes": 1442
+    },
+    "map-editor/native-ui/component/MapPoolMod.swf": {
+      "sha256": "23ae6b1e71e492ccda20a6f008cf4ea9714c01d011b673998d9781ed8eff3b49",
+      "bytes": 4378
+    },
+    "map-editor/native-ui/component/NativeScene.swf": {
+      "sha256": "fcb620b9f4dc25eb3b4b54d420dfdf2549894472e8d0a331f06cdc321fc7cba7",
+      "bytes": 9619837
+    },
+    "map-editor/native-ui/component/NativeUIBootstrap.swf": {
+      "sha256": "efa8b1eb99012ae2277f4b2870c09d22f13ef56460cacb8129aca99ece9688e1",
+      "bytes": 4682
+    }
+  }
+}

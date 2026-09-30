@@ -1,0 +1,372 @@
+{
+  "rooms_begin.xml": {
+    "file": "rooms_begin.xml",
+    "name": "地下通道",
+    "lands": [
+      {
+        "id": "begin",
+        "name": "地下通道",
+        "random": false
+      }
+    ],
+    "random": false
+  },
+  "rooms_surf.xml": {
+    "file": "rooms_surf.xml",
+    "name": "地表",
+    "lands": [
+      {
+        "id": "surf",
+        "name": "地表",
+        "random": false
+      }
+    ],
+    "random": false
+  },
+  "rooms_rbl.xml": {
+    "file": "rooms_rbl.xml",
+    "name": "“腾飞小马”营地",
+    "lands": [
+      {
+        "id": "rbl",
+        "name": "“腾飞小马”营地",
+        "random": false
+      }
+    ],
+    "random": false
+  },
+  "rooms_plant.xml": {
+    "file": "rooms_plant.xml",
+    "name": "工厂",
+    "lands": [
+      {
+        "id": "random_plant",
+        "name": "工厂",
+        "random": true
+      }
+    ],
+    "random": true
+  },
+  "rooms_nio.xml": {
+    "file": "rooms_nio.xml",
+    "name": "研发部",
+    "lands": [
+      {
+        "id": "nio",
+        "name": "研发部",
+        "random": false
+      }
+    ],
+    "random": false
+  },
+  "rooms_sewer.xml": {
+    "file": "rooms_sewer.xml",
+    "name": "下水道",
+    "lands": [
+      {
+        "id": "random_sewer",
+        "name": "下水道",
+        "random": true
+      }
+    ],
+    "random": true
+  },
+  "rooms_raiders.xml": {
+    "file": "rooms_raiders.xml",
+    "name": "堕落之泉",
+    "lands": [
+      {
+        "id": "raiders",
+        "name": "堕落之泉",
+        "random": false
+      }
+    ],
+    "random": false
+  },
+  "rooms_stable.xml": {
+    "file": "rooms_stable.xml",
+    "name": "废弃避难厩",
+    "lands": [
+      {
+        "id": "random_stable",
+        "name": "废弃避难厩",
+        "random": true
+      }
+    ],
+    "random": true
+  },
+  "rooms_core.xml": {
+    "file": "rooms_core.xml",
+    "name": "88号避难厩核心",
+    "lands": [
+      {
+        "id": "core",
+        "name": "88号避难厩核心",
+        "random": false
+      }
+    ],
+    "random": false
+  },
+  "rooms_garages.xml": {
+    "file": "rooms_garages.xml",
+    "name": "汉基车库",
+    "lands": [
+      {
+        "id": "garages",
+        "name": "汉基车库",
+        "random": false
+      }
+    ],
+    "random": false
+  },
+  "rooms_mane.xml": {
+    "file": "rooms_mane.xml",
+    "name": "马哈顿废墟",
+    "lands": [
+      {
+        "id": "random_mane",
+        "name": "马哈顿废墟",
+        "random": true
+      }
+    ],
+    "random": true
+  },
+  "rooms_mtn.xml": {
+    "file": "rooms_mtn.xml",
+    "name": "神秘科学部高塔",
+    "lands": [
+      {
+        "id": "mtn",
+        "name": "神秘科学部高塔",
+        "random": false
+      }
+    ],
+    "random": false
+  },
+  "rooms_way.xml": {
+    "file": "rooms_way.xml",
+    "name": "在去中心城的半途中...",
+    "lands": [
+      {
+        "id": "way",
+        "name": "在去中心城的半途中...",
+        "random": false
+      }
+    ],
+    "random": false
+  },
+  "rooms_covert.xml": {
+    "file": "rooms_covert.xml",
+    "name": "隐秘村庄",
+    "lands": [
+      {
+        "id": "covert",
+        "name": "隐秘村庄",
+        "random": false
+      }
+    ],
+    "random": false
+  },
+  "rooms_src.xml": {
+    "file": "rooms_src.xml",
+    "name": "水处理厂",
+    "lands": [
+      {
+        "id": "src",
+        "name": "水处理厂",
+        "random": false
+      }
+    ],
+    "random": false
+  },
+  "rooms_canter.xml": {
+    "file": "rooms_canter.xml",
+    "name": "中心城废墟",
+    "lands": [
+      {
+        "id": "random_canter",
+        "name": "中心城废墟",
+        "random": true
+      }
+    ],
+    "random": true
+  },
+  "rooms_minst.xml": {
+    "file": "rooms_minst.xml",
+    "name": "印象部",
+    "lands": [
+      {
+        "id": "minst",
+        "name": "印象部",
+        "random": false
+      }
+    ],
+    "random": false
+  },
+  "rooms_mbase.xml": {
+    "file": "rooms_mbase.xml",
+    "name": "军事基地",
+    "lands": [
+      {
+        "id": "random_mbase",
+        "name": "军事基地",
+        "random": true
+      },
+      {
+        "id": "bunker",
+        "name": "地堡",
+        "random": true
+      }
+    ],
+    "random": true
+  },
+  "rooms_workshop.xml": {
+    "file": "rooms_workshop.xml",
+    "name": "枪炮工厂",
+    "lands": [
+      {
+        "id": "workshop",
+        "name": "枪炮工厂",
+        "random": false
+      }
+    ],
+    "random": false
+  },
+  "rooms_hql.xml": {
+    "file": "rooms_hql.xml",
+    "name": "军团总部",
+    "lands": [
+      {
+        "id": "hql",
+        "name": "军团总部",
+        "random": false
+      }
+    ],
+    "random": false
+  },
+  "rooms_post.xml": {
+    "file": "rooms_post.xml",
+    "name": "英克雷安保所",
+    "lands": [
+      {
+        "id": "post",
+        "name": "英克雷安保所",
+        "random": false
+      }
+    ],
+    "random": false
+  },
+  "rooms_encl.xml": {
+    "file": "rooms_encl.xml",
+    "name": "英克雷基地",
+    "lands": [
+      {
+        "id": "random_encl",
+        "name": "英克雷基地",
+        "random": true
+      }
+    ],
+    "random": true
+  },
+  "rooms_comm.xml": {
+    "file": "rooms_comm.xml",
+    "name": "指挥所",
+    "lands": [
+      {
+        "id": "comm",
+        "name": "指挥所",
+        "random": false
+      }
+    ],
+    "random": false
+  },
+  "rooms_art.xml": {
+    "file": "rooms_art.xml",
+    "name": "诺克斯堡",
+    "lands": [
+      {
+        "id": "art",
+        "name": "诺克斯堡",
+        "random": false
+      }
+    ],
+    "random": false
+  },
+  "rooms_pi.xml": {
+    "file": "rooms_pi.xml",
+    "name": "π避难厩",
+    "lands": [
+      {
+        "id": "stable_pi",
+        "name": "π避难厩",
+        "random": true
+      },
+      {
+        "id": "stable_pi_atk",
+        "name": "π避难厩",
+        "random": true
+      }
+    ],
+    "random": true
+  },
+  "rooms_pis.xml": {
+    "file": "rooms_pis.xml",
+    "name": "π避难厩入口",
+    "lands": [
+      {
+        "id": "stable_pi_surf",
+        "name": "π避难厩入口",
+        "random": false
+      }
+    ],
+    "random": false
+  },
+  "rooms_thunder.xml": {
+    "file": "rooms_thunder.xml",
+    "name": "雷霆之首",
+    "lands": [
+      {
+        "id": "thunder",
+        "name": "雷霆之首",
+        "random": false
+      }
+    ],
+    "random": false
+  },
+  "rooms_grave.xml": {
+    "file": "rooms_grave.xml",
+    "name": "π避难厩附近",
+    "lands": [
+      {
+        "id": "grave",
+        "name": "π避难厩附近",
+        "random": false
+      }
+    ],
+    "random": false
+  },
+  "rooms_prob.xml": {
+    "file": "rooms_prob.xml",
+    "name": "prob",
+    "lands": [
+      {
+        "id": "prob",
+        "name": "prob",
+        "random": false
+      }
+    ],
+    "random": false
+  },
+  "rooms2.xml": {
+    "file": "rooms2.xml",
+    "name": "测试房间",
+    "lands": [],
+    "random": false
+  },
+  "z_shablon.xml": {
+    "file": "z_shablon.xml",
+    "name": "空白模板",
+    "lands": [],
+    "random": false
+  }
+}

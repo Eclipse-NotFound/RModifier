@@ -1,0 +1,17 @@
+{
+  "version": "0.4.0",
+  "exe": "D:\\Program Files\\Steam\\steamapps\\common\\Remains\\mods\\RModifier\\dist\\rmodifier-0.4.0-r2\\RModifier.exe",
+  "exeHash": "186deab0edef93d6b9abc2db70eeac6dbcb7a59e571aeb94f3e9aa1d21e5b7af",
+  "bytes": 131628757,
+  "inputs": 407,
+  "changedFromFirstCandidate": [
+    "desktop\\map\\native-ui-module.cjs",
+    "build\\out\\install-payload\\manifest.json"
+  ],
+  "drift": [],
+  "nativeMapUnchanged": true,
+  "nativeSurfaceUnchanged": true,
+  "bridgeUnchanged": true,
+  "lootRuntimeUnchanged": true,
+  "checkedAt": "2026-09-30T07:37:01.585Z"
+}

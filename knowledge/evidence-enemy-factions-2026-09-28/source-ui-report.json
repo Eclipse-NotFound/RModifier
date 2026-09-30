@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "packaged": false,
+  "checks": [
+    "85 models in 10 groups; 47 unique shared tables; labelled faction control",
+    "faction, combined Chinese and case-insensitive ID search; recover from empty result",
+    "filtering preserves the selected model, unsaved changes, custom marker and keyboard focus",
+    "a faction filter does not hide the four-faction impact of the shared table",
+    "container list unaffected; reopening retains faction, source and saved reward using the original target key",
+    "normal, narrow and 200 percent UI has no page or row overflow",
+    "no renderer errors"
+  ],
+  "errors": [],
+  "failure": null
+}

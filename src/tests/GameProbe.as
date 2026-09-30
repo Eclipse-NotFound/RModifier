@@ -59,9 +59,21 @@ package tests {
                 catalog=read("fixtures/catalog.json");for each(var i:Object in catalog.items)items[i.key]=i;
                 var golden:Object=read("fixtures/golden.json");check(engine["fingerprint"](golden.hashInput)==golden.hashExpected,"UTF-8 config fingerprint parity");
                 for each(var v:Object in golden.validation)check((engine["validate"](v.profile,catalog)=="")==v.valid,"profile validation parity");
-                for each(var c:Object in golden.cases){var result:*=c.kind=="rewards"?engine["rewards"](c.rewards,c.ctx,engine["seeded"](c.seed),items):engine["ammo"](c.a,c.weapon,"",items,engine["seeded"](c.seed));check(same(result,c.expected),"JS/AIR "+c.kind+" seed="+c.seed);}
+                for each(var c:Object in golden.cases){var result:*=c.kind=="native"?engine["nativeParams"](c.patch,c.type,c.id,c.count,engine["seeded"](c.seed),items):c.kind=="rewards"?engine["rewards"](c.rewards,c.ctx,engine["seeded"](c.seed),items):engine["ammo"](c.a,c.weapon,"",items,engine["seeded"](c.seed));check(same(result,c.expected),"JS/AIR "+c.kind+" seed="+c.seed);}
                 log("golden complete");
             }catch(error:*){log("GOLDEN ERROR "+error);}
+        }
+        private static function testNativeEntries(lg:Class):void {
+            check(lg["lootEditorBridgeVersion"]==2,"native entry bridge v2 present");
+            var before:int=sum("p9");var ok:Boolean=lg["lootCont"](w.loc,w.gg.X+300,w.gg.Y,"metal",false,50);
+            check(ok&&sum("p9")-before==7,"native zero chance activates original fallback with edited quantity");
+            var earlier:Array=ground();lg["lootCont"](w.loc,w.gg.X+300,w.gg.Y,"robocell",false,50);var found:int=0;
+            for each(var o:* in ground())if(earlier.indexOf(o)<0&&o.item.id=="rail"&&o.item.variant==1){found++;check(Math.abs(o.item.sost-0.4)<0.0001,"native edited advanced weapon durability");}
+            check(found==2,"native random material row changes into two actual advanced weapons");
+            before=sum("p9");lg["lootDrop"](w.loc,w.gg.X+300,w.gg.Y,"hellhound1",0);check(sum("p9")==before,"native elite condition excludes ordinary enemy");
+            lg["lootDrop"](w.loc,w.gg.X+300,w.gg.Y,"hellhound1",1);check(sum("p9")-before==23,"native elite condition applies edited reward");
+            before=ground().length;ok=lg["lootCont"](w.loc,w.gg.X+300,w.gg.Y,"case");check(!ok&&ground().length==before,"deleted sole native reward yields empty result");
+            var wasRandom:Boolean=w.land.rnd;w.land.rnd=false;before=sum("p10");lg["lootCont"](w.loc,w.gg.X+300,w.gg.Y,"safe",false,50);check(sum("p10")-before==19,"all-empty safe fallback preserves original success counter");w.land.rnd=wasRandom;
         }
         private static function ground():Array{var list:Array=[];var o:*=w.loc.firstObj;var guard:int=0;while(o!=null&&guard++<20000){if(getQualifiedClassName(o)=="fe.loc::Loot")list.push(o);o=o.nobj;}return list;}
         private static function sum(id:String):int{var n:int=0;for each(var o:* in ground())if(o.item.id==id)n+=o.item.kol;return n;}
@@ -91,6 +103,7 @@ package tests {
             var caps:Number=w.pers.capsMult,dif:Number=w.pers.difCapsMult;w.pers.capsMult=2;w.pers.difCapsMult=1;before=sum("money");bridge.emit({loc:w.loc,x:w.gg.X+300,y:w.gg.Y,broken:true,hero:0},{target:"test",mode:"append",rewards:[reward("item:money",10)]});check(sum("money")-before==10,"custom caps retain perk multiplier and broken-container loss");w.pers.capsMult=caps;w.pers.difCapsMult=dif;
             var api:*=w.main.getChildByName("ModSettingsCarrier");check(api!=null,"existing ModLoader settings host present");if(api){var registered:Boolean=false;for each(var page:Object in api.modAPI.getPages())if(page.modId=="loot-editor")registered=true;check(registered,"LootEditor status page registered with ModLoader");}
             testWeaponVariants(lg,bridge);
+            testNativeEntries(lg);
             exportIcons();log("gameplay complete");
         }
         private static function variantCount(id:String,variant:int):int{var count:int=0;for each(var o:* in ground())if(o.item.id==id&&o.item.variant==variant)count++;return count;}

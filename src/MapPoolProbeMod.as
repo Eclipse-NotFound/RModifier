@@ -1,0 +1,31 @@
+package {
+ import flash.events.TimerEvent;
+ import flash.utils.Timer;
+ import flash.system.ApplicationDomain;
+ import flash.filesystem.*;
+ import flash.display.BitmapData;
+ import flash.display.PNGEncoderOptions;
+ import map.PoolHash;
+ public class MapPoolProbeMod {
+  private static var timer:Timer,w:Object,api:Object,step:int=0,ticks:int=0,wait:int=0,checks:Array=[],character:Object,land:Object,locations:Array,oldPool:XML;
+  public static function init(main:*):void{if(File.applicationDirectory.nativePath.indexOf("map-pool-game")<0)throw new Error("Probe requires isolated root");timer=new Timer(250);timer.addEventListener(TimerEvent.TIMER,tick);timer.start();}
+  private static function write(file:String,value:Object):void{var f:File=new File(File.applicationDirectory.resolvePath(file).nativePath),s:FileStream=new FileStream();f.parent.createDirectory();s.open(f,FileMode.WRITE);s.writeUTFBytes(JSON.stringify(value));s.close();}
+  private static function read(file:String):String{var s:FileStream=new FileStream();s.open(File.applicationDirectory.resolvePath(file),FileMode.READ);var value:String=s.readUTFBytes(s.bytesAvailable);s.close();return value;}
+  private static function check(value:Boolean,label:String):void{if(!value)throw new Error(label);checks.push(label);write("progress.json",{step:step,checks:checks});}
+  private static function roomIds():Array{var ids:Array=[];for each(var column:Object in w.land.locs)for each(var row:Object in column)for each(var loc:Object in row)if(loc&&loc.room)ids.push(String(loc.room.id));return ids;}
+  private static function tick(e:TimerEvent):void{try{
+   ticks++;if(ticks>560)throw new Error("Timeout at "+step);
+   var domain:ApplicationDomain=ApplicationDomain.currentDomain,W:Class=domain.getDefinition("fe.World") as Class;w=W["w"];if(!w||!w.landData)return;
+   if(w.verror&&w.verror.visible)throw new Error("Game error "+w.verror.txt.text);
+   var carrier:Object=w.main.getChildByName("RModifierMapPools");if(!carrier)return;api=carrier.mapAPI;
+   if(step==0){if(!w.mm||!w.mm.loaded||!w.allLandsLoaded||!w.textLoaded||!api.status().pools.random_plant)return;check(api.status().error=="","module loaded through existing manifest without a game SWF patch");check(PoolHash.hash("abc")=="ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad","SHA-256 known answer");var original:XML=new XML(read("Rooms/rooms_plant.xml")),pool:XML=w.landData.random_plant.allroom;check(pool.room.length()==original.room.length()+40,"40 custom rooms appended to original pool");var retained:Object={};for each(var candidate:XML in pool.room)retained[String(candidate.@name)]=candidate.toXMLString();for each(var r:XML in original.room){var originalRoomId:String=String(r.@name);check(retained[originalRoomId]==r.toXMLString(),"original room retained: "+originalRoomId);}w.mm.active=false;w.newGame(-1,"LP",{propusk:true});step=1;return;}
+   if(step==1){if(!w.gg||!w.loc||w.allStat!=1)return;if(++wait<15)return;check(w.game.curLandId=="rbl","existing character starts in ordinary base");w.pers.persName="地图混抽旧角色";w.pip.onoff(-1);w.pip.noAct=false;w.saveGame(1);check(w.getSave(1).pers!=null,"character saved in isolated ordinary save slot");w.loadGame(1);step=6;wait=0;return;}
+   if(step==6){if(w.allStat!=1||!w.gg||!w.loc)return;if(++wait<15)return;check(w.pers.persName=="地图混抽旧角色","ordinary saved character reloads without a custom save format");character=w.gg;w.gg.invulner=true;w.game.triggers.noreturn=0;w.game.mReturn=true;w.pers.speedShtr=0;w.game.beginMission("random_plant");step=2;wait=0;return;}
+   if(step==2){if(w.game.curLandId!="random_plant"||w.allStat!=1||w.land.act.id!="random_plant")return;if(++wait<15)return;check(w.gg===character,"normal travel keeps the existing player object");var ids:Array=roomIds();check(ids.some(function(s:String,...rest):Boolean{return s.indexOf("rm_")==0;}),"actual generated land contains authored rooms");check(ids.some(function(s:String,...rest):Boolean{return s.indexOf("rm_")!=0;}),"actual generated land retains original rooms");land=w.land;locations=ids;oldPool=w.game.lands.random_plant.allroom;for each(var col:Object in w.land.locs)for each(var row:Object in col)for each(var target:Object in row)if(target&&target.room&&String(target.room.id).indexOf("rm_")==0&&target.landZ==0){w.land.gotoXY(target.landX,target.landY);step=7;wait=0;return;}throw new Error("No generated custom room target");}
+   if(step==7){if(++wait<20)return;check(String(w.loc.room.id).indexOf("rm_")==0,"player can enter and render an actual generated custom room");check(w.gg===character&&isFinite(w.gg.X)&&isFinite(w.gg.Y)&&w.gg.stay,"player physics settles on the new room floor");var bmp:BitmapData=new BitmapData(w.swfStage.stageWidth,w.swfStage.stageHeight,false,0);bmp.draw(w.main);var stream:FileStream=new FileStream();stream.open(new File(File.applicationDirectory.resolvePath("game.png").nativePath),FileMode.WRITE);stream.writeBytes(bmp.encode(bmp.rect,new PNGEncoderOptions()));stream.close();bmp.dispose();write("phase.json",{phase:"inside",ids:locations});step=3;wait=0;return;}
+   if(step==3){if(!File.applicationDirectory.resolvePath("continue.json").exists)return;var state:Object=api.status();if(state.pools.random_plant.added!=0)return;check(w.land===land&&roomIds().join("|")==locations.join("|"),"removing custom pool leaves the current generated land intact");check(w.game.lands.random_plant.allroom!==oldPool,"next generation source changes after configuration refresh");w.game.gotoLand("rbl");step=4;wait=0;return;}
+   if(step==4){if(w.allStat!=1||w.land.act.id!="rbl")return;if(++wait<12)return;check(w.gg===character,"normal return to base keeps the same character");w.game.beginMission("random_plant");step=5;wait=0;return;}
+   if(step==5){if(w.allStat!=1||w.land.act.id!="random_plant")return;if(++wait<12)return;check(!roomIds().some(function(s:String,...rest):Boolean{return s.indexOf("rm_")==0;}),"regenerated area uses originals after custom mixing is disabled");check(!w.verror.visible,"world stays responsive without a game error");write("result.json",{passed:true,checks:checks,version:api.version});timer.stop();}
+  }catch(error:*){write("result.json",{passed:false,error:String(error),stack:error.getStackTrace(),step:step,checks:checks});timer.stop();}}
+ }
+}

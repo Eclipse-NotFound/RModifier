@@ -42,7 +42,7 @@ async function mapReady(){
  }while(Date.now()<until);
  throw Error('Native map not visible: '+JSON.stringify(value)+' '+await page.locator('#shell-status').innerText());
 }
-async function close(choice=2){await application.evaluate(({dialog},choice)=>{dialog.showMessageBox=async()=>({response:choice});},choice);await application.evaluate(({BaseWindow})=>BaseWindow.getAllWindows()[0].close());}
+async function close(choice=2){await application.evaluate(({dialog},choice)=>{globalThis.nativeHostTestCloseAnswered=false;dialog.showMessageBox=async()=>{globalThis.nativeHostTestCloseAnswered=true;return {response:choice};};},choice);await application.evaluate(({BaseWindow})=>BaseWindow.getAllWindows()[0].close());}
 async function cleanup(){
  if(!application)return;const proc=application.process();
  if(page&&!page.isClosed()){const done=page.waitForEvent('close',{timeout:12000}).catch(()=>{});await close().catch(()=>{});await done;}
@@ -60,6 +60,12 @@ async function cleanup(){
   const firstFit=await fitCapture('01-auto-fit');
   for(const b of firstFit.controls.buttons){assert.ok(b.y+b.height<=firstFit.controls.roomName.y,'Flash document buttons must not cover the room name');assert.ok(b.x>=0&&b.x+b.width<=1800);}
   fs.writeFileSync(path.join(root,'initial.json'),JSON.stringify(initial,null,2));ok('Default original Flash UI starts directly below navigation with automatic full-stage fit and no extra bars');
+  const libraryView=await originalButton('RModifier_library');
+  assert.equal(libraryView.controls.library.open,true);assert.equal(libraryView.controls.library.sceneCount,31);
+  assert.equal(libraryView.controls.noticeVisible,false);assert.equal(libraryView.controls.busy,false);
+  const originalScenes=await application.evaluate(()=>globalThis.nativeHostTestMap.library.scan().filter(e=>e.original));
+  assert.equal(originalScenes.length,31);assert.equal(originalScenes.reduce((sum,e)=>sum+e.count,0),662);assert.ok(originalScenes.every(e=>!e.error));
+  await fitCapture('01-scene-library');await nativeTest({kind:'library',button:'close'});ok('Packaged Flash library exposes all 31 original scenes and 662 rooms');
   await tab('barks');let value=await inspect();assert.equal(value.surface.visible,false);
   await page.frameLocator('#barks-frame').locator('[data-edit]').first().fill('地图宿主验证：中文台词');
   await tab('map');value=await mapReady();assert.equal(value.surface.hwnd,initial.surface.hwnd);
@@ -76,16 +82,22 @@ async function cleanup(){
   let flushed=await page.evaluate(()=>workshop.nativeMapFlush('inspect'));assert.equal(flushed.status,'invalid');assert.equal(flushed.state.dirty,true);
   const invalidSave=await originalButton('butSave');assert.match(invalidSave.controls.message,/请完成当前属性输入/);assert.equal(invalidSave.controls.noticeVisible,true);assert.equal(invalidSave.controls.busy,false);assert.equal((await inspect()).state.dirty,true);
   await tab('loot');assert.equal((await inspect()).surface.visible,false);await tab('map');await mapReady();flushed=await page.evaluate(()=>workshop.nativeMapFlush('inspect'));assert.equal(flushed.status,'invalid');ok('Unfinished native property input remains dirty across page switches');
-  await application.evaluate(({dialog})=>{dialog.showMessageBox=async()=>({response:0});});await close(0);await delay(350);assert.equal(page.isClosed(),false);await mapReady();
-  const locks=await application.evaluate(()=>globalThis.nativeHostTestMap.suspensions);assert.equal(locks,0);ok('Canceling unified close resumes the native surface and releases its dialog lock');
+  await close(0);const cancelUntil=Date.now()+10000;let cancelState;
+  do{cancelState=await application.evaluate(()=>({answered:globalThis.nativeHostTestCloseAnswered,locks:globalThis.nativeHostTestMap.suspensions}));if(cancelState.answered&&cancelState.locks===0)break;await delay(80);}while(Date.now()<cancelUntil);
+  assert.equal(cancelState.answered,true);assert.equal(cancelState.locks,0);assert.equal(page.isClosed(),false);await mapReady();ok('Canceling unified close resumes the native surface and releases its dialog lock');
   await nativeTest({kind:'input',raw:obj.raw});await page.evaluate(()=>workshop.nativeMapFlush('inspect'));
   const rawBeforePaint=await application.evaluate(()=>globalThis.nativeHostTestMap.doc.raw);
   await nativeTest({kind:'paint',layer:1,id:'A',x:10,y:10,x2:11,y2:11});await page.evaluate(()=>workshop.nativeMapFlush('inspect'));
   const painted=await application.evaluate(()=>globalThis.nativeHostTestMap.doc.raw);assert.notEqual(painted,rawBeforePaint);
   let feedback=await originalButton('RModifier_undo');assert.equal(await application.evaluate(()=>globalThis.nativeHostTestMap.doc.raw),rawBeforePaint);assert.equal(feedback.controls.message,'已撤销');
   feedback=await originalButton('RModifier_redo');assert.equal(await application.evaluate(()=>globalThis.nativeHostTestMap.doc.raw),painted);assert.equal(feedback.controls.message,'已重做');ok('Visible Flash undo and redo buttons restore the complete paint transaction');
-  const output=path.join(root,'地图工作副本.xml');await application.evaluate(({dialog},file)=>{dialog.showSaveDialog=async()=>({canceled:false,filePath:file});},output);
-  feedback=await originalButton('butSave');assert.equal((await inspect()).state.dirty,false);assert.equal(fs.readFileSync(output,'utf8'),painted);assert.match(feedback.controls.message,/^已保存/);
+  await application.evaluate(({dialog})=>{dialog.showSaveDialog=async()=>{throw Error('Saving an original must create a managed copy without a file dialog');};});
+  feedback=await originalButton('butSave');assert.equal((await inspect()).state.dirty,false);assert.match(feedback.controls.message,/^已保存/);
+  const savedPool=await application.evaluate(()=>{const m=globalThis.nativeHostTestMap;return {id:m.libraryId,file:m.workspace.get(m.handle).file,pools:m.library.index().pools};});
+  assert.ok(!savedPool.id.startsWith('original:'));assert.equal(savedPool.pools.length,1);assert.equal(savedPool.pools[0].id,savedPool.id);
+  assert.equal(path.dirname(savedPool.file),path.join(root,'data/projects/maps/library'));assert.equal(fs.readFileSync(savedPool.file,'utf8'),painted);
+  assert.equal(hash(path.join(game,'Rooms/rooms_plant.xml')),before['Rooms/rooms_plant.xml']);
+  ok('Flash Save creates a managed pool copy with the full edited XML and preserves the original');
   await application.evaluate(({dialog})=>{dialog.showSaveDialog=async()=>({canceled:true});});feedback=await originalButton('RModifier_saveAs');assert.equal(feedback.controls.message,'已取消');assert.equal(feedback.controls.busy,false);
   const secondOutput=path.join(root,'另存地图.xml');await application.evaluate(({dialog},file)=>{dialog.showSaveDialog=async()=>({canceled:false,filePath:file});},secondOutput);
   feedback=await originalButton('RModifier_saveAs');assert.equal(fs.readFileSync(secondOutput,'utf8'),painted);assert.match(feedback.controls.message,/^已保存/);
